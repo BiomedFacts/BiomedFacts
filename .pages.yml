@@ -4,25 +4,6 @@ media:
 
 content:
 
-  - name: categories
-    label: Κατηγορίες
-    type: collection
-    path: _data/categories
-    format: yaml
-    filename: "{primary}.yml"
-
-    view:
-      primary: name
-      fields: [name]
-      search: [name]
-
-    fields:
-      - name: name
-        label: Όνομα κατηγορίας
-        type: string
-        required: true
-
-
   - name: posts
     label: Άρθρα
     type: collection
@@ -54,17 +35,25 @@ content:
 
       - name: category
         label: Κατηγορία
-        type: reference
+        type: select
         required: true
         options:
-          collection: categories
-          search: "name"
-          value: "{primary}"
-          label: "{primary}"
+          placeholder: Επίλεξε κατηγορία
+          values:
+            - Υγεία
+            - Διατροφή
+            - Γυναικεία Υγεία
+            - Εξετάσεις
+            - Fact-Checking
+            - Νέα
+            - Έρευνα
 
       - name: image
         label: Εικόνα εξωφύλλου
         type: image
+        options:
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
 
       - name: excerpt
         label: Σύντομη περιγραφή
