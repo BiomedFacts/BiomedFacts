@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BiomedFacts | Επιστήμη χωρίς παραπληροφόρηση</title>
+
+  <meta name="description" content="Evidence-based ενημέρωση για υγεία, βιοϊατρική επιστήμη, διατροφή και fact-checking.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+      padding: 28px 6%;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      font-family: "Times New Roman", serif;
+      font-size: 42px;
+      font-weight: bold;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #6c3bb8;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: #666;
+    }
+
+    nav {
+      margin-top: 25px;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      border-top: 1px solid #eee;
+      padding-top: 18px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: #6c3bb8;
+    }
+
+    main {
+      width: min(1200px, 88%);
+      margin: 50px auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 45px;
+      padding-bottom: 55px;
+      border-bottom: 2px solid #111;
+    }
+
+    .hero-image {
+      min-height: 430px;
+      background:
+        linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)),
+        url("https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1400&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .category {
+      color: #6c3bb8;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-family: "Times New Roman", serif;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.02;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #555;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .read-more {
+      color: #111;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .section-title {
+      font-family: "Times New Roman", serif;
+      font-size: 34px;
+      margin: 50px 0 25px;
+    }
+
+    .articles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+    }
+
+    article {
+      background: white;
+      border-top: 4px solid #111;
+      padding: 25px;
+    }
+
+    article h2 {
+      font-family: "Times New Roman", serif;
+      font-size: 27px;
+      line-height: 1.15;
+      margin: 10px 0 15px;
+    }
+
+    article p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    .newsletter {
+      margin-top: 60px;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 60px 25px;
+    }
+
+    .newsletter h2 {
+      font-family: "Times New Roman", serif;
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      padding: 35px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo {
+        font-size: 34px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 280px;
+      }
+
+      .articles {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="top">
+    <div>
+      <div class="logo">Biomed<span>Facts</span></div>
+      <div class="tagline">
+        Evidence-based health & biomedical science
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#">Αρχική</a>
+    <a href="#">Υγεία</a>
+    <a href="#">Διατροφή</a>
+    <a href="#">Γυναικεία Υγεία</a>
+    <a href="#">Βιοϊατρική</a>
+    <a href="#">Fact Check</a>
+    <a href="#">Νέα Έρευνα</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+  <section class="hero">
+
+    <div class="hero-image"></div>
+
+    <div>
+
+      <div class="category">Fact Check</div>
+
+      <h1>
+        Η επιστήμη πίσω από όσα βλέπεις online.
+      </h1>
+
+      <p>
+        Τι υποστηρίζεται πραγματικά από τα δεδομένα και τι είναι
+        υπερβολή; Αναλύουμε μελέτες, health trends και ισχυρισμούς
+        υγείας με βάση την επιστημονική βιβλιογραφία.
+      </p>
+
+      <a class="read-more" href="#">
+        Διάβασε περισσότερα →
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <h2 class="section-title">Τελευταία άρθρα</h2>
+
+
+  <section class="articles">
+
+    <article>
+
+      <div class="category">Fact Check</div>
+
+      <h2>
+        Πλασμαφαίρεση: θεραπεία ή νέο wellness trend;
+      </h2>
+
+      <p>
+        Τι είναι πραγματικά η πλασμαφαίρεση, πότε χρησιμοποιείται
+        στην ιατρική και τι γνωρίζουμε για τη χρήση της στο longevity.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <div class="category">Διατροφή</div>
+
+      <h2>
+        Συμπληρώματα διατροφής: ξέρεις πραγματικά τι παίρνεις;
+      </h2>
+
+      <p>
+        Τι σημαίνει έλεγχος, γνωστοποίηση και ανεξάρτητη πιστοποίηση
+        ενός συμπληρώματος;
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <div class="category">Γυναικεία Υγεία</div>
+
+      <h2>
+        Τι αλλάζει πραγματικά στο σώμα κατά την εμμηνόπαυση;
+      </h2>
+
+      <p>
+        Μυϊκή μάζα, λίπος, οστά και μεταβολική υγεία μέσα από τα
+        νεότερα επιστημονικά δεδομένα.
+      </p>
+
+    </article>
+
+  </section>
+
+
+  <section class="newsletter">
+
+    <h2>Science, without the noise.</h2>
+
+    <p>
+      Νέα έρευνα, fact-checking και evidence-based ενημέρωση.
+    </p>
+
+  </section>
+
+</main>
+
+
+<footer>
+  © 2026 BiomedFacts · Evidence-based science communication
+</footer>
+
+</body>
+</html>
