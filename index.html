@@ -5,23 +5,38 @@
 <html lang="el">
 
 <head>
+
   <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <title>BiomedFacts | Επιστήμη χωρίς παραπληροφόρηση</title>
+  <title>
+    BiomedFacts | Evidence-based ενημέρωση
+  </title>
 
   <meta
     name="description"
-    content="Evidence-based ενημέρωση για υγεία, εξετάσεις, διατροφή, νέα έρευνα και fact-checking."
+    content="Evidence-based ενημέρωση για υγεία, διατροφή, εξετάσεις, νέα έρευνα και fact-checking."
   >
 
+
   <style>
+
+    /* =========================
+       BASIC SETTINGS
+    ========================= */
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -31,7 +46,10 @@
       line-height: 1.6;
     }
 
-    /* HEADER */
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       background: #ffffff;
@@ -44,6 +62,7 @@
       font-size: 42px;
       font-weight: bold;
       letter-spacing: -1px;
+      line-height: 1;
     }
 
     .logo span {
@@ -51,57 +70,76 @@
     }
 
     .tagline {
-      margin-top: 3px;
+      margin-top: 16px;
       font-size: 14px;
       color: #666;
     }
 
-    /* NAVIGATION */
+
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     nav {
-      margin-top: 25px;
-      display: flex;
-      gap: 25px;
-      flex-wrap: wrap;
-      border-top: 1px solid #eee;
+      margin-top: 28px;
       padding-top: 18px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 28px;
+
+      border-top: 1px solid #eee;
     }
 
     nav a {
-      text-decoration: none;
       color: #111;
+      text-decoration: none;
+
       font-size: 14px;
       font-weight: bold;
       text-transform: uppercase;
+
       cursor: pointer;
-      transition: 0.2s;
+
+      transition: color 0.2s ease;
     }
 
-    nav a:hover {
-      color: #6c3bb8;
-    }
-
+    nav a:hover,
     nav a.active {
       color: #6c3bb8;
     }
 
-    /* MAIN */
+
+    /* =========================
+       MAIN CONTENT
+    ========================= */
 
     main {
       width: min(1200px, 88%);
-      margin: 50px auto;
+      margin: 55px auto;
       min-height: 400px;
     }
+
+
+    /* =========================
+       ARTICLES TITLE
+    ========================= */
 
     .section-title {
       font-family: "Times New Roman", serif;
       font-size: 38px;
-      margin-bottom: 30px;
+      line-height: 1.1;
+
+      margin-bottom: 38px;
+      padding-bottom: 14px;
+
       border-bottom: 2px solid #111;
-      padding-bottom: 12px;
     }
 
-    /* ARTICLE GRID */
+
+    /* =========================
+       ARTICLE GRID
+    ========================= */
 
     .articles {
       display: grid;
@@ -109,51 +147,74 @@
       gap: 35px;
     }
 
+
+    /* =========================
+       ARTICLE CARD
+    ========================= */
+
     .article-card {
       background: #ffffff;
       border-top: 4px solid #111;
+
       overflow: hidden;
-      transition: transform 0.2s ease;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .article-card:hover {
       transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
     }
+
+
+    /* ARTICLE IMAGE */
 
     .article-image-link {
       display: block;
     }
 
     .article-card img {
+      display: block;
+
       width: 100%;
       height: 230px;
+
       object-fit: cover;
-      display: block;
     }
+
+
+    /* ARTICLE CONTENT */
 
     .article-content {
       padding: 24px;
     }
 
     .category {
-      color: #6c3bb8;
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 1.3px;
-      font-weight: bold;
       margin-bottom: 10px;
+
+      color: #6c3bb8;
+
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
     }
 
     .article-card h2 {
+      margin-bottom: 14px;
+
       font-family: "Times New Roman", serif;
       font-size: 27px;
       line-height: 1.15;
-      margin-bottom: 14px;
     }
 
     .article-card h2 a {
       color: #111;
       text-decoration: none;
+
+      transition: color 0.2s ease;
     }
 
     .article-card h2 a:hover {
@@ -161,71 +222,181 @@
     }
 
     .excerpt {
+      margin-bottom: 18px;
+
       color: #555;
+
       font-size: 15px;
-      margin-bottom: 17px;
+      line-height: 1.6;
     }
 
     .article-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 6px 14px;
+
       color: #777;
       font-size: 12px;
     }
 
-    /* EMPTY CATEGORY */
+
+    /* =========================
+       EMPTY CATEGORY MESSAGE
+    ========================= */
 
     #empty-message {
       display: none;
-      padding: 60px 20px;
+
+      padding: 45px 20px;
+
+      background: #ffffff;
+
       text-align: center;
-      background: white;
-      border-top: 4px solid #111;
+
+      border-top: 3px solid #111;
     }
 
     #empty-message h2 {
+      margin-bottom: 7px;
+
       font-family: "Times New Roman", serif;
-      font-size: 28px;
-      margin-bottom: 8px;
+      font-size: 27px;
     }
 
     #empty-message p {
       color: #666;
-    }
-
-    /* NEWSLETTER */
-
-    .newsletter {
-      margin-top: 70px;
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 60px 25px;
-    }
-
-    .newsletter h2 {
-      font-family: "Times New Roman", serif;
-      font-size: 38px;
-      margin-bottom: 12px;
-    }
-
-    .newsletter p {
-      color: #ddd;
-    }
-
-    /* FOOTER */
-
-    footer {
-      margin-top: 60px;
-      border-top: 1px solid #ddd;
-      text-align: center;
-      padding: 35px;
-      color: #666;
       font-size: 14px;
     }
 
-    /* MOBILE */
+
+    /* =========================
+       NEWSLETTER
+    ========================= */
+
+    .newsletter {
+      margin-top: 70px;
+
+      padding: 40px 25px;
+
+      background: #ffffff;
+
+      text-align: center;
+
+      border-top: 2px solid #111;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .newsletter-label {
+      margin-bottom: 8px;
+
+      color: #6c3bb8;
+
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+    }
+
+    .newsletter h2 {
+      margin-bottom: 9px;
+
+      font-family: "Times New Roman", serif;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+
+    .newsletter-text {
+      max-width: 580px;
+
+      margin: 0 auto 20px;
+
+      color: #555;
+
+      font-size: 14px;
+    }
+
+    .newsletter-form {
+      display: flex;
+
+      max-width: 500px;
+
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+
+      min-width: 0;
+
+      padding: 13px 15px;
+
+      background: #fff;
+      color: #111;
+
+      border: 1px solid #bbb;
+      border-right: none;
+
+      font-size: 14px;
+
+      outline: none;
+    }
+
+    .newsletter-form input:focus {
+      border-color: #6c3bb8;
+    }
+
+    .newsletter-form button {
+      padding: 13px 22px;
+
+      background: #111;
+      color: #fff;
+
+      border: 1px solid #111;
+
+      font-size: 13px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: #6c3bb8;
+      border-color: #6c3bb8;
+    }
+
+    .newsletter-note {
+      margin-top: 10px;
+
+      color: #888;
+
+      font-size: 11px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      margin-top: 60px;
+
+      padding: 35px 20px;
+
+      border-top: 1px solid #ddd;
+
+      text-align: center;
+
+      color: #666;
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       TABLET
+    ========================= */
 
     @media (max-width: 900px) {
 
@@ -234,6 +405,11 @@
       }
 
     }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 650px) {
 
@@ -245,21 +421,27 @@
         font-size: 34px;
       }
 
+      .tagline {
+        margin-top: 12px;
+        font-size: 13px;
+      }
+
       nav {
-        gap: 13px 18px;
+        gap: 12px 18px;
       }
 
       nav a {
-        font-size: 12px;
+        font-size: 11px;
       }
 
       main {
         width: 90%;
-        margin-top: 35px;
+        margin-top: 38px;
       }
 
       .section-title {
         font-size: 31px;
+        margin-bottom: 28px;
       }
 
       .articles {
@@ -270,17 +452,42 @@
         height: 220px;
       }
 
+      .newsletter {
+        margin-top: 50px;
+        padding: 32px 18px;
+      }
+
       .newsletter h2 {
-        font-size: 31px;
+        font-size: 27px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .newsletter-form input {
+        width: 100%;
+        border: 1px solid #bbb;
+      }
+
+      .newsletter-form button {
+        width: 100%;
       }
 
     }
 
   </style>
+
 </head>
 
 
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -357,6 +564,11 @@
 </header>
 
 
+
+<!-- =========================
+     MAIN
+========================= -->
+
 <main>
 
   <h1
@@ -367,14 +579,23 @@
   </h1>
 
 
+  <!-- =========================
+       ARTICLES
+  ========================= -->
+
   <section class="articles">
 
+
     {% for post in site.posts %}
+
 
       <article
         class="article-card"
         data-category="{{ post.category | escape }}"
       >
+
+
+        <!-- COVER IMAGE -->
 
         {% if post.image %}
 
@@ -386,6 +607,7 @@
             <img
               src="{{ post.image | relative_url }}"
               alt="{{ post.title | escape }}"
+              loading="lazy"
             >
 
           </a>
@@ -393,7 +615,11 @@
         {% endif %}
 
 
+
         <div class="article-content">
+
+
+          <!-- CATEGORY -->
 
           {% if post.category %}
 
@@ -403,6 +629,9 @@
 
           {% endif %}
 
+
+
+          <!-- TITLE -->
 
           <h2>
 
@@ -415,6 +644,9 @@
           </h2>
 
 
+
+          <!-- SHORT DESCRIPTION -->
+
           {% if post.excerpt %}
 
             <div class="excerpt">
@@ -426,11 +658,15 @@
           {% endif %}
 
 
+
+          <!-- DATE + AUTHOR -->
+
           <div class="article-meta">
 
             <span>
               {{ post.date | date: "%d/%m/%Y" }}
             </span>
+
 
             {% if post.author %}
 
@@ -442,14 +678,22 @@
 
           </div>
 
+
         </div>
 
       </article>
 
+
     {% endfor %}
+
 
   </section>
 
+
+
+  <!-- =========================
+       NO ARTICLES
+  ========================= -->
 
   <section id="empty-message">
 
@@ -464,20 +708,56 @@
   </section>
 
 
+
+  <!-- =========================
+       NEWSLETTER
+  ========================= -->
+
   <section class="newsletter">
 
+    <p class="newsletter-label">
+      BIOMEDFACTS NEWSLETTER
+    </p>
+
     <h2>
-      Science, without the noise.
+      Η επιστήμη, χωρίς τον θόρυβο.
     </h2>
 
-    <p>
-      Fact-checking και evidence-based ενημέρωση.
+    <p class="newsletter-text">
+      Νέα έρευνα, fact-checking και evidence-based ενημέρωση
+      απευθείας στο email σου.
+    </p>
+
+
+    <div class="newsletter-form">
+
+      <input
+        type="email"
+        placeholder="Το email σου"
+        aria-label="Email"
+      >
+
+      <button type="button">
+        Εγγραφή
+      </button>
+
+    </div>
+
+
+    <p class="newsletter-note">
+      Χωρίς spam. Μόνο επιστήμη.
     </p>
 
   </section>
 
+
 </main>
 
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -485,6 +765,11 @@
 
 </footer>
 
+
+
+<!-- =========================
+     CATEGORY FILTER
+========================= -->
 
 <script>
 
@@ -507,23 +792,35 @@
 
       event.preventDefault();
 
+
       const selectedCategory =
         this.dataset.filter;
+
 
       let visibleArticles = 0;
 
 
+      /* Remove active state */
+
       categoryLinks.forEach(item => {
+
         item.classList.remove("active");
+
       });
+
+
+      /* Activate selected category */
 
       this.classList.add("active");
 
+
+      /* Filter articles */
 
       articleCards.forEach(article => {
 
         const articleCategory =
           article.dataset.category;
+
 
         if (
           selectedCategory === "all" ||
@@ -533,7 +830,9 @@
           article.style.display = "";
           visibleArticles++;
 
-        } else {
+        }
+
+        else {
 
           article.style.display = "none";
 
@@ -542,12 +841,16 @@
       });
 
 
+      /* Change heading */
+
       if (selectedCategory === "all") {
 
         sectionTitle.textContent =
           "Τελευταία άρθρα";
 
-      } else {
+      }
+
+      else {
 
         sectionTitle.textContent =
           selectedCategory;
@@ -555,21 +858,32 @@
       }
 
 
+      /* Empty category */
+
       if (visibleArticles === 0) {
 
-        emptyMessage.style.display = "block";
+        emptyMessage.style.display =
+          "block";
 
-      } else {
+      }
 
-        emptyMessage.style.display = "none";
+      else {
+
+        emptyMessage.style.display =
+          "none";
 
       }
 
 
+      /* Scroll to articles */
+
       sectionTitle.scrollIntoView({
+
         behavior: "smooth",
         block: "start"
+
       });
+
 
     });
 
