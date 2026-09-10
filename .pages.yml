@@ -1,6 +1,6 @@
 media:
   input: assets/images
-  output: /biomedfacts/assets/images
+  output: /assets/images
 
 content:
 
@@ -51,9 +51,7 @@ content:
       - name: image
         label: Εικόνα εξωφύλλου
         type: image
-        options:
-          extensions: [jpg, jpeg, png, webp]
-          rename: safe
+        required: false
 
       - name: excerpt
         label: Σύντομη περιγραφή
@@ -82,3 +80,8 @@ content:
         required: true
         options:
           format: markdown
+          extensions:
+            - jpg
+            - jpeg
+            - png
+            - webp
