@@ -22,12 +22,7 @@
     content="Evidence-based ενημέρωση για υγεία, διατροφή, εξετάσεις, νέα έρευνα και fact-checking."
   >
 
-
   <style>
-
-    /* =========================
-       BASIC SETTINGS
-    ========================= */
 
     * {
       box-sizing: border-box;
@@ -47,9 +42,7 @@
     }
 
 
-    /* =========================
-       HEADER
-    ========================= */
+    /* HEADER */
 
     header {
       background: #ffffff;
@@ -76,31 +69,24 @@
     }
 
 
-    /* =========================
-       NAVIGATION
-    ========================= */
+    /* NAVIGATION */
 
     nav {
       margin-top: 28px;
       padding-top: 18px;
-
       display: flex;
       flex-wrap: wrap;
       gap: 20px 28px;
-
       border-top: 1px solid #eee;
     }
 
     nav a {
       color: #111;
       text-decoration: none;
-
       font-size: 14px;
       font-weight: bold;
       text-transform: uppercase;
-
       cursor: pointer;
-
       transition: color 0.2s ease;
     }
 
@@ -110,9 +96,7 @@
     }
 
 
-    /* =========================
-       MAIN CONTENT
-    ========================= */
+    /* MAIN */
 
     main {
       width: min(1200px, 88%);
@@ -121,25 +105,19 @@
     }
 
 
-    /* =========================
-       ARTICLES TITLE
-    ========================= */
+    /* SECTION TITLE */
 
     .section-title {
       font-family: "Times New Roman", serif;
       font-size: 38px;
       line-height: 1.1;
-
       margin-bottom: 38px;
       padding-bottom: 14px;
-
       border-bottom: 2px solid #111;
     }
 
 
-    /* =========================
-       ARTICLE GRID
-    ========================= */
+    /* ARTICLES */
 
     .articles {
       display: grid;
@@ -147,17 +125,10 @@
       gap: 35px;
     }
 
-
-    /* =========================
-       ARTICLE CARD
-    ========================= */
-
     .article-card {
       background: #ffffff;
       border-top: 4px solid #111;
-
       overflow: hidden;
-
       transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
@@ -168,24 +139,16 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
     }
 
-
-    /* ARTICLE IMAGE */
-
     .article-image-link {
       display: block;
     }
 
     .article-card img {
       display: block;
-
       width: 100%;
       height: 230px;
-
       object-fit: cover;
     }
-
-
-    /* ARTICLE CONTENT */
 
     .article-content {
       padding: 24px;
@@ -193,9 +156,7 @@
 
     .category {
       margin-bottom: 10px;
-
       color: #6c3bb8;
-
       font-size: 12px;
       font-weight: bold;
       letter-spacing: 1.3px;
@@ -204,7 +165,6 @@
 
     .article-card h2 {
       margin-bottom: 14px;
-
       font-family: "Times New Roman", serif;
       font-size: 27px;
       line-height: 1.15;
@@ -213,7 +173,6 @@
     .article-card h2 a {
       color: #111;
       text-decoration: none;
-
       transition: color 0.2s ease;
     }
 
@@ -223,9 +182,7 @@
 
     .excerpt {
       margin-bottom: 18px;
-
       color: #555;
-
       font-size: 15px;
       line-height: 1.6;
     }
@@ -234,31 +191,23 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px 14px;
-
       color: #777;
       font-size: 12px;
     }
 
 
-    /* =========================
-       EMPTY CATEGORY MESSAGE
-    ========================= */
+    /* EMPTY CATEGORY */
 
     #empty-message {
       display: none;
-
       padding: 45px 20px;
-
       background: #ffffff;
-
       text-align: center;
-
       border-top: 3px solid #111;
     }
 
     #empty-message h2 {
       margin-bottom: 7px;
-
       font-family: "Times New Roman", serif;
       font-size: 27px;
     }
@@ -269,134 +218,39 @@
     }
 
 
-    /* =========================
-       NEWSLETTER
-    ========================= */
+    /* NEWSLETTER */
 
     .newsletter {
-      margin-top: 70px;
-
-      padding: 40px 25px;
-
+      margin-top: 60px;
+      padding: 24px 20px;
       background: #ffffff;
-
       text-align: center;
-
       border-top: 2px solid #111;
       border-bottom: 1px solid #ddd;
     }
 
     .newsletter-label {
-      margin-bottom: 8px;
-
+      margin: 0;
       color: #6c3bb8;
-
-      font-size: 11px;
+      font-size: 12px;
       font-weight: bold;
       letter-spacing: 1.8px;
     }
 
-    .newsletter h2 {
-      margin-bottom: 9px;
 
-      font-family: "Times New Roman", serif;
-      font-size: 30px;
-      line-height: 1.15;
-    }
-
-    .newsletter-text {
-      max-width: 580px;
-
-      margin: 0 auto 20px;
-
-      color: #555;
-
-      font-size: 14px;
-    }
-
-    .newsletter-form {
-      display: flex;
-
-      max-width: 500px;
-
-      margin: 0 auto;
-    }
-
-    .newsletter-form input {
-      flex: 1;
-
-      min-width: 0;
-
-      padding: 13px 15px;
-
-      background: #fff;
-      color: #111;
-
-      border: 1px solid #bbb;
-      border-right: none;
-
-      font-size: 14px;
-
-      outline: none;
-    }
-
-    .newsletter-form input:focus {
-      border-color: #6c3bb8;
-    }
-
-    .newsletter-form button {
-      padding: 13px 22px;
-
-      background: #111;
-      color: #fff;
-
-      border: 1px solid #111;
-
-      font-size: 13px;
-      font-weight: bold;
-
-      cursor: pointer;
-
-      transition:
-        background 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .newsletter-form button:hover {
-      background: #6c3bb8;
-      border-color: #6c3bb8;
-    }
-
-    .newsletter-note {
-      margin-top: 10px;
-
-      color: #888;
-
-      font-size: 11px;
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     footer {
       margin-top: 60px;
-
       padding: 35px 20px;
-
       border-top: 1px solid #ddd;
-
       text-align: center;
-
       color: #666;
       font-size: 13px;
     }
 
 
-    /* =========================
-       TABLET
-    ========================= */
+    /* TABLET */
 
     @media (max-width: 900px) {
 
@@ -407,9 +261,7 @@
     }
 
 
-    /* =========================
-       MOBILE
-    ========================= */
+    /* MOBILE */
 
     @media (max-width: 650px) {
 
@@ -453,26 +305,8 @@
       }
 
       .newsletter {
-        margin-top: 50px;
-        padding: 32px 18px;
-      }
-
-      .newsletter h2 {
-        font-size: 27px;
-      }
-
-      .newsletter-form {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .newsletter-form input {
-        width: 100%;
-        border: 1px solid #bbb;
-      }
-
-      .newsletter-form button {
-        width: 100%;
+        margin-top: 45px;
+        padding: 20px 15px;
       }
 
     }
@@ -484,10 +318,6 @@
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
@@ -565,10 +395,6 @@
 
 
 
-<!-- =========================
-     MAIN
-========================= -->
-
 <main>
 
   <h1
@@ -579,23 +405,15 @@
   </h1>
 
 
-  <!-- =========================
-       ARTICLES
-  ========================= -->
-
   <section class="articles">
 
-
     {% for post in site.posts %}
-
 
       <article
         class="article-card"
         data-category="{{ post.category | escape }}"
       >
 
-
-        <!-- COVER IMAGE -->
 
         {% if post.image %}
 
@@ -615,11 +433,8 @@
         {% endif %}
 
 
-
         <div class="article-content">
 
-
-          <!-- CATEGORY -->
 
           {% if post.category %}
 
@@ -630,43 +445,29 @@
           {% endif %}
 
 
-
-          <!-- TITLE -->
-
           <h2>
 
             <a href="{{ post.url | relative_url }}">
-
               {{ post.title }}
-
             </a>
 
           </h2>
 
 
-
-          <!-- SHORT DESCRIPTION -->
-
           {% if post.excerpt %}
 
             <div class="excerpt">
-
               {{ post.excerpt | strip_html }}
-
             </div>
 
           {% endif %}
 
-
-
-          <!-- DATE + AUTHOR -->
 
           <div class="article-meta">
 
             <span>
               {{ post.date | date: "%d/%m/%Y" }}
             </span>
-
 
             {% if post.author %}
 
@@ -678,22 +479,15 @@
 
           </div>
 
-
         </div>
 
       </article>
 
-
     {% endfor %}
-
 
   </section>
 
 
-
-  <!-- =========================
-       NO ARTICLES
-  ========================= -->
 
   <section id="empty-message">
 
@@ -709,43 +503,10 @@
 
 
 
-  <!-- =========================
-       NEWSLETTER
-  ========================= -->
-
   <section class="newsletter">
 
     <p class="newsletter-label">
       BIOMEDFACTS NEWSLETTER
-    </p>
-
-    <h2>
-      Η επιστήμη, χωρίς τον θόρυβο.
-    </h2>
-
-    <p class="newsletter-text">
-      Νέα έρευνα, fact-checking και evidence-based ενημέρωση
-      απευθείας στο email σου.
-    </p>
-
-
-    <div class="newsletter-form">
-
-      <input
-        type="email"
-        placeholder="Το email σου"
-        aria-label="Email"
-      >
-
-      <button type="button">
-        Εγγραφή
-      </button>
-
-    </div>
-
-
-    <p class="newsletter-note">
-      Χωρίς spam. Μόνο επιστήμη.
     </p>
 
   </section>
@@ -755,10 +516,6 @@
 
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
   © 2026 BiomedFacts · Evidence-based science communication
@@ -766,10 +523,6 @@
 </footer>
 
 
-
-<!-- =========================
-     CATEGORY FILTER
-========================= -->
 
 <script>
 
@@ -792,35 +545,23 @@
 
       event.preventDefault();
 
-
       const selectedCategory =
         this.dataset.filter;
-
 
       let visibleArticles = 0;
 
 
-      /* Remove active state */
-
       categoryLinks.forEach(item => {
-
         item.classList.remove("active");
-
       });
-
-
-      /* Activate selected category */
 
       this.classList.add("active");
 
-
-      /* Filter articles */
 
       articleCards.forEach(article => {
 
         const articleCategory =
           article.dataset.category;
-
 
         if (
           selectedCategory === "all" ||
@@ -830,9 +571,7 @@
           article.style.display = "";
           visibleArticles++;
 
-        }
-
-        else {
+        } else {
 
           article.style.display = "none";
 
@@ -841,16 +580,12 @@
       });
 
 
-      /* Change heading */
-
       if (selectedCategory === "all") {
 
         sectionTitle.textContent =
           "Τελευταία άρθρα";
 
-      }
-
-      else {
+      } else {
 
         sectionTitle.textContent =
           selectedCategory;
@@ -858,16 +593,12 @@
       }
 
 
-      /* Empty category */
-
       if (visibleArticles === 0) {
 
         emptyMessage.style.display =
           "block";
 
-      }
-
-      else {
+      } else {
 
         emptyMessage.style.display =
           "none";
@@ -875,15 +606,10 @@
       }
 
 
-      /* Scroll to articles */
-
       sectionTitle.scrollIntoView({
-
         behavior: "smooth",
         block: "start"
-
       });
-
 
     });
 
