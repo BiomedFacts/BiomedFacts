@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="el">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>BiomedFacts | Επιστήμη χωρίς παραπληροφόρηση</title>
 
-  <meta name="description" content="Evidence-based ενημέρωση για υγεία, βιοϊατρική επιστήμη, διατροφή και fact-checking.">
+  <meta
+    name="description"
+    content="Evidence-based ενημέρωση για υγεία, βιοϊατρική επιστήμη, διατροφή και fact-checking."
+  >
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -75,81 +80,7 @@
     main {
       width: min(1200px, 88%);
       margin: 50px auto;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 45px;
-      padding-bottom: 55px;
-      border-bottom: 2px solid #111;
-    }
-
-    .hero-image {
-      min-height: 430px;
-      background:
-        linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)),
-        url("https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1400&q=80");
-      background-size: cover;
-      background-position: center;
-    }
-
-    .category {
-      color: #6c3bb8;
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 1.5px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-family: "Times New Roman", serif;
-      font-size: clamp(38px, 5vw, 64px);
-      line-height: 1.02;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      color: #555;
-      font-size: 18px;
-      margin-bottom: 24px;
-    }
-
-    .read-more {
-      color: #111;
-      font-weight: bold;
-      text-decoration: underline;
-    }
-
-    .section-title {
-      font-family: "Times New Roman", serif;
-      font-size: 34px;
-      margin: 50px 0 25px;
-    }
-
-    .articles {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 35px;
-    }
-
-    article {
-      background: white;
-      border-top: 4px solid #111;
-      padding: 25px;
-    }
-
-    article h2 {
-      font-family: "Times New Roman", serif;
-      font-size: 27px;
-      line-height: 1.15;
-      margin: 10px 0 15px;
-    }
-
-    article p {
-      color: #555;
-      font-size: 15px;
+      min-height: 300px;
     }
 
     .newsletter {
@@ -176,6 +107,7 @@
     }
 
     @media (max-width: 800px) {
+
       .top {
         flex-direction: column;
         align-items: flex-start;
@@ -185,22 +117,12 @@
         font-size: 34px;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-image {
-        min-height: 280px;
-      }
-
-      .articles {
-        grid-template-columns: 1fr;
-      }
-
       nav {
         gap: 14px;
       }
+
     }
+
   </style>
 </head>
 
@@ -209,12 +131,19 @@
 <header>
 
   <div class="top">
+
     <div>
-      <div class="logo">Biomed<span>Facts</span></div>
+
+      <div class="logo">
+        Biomed<span>Facts</span>
+      </div>
+
       <div class="tagline">
         Evidence-based health & biomedical science
       </div>
+
     </div>
+
   </div>
 
   <nav>
@@ -225,15 +154,15 @@
     <a href="#">Βιοϊατρική</a>
     <a href="#">Fact Check</a>
     <a href="#">Νέα</a>
-     <a href="#">Έρευνα</a>
+    <a href="#">Έρευνα</a>
   </nav>
 
 </header>
-      </a>
 
-    </div>
 
-  </section>
+<main>
+
+  <!-- Εδώ θα εμφανίζονται αργότερα αυτόματα τα άρθρα σου -->
 
   <section class="newsletter">
 
@@ -253,4 +182,5 @@
 </footer>
 
 </body>
+
 </html>
