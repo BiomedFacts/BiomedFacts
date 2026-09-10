@@ -1,8 +1,6 @@
 media:
   input: assets/images
   output: /biomedfacts/assets/images
-  rename: safe
-  categories: [image]
 
 content:
 
@@ -11,11 +9,12 @@ content:
     type: collection
     path: _data/categories
     format: yaml
-    filename: "{name}.yml"
+    filename: "{primary}.yml"
 
     view:
       primary: name
       fields: [name]
+      search: [name]
 
     fields:
       - name: name
@@ -53,22 +52,19 @@ content:
         options:
           format: yyyy-MM-dd
 
-    - name: category
-  label: Κατηγορία
-  type: reference
-  required: true
-  options:
-    collection: categories
-    search: "name"
-    value: "{primary}"
-    label: "{primary}"
+      - name: category
+        label: Κατηγορία
+        type: reference
+        required: true
+        options:
+          collection: categories
+          search: "name"
+          value: "{primary}"
+          label: "{primary}"
 
       - name: image
         label: Εικόνα εξωφύλλου
         type: image
-        options:
-          extensions: [jpg, jpeg, png, webp]
-          rename: safe
 
       - name: excerpt
         label: Σύντομη περιγραφή
@@ -97,6 +93,3 @@ content:
         required: true
         options:
           format: markdown
-          switcher: true
-          extensions: [jpg, jpeg, png, webp]
-          rename: safe
