@@ -11,5 +11,4 @@ seo_description: ιξκκξξκξκξξκ
 ---
 ηβξηυξθηξθξηιιο
 
-![image.png](/biomedfacts/assets/images/image.png)
-
+[https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgKuDmzI4hQqeD0UXn2DqVoNFEzQthuncUO-RK-N75fw&s=10](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgKuDmzI4hQqeD0UXn2DqVoNFEzQthuncUO-RK-N75fw&s=10)
