@@ -1,0 +1,101 @@
+media:
+  input: assets/images
+  output: /biomedfacts/assets/images
+  rename: safe
+  categories: [image]
+
+content:
+
+  - name: categories
+    label: Κατηγορίες
+    type: collection
+    path: _data/categories
+    format: yaml
+    filename: "{name}.yml"
+
+    view:
+      primary: name
+      fields: [name]
+
+    fields:
+      - name: name
+        label: Όνομα κατηγορίας
+        type: string
+        required: true
+
+
+  - name: posts
+    label: Άρθρα
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{title}.md"
+
+    view:
+      primary: title
+      fields: [title, date, category]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+
+    fields:
+
+      - name: title
+        label: Τίτλος
+        type: string
+        required: true
+
+      - name: date
+        label: Ημερομηνία δημοσίευσης
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+
+      - name: category
+        label: Κατηγορία
+        type: reference
+        required: true
+        options:
+          collection: categories
+          value: "{primary}"
+          label: "{primary}"
+
+      - name: image
+        label: Εικόνα εξωφύλλου
+        type: image
+        options:
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
+
+      - name: excerpt
+        label: Σύντομη περιγραφή
+        type: text
+        description: Μικρή περίληψη που θα εμφανίζεται στην αρχική σελίδα.
+
+      - name: author
+        label: Συγγραφέας
+        type: string
+
+      - name: featured
+        label: Κεντρικό άρθρο
+        type: boolean
+
+      - name: seo_title
+        label: SEO Title
+        type: string
+
+      - name: seo_description
+        label: SEO Description
+        type: text
+
+      - name: body
+        label: Κείμενο άρθρου
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          switcher: true
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
