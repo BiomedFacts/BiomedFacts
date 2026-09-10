@@ -5,7 +5,7 @@ category: Υγεία
 image: /biomedfacts/assets/images/πρωτεινη.png
 excerpt: poiuyyui
 author: Dimitra M.
-featured: false
+featured: true
 seo_title: plokiuhygghuioκι
 seo_description: lkjhgffghiop
 ---
