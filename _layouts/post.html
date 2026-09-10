@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    {{ page.seo_title | default: page.title }} | BiomedFacts
+  </title>
+
+  <meta
+    name="description"
+    content="{{ page.seo_description | default: page.excerpt | strip_html | escape }}"
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      color: #111;
+      line-height: 1.7;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+      padding: 28px 6%;
+    }
+
+    .logo-link {
+      text-decoration: none;
+      color: #111;
+    }
+
+    .logo {
+      font-family: "Times New Roman", serif;
+      font-size: 42px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      color: #111;
+    }
+
+    .logo span {
+      color: #6c3bb8;
+    }
+
+    .tagline {
+      margin-top: 3px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    nav {
+      margin-top: 25px;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      border-top: 1px solid #eee;
+      padding-top: 18px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: #6c3bb8;
+    }
+
+    /* ARTICLE */
+
+    .article-wrapper {
+      width: min(850px, 88%);
+      margin: 65px auto;
+    }
+
+    .article-category {
+      color: #6c3bb8;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .article-title {
+      font-family: "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: #777;
+      font-size: 14px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 35px;
+    }
+
+    .article-image {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      margin-bottom: 45px;
+      display: block;
+    }
+
+    .article-content {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 19px;
+      line-height: 1.8;
+    }
+
+    .article-content p {
+      margin-bottom: 24px;
+    }
+
+    .article-content h2 {
+      font-family: "Times New Roman", serif;
+      font-size: 34px;
+      line-height: 1.15;
+      margin-top: 50px;
+      margin-bottom: 18px;
+    }
+
+    .article-content h3 {
+      font-family: "Times New Roman", serif;
+      font-size: 27px;
+      margin-top: 38px;
+      margin-bottom: 15px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      margin: 20px 0 28px 28px;
+    }
+
+    .article-content li {
+      margin-bottom: 8px;
+    }
+
+    .article-content a {
+      color: #6c3bb8;
+      text-decoration: underline;
+    }
+
+    .article-content img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 35px auto;
+    }
+
+    .back-home {
+      margin-top: 55px;
+      border-top: 1px solid #ddd;
+      padding-top: 25px;
+    }
+
+    .back-home a {
+      color: #111;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .back-home a:hover {
+      color: #6c3bb8;
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 70px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      padding: 35px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+
+      header {
+        padding: 24px 6%;
+      }
+
+      .logo {
+        font-size: 34px;
+      }
+
+      nav {
+        gap: 13px 18px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .article-wrapper {
+        width: 90%;
+        margin-top: 40px;
+      }
+
+      .article-title {
+        font-size: 42px;
+      }
+
+      .article-content {
+        font-size: 18px;
+      }
+
+      .article-content h2 {
+        font-size: 29px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<header>
+
+  <a
+    href="{{ '/' | relative_url }}"
+    class="logo-link"
+  >
+    <div class="logo">
+      Biomed<span>Facts</span>
+    </div>
+  </a>
+
+  <div class="tagline">
+    Evidence-based health & biomedical science
+  </div>
+
+  <nav>
+
+    <a href="{{ '/' | relative_url }}">
+      Αρχική
+    </a>
+
+    <a href="{{ '/' | relative_url }}">
+      Υγεία
+    </a>
+
+    <a href="{{ '/' | relative_url }}">
+      Διατροφή
+    </a>
+
+    <a href="{{ '/' | relative_url }}">
+      Γυναικεία Υγεία
+    </a>
+
+    <a href="{{ '/' | relative_url }}">
+      Εξετάσεις
+    </a>
+
+    <a href="{{ '/' | relative_url }}">
+      Fact-Checking
+    </a>
+
+    <a href="{{ '/' | relative_url }}">
+      Νέα
+    </a>
+
+    <a href="{{ '/' | relative_url }}">
+      Έρευνα
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="article-wrapper">
+
+  {% if page.category %}
+    <div class="article-category">
+      {{ page.category }}
+    </div>
+  {% endif %}
+
+
+  <h1 class="article-title">
+    {{ page.title }}
+  </h1>
+
+
+  <div class="article-meta">
+
+    {% if page.author %}
+      <span>
+        {{ page.author }}
+      </span>
+    {% endif %}
+
+    <span>
+      {{ page.date | date: "%d/%m/%Y" }}
+    </span>
+
+  </div>
+
+
+  {% if page.image %}
+
+    <img
+      class="article-image"
+      src="{{ page.image | relative_url }}"
+      alt="{{ page.title | escape }}"
+    >
+
+  {% endif %}
+
+
+  <article class="article-content">
+
+    {{ content }}
+
+  </article>
+
+
+  <div class="back-home">
+
+    <a href="{{ '/' | relative_url }}">
+      ← Επιστροφή στα άρθρα
+    </a>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  © 2026 BiomedFacts · Evidence-based science communication
+
+</footer>
+
+</body>
+
+</html>
