@@ -53,14 +53,15 @@ content:
         options:
           format: yyyy-MM-dd
 
-      - name: category
-        label: Κατηγορία
-        type: reference
-        required: true
-        options:
-          collection: categories
-          value: "{primary}"
-          label: "{primary}"
+    - name: category
+  label: Κατηγορία
+  type: reference
+  required: true
+  options:
+    collection: categories
+    search: "name"
+    value: "{primary}"
+    label: "{primary}"
 
       - name: image
         label: Εικόνα εξωφύλλου
