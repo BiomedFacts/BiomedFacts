@@ -20,7 +20,12 @@
     content="Evidence-based ενημέρωση για υγεία, διατροφή, εξετάσεις, νέα έρευνα και fact-checking."
   >
 
+
   <style>
+
+    /* =========================
+       BASIC
+    ========================= */
 
     * {
       box-sizing: border-box;
@@ -33,33 +38,53 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #fafafa;
+      background: #f8f7fa;
       color: #111;
+
+      font-family: Arial, sans-serif;
+
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+    }
 
-    /* HEADER */
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       background: #ffffff;
-      border-bottom: 1px solid #ddd;
-      padding: 28px 6%;
+      border-top: 5px solid #32103f;
+      border-bottom: 1px solid #ccc;
+
+      padding: 28px 6% 0;
     }
 
     .header-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+
+      gap: 25px;
+
+      padding-bottom: 28px;
+    }
+
+    .logo-link {
+      color: #111;
+      text-decoration: none;
     }
 
     .logo {
       font-family: "Times New Roman", serif;
-      font-size: 42px;
+
+      font-size: 46px;
       font-weight: bold;
-      letter-spacing: -1px;
+
+      letter-spacing: -1.5px;
       line-height: 1;
     }
 
@@ -71,8 +96,8 @@
     /* INSTAGRAM */
 
     .instagram-button {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
 
       display: flex;
       align-items: center;
@@ -95,6 +120,7 @@
     .instagram-button svg {
       width: 21px;
       height: 21px;
+
       fill: currentColor;
     }
 
@@ -102,30 +128,35 @@
       background: #6c3bb8;
       border-color: #6c3bb8;
       color: #ffffff;
+
       transform: translateY(-2px);
     }
 
 
-    /* NAVIGATION */
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     nav {
-      margin-top: 28px;
-      padding-top: 18px;
-
       display: flex;
+      align-items: center;
       flex-wrap: wrap;
 
-      gap: 20px 28px;
+      gap: 18px 34px;
 
-      border-top: 1px solid #eee;
+      border-top: 1px solid #ddd;
+
+      padding: 18px 0;
     }
 
     nav a {
       color: #111;
+
       text-decoration: none;
 
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
+
       text-transform: uppercase;
 
       cursor: pointer;
@@ -139,127 +170,354 @@
     }
 
 
-    /* MAIN */
+    /* =========================
+       MAIN
+    ========================= */
 
     main {
-      width: min(1200px, 88%);
-      margin: 55px auto;
-      min-height: 400px;
+      width: min(1250px, 88%);
+
+      margin: 65px auto;
     }
 
 
-    /* SECTION TITLE */
+    /* =========================
+       FEATURED ARTICLE
+    ========================= */
 
-    .section-title {
-      font-family: "Times New Roman", serif;
-      font-size: 38px;
-      line-height: 1.1;
-
-      margin-bottom: 38px;
-      padding-bottom: 14px;
-
-      border-bottom: 2px solid #111;
-    }
-
-
-    /* ARTICLES */
-
-    .articles {
+    .featured {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 35px;
+
+      grid-template-columns: 0.95fr 1.25fr;
+
+      gap: 55px;
+
+      align-items: center;
+
+      padding-bottom: 65px;
+
+      border-bottom: 1px solid #bbb;
     }
 
-    .article-card {
-      background: #ffffff;
-      border-top: 4px solid #111;
-
-      overflow: hidden;
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    .featured-content {
+      min-width: 0;
     }
 
-    .article-card:hover {
-      transform: translateY(-4px);
+    .featured-topline {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
 
-      box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.07);
+      gap: 10px;
+
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+
+      border-bottom: 1px solid #111;
     }
 
-
-    /* ARTICLE IMAGE */
-
-    .article-image-link {
-      display: block;
-    }
-
-    .article-card img {
-      display: block;
-
-      width: 100%;
-      height: 230px;
-
-      object-fit: cover;
-    }
-
-
-    /* ARTICLE CONTENT */
-
-    .article-content {
-      padding: 24px;
-    }
-
-    .category {
-      margin-bottom: 10px;
-
-      color: #6c3bb8;
-
-      font-size: 12px;
+    .featured-category,
+    .featured-date {
+      font-size: 11px;
       font-weight: bold;
-      letter-spacing: 1.3px;
+
+      letter-spacing: 1px;
 
       text-transform: uppercase;
     }
 
-    .article-card h2 {
-      margin-bottom: 14px;
+    .featured-category {
+      color: #6c3bb8;
+    }
+
+    .featured-title {
+      margin-bottom: 20px;
 
       font-family: "Times New Roman", serif;
-      font-size: 27px;
-      line-height: 1.15;
+
+      font-size: 46px;
+      font-weight: bold;
+
+      line-height: 1.02;
+
+      letter-spacing: -1.3px;
+    }
+
+    .featured-title a {
+      color: #111;
+      text-decoration: none;
+    }
+
+    .featured-title a:hover {
+      color: #6c3bb8;
+    }
+
+    .featured-excerpt {
+      max-width: 580px;
+
+      color: #444;
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: 18px;
+      line-height: 1.65;
+
+      margin-bottom: 22px;
+    }
+
+    .featured-author {
+      color: #777;
+
+      font-size: 12px;
+    }
+
+    .featured-image {
+      width: 100%;
+      height: 430px;
+
+      display: block;
+
+      object-fit: cover;
+
+      border: 1px solid #222;
+    }
+
+
+    /* =========================
+       LATEST SECTION
+    ========================= */
+
+    .latest-area {
+      margin-top: 65px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      margin-bottom: 28px;
+      padding-bottom: 13px;
+
+      border-bottom: 2px solid #111;
+    }
+
+    .section-label {
+      color: #6c3bb8;
+
+      font-size: 11px;
+      font-weight: bold;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-family: "Times New Roman", serif;
+
+      font-size: 40px;
+      line-height: 1;
+
+      letter-spacing: -1px;
+    }
+
+
+    /* =========================
+       LATEST + SIDEBAR
+    ========================= */
+
+    .content-layout {
+      display: grid;
+
+      grid-template-columns: minmax(0, 2fr) minmax(260px, 0.8fr);
+
+      gap: 55px;
+
+      align-items: start;
+    }
+
+
+    /* ARTICLE GRID */
+
+    .articles-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 42px 30px;
+    }
+
+    .article-card {
+      border-top: 4px solid #111;
+
+      padding-top: 14px;
+    }
+
+    .article-card-image {
+      width: 100%;
+      height: 245px;
+
+      display: block;
+
+      object-fit: cover;
+
+      margin-bottom: 16px;
+    }
+
+    .article-card-meta {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-bottom: 10px;
+    }
+
+    .article-card-category {
+      color: #6c3bb8;
+
+      font-size: 11px;
+      font-weight: bold;
+
+      letter-spacing: 1.1px;
+
+      text-transform: uppercase;
+    }
+
+    .article-card-date {
+      color: #666;
+
+      font-size: 11px;
+    }
+
+    .article-card h2 {
+      margin-bottom: 12px;
+
+      font-family: "Times New Roman", serif;
+
+      font-size: 29px;
+      line-height: 1.05;
+
+      letter-spacing: -0.6px;
     }
 
     .article-card h2 a {
       color: #111;
       text-decoration: none;
-
-      transition: color 0.2s ease;
     }
 
     .article-card h2 a:hover {
       color: #6c3bb8;
     }
 
-    .excerpt {
-      margin-bottom: 18px;
-
+    .article-card-excerpt {
       color: #555;
+
+      font-family: Georgia, "Times New Roman", serif;
 
       font-size: 15px;
       line-height: 1.6;
+
+      margin-bottom: 13px;
     }
 
-    .article-meta {
-      display: flex;
-      flex-wrap: wrap;
+    .article-card-author {
+      color: #777;
 
-      gap: 6px 14px;
+      font-size: 11px;
+    }
+
+
+    /* =========================
+       READ ALSO
+    ========================= */
+
+    .read-also {
+      background: #ffffff;
+
+      border-top: 5px solid #6c3bb8;
+
+      padding: 22px;
+
+      box-shadow: 8px 8px 0 #e3e0e6;
+    }
+
+    .read-also-label {
+      color: #6c3bb8;
+
+      font-size: 11px;
+      font-weight: bold;
+
+      letter-spacing: 1.4px;
+
+      text-transform: uppercase;
+    }
+
+    .read-also-title {
+      margin-top: 7px;
+      margin-bottom: 18px;
+
+      padding-bottom: 15px;
+
+      border-bottom: 1px solid #bbb;
+
+      font-family: "Times New Roman", serif;
+
+      font-size: 29px;
+      line-height: 1;
+    }
+
+    .read-item {
+      display: grid;
+
+      grid-template-columns: 46px 1fr;
+
+      gap: 12px;
+
+      padding: 18px 0;
+
+      border-bottom: 1px solid #ddd;
+    }
+
+    .read-number {
+      color: #6c3bb8;
+
+      font-family: "Times New Roman", serif;
+
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .read-item h3 {
+      font-family: "Times New Roman", serif;
+
+      font-size: 18px;
+      line-height: 1.15;
+    }
+
+    .read-item h3 a {
+      color: #111;
+      text-decoration: none;
+    }
+
+    .read-item h3 a:hover {
+      color: #6c3bb8;
+    }
+
+    .read-item-category {
+      margin-top: 7px;
 
       color: #777;
 
-      font-size: 12px;
+      font-size: 10px;
+
+      text-transform: uppercase;
     }
 
 
@@ -268,41 +526,47 @@
     #empty-message {
       display: none;
 
-      padding: 45px 20px;
+      margin-top: 30px;
+
+      padding: 35px;
 
       background: #ffffff;
 
-      text-align: center;
-
       border-top: 3px solid #111;
+
+      text-align: center;
     }
 
     #empty-message h2 {
-      margin-bottom: 7px;
-
       font-family: "Times New Roman", serif;
-      font-size: 27px;
+
+      font-size: 25px;
+
+      margin-bottom: 7px;
     }
 
     #empty-message p {
       color: #666;
-      font-size: 14px;
+
+      font-size: 13px;
     }
 
 
-    /* NEWSLETTER */
+    /* =========================
+       NEWSLETTER
+    ========================= */
 
     .newsletter {
-      margin-top: 60px;
+      margin-top: 75px;
 
-      padding: 28px 20px;
+      padding: 30px 20px;
 
       background: #ffffff;
 
       text-align: center;
 
       border-top: 2px solid #111;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #ccc;
     }
 
     .newsletter-label {
@@ -310,8 +574,9 @@
 
       color: #6c3bb8;
 
-      font-size: 12px;
+      font-size: 11px;
       font-weight: bold;
+
       letter-spacing: 1.8px;
     }
 
@@ -330,11 +595,10 @@
 
       padding: 13px 15px;
 
-      border: 1px solid #bbb;
+      border: 1px solid #aaa;
       border-right: none;
 
-      background: #ffffff;
-      color: #111;
+      background: #fff;
 
       font-size: 14px;
 
@@ -351,16 +615,12 @@
       border: 1px solid #111;
 
       background: #111;
-      color: #ffffff;
+      color: #fff;
 
       font-size: 13px;
       font-weight: bold;
 
       cursor: pointer;
-
-      transition:
-        background 0.2s ease,
-        border-color 0.2s ease;
     }
 
     .newsletter-form button:hover {
@@ -369,40 +629,59 @@
     }
 
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      margin-top: 60px;
+      margin-top: 65px;
 
       padding: 35px 20px;
 
-      border-top: 1px solid #ddd;
-
-      text-align: center;
+      border-top: 1px solid #ccc;
 
       color: #666;
 
-      font-size: 13px;
+      text-align: center;
+
+      font-size: 12px;
     }
 
 
-    /* TABLET */
+    /* =========================
+       TABLET
+    ========================= */
 
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
 
-      .articles {
-        grid-template-columns: repeat(2, 1fr);
+      .featured {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .featured-image {
+        height: 420px;
+      }
+
+      .content-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .read-also {
+        box-shadow: none;
       }
 
     }
 
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 650px) {
 
       header {
-        padding: 24px 6%;
+        padding: 22px 5% 0;
       }
 
       .logo {
@@ -415,50 +694,71 @@
       }
 
       .instagram-button svg {
-        width: 19px;
-        height: 19px;
+        width: 18px;
+        height: 18px;
       }
 
       nav {
-        margin-top: 24px;
-        gap: 12px 18px;
+        gap: 11px 18px;
+
+        padding: 15px 0;
       }
 
       nav a {
-        font-size: 11px;
+        font-size: 10px;
       }
 
       main {
         width: 90%;
-        margin-top: 38px;
+
+        margin-top: 40px;
+      }
+
+      .featured {
+        padding-bottom: 45px;
+      }
+
+      .featured-title {
+        font-size: 34px;
+        line-height: 1.06;
+      }
+
+      .featured-excerpt {
+        font-size: 16px;
+      }
+
+      .featured-image {
+        height: 280px;
       }
 
       .section-title {
-        font-size: 31px;
-        margin-bottom: 28px;
+        font-size: 33px;
       }
 
-      .articles {
+      .articles-grid {
         grid-template-columns: 1fr;
+
+        gap: 35px;
       }
 
-      .article-card img {
-        height: 220px;
+      .article-card-image {
+        height: 230px;
       }
 
-      .newsletter {
-        margin-top: 45px;
-        padding: 24px 15px;
+      .article-card h2 {
+        font-size: 26px;
       }
 
       .newsletter-form {
         flex-direction: column;
+
         gap: 8px;
       }
 
       .newsletter-form input {
         width: 100%;
-        border: 1px solid #bbb;
+
+        border: 1px solid #aaa;
       }
 
       .newsletter-form button {
@@ -475,15 +775,24 @@
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
   <div class="header-top">
 
-    <div class="logo">
-      Biomed<span>Facts</span>
-    </div>
+    <a
+      href="{{ '/' | relative_url }}"
+      class="logo-link"
+    >
+
+      <div class="logo">
+        Biomed<span>Facts</span>
+      </div>
+
+    </a>
 
 
     <a
@@ -495,10 +804,7 @@
       title="Instagram"
     >
 
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
+      <svg viewBox="0 0 24 24">
 
         <path
           d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
@@ -511,64 +817,37 @@
   </div>
 
 
-  <!-- MENU -->
-
   <nav id="category-nav">
 
-    <a
-      href="#articles"
-      data-filter="all"
-      class="active"
-    >
+    <a href="#latest" data-filter="all" class="active">
       Αρχική
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Υγεία"
-    >
+    <a href="#latest" data-filter="Υγεία">
       Υγεία
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Διατροφή"
-    >
+    <a href="#latest" data-filter="Διατροφή">
       Διατροφή
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Γυναικεία Υγεία"
-    >
+    <a href="#latest" data-filter="Γυναικεία Υγεία">
       Γυναικεία Υγεία
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Εξετάσεις"
-    >
+    <a href="#latest" data-filter="Εξετάσεις">
       Εξετάσεις
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Fact-Checking"
-    >
+    <a href="#latest" data-filter="Fact-Checking">
       Fact-Checking
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Νέα"
-    >
+    <a href="#latest" data-filter="Νέα">
       Νέα
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Έρευνα"
-    >
+    <a href="#latest" data-filter="Έρευνα">
       Έρευνα
     </a>
 
@@ -578,125 +857,297 @@
 
 
 
-<!-- MAIN -->
-
 <main>
 
-  <h1
-    class="section-title"
-    id="articles"
-  >
-    Τελευταία άρθρα
-  </h1>
+
+<!-- =========================
+     FIND FEATURED POST
+========================= -->
+
+{% assign featured_posts = site.posts | where: "featured", true %}
+{% assign featured_post = featured_posts.first %}
+
+{% unless featured_post %}
+  {% assign featured_post = site.posts.first %}
+{% endunless %}
 
 
-  <!-- ARTICLES -->
 
-  <section class="articles">
+<!-- =========================
+     FEATURED ARTICLE
+========================= -->
+
+{% if featured_post %}
+
+<section class="featured">
+
+  <div class="featured-content">
+
+    <div class="featured-topline">
+
+      <span class="featured-category">
+        {{ featured_post.category }}
+      </span>
+
+      <span class="featured-date">
+        {{ featured_post.date | date: "%d/%m/%Y" }}
+      </span>
+
+    </div>
 
 
-    {% for post in site.posts %}
+    <h1 class="featured-title">
+
+      <a href="{{ featured_post.url | relative_url }}">
+        {{ featured_post.title }}
+      </a>
+
+    </h1>
 
 
-      <article
-        class="article-card"
-        data-category="{{ post.category | escape }}"
-      >
+    {% if featured_post.excerpt %}
+
+      <p class="featured-excerpt">
+        {{ featured_post.excerpt | strip_html }}
+      </p>
+
+    {% endif %}
 
 
-        <!-- COVER IMAGE -->
+    {% if featured_post.author %}
 
-        {% if post.image %}
+      <p class="featured-author">
+        {{ featured_post.author }}
+      </p>
 
-          <a
-            href="{{ post.url | relative_url }}"
-            class="article-image-link"
+    {% endif %}
+
+  </div>
+
+
+  <div>
+
+    <a href="{{ featured_post.url | relative_url }}">
+
+      {% if featured_post.image %}
+
+        <img
+          class="featured-image"
+          src="{{ featured_post.image }}"
+          alt="{{ featured_post.title | escape }}"
+        >
+
+      {% endif %}
+
+    </a>
+
+  </div>
+
+</section>
+
+{% endif %}
+
+
+
+<!-- =========================
+     LATEST ARTICLES
+========================= -->
+
+<section
+  class="latest-area"
+  id="latest"
+>
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="section-label">
+        ΝΕΕΣ ΔΗΜΟΣΙΕΥΣΕΙΣ
+      </div>
+
+      <h2 class="section-title">
+        Τελευταία άρθρα
+      </h2>
+
+    </div>
+
+  </div>
+
+
+  <div class="content-layout">
+
+
+    <!-- MAIN ARTICLE GRID -->
+
+    <div class="articles-grid">
+
+      {% assign latest_count = 0 %}
+
+      {% for post in site.posts %}
+
+        {% if post.url != featured_post.url and latest_count < 4 %}
+
+          <article
+            class="article-card filterable"
+            data-category="{{ post.category | escape }}"
           >
 
-            <img
-              src="{{ post.image }}"
-              alt="{{ post.title | escape }}"
-              loading="lazy"
-            >
+            {% if post.image %}
 
-          </a>
+              <a href="{{ post.url | relative_url }}">
 
-        {% endif %}
+                <img
+                  class="article-card-image"
+                  src="{{ post.image }}"
+                  alt="{{ post.title | escape }}"
+                  loading="lazy"
+                >
+
+              </a>
+
+            {% endif %}
 
 
+            <div class="article-card-meta">
 
-        <div class="article-content">
+              <span class="article-card-category">
+                {{ post.category }}
+              </span>
 
+              <span class="article-card-date">
+                {{ post.date | date: "%d/%m/%Y" }}
+              </span>
 
-          <!-- CATEGORY -->
-
-          {% if post.category %}
-
-            <div class="category">
-              {{ post.category }}
             </div>
 
-          {% endif %}
+
+            <h2>
+
+              <a href="{{ post.url | relative_url }}">
+                {{ post.title }}
+              </a>
+
+            </h2>
 
 
+            {% if post.excerpt %}
 
-          <!-- TITLE -->
+              <p class="article-card-excerpt">
+                {{ post.excerpt | strip_html }}
+              </p>
 
-          <h2>
-
-            <a href="{{ post.url | relative_url }}">
-              {{ post.title }}
-            </a>
-
-          </h2>
-
-
-
-          <!-- DESCRIPTION -->
-
-          {% if post.excerpt %}
-
-            <div class="excerpt">
-              {{ post.excerpt | strip_html }}
-            </div>
-
-          {% endif %}
-
-
-
-          <!-- DATE + AUTHOR -->
-
-          <div class="article-meta">
-
-            <span>
-              {{ post.date | date: "%d/%m/%Y" }}
-            </span>
+            {% endif %}
 
 
             {% if post.author %}
 
-              <span>
+              <p class="article-card-author">
                 {{ post.author }}
-              </span>
+              </p>
 
             {% endif %}
 
-          </div>
+          </article>
 
+          {% assign latest_count = latest_count | plus: 1 %}
 
-        </div>
+        {% endif %}
 
-      </article>
+      {% endfor %}
 
-
-    {% endfor %}
-
-
-  </section>
+    </div>
 
 
 
-  <!-- EMPTY CATEGORY -->
+    <!-- =========================
+         READ ALSO
+    ========================= -->
+
+    <aside class="read-also">
+
+      <div class="read-also-label">
+        BIOMEDFACTS
+      </div>
+
+      <h2 class="read-also-title">
+        Διαβάστε επίσης
+      </h2>
+
+
+      {% assign skipped = 0 %}
+      {% assign read_count = 0 %}
+
+
+      {% for post in site.posts %}
+
+        {% if post.url != featured_post.url %}
+
+          {% if skipped < 4 %}
+
+            {% assign skipped = skipped | plus: 1 %}
+
+          {% elsif read_count < 4 %}
+
+            <div
+              class="read-item filterable"
+              data-category="{{ post.category | escape }}"
+            >
+
+              <div class="read-number">
+
+                {% assign number = read_count | plus: 1 %}
+
+                0{{ number }}
+
+              </div>
+
+
+              <div>
+
+                <h3>
+
+                  <a href="{{ post.url | relative_url }}">
+                    {{ post.title }}
+                  </a>
+
+                </h3>
+
+                <div class="read-item-category">
+                  {{ post.category }}
+                </div>
+
+              </div>
+
+            </div>
+
+            {% assign read_count = read_count | plus: 1 %}
+
+          {% endif %}
+
+        {% endif %}
+
+      {% endfor %}
+
+
+      {% if read_count == 0 %}
+
+        <p
+          style="
+            color:#777;
+            font-size:13px;
+            padding-top:5px;
+          "
+        >
+          Περισσότερα άρθρα σύντομα.
+        </p>
+
+      {% endif %}
+
+    </aside>
+
+  </div>
+
 
   <section id="empty-message">
 
@@ -710,39 +1161,45 @@
 
   </section>
 
+</section>
 
 
-  <!-- NEWSLETTER -->
 
-  <section class="newsletter">
+<!-- =========================
+     NEWSLETTER
+========================= -->
 
-    <p class="newsletter-label">
-      BIOMEDFACTS NEWSLETTER
-    </p>
+<section class="newsletter">
+
+  <p class="newsletter-label">
+    BIOMEDFACTS NEWSLETTER
+  </p>
 
 
-    <div class="newsletter-form">
+  <div class="newsletter-form">
 
-      <input
-        type="email"
-        placeholder="Το email σου"
-        aria-label="Email"
-      >
+    <input
+      type="email"
+      placeholder="Το email σου"
+      aria-label="Email"
+    >
 
-      <button type="button">
-        Εγγραφή
-      </button>
+    <button type="button">
+      Εγγραφή
+    </button>
 
-    </div>
+  </div>
 
-  </section>
+</section>
 
 
 </main>
 
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -752,18 +1209,17 @@
 
 
 
-<!-- CATEGORY FILTER -->
+<!-- =========================
+     CATEGORY FILTER
+========================= -->
 
 <script>
 
   const categoryLinks =
     document.querySelectorAll("#category-nav a");
 
-  const articleCards =
-    document.querySelectorAll(".article-card");
-
-  const sectionTitle =
-    document.querySelector(".section-title");
+  const filterableArticles =
+    document.querySelectorAll(".filterable");
 
   const emptyMessage =
     document.getElementById("empty-message");
@@ -775,10 +1231,10 @@
 
       event.preventDefault();
 
-      const selectedCategory =
+      const category =
         this.dataset.filter;
 
-      let visibleArticles = 0;
+      let visible = 0;
 
 
       categoryLinks.forEach(item => {
@@ -789,19 +1245,19 @@
       this.classList.add("active");
 
 
-      articleCards.forEach(article => {
+      filterableArticles.forEach(article => {
 
         const articleCategory =
           article.dataset.category;
 
 
         if (
-          selectedCategory === "all" ||
-          articleCategory === selectedCategory
+          category === "all" ||
+          articleCategory === category
         ) {
 
           article.style.display = "";
-          visibleArticles++;
+          visible++;
 
         }
 
@@ -814,40 +1270,25 @@
       });
 
 
-      if (selectedCategory === "all") {
+      if (visible === 0) {
 
-        sectionTitle.textContent =
-          "Τελευταία άρθρα";
-
-      }
-
-      else {
-
-        sectionTitle.textContent =
-          selectedCategory;
-
-      }
-
-
-      if (visibleArticles === 0) {
-
-        emptyMessage.style.display =
-          "block";
+        emptyMessage.style.display = "block";
 
       }
 
       else {
 
-        emptyMessage.style.display =
-          "none";
+        emptyMessage.style.display = "none";
 
       }
 
 
-      sectionTitle.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+      document
+        .getElementById("latest")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
 
     });
 
