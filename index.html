@@ -6,12 +6,15 @@
 
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>BiomedFacts | Επιστήμη χωρίς παραπληροφόρηση</title>
 
-  <meta name="description"
-        content="Evidence-based ενημέρωση για υγεία, εξετάσεις, διατροφή, έρευνα και fact-checking.">
+  <meta
+    name="description"
+    content="Evidence-based ενημέρωση για υγεία, εξετάσεις, διατροφή, νέα έρευνα και fact-checking."
+  >
 
   <style>
 
@@ -28,8 +31,10 @@
       line-height: 1.6;
     }
 
+    /* HEADER */
+
     header {
-      background: white;
+      background: #ffffff;
       border-bottom: 1px solid #ddd;
       padding: 28px 6%;
     }
@@ -46,9 +51,12 @@
     }
 
     .tagline {
+      margin-top: 3px;
       font-size: 14px;
       color: #666;
     }
+
+    /* NAVIGATION */
 
     nav {
       margin-top: 25px;
@@ -65,16 +73,24 @@
       font-size: 14px;
       font-weight: bold;
       text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.2s;
     }
 
     nav a:hover {
       color: #6c3bb8;
     }
 
+    nav a.active {
+      color: #6c3bb8;
+    }
+
+    /* MAIN */
+
     main {
       width: min(1200px, 88%);
       margin: 50px auto;
-      min-height: 300px;
+      min-height: 400px;
     }
 
     .section-title {
@@ -85,6 +101,8 @@
       padding-bottom: 12px;
     }
 
+    /* ARTICLE GRID */
+
     .articles {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -92,9 +110,18 @@
     }
 
     .article-card {
-      background: white;
+      background: #ffffff;
       border-top: 4px solid #111;
       overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .article-image-link {
+      display: block;
     }
 
     .article-card img {
@@ -136,13 +163,38 @@
     .excerpt {
       color: #555;
       font-size: 15px;
-      margin-bottom: 15px;
+      margin-bottom: 17px;
     }
 
-    .date {
-      font-size: 12px;
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
       color: #777;
+      font-size: 12px;
     }
+
+    /* EMPTY CATEGORY */
+
+    #empty-message {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+      background: white;
+      border-top: 4px solid #111;
+    }
+
+    #empty-message h2 {
+      font-family: "Times New Roman", serif;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    #empty-message p {
+      color: #666;
+    }
+
+    /* NEWSLETTER */
 
     .newsletter {
       margin-top: 70px;
@@ -158,6 +210,12 @@
       margin-bottom: 12px;
     }
 
+    .newsletter p {
+      color: #ddd;
+    }
+
+    /* FOOTER */
+
     footer {
       margin-top: 60px;
       border-top: 1px solid #ddd;
@@ -167,18 +225,53 @@
       font-size: 14px;
     }
 
-    @media (max-width: 800px) {
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .articles {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 650px) {
+
+      header {
+        padding: 24px 6%;
+      }
 
       .logo {
         font-size: 34px;
       }
 
       nav {
-        gap: 14px;
+        gap: 13px 18px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      main {
+        width: 90%;
+        margin-top: 35px;
+      }
+
+      .section-title {
+        font-size: 31px;
       }
 
       .articles {
         grid-template-columns: 1fr;
+      }
+
+      .article-card img {
+        height: 220px;
+      }
+
+      .newsletter h2 {
+        font-size: 31px;
       }
 
     }
@@ -199,15 +292,66 @@
     Evidence-based health & biomedical science
   </div>
 
-  <nav>
-    <a href="{{ '/' | relative_url }}">Αρχική</a>
-    <a href="#">Υγεία</a>
-    <a href="#">Διατροφή</a>
-    <a href="#">Γυναικεία Υγεία</a>
-    <a href="#">Εξετάσεις</a>
-    <a href="#">Fact-Checking</a>
-    <a href="#">Νέα</a>
-    <a href="#">Έρευνα</a>
+
+  <nav id="category-nav">
+
+    <a
+      href="#articles"
+      data-filter="all"
+      class="active"
+    >
+      Αρχική
+    </a>
+
+    <a
+      href="#articles"
+      data-filter="Υγεία"
+    >
+      Υγεία
+    </a>
+
+    <a
+      href="#articles"
+      data-filter="Διατροφή"
+    >
+      Διατροφή
+    </a>
+
+    <a
+      href="#articles"
+      data-filter="Γυναικεία Υγεία"
+    >
+      Γυναικεία Υγεία
+    </a>
+
+    <a
+      href="#articles"
+      data-filter="Εξετάσεις"
+    >
+      Εξετάσεις
+    </a>
+
+    <a
+      href="#articles"
+      data-filter="Fact-Checking"
+    >
+      Fact-Checking
+    </a>
+
+    <a
+      href="#articles"
+      data-filter="Νέα"
+    >
+      Νέα
+    </a>
+
+    <a
+      href="#articles"
+      data-filter="Έρευνα"
+    >
+      Έρευνα
+    </a>
+
   </nav>
 
 </header>
@@ -215,56 +359,116 @@
 
 <main>
 
-  <h1 class="section-title">Τελευταία άρθρα</h1>
+  <h1
+    class="section-title"
+    id="articles"
+  >
+    Τελευταία άρθρα
+  </h1>
+
 
   <section class="articles">
 
     {% for post in site.posts %}
 
-    <article class="article-card">
+      <article
+        class="article-card"
+        data-category="{{ post.category | escape }}"
+      >
 
-      {% if post.image %}
-        <a href="{{ post.url | relative_url }}">
-          <img src="{{ post.image }}" alt="{{ post.title }}">
-        </a>
-      {% endif %}
+        {% if post.image %}
 
-      <div class="article-content">
+          <a
+            href="{{ post.url | relative_url }}"
+            class="article-image-link"
+          >
 
-        {% if post.category %}
-          <div class="category">
-            {{ post.category }}
-          </div>
-        {% endif %}
+            <img
+              src="{{ post.image | relative_url }}"
+              alt="{{ post.title | escape }}"
+            >
 
-        <h2>
-          <a href="{{ post.url | relative_url }}">
-            {{ post.title }}
           </a>
-        </h2>
 
-        {% if post.excerpt %}
-          <div class="excerpt">
-            {{ post.excerpt }}
-          </div>
         {% endif %}
 
-        <div class="date">
-          {{ post.date | date: "%d/%m/%Y" }}
+
+        <div class="article-content">
+
+          {% if post.category %}
+
+            <div class="category">
+              {{ post.category }}
+            </div>
+
+          {% endif %}
+
+
+          <h2>
+
+            <a href="{{ post.url | relative_url }}">
+
+              {{ post.title }}
+
+            </a>
+
+          </h2>
+
+
+          {% if post.excerpt %}
+
+            <div class="excerpt">
+
+              {{ post.excerpt | strip_html }}
+
+            </div>
+
+          {% endif %}
+
+
+          <div class="article-meta">
+
+            <span>
+              {{ post.date | date: "%d/%m/%Y" }}
+            </span>
+
+            {% if post.author %}
+
+              <span>
+                {{ post.author }}
+              </span>
+
+            {% endif %}
+
+          </div>
+
         </div>
 
-      </div>
-
-    </article>
+      </article>
 
     {% endfor %}
 
   </section>
 
 
+  <section id="empty-message">
+
+    <h2>
+      Δεν υπάρχουν ακόμη άρθρα σε αυτή την κατηγορία.
+    </h2>
+
+    <p>
+      Νέο περιεχόμενο θα προστεθεί σύντομα.
+    </p>
+
+  </section>
+
+
   <section class="newsletter">
 
-    <h2>Science, without the noise.</h2>
+    <h2>
+      Science, without the noise.
+    </h2>
 
     <p>
       Fact-checking και evidence-based ενημέρωση.
@@ -276,8 +480,103 @@
 
 
 <footer>
+
   © 2026 BiomedFacts · Evidence-based science communication
+
 </footer>
+
+
+<script>
+
+  const categoryLinks =
+    document.querySelectorAll("#category-nav a");
+
+  const articleCards =
+    document.querySelectorAll(".article-card");
+
+  const sectionTitle =
+    document.querySelector(".section-title");
+
+  const emptyMessage =
+    document.getElementById("empty-message");
+
+
+  categoryLinks.forEach(link => {
+
+    link.addEventListener("click", function(event) {
+
+      event.preventDefault();
+
+      const selectedCategory =
+        this.dataset.filter;
+
+      let visibleArticles = 0;
+
+
+      categoryLinks.forEach(item => {
+        item.classList.remove("active");
+      });
+
+      this.classList.add("active");
+
+
+      articleCards.forEach(article => {
+
+        const articleCategory =
+          article.dataset.category;
+
+        if (
+          selectedCategory === "all" ||
+          articleCategory === selectedCategory
+        ) {
+
+          article.style.display = "";
+          visibleArticles++;
+
+        } else {
+
+          article.style.display = "none";
+
+        }
+
+      });
+
+
+      if (selectedCategory === "all") {
+
+        sectionTitle.textContent =
+          "Τελευταία άρθρα";
+
+      } else {
+
+        sectionTitle.textContent =
+          selectedCategory;
+
+      }
+
+
+      if (visibleArticles === 0) {
+
+        emptyMessage.style.display = "block";
+
+      } else {
+
+        emptyMessage.style.display = "none";
+
+      }
+
+
+      sectionTitle.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    });
+
+  });
+
+</script>
+
 
 </body>
 
