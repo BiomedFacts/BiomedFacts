@@ -6,7 +6,7 @@ image: /biomedfacts/assets/images/πρωτεινη.png
 excerpt: poiuyyui
 author: Dimitra M.
 featured: false
-seo_title: plokiuhygghuio
+seo_title: plokiuhygghuioκι
 seo_description: lkjhgffghiop
 ---
 lkjhuyfdsdfgrtyuiop
