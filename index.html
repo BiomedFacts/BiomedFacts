@@ -13,9 +13,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>
-    BiomedFacts | Evidence-based ενημέρωση
-  </title>
+  <title>BiomedFacts | Evidence-based ενημέρωση</title>
 
   <meta
     name="description"
@@ -105,7 +103,7 @@
     }
 
 
-    /* SECTION TITLE */
+    /* TITLE */
 
     .section-title {
       font-family: "Times New Roman", serif;
@@ -173,7 +171,6 @@
     .article-card h2 a {
       color: #111;
       text-decoration: none;
-      transition: color 0.2s ease;
     }
 
     .article-card h2 a:hover {
@@ -222,7 +219,7 @@
 
     .newsletter {
       margin-top: 60px;
-      padding: 24px 20px;
+      padding: 28px 20px;
       background: #ffffff;
       text-align: center;
       border-top: 2px solid #111;
@@ -230,11 +227,49 @@
     }
 
     .newsletter-label {
-      margin: 0;
+      margin-bottom: 16px;
       color: #6c3bb8;
       font-size: 12px;
       font-weight: bold;
       letter-spacing: 1.8px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      padding: 13px 15px;
+      border: 1px solid #bbb;
+      border-right: none;
+      background: #fff;
+      color: #111;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .newsletter-form input:focus {
+      border-color: #6c3bb8;
+    }
+
+    .newsletter-form button {
+      padding: 13px 24px;
+      border: 1px solid #111;
+      background: #111;
+      color: #fff;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: #6c3bb8;
+      border-color: #6c3bb8;
     }
 
 
@@ -306,7 +341,21 @@
 
       .newsletter {
         margin-top: 45px;
-        padding: 20px 15px;
+        padding: 24px 15px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .newsletter-form input {
+        width: 100%;
+        border: 1px solid #bbb;
+      }
+
+      .newsletter-form button {
+        width: 100%;
       }
 
     }
@@ -332,60 +381,35 @@
 
   <nav id="category-nav">
 
-    <a
-      href="#articles"
-      data-filter="all"
-      class="active"
-    >
+    <a href="#articles" data-filter="all" class="active">
       Αρχική
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Υγεία"
-    >
+    <a href="#articles" data-filter="Υγεία">
       Υγεία
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Διατροφή"
-    >
+    <a href="#articles" data-filter="Διατροφή">
       Διατροφή
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Γυναικεία Υγεία"
-    >
+    <a href="#articles" data-filter="Γυναικεία Υγεία">
       Γυναικεία Υγεία
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Εξετάσεις"
-    >
+    <a href="#articles" data-filter="Εξετάσεις">
       Εξετάσεις
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Fact-Checking"
-    >
+    <a href="#articles" data-filter="Fact-Checking">
       Fact-Checking
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Νέα"
-    >
+    <a href="#articles" data-filter="Νέα">
       Νέα
     </a>
 
-    <a
-      href="#articles"
-      data-filter="Έρευνα"
-    >
+    <a href="#articles" data-filter="Έρευνα">
       Έρευνα
     </a>
 
@@ -397,10 +421,7 @@
 
 <main>
 
-  <h1
-    class="section-title"
-    id="articles"
-  >
+  <h1 class="section-title" id="articles">
     Τελευταία άρθρα
   </h1>
 
@@ -413,7 +434,6 @@
         class="article-card"
         data-category="{{ post.category | escape }}"
       >
-
 
         {% if post.image %}
 
@@ -434,7 +454,6 @@
 
 
         <div class="article-content">
-
 
           {% if post.category %}
 
@@ -503,11 +522,27 @@
 
 
 
+  <!-- NEWSLETTER -->
+
   <section class="newsletter">
 
     <p class="newsletter-label">
       BIOMEDFACTS NEWSLETTER
     </p>
+
+    <div class="newsletter-form">
+
+      <input
+        type="email"
+        placeholder="Το email σου"
+        aria-label="Email"
+      >
+
+      <button type="button">
+        Εγγραφή
+      </button>
+
+    </div>
 
   </section>
 
@@ -595,13 +630,11 @@
 
       if (visibleArticles === 0) {
 
-        emptyMessage.style.display =
-          "block";
+        emptyMessage.style.display = "block";
 
       } else {
 
-        emptyMessage.style.display =
-          "none";
+        emptyMessage.style.display = "none";
 
       }
 
