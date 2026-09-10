@@ -1,6 +1,8 @@
 media:
   input: assets/images
-  output: /assets/images
+  output: /BiomedFacts/assets/images
+  rename: safe
+  categories: [image]
 
 content:
 
@@ -15,6 +17,7 @@ content:
       primary: title
       fields: [title, date, category]
       sort: [date, title]
+      search: [title, category, author]
       default:
         sort: date
         order: desc
@@ -51,12 +54,17 @@ content:
       - name: image
         label: Εικόνα εξωφύλλου
         type: image
-        required: false
+        description: Η βασική εικόνα που θα εμφανίζεται στην αρχική και στην κορυφή του άρθρου.
+        options:
+          path: assets/images
+          extensions: [jpg, jpeg, png, webp]
+          categories: [image]
+          rename: safe
 
       - name: excerpt
         label: Σύντομη περιγραφή
         type: text
-        description: Μικρή περίληψη που θα εμφανίζεται στην αρχική σελίδα.
+        description: Γράψε 1–2 προτάσεις που θα εμφανίζονται κάτω από τον τίτλο στην αρχική.
 
       - name: author
         label: Συγγραφέας
@@ -69,10 +77,12 @@ content:
       - name: seo_title
         label: SEO Title
         type: string
+        description: Ο τίτλος που θα χρησιμοποιείται για τις μηχανές αναζήτησης.
 
       - name: seo_description
         label: SEO Description
         type: text
+        description: Σύντομη περιγραφή του άρθρου για Google και άλλες μηχανές αναζήτησης.
 
       - name: body
         label: Κείμενο άρθρου
@@ -80,8 +90,8 @@ content:
         required: true
         options:
           format: markdown
-          extensions:
-            - jpg
-            - jpeg
-            - png
-            - webp
+          switcher: true
+          path: assets/images
+          extensions: [jpg, jpeg, png, webp]
+          categories: [image]
+          rename: safe
