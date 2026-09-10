@@ -2,7 +2,7 @@
 title: γηφψφττφθυγγφγ
 date: 2026-09-10
 category: Υγεία
-image: /biomedfacts/assets/images/kreatinh.png
+image: /assets/images/κρεατινη.png
 excerpt: "[ποιθυφθιοπ-[="
 author: Dimitra M.
 featured: true
