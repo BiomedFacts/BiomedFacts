@@ -2,8 +2,13 @@
 <html lang="el">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>
     {{ page.seo_title | default: page.title }} | BiomedFacts
@@ -14,6 +19,7 @@
     content="{{ page.seo_description | default: page.excerpt | strip_html | escape }}"
   >
 
+
   <style>
 
     * {
@@ -22,6 +28,7 @@
       padding: 0;
     }
 
+
     body {
       font-family: Arial, sans-serif;
       background: #fafafa;
@@ -29,7 +36,10 @@
       line-height: 1.7;
     }
 
-    /* HEADER */
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       background: #ffffff;
@@ -37,167 +47,405 @@
       padding: 28px 6%;
     }
 
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+
     .logo-link {
       text-decoration: none;
       color: #111;
     }
+
 
     .logo {
       font-family: "Times New Roman", serif;
       font-size: 42px;
       font-weight: bold;
       letter-spacing: -1px;
+      line-height: 1;
       color: #111;
     }
+
 
     .logo span {
       color: #6c3bb8;
     }
 
-    .tagline {
-      margin-top: 3px;
-      font-size: 14px;
-      color: #666;
+
+    /* =========================
+       INSTAGRAM
+    ========================= */
+
+    .instagram-button {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #ffffff;
+      color: #111;
+
+      border: 1px solid #111;
+
+      text-decoration: none;
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
     }
+
+
+    .instagram-button svg {
+      width: 21px;
+      height: 21px;
+      fill: currentColor;
+    }
+
+
+    .instagram-button:hover {
+      background: #6c3bb8;
+      border-color: #6c3bb8;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     nav {
-      margin-top: 25px;
-      display: flex;
-      gap: 25px;
-      flex-wrap: wrap;
-      border-top: 1px solid #eee;
+      margin-top: 28px;
       padding-top: 18px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 28px;
+
+      border-top: 1px solid #eee;
     }
 
+
     nav a {
-      text-decoration: none;
       color: #111;
+      text-decoration: none;
+
       font-size: 14px;
       font-weight: bold;
       text-transform: uppercase;
+
+      transition: color 0.2s ease;
     }
+
 
     nav a:hover {
       color: #6c3bb8;
     }
 
-    /* ARTICLE */
+
+    /* =========================
+       ARTICLE
+    ========================= */
 
     .article-wrapper {
       width: min(850px, 88%);
       margin: 65px auto;
     }
 
+
     .article-category {
-      color: #6c3bb8;
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 1.5px;
-      font-weight: bold;
       margin-bottom: 14px;
+
+      color: #6c3bb8;
+
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
     }
 
+
     .article-title {
-      font-family: "Times New Roman", serif;
-      font-size: clamp(42px, 6vw, 68px);
-      line-height: 1.02;
-      letter-spacing: -1.5px;
       margin-bottom: 24px;
+
+      font-family: "Times New Roman", serif;
+
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.03;
+
+      letter-spacing: -1.5px;
     }
+
+
+    /* META */
 
     .article-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      color: #777;
-      font-size: 14px;
+
+      gap: 8px 16px;
+
       padding-bottom: 25px;
-      border-bottom: 1px solid #ddd;
       margin-bottom: 35px;
+
+      border-bottom: 1px solid #ddd;
+
+      color: #777;
+
+      font-size: 14px;
     }
 
+
+    /* COVER IMAGE */
+
     .article-image {
-      width: 100%;
-      max-height: 520px;
-      object-fit: cover;
-      margin-bottom: 45px;
       display: block;
+
+      width: 100%;
+      max-height: 540px;
+
+      margin-bottom: 45px;
+
+      object-fit: cover;
     }
+
+
+    /* =========================
+       ARTICLE TEXT
+    ========================= */
 
     .article-content {
       font-family: Georgia, "Times New Roman", serif;
+
       font-size: 19px;
       line-height: 1.8;
+
+      color: #222;
     }
+
 
     .article-content p {
       margin-bottom: 24px;
     }
 
+
     .article-content h2 {
-      font-family: "Times New Roman", serif;
-      font-size: 34px;
-      line-height: 1.15;
       margin-top: 50px;
       margin-bottom: 18px;
+
+      font-family: "Times New Roman", serif;
+
+      font-size: 34px;
+      line-height: 1.15;
+
+      color: #111;
     }
 
+
     .article-content h3 {
-      font-family: "Times New Roman", serif;
-      font-size: 27px;
       margin-top: 38px;
       margin-bottom: 15px;
+
+      font-family: "Times New Roman", serif;
+
+      font-size: 27px;
+      line-height: 1.2;
+
+      color: #111;
     }
+
 
     .article-content ul,
     .article-content ol {
       margin: 20px 0 28px 28px;
     }
 
+
     .article-content li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
+
 
     .article-content a {
       color: #6c3bb8;
       text-decoration: underline;
     }
 
+
+    /* IMAGES INSIDE ARTICLE */
+
     .article-content img {
+      display: block;
+
       max-width: 100%;
       height: auto;
-      display: block;
+
       margin: 35px auto;
     }
 
+
+    /* BLOCKQUOTES */
+
+    .article-content blockquote {
+      margin: 35px 0;
+      padding: 20px 25px;
+
+      border-left: 4px solid #6c3bb8;
+
+      background: #ffffff;
+
+      font-style: italic;
+    }
+
+
+    /* TABLES */
+
+    .article-content table {
+      width: 100%;
+
+      margin: 30px 0;
+
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 15px;
+    }
+
+
+    .article-content th,
+    .article-content td {
+      padding: 12px;
+
+      border: 1px solid #ddd;
+
+      text-align: left;
+    }
+
+
+    /* =========================
+       COMMENTS
+    ========================= */
+
+    .comments-section {
+      margin-top: 65px;
+      padding-top: 35px;
+
+      border-top: 2px solid #111;
+    }
+
+
+    .comments-section h2 {
+      margin-bottom: 8px;
+
+      font-family: "Times New Roman", serif;
+
+      font-size: 31px;
+
+      color: #111;
+    }
+
+
+    .comments-intro {
+      margin-bottom: 18px;
+
+      font-family: Arial, sans-serif;
+
+      color: #666;
+
+      font-size: 14px;
+    }
+
+
+    .comment-field {
+      display: block;
+
+      width: 100%;
+      min-height: 140px;
+
+      padding: 16px;
+
+      background: #ffffff;
+      color: #111;
+
+      border: 1px solid #bbb;
+
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+
+      line-height: 1.5;
+
+      resize: vertical;
+
+      outline: none;
+    }
+
+
+    .comment-field:focus {
+      border-color: #6c3bb8;
+    }
+
+
+    /* =========================
+       BACK HOME
+    ========================= */
+
     .back-home {
       margin-top: 55px;
-      border-top: 1px solid #ddd;
       padding-top: 25px;
+
+      border-top: 1px solid #ddd;
     }
+
 
     .back-home a {
       color: #111;
+
       font-weight: bold;
+
       text-decoration: none;
+
+      transition: color 0.2s ease;
     }
+
 
     .back-home a:hover {
       color: #6c3bb8;
     }
 
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       margin-top: 70px;
+
+      padding: 35px 20px;
+
       border-top: 1px solid #ddd;
+
       text-align: center;
-      padding: 35px;
+
       color: #666;
-      font-size: 14px;
+
+      font-size: 13px;
     }
 
-    /* MOBILE */
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 650px) {
 
@@ -205,57 +453,127 @@
         padding: 24px 6%;
       }
 
+
       .logo {
         font-size: 34px;
       }
 
-      nav {
-        gap: 13px 18px;
+
+      .instagram-button {
+        width: 38px;
+        height: 38px;
       }
 
-      nav a {
-        font-size: 12px;
+
+      .instagram-button svg {
+        width: 19px;
+        height: 19px;
       }
+
+
+      nav {
+        margin-top: 24px;
+
+        gap: 12px 18px;
+      }
+
+
+      nav a {
+        font-size: 11px;
+      }
+
 
       .article-wrapper {
         width: 90%;
+
         margin-top: 40px;
       }
+
 
       .article-title {
         font-size: 42px;
       }
 
+
       .article-content {
         font-size: 18px;
       }
+
 
       .article-content h2 {
         font-size: 29px;
       }
 
+
+      .article-content h3 {
+        font-size: 24px;
+      }
+
+
+      .comments-section h2 {
+        font-size: 28px;
+      }
+
     }
 
   </style>
+
 </head>
+
 
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
-  <a
-    href="{{ '/' | relative_url }}"
-    class="logo-link"
-  >
-    <div class="logo">
-      Biomed<span>Facts</span>
-    </div>
-  </a>
 
-  <div class="tagline">
-    Evidence-based health & biomedical science
+  <div class="header-top">
+
+
+    <a
+      href="{{ '/' | relative_url }}"
+      class="logo-link"
+    >
+
+      <div class="logo">
+        Biomed<span>Facts</span>
+      </div>
+
+    </a>
+
+
+
+    <a
+      class="instagram-button"
+      href="https://www.instagram.com/biomedical_sciences.gr/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      title="Instagram"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+
+        <path
+          d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
+        />
+
+      </svg>
+
+    </a>
+
+
   </div>
+
+
 
   <nav>
 
@@ -263,46 +581,56 @@
       Αρχική
     </a>
 
-    <a href="{{ '/' | relative_url }}">
+    <a href="{{ '/' | relative_url }}#articles">
       Υγεία
     </a>
 
-    <a href="{{ '/' | relative_url }}">
+    <a href="{{ '/' | relative_url }}#articles">
       Διατροφή
     </a>
 
-    <a href="{{ '/' | relative_url }}">
+    <a href="{{ '/' | relative_url }}#articles">
       Γυναικεία Υγεία
     </a>
 
-    <a href="{{ '/' | relative_url }}">
+    <a href="{{ '/' | relative_url }}#articles">
       Εξετάσεις
     </a>
 
-    <a href="{{ '/' | relative_url }}">
+    <a href="{{ '/' | relative_url }}#articles">
       Fact-Checking
     </a>
 
-    <a href="{{ '/' | relative_url }}">
+    <a href="{{ '/' | relative_url }}#articles">
       Νέα
     </a>
 
-    <a href="{{ '/' | relative_url }}">
+    <a href="{{ '/' | relative_url }}#articles">
       Έρευνα
     </a>
 
   </nav>
 
+
 </header>
 
 
+
+<!-- =========================
+     ARTICLE
+========================= -->
+
 <main class="article-wrapper">
 
+
   {% if page.category %}
+
     <div class="article-category">
       {{ page.category }}
     </div>
+
   {% endif %}
+
 
 
   <h1 class="article-title">
@@ -310,30 +638,38 @@
   </h1>
 
 
+
   <div class="article-meta">
 
+
     {% if page.author %}
+
       <span>
         {{ page.author }}
       </span>
+
     {% endif %}
+
 
     <span>
       {{ page.date | date: "%d/%m/%Y" }}
     </span>
 
+
   </div>
+
 
 
   {% if page.image %}
 
     <img
       class="article-image"
-      src="{{ page.image | relative_url }}"
+      src="{{ page.image }}"
       alt="{{ page.title | escape }}"
     >
 
   {% endif %}
+
 
 
   <article class="article-content">
@@ -343,6 +679,35 @@
   </article>
 
 
+
+  <!-- =========================
+       COMMENTS
+  ========================= -->
+
+  <section class="comments-section">
+
+    <h2>
+      Σχόλια
+    </h2>
+
+    <p class="comments-intro">
+      💬 <em>Συμμετέχετε στη συζήτηση</em>
+    </p>
+
+
+    <textarea
+      class="comment-field"
+      placeholder="Γράψτε ένα σχόλιο..."
+      rows="5"
+      aria-label="Γράψτε ένα σχόλιο"
+    ></textarea>
+
+  </section>
+
+
+
+  <!-- BACK TO HOME -->
+
   <div class="back-home">
 
     <a href="{{ '/' | relative_url }}">
@@ -351,14 +716,21 @@
 
   </div>
 
+
 </main>
 
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
   © 2026 BiomedFacts · Evidence-based science communication
 
 </footer>
+
 
 </body>
 
