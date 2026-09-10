@@ -48,6 +48,13 @@
       padding: 28px 6%;
     }
 
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
     .logo {
       font-family: "Times New Roman", serif;
       font-size: 42px;
@@ -58,6 +65,44 @@
 
     .logo span {
       color: #6c3bb8;
+    }
+
+
+    /* INSTAGRAM */
+
+    .instagram-button {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #ffffff;
+      color: #111;
+
+      border: 1px solid #111;
+
+      text-decoration: none;
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .instagram-button svg {
+      width: 21px;
+      height: 21px;
+      fill: currentColor;
+    }
+
+    .instagram-button:hover {
+      background: #6c3bb8;
+      border-color: #6c3bb8;
+      color: #ffffff;
+      transform: translateY(-2px);
     }
 
 
@@ -241,7 +286,6 @@
 
     #empty-message p {
       color: #666;
-
       font-size: 14px;
     }
 
@@ -289,7 +333,7 @@
       border: 1px solid #bbb;
       border-right: none;
 
-      background: #fff;
+      background: #ffffff;
       color: #111;
 
       font-size: 14px;
@@ -307,14 +351,16 @@
       border: 1px solid #111;
 
       background: #111;
-      color: #fff;
+      color: #ffffff;
 
       font-size: 13px;
       font-weight: bold;
 
       cursor: pointer;
 
-      transition: 0.2s ease;
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .newsletter-form button:hover {
@@ -361,6 +407,16 @@
 
       .logo {
         font-size: 34px;
+      }
+
+      .instagram-button {
+        width: 38px;
+        height: 38px;
+      }
+
+      .instagram-button svg {
+        width: 19px;
+        height: 19px;
       }
 
       nav {
@@ -419,12 +475,35 @@
 <body>
 
 
-<!-- HEADER -->
-
 <header>
 
-  <div class="logo">
-    Biomed<span>Facts</span>
+  <div class="header-top">
+
+    <div class="logo">
+      Biomed<span>Facts</span>
+    </div>
+
+
+    <a
+      class="instagram-button"
+      href="https://www.instagram.com/biomedical_sciences.gr/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      title="Instagram"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
+        />
+      </svg>
+
+    </a>
+
   </div>
 
 
@@ -493,8 +572,6 @@
 
 
 
-<!-- MAIN -->
-
 <main>
 
   <h1
@@ -505,13 +582,9 @@
   </h1>
 
 
-  <!-- ARTICLES -->
-
   <section class="articles">
 
-
     {% for post in site.posts %}
-
 
       <article
         class="article-card"
@@ -589,15 +662,11 @@
 
       </article>
 
-
     {% endfor %}
-
 
   </section>
 
 
-
-  <!-- EMPTY CATEGORY -->
 
   <section id="empty-message">
 
@@ -612,8 +681,6 @@
   </section>
 
 
-
-  <!-- NEWSLETTER -->
 
   <section class="newsletter">
 
@@ -643,8 +710,6 @@
 
 
 
-<!-- FOOTER -->
-
 <footer>
 
   © 2026 BiomedFacts · Evidence-based science communication
@@ -652,8 +717,6 @@
 </footer>
 
 
-
-<!-- CATEGORY FILTER -->
 
 <script>
 
