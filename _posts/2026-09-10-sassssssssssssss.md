@@ -10,12 +10,13 @@ seo_description: ςςςςςςςςςςςςςςςςς
 ---
 ςςςςςςςςςςςςςςςςςςςςςςςςςςςςςςdefaults:
 
-  - scope:
+- scope:
 
-      path: ""
+    path: ""
 
-      type: posts
+    type: posts
 
-    values:
+  values:
 
-      layout: post
+    layout: post
+
