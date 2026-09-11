@@ -1,7 +1,24 @@
 ---
 ---
 
+{% assign greek_posts = site.posts | where_exp: "post", "post.path contains 'en/_posts' == false" %}
+
+{% assign featured_post = nil %}
+
+{% for post in greek_posts %}
+  {% if post.featured == true %}
+    {% assign featured_post = post %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% unless featured_post %}
+  {% assign featured_post = greek_posts.first %}
+{% endunless %}
+
+
 <!DOCTYPE html>
+
 <html lang="el">
 
 <head>
@@ -13,12 +30,34 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>BiomedFacts | Evidence-based ενημέρωση</title>
+
+  <!-- =========================
+       BASIC SEO
+  ========================== -->
+
+  <title>
+    BiomedFacts | Υγεία, Επιστήμη & Fact-Checking
+  </title>
 
   <meta
     name="description"
-    content="Evidence-based ενημέρωση για υγεία, διατροφή, εξετάσεις, έρευνα και fact-checking."
+    content="Evidence-based ενημέρωση για την υγεία, τη βιοϊατρική επιστήμη, τη διατροφή, τις εργαστηριακές εξετάσεις, την έρευνα και το fact-checking ισχυρισμών υγείας."
   >
+
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large"
+  >
+
+  <link
+    rel="canonical"
+    href="{{ '/' | absolute_url }}"
+  >
+
+
+  <!-- =========================
+       LANGUAGE / HREFLANG
+  ========================== -->
 
   <link
     rel="alternate"
@@ -32,71 +71,132 @@
     href="{{ '/en/' | absolute_url }}"
   >
 
+  <link
+    rel="alternate"
+    hreflang="x-default"
+    href="{{ '/' | absolute_url }}"
+  >
+
+
+  <!-- =========================
+       OPEN GRAPH
+  ========================== -->
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:site_name"
+    content="BiomedFacts"
+  >
+
+  <meta
+    property="og:title"
+    content="BiomedFacts | Υγεία, Επιστήμη & Fact-Checking"
+  >
+
+  <meta
+    property="og:description"
+    content="Evidence-based ενημέρωση για την υγεία, τη βιοϊατρική επιστήμη, τη διατροφή, τις εργαστηριακές εξετάσεις, την έρευνα και το fact-checking."
+  >
+
+  <meta
+    property="og:url"
+    content="{{ '/' | absolute_url }}"
+  >
+
+  <meta
+    property="og:locale"
+    content="el_GR"
+  >
+
+  <meta
+    property="og:locale:alternate"
+    content="en_US"
+  >
+
+
+  <!-- =========================
+       SOCIAL / X
+  ========================== -->
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <meta
+    name="twitter:title"
+    content="BiomedFacts | Υγεία, Επιστήμη & Fact-Checking"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Evidence-based ενημέρωση για υγεία, επιστήμη, έρευνα και fact-checking."
+  >
+
+
+  <!-- =========================
+       STRUCTURED DATA
+  ========================== -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://biomedfacts.com/#website",
+        "url": "https://biomedfacts.com/",
+        "name": "BiomedFacts",
+        "description": "Evidence-based health and biomedical science publication.",
+        "inLanguage": "el"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://biomedfacts.com/#organization",
+        "name": "BiomedFacts",
+        "url": "https://biomedfacts.com/",
+        "sameAs": [
+          "https://www.instagram.com/biomedical_sciences.gr/"
+        ]
+      }
+    ]
+  }
+  </script>
+
+
+  <!-- =========================
+       THEME
+       NO AUTOMATIC LANGUAGE REDIRECT
+  ========================== -->
 
   <script>
 
     (function () {
 
       const savedTheme =
-        localStorage.getItem("biomedfacts-theme");
+        localStorage.getItem(
+          "biomedfacts-theme"
+        );
 
       const prefersDark =
         window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
+        window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
 
       const theme =
-        savedTheme || (prefersDark ? "dark" : "light");
+        savedTheme ||
+        (prefersDark ? "dark" : "light");
 
-      document.documentElement.setAttribute(
-        "data-theme",
-        theme
-      );
-
-
-      const savedLanguage =
-        localStorage.getItem("biomedfacts-language");
-
-      if (savedLanguage === "en") {
-
-        window.location.replace(
-          "{{ '/en/' | relative_url }}"
+      document.documentElement
+        .setAttribute(
+          "data-theme",
+          theme
         );
-
-        return;
-      }
-
-
-      if (!savedLanguage) {
-
-        const browserLanguages =
-          navigator.languages ||
-          [navigator.language || ""];
-
-        const usesGreek =
-          browserLanguages.some(function(language) {
-
-            return language
-              .toLowerCase()
-              .startsWith("el");
-
-          });
-
-
-        if (!usesGreek) {
-
-          localStorage.setItem(
-            "biomedfacts-language",
-            "en"
-          );
-
-          window.location.replace(
-            "{{ '/en/' | relative_url }}"
-          );
-
-          return;
-        }
-
-      }
 
     })();
 
@@ -120,6 +220,7 @@
       --top-border: #32103f;
 
       --shadow: #e3e0e6;
+
     }
 
 
@@ -138,18 +239,23 @@
       --top-border: #6c3bb8;
 
       --shadow: #080808;
+
     }
 
 
     * {
+
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+
     }
 
 
     html {
+
       scroll-behavior: smooth;
+
     }
 
 
@@ -158,22 +264,29 @@
       background: var(--background);
       color: var(--text);
 
-      font-family: Arial, sans-serif;
+      font-family:
+        Arial,
+        sans-serif;
 
       line-height: 1.6;
 
       transition:
         background 0.25s ease,
         color 0.25s ease;
+
     }
 
 
     a {
+
       color: inherit;
+
     }
 
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================== */
 
     header {
 
@@ -187,6 +300,7 @@
 
       padding:
         28px 6% 0;
+
     }
 
 
@@ -200,14 +314,15 @@
       gap: 25px;
 
       padding-bottom: 28px;
+
     }
 
 
     .logo-link {
 
       color: var(--text);
-
       text-decoration: none;
+
     }
 
 
@@ -224,11 +339,14 @@
       letter-spacing: -1.5px;
 
       line-height: 1;
+
     }
 
 
     .logo span {
+
       color: var(--accent);
+
     }
 
 
@@ -239,8 +357,13 @@
       align-items: center;
 
       gap: 10px;
+
     }
 
+
+    /* =========================
+       LANGUAGE
+    ========================== */
 
     .language-switch {
 
@@ -257,6 +380,7 @@
       font-weight: bold;
 
       letter-spacing: 0.5px;
+
     }
 
 
@@ -265,6 +389,7 @@
       color: var(--muted);
 
       text-decoration: none;
+
     }
 
 
@@ -272,13 +397,20 @@
     .language-switch .active-language {
 
       color: var(--accent);
+
     }
 
 
     .language-divider {
+
       color: var(--border);
+
     }
 
+
+    /* =========================
+       ICON BUTTONS
+    ========================== */
 
     .icon-button {
 
@@ -306,6 +438,7 @@
         color 0.2s ease,
         border-color 0.2s ease,
         transform 0.2s ease;
+
     }
 
 
@@ -322,6 +455,7 @@
 
       stroke-linecap: round;
       stroke-linejoin: round;
+
     }
 
 
@@ -329,6 +463,7 @@
 
       fill: currentColor;
       stroke: none;
+
     }
 
 
@@ -342,30 +477,41 @@
 
       transform:
         translateY(-2px);
+
     }
 
 
     .sun-icon {
+
       display: none;
+
     }
 
 
     .moon-icon {
+
       display: block;
+
     }
 
 
     html[data-theme="dark"] .sun-icon {
+
       display: block;
+
     }
 
 
     html[data-theme="dark"] .moon-icon {
+
       display: none;
+
     }
 
 
-    /* NAVIGATION */
+    /* =========================
+       NAVIGATION
+    ========================== */
 
     nav {
 
@@ -375,12 +521,15 @@
 
       flex-wrap: wrap;
 
-      gap: 18px 34px;
+      gap:
+        18px 34px;
 
-      padding: 18px 0;
+      padding:
+        18px 0;
 
       border-top:
         1px solid var(--soft-border);
+
     }
 
 
@@ -397,6 +546,7 @@
       text-transform: uppercase;
 
       cursor: pointer;
+
     }
 
 
@@ -404,10 +554,13 @@
     nav a.active {
 
       color: var(--accent);
+
     }
 
 
-    /* MAIN */
+    /* =========================
+       MAIN
+    ========================== */
 
     main {
 
@@ -416,10 +569,13 @@
 
       margin:
         65px auto;
+
     }
 
 
-    /* FEATURED */
+    /* =========================
+       FEATURED
+    ========================== */
 
     .featured {
 
@@ -436,11 +592,14 @@
 
       border-bottom:
         1px solid var(--border);
+
     }
 
 
     .featured-content {
+
       min-width: 0;
+
     }
 
 
@@ -448,8 +607,7 @@
 
       display: flex;
 
-      justify-content:
-        space-between;
+      justify-content: space-between;
 
       flex-wrap: wrap;
 
@@ -461,6 +619,7 @@
 
       border-bottom:
         1px solid var(--text);
+
     }
 
 
@@ -474,11 +633,14 @@
       letter-spacing: 1px;
 
       text-transform: uppercase;
+
     }
 
 
     .featured-category {
+
       color: var(--accent);
+
     }
 
 
@@ -497,6 +659,7 @@
       line-height: 1.05;
 
       letter-spacing: -1px;
+
     }
 
 
@@ -505,11 +668,14 @@
       color: var(--text);
 
       text-decoration: none;
+
     }
 
 
     .featured-title a:hover {
+
       color: var(--accent);
+
     }
 
 
@@ -529,6 +695,7 @@
       line-height: 1.65;
 
       margin-bottom: 22px;
+
     }
 
 
@@ -537,6 +704,29 @@
       color: var(--muted);
 
       font-size: 12px;
+
+    }
+
+
+    .featured-author a {
+
+      color: var(--muted);
+
+      font-weight: bold;
+
+      text-decoration: none;
+
+    }
+
+
+    .featured-author a:hover {
+
+      color: var(--accent);
+
+      text-decoration: underline;
+
+      text-underline-offset: 3px;
+
     }
 
 
@@ -552,14 +742,18 @@
 
       border:
         1px solid var(--text);
+
     }
 
 
-    /* LATEST */
+    /* =========================
+       LATEST
+    ========================== */
 
     .latest-area {
 
       margin-top: 65px;
+
     }
 
 
@@ -571,6 +765,7 @@
 
       border-bottom:
         2px solid var(--text);
+
     }
 
 
@@ -585,6 +780,7 @@
       line-height: 1;
 
       letter-spacing: -1px;
+
     }
 
 
@@ -599,6 +795,7 @@
       gap: 55px;
 
       align-items: start;
+
     }
 
 
@@ -614,8 +811,13 @@
 
       gap:
         42px 30px;
+
     }
 
+
+    /* =========================
+       ARTICLE CARD
+    ========================== */
 
     .article-card {
 
@@ -623,6 +825,7 @@
         4px solid var(--text);
 
       padding-top: 14px;
+
     }
 
 
@@ -637,6 +840,7 @@
       object-fit: cover;
 
       margin-bottom: 16px;
+
     }
 
 
@@ -652,6 +856,7 @@
       gap: 8px;
 
       margin-bottom: 10px;
+
     }
 
 
@@ -666,6 +871,7 @@
       letter-spacing: 1.1px;
 
       text-transform: uppercase;
+
     }
 
 
@@ -674,6 +880,7 @@
       color: var(--muted);
 
       font-size: 11px;
+
     }
 
 
@@ -690,6 +897,7 @@
       line-height: 1.05;
 
       letter-spacing: -0.6px;
+
     }
 
 
@@ -698,11 +906,14 @@
       color: var(--text);
 
       text-decoration: none;
+
     }
 
 
     .article-card h2 a:hover {
+
       color: var(--accent);
+
     }
 
 
@@ -720,6 +931,7 @@
       line-height: 1.6;
 
       margin-bottom: 13px;
+
     }
 
 
@@ -728,10 +940,33 @@
       color: var(--muted);
 
       font-size: 11px;
+
     }
 
 
-    /* READ ALSO */
+    .article-card-author a {
+
+      color: var(--muted);
+
+      font-weight: bold;
+
+      text-decoration: none;
+
+    }
+
+
+    .article-card-author a:hover {
+
+      color: var(--accent);
+
+      text-decoration: underline;
+
+    }
+
+
+    /* =========================
+       READ ALSO
+    ========================== */
 
     .read-also {
 
@@ -744,6 +979,7 @@
 
       box-shadow:
         8px 8px 0 var(--shadow);
+
     }
 
 
@@ -758,6 +994,7 @@
       letter-spacing: 1.4px;
 
       text-transform: uppercase;
+
     }
 
 
@@ -779,6 +1016,7 @@
       font-size: 29px;
 
       line-height: 1;
+
     }
 
 
@@ -796,6 +1034,7 @@
 
       border-bottom:
         1px solid var(--soft-border);
+
     }
 
 
@@ -810,6 +1049,7 @@
       font-size: 20px;
 
       font-weight: bold;
+
     }
 
 
@@ -822,6 +1062,7 @@
       font-size: 18px;
 
       line-height: 1.15;
+
     }
 
 
@@ -830,11 +1071,14 @@
       color: var(--text);
 
       text-decoration: none;
+
     }
 
 
     .read-item h3 a:hover {
+
       color: var(--accent);
+
     }
 
 
@@ -847,8 +1091,13 @@
       font-size: 10px;
 
       text-transform: uppercase;
+
     }
 
+
+    /* =========================
+       EMPTY
+    ========================== */
 
     #empty-message {
 
@@ -864,6 +1113,7 @@
         3px solid var(--text);
 
       text-align: center;
+
     }
 
 
@@ -876,6 +1126,7 @@
       font-size: 25px;
 
       margin-bottom: 7px;
+
     }
 
 
@@ -884,10 +1135,13 @@
       color: var(--muted);
 
       font-size: 13px;
+
     }
 
 
-    /* NEWSLETTER */
+    /* =========================
+       NEWSLETTER
+    ========================== */
 
     .newsletter {
 
@@ -906,6 +1160,7 @@
         1px solid var(--border);
 
       overflow: hidden;
+
     }
 
 
@@ -922,6 +1177,7 @@
       font-weight: bold;
 
       letter-spacing: 1.8px;
+
     }
 
 
@@ -935,10 +1191,13 @@
         0 auto;
 
       text-align: center;
+
     }
 
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================== */
 
     footer {
 
@@ -952,6 +1211,7 @@
 
       border-top:
         1px solid var(--border);
+
     }
 
 
@@ -962,6 +1222,7 @@
 
       margin:
         0 auto;
+
     }
 
 
@@ -977,6 +1238,7 @@
         10px 22px;
 
       margin-bottom: 20px;
+
     }
 
 
@@ -994,12 +1256,14 @@
 
       transition:
         color 0.2s ease;
+
     }
 
 
     .footer-links a:hover {
 
       color: var(--accent);
+
     }
 
 
@@ -1010,10 +1274,13 @@
       text-align: center;
 
       font-size: 12px;
+
     }
 
 
-    /* TABLET */
+    /* =========================
+       TABLET
+    ========================== */
 
     @media (max-width: 950px) {
 
@@ -1022,27 +1289,36 @@
         grid-template-columns: 1fr;
 
         gap: 30px;
+
       }
 
 
       .featured-image {
+
         height: 420px;
+
       }
 
 
       .content-layout {
+
         grid-template-columns: 1fr;
+
       }
 
 
       .read-also {
+
         box-shadow: none;
+
       }
 
     }
 
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================== */
 
     @media (max-width: 650px) {
 
@@ -1050,16 +1326,28 @@
 
         padding:
           22px 5% 0;
+
+      }
+
+
+      .header-top {
+
+        gap: 14px;
+
       }
 
 
       .logo {
+
         font-size: 34px;
+
       }
 
 
       .header-actions {
+
         gap: 7px;
+
       }
 
 
@@ -1070,22 +1358,23 @@
         margin-right: 1px;
 
         font-size: 10px;
+
       }
 
 
       .icon-button {
 
         width: 37px;
-
         height: 37px;
+
       }
 
 
       .icon-button svg {
 
         width: 18px;
-
         height: 18px;
+
       }
 
 
@@ -1096,11 +1385,14 @@
 
         padding:
           15px 0;
+
       }
 
 
       nav a {
+
         font-size: 10px;
+
       }
 
 
@@ -1109,11 +1401,14 @@
         width: 90%;
 
         margin-top: 40px;
+
       }
 
 
       .featured {
+
         padding-bottom: 45px;
+
       }
 
 
@@ -1122,21 +1417,28 @@
         font-size: 34px;
 
         line-height: 1.07;
+
       }
 
 
       .featured-excerpt {
+
         font-size: 16px;
+
       }
 
 
       .featured-image {
+
         height: 280px;
+
       }
 
 
       .section-title {
+
         font-size: 33px;
+
       }
 
 
@@ -1145,16 +1447,21 @@
         grid-template-columns: 1fr;
 
         gap: 35px;
+
       }
 
 
       .article-card-image {
+
         height: 230px;
+
       }
 
 
       .article-card h2 {
+
         font-size: 26px;
+
       }
 
 
@@ -1162,6 +1469,7 @@
 
         padding:
           30px 8px;
+
       }
 
 
@@ -1169,12 +1477,47 @@
 
         gap:
           11px 17px;
+
       }
 
 
       .footer-links a {
 
         font-size: 10px;
+
+      }
+
+    }
+
+
+    @media (max-width: 470px) {
+
+      .logo {
+
+        font-size: 29px;
+
+      }
+
+
+      .header-actions {
+
+        gap: 5px;
+
+      }
+
+
+      .language-switch {
+
+        font-size: 9px;
+
+      }
+
+
+      .icon-button {
+
+        width: 34px;
+        height: 34px;
+
       }
 
     }
@@ -1187,21 +1530,22 @@
 <body>
 
 
+<!-- =========================
+     HEADER
+========================== -->
+
 <header>
 
-
   <div class="header-top">
-
 
     <a
       href="{{ '/' | relative_url }}"
       class="logo-link"
+      aria-label="BiomedFacts"
     >
 
       <div class="logo">
-
         Biomed<span>Facts</span>
-
       </div>
 
     </a>
@@ -1209,6 +1553,8 @@
 
     <div class="header-actions">
 
+
+      <!-- LANGUAGE -->
 
       <div
         class="language-switch"
@@ -1223,11 +1569,9 @@
           EL
         </a>
 
-
         <span class="language-divider">
           |
         </span>
-
 
         <a
           href="{{ '/en/' | relative_url }}"
@@ -1240,6 +1584,8 @@
       </div>
 
 
+      <!-- THEME -->
+
       <button
         class="icon-button"
         id="theme-toggle"
@@ -1248,17 +1594,14 @@
         title="Light / Dark mode"
       >
 
-
         <svg
           class="moon-icon"
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
-
           <path
             d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"
           ></path>
-
         </svg>
 
 
@@ -1276,17 +1619,32 @@
 
           <path d="M12 2v2"></path>
           <path d="M12 20v2"></path>
-          <path d="M4.93 4.93l1.41 1.41"></path>
-          <path d="M17.66 17.66l1.41 1.41"></path>
+
+          <path
+            d="M4.93 4.93l1.41 1.41"
+          ></path>
+
+          <path
+            d="M17.66 17.66l1.41 1.41"
+          ></path>
+
           <path d="M2 12h2"></path>
           <path d="M20 12h2"></path>
-          <path d="M4.93 19.07l1.41-1.41"></path>
-          <path d="M17.66 6.34l1.41-1.41"></path>
+
+          <path
+            d="M4.93 19.07l1.41-1.41"
+          ></path>
+
+          <path
+            d="M17.66 6.34l1.41-1.41"
+          ></path>
 
         </svg>
 
       </button>
 
+
+      <!-- INSTAGRAM -->
 
       <a
         class="icon-button instagram-button"
@@ -1310,11 +1668,14 @@
 
       </a>
 
-
     </div>
 
   </div>
 
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
 
   <nav id="category-nav">
 
@@ -1326,223 +1687,194 @@
       Αρχική
     </a>
 
-    <a href="#latest" data-filter="Υγεία">
+    <a
+      href="#latest"
+      data-filter="Υγεία"
+    >
       Υγεία
     </a>
 
-    <a href="#latest" data-filter="Διατροφή">
+    <a
+      href="#latest"
+      data-filter="Διατροφή"
+    >
       Διατροφή
     </a>
 
-    <a href="#latest" data-filter="Γυναικεία Υγεία">
+    <a
+      href="#latest"
+      data-filter="Γυναικεία Υγεία"
+    >
       Γυναικεία Υγεία
     </a>
 
-    <a href="#latest" data-filter="Εξετάσεις">
+    <a
+      href="#latest"
+      data-filter="Εξετάσεις"
+    >
       Εξετάσεις
     </a>
 
-    <a href="#latest" data-filter="Fact-Checking">
+    <a
+      href="#latest"
+      data-filter="Fact-Checking"
+    >
       Fact-Checking
     </a>
 
-    <a href="#latest" data-filter="Νέα">
+    <a
+      href="#latest"
+      data-filter="Νέα"
+    >
       Νέα
     </a>
 
-    <a href="#latest" data-filter="Έρευνα">
+    <a
+      href="#latest"
+      data-filter="Έρευνα"
+    >
       Έρευνα
     </a>
 
   </nav>
 
-
 </header>
 
 
+<!-- =========================
+     MAIN
+========================== -->
 
 <main>
 
 
-{% assign featured_post = nil %}
+  <!-- =========================
+       FEATURED ARTICLE
+  ========================== -->
+
+  {% if featured_post %}
+
+    <section
+      class="featured"
+      id="featured-section"
+    >
 
 
-{% for post in site.posts %}
-
-  {% unless post.path contains "en/_posts" %}
-
-    {% if post.featured == true %}
-
-      {% assign featured_post = post %}
-
-      {% break %}
-
-    {% endif %}
-
-  {% endunless %}
-
-{% endfor %}
+      <div class="featured-content">
 
 
-{% unless featured_post %}
+        <div class="featured-topline">
 
-  {% for post in site.posts %}
+          <span class="featured-category">
+            {{ featured_post.category }}
+          </span>
 
-    {% unless post.path contains "en/_posts" %}
+          <span class="featured-date">
+            {{ featured_post.date | date: "%d/%m/%Y" }}
+          </span>
 
-      {% assign featured_post = post %}
-
-      {% break %}
-
-    {% endunless %}
-
-  {% endfor %}
-
-{% endunless %}
+        </div>
 
 
+        <h1 class="featured-title">
 
-{% if featured_post %}
+          <a
+            href="{{ featured_post.url | relative_url }}"
+          >
+            {{ featured_post.title }}
+          </a>
 
-<section
-  class="featured"
-  id="featured-section"
->
-
-
-  <div class="featured-content">
-
-
-    <div class="featured-topline">
+        </h1>
 
 
-      <span class="featured-category">
+        {% if featured_post.excerpt %}
 
-        {{ featured_post.category }}
+          <p class="featured-excerpt">
+            {{ featured_post.excerpt | strip_html }}
+          </p>
 
-      </span>
+        {% endif %}
 
 
-      <span class="featured-date">
+        <p class="featured-author">
 
-        {{ featured_post.date | date: "%d/%m/%Y" }}
+          <a
+            href="{{ '/author/' | relative_url }}"
+            rel="author"
+          >
+            {{ featured_post.author | default: "Dimitra M, BSc Biomedical Science" }}
+          </a>
 
-      </span>
+        </p>
 
+      </div>
+
+
+      <div>
+
+        {% if featured_post.image %}
+
+          <a
+            href="{{ featured_post.url | relative_url }}"
+          >
+
+            <img
+              class="featured-image"
+              src="{{ featured_post.image | relative_url }}"
+              alt="{{ featured_post.title | escape }}"
+              loading="eager"
+              fetchpriority="high"
+            >
+
+          </a>
+
+        {% endif %}
+
+      </div>
+
+    </section>
+
+  {% endif %}
+
+
+  <!-- =========================
+       LATEST ARTICLES
+  ========================== -->
+
+  <section
+    class="latest-area"
+    id="latest"
+  >
+
+    <div class="section-header">
+
+      <h2
+        class="section-title"
+        id="section-title"
+      >
+        Τελευταία άρθρα
+      </h2>
 
     </div>
 
 
-    <h1 class="featured-title">
-
-      <a
-        href="{{ featured_post.url | relative_url }}"
-      >
-
-        {{ featured_post.title }}
-
-      </a>
-
-    </h1>
+    <div class="content-layout">
 
 
-    {% if featured_post.excerpt %}
+      <!-- ARTICLES -->
 
-      <p class="featured-excerpt">
+      <div class="articles-grid">
 
-        {{ featured_post.excerpt | strip_html }}
+        {% assign latest_count = 0 %}
 
-      </p>
-
-    {% endif %}
-
-
-    {% if featured_post.author %}
-
-      <p class="featured-author">
-
-        {{ featured_post.author }}
-
-      </p>
-
-    {% endif %}
-
-
-  </div>
-
-
-  <div>
-
-
-    {% if featured_post.image %}
-
-      <a
-        href="{{ featured_post.url | relative_url }}"
-      >
-
-        <img
-          class="featured-image"
-          src="{{ featured_post.image }}"
-          alt="{{ featured_post.title | escape }}"
-        >
-
-      </a>
-
-    {% endif %}
-
-
-  </div>
-
-
-</section>
-
-{% endif %}
-
-
-
-<section
-  class="latest-area"
-  id="latest"
->
-
-
-  <div class="section-header">
-
-    <h2
-      class="section-title"
-      id="section-title"
-    >
-
-      Τελευταία άρθρα
-
-    </h2>
-
-  </div>
-
-
-  <div class="content-layout">
-
-
-    <div class="articles-grid">
-
-
-      {% assign latest_count = 0 %}
-
-
-      {% for post in site.posts %}
-
-
-        {% unless post.path contains "en/_posts" %}
-
+        {% for post in greek_posts %}
 
           {% if post.url != featured_post.url and latest_count < 4 %}
-
 
             <article
               class="article-card filterable"
               data-category="{{ post.category | escape }}"
             >
-
 
               {% if post.image %}
 
@@ -1552,7 +1884,7 @@
 
                   <img
                     class="article-card-image"
-                    src="{{ post.image }}"
+                    src="{{ post.image | relative_url }}"
                     alt="{{ post.title | escape }}"
                     loading="lazy"
                   >
@@ -1564,20 +1896,13 @@
 
               <div class="article-card-meta">
 
-
                 <span class="article-card-category">
-
                   {{ post.category }}
-
                 </span>
-
 
                 <span class="article-card-date">
-
                   {{ post.date | date: "%d/%m/%Y" }}
-
                 </span>
-
 
               </div>
 
@@ -1587,9 +1912,7 @@
                 <a
                   href="{{ post.url | relative_url }}"
                 >
-
                   {{ post.title }}
-
                 </a>
 
               </h2>
@@ -1598,24 +1921,22 @@
               {% if post.excerpt %}
 
                 <p class="article-card-excerpt">
-
                   {{ post.excerpt | strip_html }}
-
                 </p>
 
               {% endif %}
 
 
-              {% if post.author %}
+              <p class="article-card-author">
 
-                <p class="article-card-author">
+                <a
+                  href="{{ '/author/' | relative_url }}"
+                  rel="author"
+                >
+                  {{ post.author | default: "Dimitra M, BSc Biomedical Science" }}
+                </a>
 
-                  {{ post.author }}
-
-                </p>
-
-              {% endif %}
-
+              </p>
 
             </article>
 
@@ -1623,104 +1944,78 @@
             {% assign latest_count =
               latest_count | plus: 1 %}
 
-
           {% endif %}
 
-
-        {% endunless %}
-
-
-      {% endfor %}
-
-
-    </div>
-
-
-
-    <aside class="read-also">
-
-
-      <div class="read-also-label">
-
-        BIOMEDFACTS
+        {% endfor %}
 
       </div>
 
 
-      <h2 class="read-also-title">
+      <!-- =========================
+           READ ALSO
+      ========================== -->
 
-        Διαβάστε επίσης
-
-      </h2>
-
-
-      {% assign skipped = 0 %}
-      {% assign read_count = 0 %}
+      <aside class="read-also">
 
 
-      {% for post in site.posts %}
+        <div class="read-also-label">
+          BIOMEDFACTS
+        </div>
 
 
-        {% unless post.path contains "en/_posts" %}
+        <h2 class="read-also-title">
+          Διαβάστε επίσης
+        </h2>
 
+
+        {% assign skipped = 0 %}
+        {% assign read_count = 0 %}
+
+
+        {% for post in greek_posts %}
 
           {% if post.url != featured_post.url %}
 
-
             {% if skipped < 4 %}
-
 
               {% assign skipped =
                 skipped | plus: 1 %}
 
-
             {% elsif read_count < 4 %}
-
 
               <div
                 class="read-item filterable"
                 data-category="{{ post.category | escape }}"
               >
 
-
                 <div class="read-number">
-
 
                   {% assign number =
                     read_count | plus: 1 %}
 
-
                   0{{ number }}
-
 
                 </div>
 
 
                 <div>
 
-
                   <h3>
 
                     <a
                       href="{{ post.url | relative_url }}"
                     >
-
                       {{ post.title }}
-
                     </a>
 
                   </h3>
 
 
                   <div class="read-item-category">
-
                     {{ post.category }}
-
                   </div>
 
-
                 </div>
-
 
               </div>
 
@@ -1728,147 +2023,145 @@
               {% assign read_count =
                 read_count | plus: 1 %}
 
-
             {% endif %}
-
 
           {% endif %}
 
-
-        {% endunless %}
-
-
-      {% endfor %}
+        {% endfor %}
 
 
-      {% if read_count == 0 %}
+        {% if read_count == 0 %}
 
-        <p
-          style="
-            color:var(--muted);
-            font-size:13px;
-            padding-top:5px;
-          "
-        >
+          <p
+            style="
+              color:var(--muted);
+              font-size:13px;
+              padding-top:5px;
+            "
+          >
+            Περισσότερα άρθρα σύντομα.
+          </p>
 
-          Περισσότερα άρθρα σύντομα.
+        {% endif %}
 
-        </p>
+      </aside>
 
-      {% endif %}
-
-
-    </aside>
-
-
-  </div>
+    </div>
 
 
-  <section id="empty-message">
+    <!-- EMPTY CATEGORY -->
 
-    <h2>
+    <section id="empty-message">
 
-      Δεν υπάρχουν ακόμη άρθρα
-      σε αυτή την κατηγορία.
+      <h2>
+        Δεν υπάρχουν ακόμη άρθρα
+        σε αυτή την κατηγορία.
+      </h2>
 
-    </h2>
+      <p>
+        Νέο περιεχόμενο θα προστεθεί σύντομα.
+      </p>
 
-    <p>
-
-      Νέο περιεχόμενο θα προστεθεί σύντομα.
-
-    </p>
+    </section>
 
   </section>
 
 
-</section>
+  <!-- =========================
+       NEWSLETTER
+  ========================== -->
+
+  <section class="newsletter">
+
+    <p class="newsletter-heading">
+      BIOMEDFACTS NEWSLETTER
+    </p>
 
 
+    <div class="beehiiv-form-container">
 
-<section class="newsletter">
+      <script
+        async
+        src="https://subscribe-forms.beehiiv.com/v3/loader.js"
+        data-beehiiv-form="5b6c64fa-4be2-4884-a199-d0ebe1f9ed51"
+      ></script>
 
+    </div>
 
-  <p class="newsletter-heading">
-
-    BIOMEDFACTS NEWSLETTER
-
-  </p>
-
-
-  <div class="beehiiv-form-container">
-
-
-    <script
-      async
-      src="https://subscribe-forms.beehiiv.com/v3/loader.js"
-      data-beehiiv-form="5b6c64fa-4be2-4884-a199-d0ebe1f9ed51"
-    ></script>
-
-
-  </div>
-
-
-</section>
+  </section>
 
 
 </main>
 
 
+<!-- =========================
+     FOOTER
+========================== -->
 
 <footer>
-
 
   <div class="footer-inner">
 
 
     <div class="footer-links">
 
-
-      <a href="{{ '/about/' | relative_url }}">
+      <a
+        href="{{ '/about/' | relative_url }}"
+      >
         Σχετικά με το BiomedFacts
       </a>
 
 
-      <a href="{{ '/editorial-policy/' | relative_url }}">
+      <a
+        href="{{ '/editorial-policy/' | relative_url }}"
+      >
         Μεθοδολογία
       </a>
 
 
-      <a href="{{ '/medical-disclaimer/' | relative_url }}">
+      <a
+        href="{{ '/medical-disclaimer/' | relative_url }}"
+      >
         Ιατρική αποποίηση ευθύνης
       </a>
 
 
-      <a href="{{ '/privacy-policy/' | relative_url }}">
+      <a
+        href="{{ '/privacy-policy/' | relative_url }}"
+      >
         Πολιτική απορρήτου
       </a>
 
 
-      <a href="{{ '/contact/' | relative_url }}">
+      <a
+        href="{{ '/contact/' | relative_url }}"
+      >
         Επικοινωνία
       </a>
-
 
     </div>
 
 
     <div class="footer-copy">
-
       © 2026 BiomedFacts · Evidence-based science communication
-
     </div>
 
-
   </div>
-
 
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================== -->
 
 <script>
 
+
+  /* =========================
+     LANGUAGE MEMORY
+     NO AUTO REDIRECT
+  ========================== */
 
   const languageLinks =
     document.querySelectorAll(
@@ -1893,6 +2186,9 @@
   });
 
 
+  /* =========================
+     THEME
+  ========================== */
 
   const themeToggle =
     document.getElementById(
@@ -1903,7 +2199,6 @@
   themeToggle.addEventListener(
     "click",
     function () {
-
 
       const currentTheme =
         document.documentElement
@@ -1930,11 +2225,13 @@
         newTheme
       );
 
-
     }
   );
 
 
+  /* =========================
+     CATEGORY FILTERS
+  ========================== */
 
   const categoryLinks =
     document.querySelectorAll(
@@ -1966,9 +2263,7 @@
     );
 
 
-
   categoryLinks.forEach(link => {
-
 
     link.addEventListener(
       "click",
@@ -2028,7 +2323,6 @@
 
             }
 
-
           }
         );
 
@@ -2058,7 +2352,10 @@
         }
 
 
-        if (visible === 0) {
+        if (
+          visible === 0 &&
+          category !== "all"
+        ) {
 
           emptyMessage.style.display =
             "block";
@@ -2078,15 +2375,12 @@
           .scrollIntoView({
 
             behavior: "smooth",
-
             block: "start"
 
           });
 
-
       }
     );
-
 
   });
 
