@@ -33,6 +33,14 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <!-- FAVICON -->
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="{{ '/favicon.svg' | relative_url }}"
+  >
+
   <!-- SEO -->
 
   <title>BiomedFacts | Evidence-Based Health & Biomedical Science</title>
@@ -180,7 +188,6 @@
 
   </script>
 
-
   <style>
 
     :root {
@@ -231,9 +238,6 @@
       color: inherit;
     }
 
-
-    /* HEADER */
-
     header {
       background: var(--surface);
       border-top: 5px solid var(--top-border);
@@ -272,9 +276,6 @@
       gap: 10px;
     }
 
-
-    /* LANGUAGE */
-
     .language-switch {
       display: flex;
       align-items: center;
@@ -298,9 +299,6 @@
     .language-divider {
       color: var(--border);
     }
-
-
-    /* ICON BUTTONS */
 
     .icon-button {
       width: 44px;
@@ -358,9 +356,6 @@
       display: none;
     }
 
-
-    /* NAV */
-
     nav {
       display: flex;
       align-items: center;
@@ -384,16 +379,10 @@
       color: var(--accent);
     }
 
-
-    /* MAIN */
-
     main {
       width: min(1250px, 88%);
       margin: 65px auto;
     }
-
-
-    /* FEATURED */
 
     .featured {
       display: grid;
@@ -482,9 +471,6 @@
       border: 1px solid var(--text);
     }
 
-
-    /* LATEST */
-
     .latest-area {
       margin-top: 65px;
     }
@@ -517,9 +503,6 @@
         repeat(2, minmax(0, 1fr));
       gap: 42px 30px;
     }
-
-
-    /* ARTICLE CARD */
 
     .article-card {
       border-top: 4px solid var(--text);
@@ -596,9 +579,6 @@
       text-decoration: underline;
     }
 
-
-    /* READ ALSO */
-
     .read-also {
       background: var(--surface);
       border-top: 5px solid var(--accent);
@@ -661,9 +641,6 @@
       text-transform: uppercase;
     }
 
-
-    /* EMPTY */
-
     #empty-message {
       display: none;
       margin-top: 30px;
@@ -701,9 +678,6 @@
       color: var(--muted);
     }
 
-
-    /* NEWSLETTER */
-
     .newsletter {
       margin-top: 75px;
       padding: 36px 20px;
@@ -728,9 +702,6 @@
       margin: 0 auto;
       text-align: center;
     }
-
-
-    /* FOOTER */
 
     footer {
       margin-top: 65px;
@@ -770,9 +741,6 @@
       font-size: 12px;
     }
 
-
-    /* TABLET */
-
     @media (max-width: 950px) {
 
       .featured {
@@ -793,9 +761,6 @@
       }
 
     }
-
-
-    /* MOBILE */
 
     @media (max-width: 650px) {
 
@@ -1031,60 +996,35 @@
 
   <nav id="category-nav">
 
-    <a
-      href="#latest"
-      data-filter="all"
-      class="active"
-    >
+    <a href="#latest" data-filter="all" class="active">
       Home
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Health"
-    >
+    <a href="#latest" data-filter="Health">
       Health
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Nutrition"
-    >
+    <a href="#latest" data-filter="Nutrition">
       Nutrition
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Women's Health"
-    >
+    <a href="#latest" data-filter="Women's Health">
       Women's Health
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Lab Tests"
-    >
+    <a href="#latest" data-filter="Lab Tests">
       Lab Tests
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Fact-Checking"
-    >
+    <a href="#latest" data-filter="Fact-Checking">
       Fact-Checking
     </a>
 
-    <a
-      href="#latest"
-      data-filter="News"
-    >
+    <a href="#latest" data-filter="News">
       News
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Research"
-    >
+    <a href="#latest" data-filter="Research">
       Research
     </a>
 
@@ -1465,8 +1405,6 @@
 
 <script>
 
-  /* LANGUAGE MEMORY — NO AUTO REDIRECT */
-
   const languageLinks =
     document.querySelectorAll(
       ".language-link"
@@ -1488,8 +1426,6 @@
 
   });
 
-
-  /* THEME */
 
   const themeToggle =
     document.getElementById(
@@ -1525,8 +1461,6 @@
     }
   );
 
-
-  /* CATEGORY FILTERS */
 
   const categoryLinks =
     document.querySelectorAll(
@@ -1593,15 +1527,12 @@
               articleCategory === category
             ) {
 
-              article.style.display =
-                "";
-
+              article.style.display = "";
               visible++;
 
             } else {
 
-              article.style.display =
-                "none";
+              article.style.display = "none";
 
             }
 
