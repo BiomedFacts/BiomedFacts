@@ -3,7 +3,7 @@ title: "How to Reduce Your Cancer Risk: 5 Practical, Science-Based Steps"
 date: 2026-09-12
 category: Health
 translation_key: CANCER-001
-image: /BiomedFacts/assets/images/untitleddesign20251110t1755336187867b61646.png
+image: /assets/images/untitleddesign20251110t1755336187867b61646.png
 excerpt: Cancer cannot always be prevented, but several major risk factors are
   modifiable. Discover five evidence-based ways to reduce cancer risk.
 author: Dimitra M, BSc Biomedical Science
