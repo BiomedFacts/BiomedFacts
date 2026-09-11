@@ -1,3 +1,9 @@
+title: BiomedFacts
+description: Evidence-based health & biomedical science publication
+
+url: "https://biomedfacts.com"
+baseurl: ""
+
 timezone: Europe/Athens
 
 defaults:
