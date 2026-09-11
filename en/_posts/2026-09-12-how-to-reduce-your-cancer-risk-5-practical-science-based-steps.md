@@ -161,18 +161,12 @@ It is about understanding which risks we can influence — and making informed c
 
 **References**
 
-1. Dart H, Wolin KY, Colditz GA. Commentary: Eight Ways to Prevent Cancer: a framework for effective prevention messages for the public. Cancer Causes Control. 2012;23(4):601–608. doi:10.1007/s10552-012-9924-y. 
-
-2. Nahleh Z, Bhatti NS, Mal M. How to reduce your cancer risk: mechanisms and myths. Int J Gen Med. 2011;4:277–287. doi:10.2147/IJGM.S18657. 
-
-3. International Agency for Research on Cancer. Human Cancer: Known Causes and Prevention by Organ Site. IARC Monographs on the Identification of Carcinogenic Hazards to Humans. Updated August 19, 2025. 
-
-4. Marino P, Mininni M, Deiana G, et al. Healthy Lifestyle and Cancer Risk: Modifiable Risk Factors to Prevent Cancer. Nutrients. 2024;16(6):800. doi:10.3390/nu16060800. 
-
-5. Centers for Disease Control and Prevention. Preventing Cancer. CDC. Updated January 16, 2025. 
-
-6. PDQ Screening and Prevention Editorial Board. Cancer Prevention Overview (PDQ®)–Patient Version. National Cancer Institute. Updated May 2, 2025. 
-
-7. World Health Organization. Cancer. WHO Fact Sheet. Updated July 3, 2026. 
-
+1. Dart H, Wolin KY, Colditz GA. Commentary: Eight Ways to Prevent Cancer: a framework for effective prevention messages for the public. Cancer Causes Control. 2012;23(4):601–608. doi:10.1007/s10552-012-9924-y.
+2. Nahleh Z, Bhatti NS, Mal M. How to reduce your cancer risk: mechanisms and myths. Int J Gen Med. 2011;4:277–287. doi:10.2147/IJGM.S18657.
+3. International Agency for Research on Cancer. Human Cancer: Known Causes and Prevention by Organ Site. IARC Monographs on the Identification of Carcinogenic Hazards to Humans. Updated August 19, 2025.
+4. Marino P, Mininni M, Deiana G, et al. Healthy Lifestyle and Cancer Risk: Modifiable Risk Factors to Prevent Cancer. Nutrients. 2024;16(6):800. doi:10.3390/nu16060800.
+5. Centers for Disease Control and Prevention. Preventing Cancer. CDC. Updated January 16, 2025.
+6. PDQ Screening and Prevention Editorial Board. Cancer Prevention Overview (PDQ®)–Patient Version. National Cancer Institute. Updated May 2, 2025.
+7. World Health Organization. Cancer. WHO Fact Sheet. Updated July 3, 2026.
 8. Mayo Clinic Staff. Cancer Risk: What the Numbers Mean. Mayo Clinic. March 29, 2024.
+
