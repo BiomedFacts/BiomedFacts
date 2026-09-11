@@ -19,6 +19,7 @@
 %}
 
 {% assign canonical_url = page.url | absolute_url %}
+{% assign social_image = '/assets/images/biomedfacts-social.png' | absolute_url %}
 
 {% assign is_author_page = false %}
 {% if page.url == "/author/" or page.url == "/en/author/" %}
@@ -60,7 +61,6 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-
   <!-- FAVICON -->
 
   <link
@@ -68,7 +68,6 @@
     type="image/svg+xml"
     href="{{ '/favicon.svg' | relative_url }}"
   >
-
 
   <!-- BASIC SEO -->
 
@@ -88,7 +87,6 @@
     rel="canonical"
     href="{{ canonical_url }}"
   >
-
 
   <!-- HREFLANG -->
 
@@ -110,13 +108,9 @@
     href="{{ x_default_url }}"
   >
 
-
   <!-- OPEN GRAPH -->
 
-  <meta
-    property="og:type"
-    content="website"
-  >
+  <meta property="og:type" content="website">
 
   <meta
     property="og:site_name"
@@ -139,6 +133,26 @@
   >
 
   <meta
+    property="og:image"
+    content="{{ social_image }}"
+  >
+
+  <meta
+    property="og:image:alt"
+    content="BiomedFacts — Evidence-based science communication"
+  >
+
+  <meta
+    property="og:image:width"
+    content="1200"
+  >
+
+  <meta
+    property="og:image:height"
+    content="630"
+  >
+
+  <meta
     property="og:locale"
     content="{% if is_english %}en_US{% else %}el_GR{% endif %}"
   >
@@ -148,12 +162,11 @@
     content="{% if is_english %}el_GR{% else %}en_US{% endif %}"
   >
 
-
   <!-- SOCIAL -->
 
   <meta
     name="twitter:card"
-    content="summary"
+    content="summary_large_image"
   >
 
   <meta
@@ -166,6 +179,15 @@
     content="{{ seo_description | escape }}"
   >
 
+  <meta
+    name="twitter:image"
+    content="{{ social_image }}"
+  >
+
+  <meta
+    name="twitter:image:alt"
+    content="BiomedFacts — Evidence-based science communication"
+  >
 
   <!-- STRUCTURED DATA -->
 
@@ -201,12 +223,15 @@
         },
         "publisher": {
           "@id": "https://biomedfacts.com/#organization"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": {{ social_image | jsonify }}
         }
       }
     ]
   }
   </script>
-
 
   {% if is_author_page %}
 
@@ -232,8 +257,7 @@
 
   {% endif %}
 
-
-  <!-- THEME BEFORE PAGE LOAD -->
+  <!-- THEME -->
 
   <script>
 
@@ -263,7 +287,6 @@
     })();
 
   </script>
-
 
   <style>
 
@@ -316,9 +339,6 @@
       color: inherit;
     }
 
-
-    /* HEADER */
-
     .site-header {
       background: var(--surface);
       border-top: 5px solid var(--top-border);
@@ -357,9 +377,6 @@
       gap: 10px;
     }
 
-
-    /* LANGUAGE */
-
     .language-switch {
       display: flex;
       align-items: center;
@@ -384,22 +401,15 @@
       color: var(--border);
     }
 
-
-    /* ICON BUTTONS */
-
     .icon-button {
       width: 44px;
       height: 44px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       background: var(--surface);
       color: var(--text);
-
       border: 1px solid var(--text);
-
       text-decoration: none;
       cursor: pointer;
 
@@ -448,9 +458,6 @@
       display: none;
     }
 
-
-    /* NAVIGATION */
-
     nav {
       display: flex;
       align-items: center;
@@ -472,9 +479,6 @@
     nav a:hover {
       color: var(--accent);
     }
-
-
-    /* PAGE */
 
     .page-container {
       width: min(920px, 88%);
@@ -573,9 +577,6 @@
       font-style: italic;
     }
 
-
-    /* BACK LINK */
-
     .page-end {
       max-width: 780px;
       margin: 55px auto 0;
@@ -593,9 +594,6 @@
     .back-home:hover {
       text-decoration: underline;
     }
-
-
-    /* NEWSLETTER */
 
     .newsletter {
       width: min(920px, 88%);
@@ -622,9 +620,6 @@
       margin: 0 auto;
       text-align: center;
     }
-
-
-    /* FOOTER */
 
     footer {
       margin-top: 65px;
@@ -663,9 +658,6 @@
       text-align: center;
       font-size: 12px;
     }
-
-
-    /* MOBILE */
 
     @media (max-width: 700px) {
 
@@ -797,7 +789,6 @@
 
     <div class="header-actions">
 
-
       <div
         class="language-switch"
         aria-label="{% if is_english %}Language{% else %}Γλώσσα{% endif %}"
@@ -827,11 +818,7 @@
 
           {% endif %}
 
-
-          <span class="language-divider">
-            |
-          </span>
-
+          <span class="language-divider">|</span>
 
           <a
             href="{{ page.url | relative_url }}"
@@ -841,9 +828,7 @@
             EN
           </a>
 
-
         {% else %}
-
 
           <a
             href="{{ page.url | relative_url }}"
@@ -853,11 +838,7 @@
             EL
           </a>
 
-
-          <span class="language-divider">
-            |
-          </span>
-
+          <span class="language-divider">|</span>
 
           {% if page.translation_url %}
 
@@ -881,7 +862,6 @@
 
           {% endif %}
 
-
         {% endif %}
 
       </div>
@@ -895,29 +875,12 @@
         title="Light / Dark mode"
       >
 
-        <svg
-          class="moon-icon"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"
-          ></path>
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
         </svg>
 
-
-        <svg
-          class="sun-icon"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-
-          <circle
-            cx="12"
-            cy="12"
-            r="4"
-          ></circle>
-
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
           <path d="M12 2v2"></path>
           <path d="M12 20v2"></path>
           <path d="M4.93 4.93l1.41 1.41"></path>
@@ -926,7 +889,6 @@
           <path d="M20 12h2"></path>
           <path d="M4.93 19.07l1.41-1.41"></path>
           <path d="M17.66 6.34l1.41-1.41"></path>
-
         </svg>
 
       </button>
@@ -941,10 +903,7 @@
         title="Instagram"
       >
 
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
 
           <path
             d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
@@ -963,37 +922,14 @@
 
     <nav>
 
-      <a href="{{ '/en/' | relative_url }}">
-        Home
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Health
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Nutrition
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Women's Health
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Lab Tests
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Fact-Checking
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        News
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Research
-      </a>
+      <a href="{{ '/en/' | relative_url }}">Home</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Health</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Nutrition</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Women's Health</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Lab Tests</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Fact-Checking</a>
+      <a href="{{ '/en/' | relative_url }}#latest">News</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Research</a>
 
     </nav>
 
@@ -1001,37 +937,14 @@
 
     <nav>
 
-      <a href="{{ '/' | relative_url }}">
-        Αρχική
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Υγεία
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Διατροφή
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Γυναικεία Υγεία
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Εξετάσεις
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Fact-Checking
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Νέα
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Έρευνα
-      </a>
+      <a href="{{ '/' | relative_url }}">Αρχική</a>
+      <a href="{{ '/' | relative_url }}#latest">Υγεία</a>
+      <a href="{{ '/' | relative_url }}#latest">Διατροφή</a>
+      <a href="{{ '/' | relative_url }}#latest">Γυναικεία Υγεία</a>
+      <a href="{{ '/' | relative_url }}#latest">Εξετάσεις</a>
+      <a href="{{ '/' | relative_url }}#latest">Fact-Checking</a>
+      <a href="{{ '/' | relative_url }}#latest">Νέα</a>
+      <a href="{{ '/' | relative_url }}#latest">Έρευνα</a>
 
     </nav>
 
