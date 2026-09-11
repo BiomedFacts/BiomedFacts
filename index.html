@@ -37,6 +37,10 @@
 
     (function () {
 
+      /* =========================
+         THEME
+      ========================= */
+
       const savedTheme =
         localStorage.getItem("biomedfacts-theme");
 
@@ -52,6 +56,10 @@
         theme
       );
 
+
+      /* =========================
+         LANGUAGE
+      ========================= */
 
       const savedLanguage =
         localStorage.getItem("biomedfacts-language");
@@ -105,6 +113,10 @@
 
   <style>
 
+    /* =========================
+       COLORS
+    ========================= */
+
     :root {
 
       --background: #f8f7fa;
@@ -118,8 +130,6 @@
 
       --accent: #6c3bb8;
       --top-border: #32103f;
-
-      --input-background: #ffffff;
 
       --shadow: #e3e0e6;
     }
@@ -139,11 +149,13 @@
       --accent: #b58cff;
       --top-border: #6c3bb8;
 
-      --input-background: #151515;
-
       --shadow: #080808;
     }
 
+
+    /* =========================
+       BASIC
+    ========================= */
 
     * {
       box-sizing: border-box;
@@ -177,6 +189,10 @@
     }
 
 
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
 
       background: var(--surface);
@@ -187,7 +203,8 @@
       border-bottom:
         1px solid var(--border);
 
-      padding: 28px 6% 0;
+      padding:
+        28px 6% 0;
     }
 
 
@@ -229,9 +246,14 @@
 
 
     .logo span {
+
       color: var(--accent);
     }
 
+
+    /* =========================
+       HEADER ACTIONS
+    ========================= */
 
     .header-actions {
 
@@ -331,7 +353,6 @@
       stroke-width: 1.8;
 
       stroke-linecap: round;
-
       stroke-linejoin: round;
     }
 
@@ -339,7 +360,6 @@
     .instagram-button svg {
 
       fill: currentColor;
-
       stroke: none;
     }
 
@@ -368,16 +388,18 @@
 
 
     html[data-theme="dark"] .sun-icon {
-
       display: block;
     }
 
 
     html[data-theme="dark"] .moon-icon {
-
       display: none;
     }
 
+
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     nav {
 
@@ -422,6 +444,10 @@
     }
 
 
+    /* =========================
+       MAIN
+    ========================= */
+
     main {
 
       width:
@@ -431,6 +457,10 @@
         65px auto;
     }
 
+
+    /* =========================
+       FEATURED
+    ========================= */
 
     .featured {
 
@@ -485,8 +515,7 @@
 
       letter-spacing: 1px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
 
@@ -570,6 +599,10 @@
     }
 
 
+    /* =========================
+       LATEST
+    ========================= */
+
     .latest-area {
 
       margin-top: 65px;
@@ -600,6 +633,10 @@
       letter-spacing: -1px;
     }
 
+
+    /* =========================
+       CONTENT
+    ========================= */
 
     .content-layout {
 
@@ -678,8 +715,7 @@
 
       letter-spacing: 1.1px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
 
@@ -746,10 +782,13 @@
     }
 
 
+    /* =========================
+       READ ALSO
+    ========================= */
+
     .read-also {
 
-      background:
-        var(--surface);
+      background: var(--surface);
 
       border-top:
         5px solid var(--accent);
@@ -771,8 +810,7 @@
 
       letter-spacing: 1.4px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
 
@@ -810,8 +848,7 @@
         18px 0;
 
       border-bottom:
-        1px solid
-        var(--soft-border);
+        1px solid var(--soft-border);
     }
 
 
@@ -863,10 +900,13 @@
 
       font-size: 10px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
+
+    /* =========================
+       EMPTY CATEGORY
+    ========================= */
 
     #empty-message {
 
@@ -876,8 +916,7 @@
 
       padding: 35px;
 
-      background:
-        var(--surface);
+      background: var(--surface);
 
       border-top:
         3px solid var(--text);
@@ -906,30 +945,37 @@
     }
 
 
+    /* =========================
+       REAL BEEHIIV NEWSLETTER
+    ========================= */
+
     .newsletter {
 
       margin-top: 75px;
 
-      padding: 30px 20px;
+      padding:
+        36px 20px;
 
       background:
         var(--surface);
-
-      text-align: center;
 
       border-top:
         2px solid var(--text);
 
       border-bottom:
         1px solid var(--border);
+
+      overflow: hidden;
     }
 
 
-    .newsletter-label {
+    .newsletter-heading {
 
-      margin-bottom: 16px;
+      margin-bottom: 22px;
 
       color: var(--accent);
+
+      text-align: center;
 
       font-size: 11px;
 
@@ -939,81 +985,22 @@
     }
 
 
-    .newsletter-form {
+    .beehiiv-form-container {
 
-      display: flex;
+      width: 100%;
 
-      max-width: 480px;
+      max-width: 760px;
 
-      margin: 0 auto;
+      margin:
+        0 auto;
+
+      text-align: center;
     }
 
 
-    .newsletter-form input {
-
-      flex: 1;
-
-      min-width: 0;
-
-      padding:
-        13px 15px;
-
-      border:
-        1px solid var(--border);
-
-      border-right: none;
-
-      background:
-        var(--input-background);
-
-      color: var(--text);
-
-      font-size: 14px;
-
-      outline: none;
-    }
-
-
-    .newsletter-form input:focus {
-
-      border-color:
-        var(--accent);
-    }
-
-
-    .newsletter-form button {
-
-      padding:
-        13px 24px;
-
-      border:
-        1px solid var(--text);
-
-      background:
-        var(--text);
-
-      color:
-        var(--background);
-
-      font-size: 13px;
-
-      font-weight: bold;
-
-      cursor: pointer;
-    }
-
-
-    .newsletter-form button:hover {
-
-      background:
-        var(--accent);
-
-      border-color:
-        var(--accent);
-
-      color: #ffffff;
-    }
-
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
 
@@ -1032,6 +1019,10 @@
       font-size: 12px;
     }
 
+
+    /* =========================
+       TABLET
+    ========================= */
 
     @media (max-width: 950px) {
 
@@ -1062,6 +1053,10 @@
 
     }
 
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 650px) {
 
@@ -1186,27 +1181,10 @@
       }
 
 
-      .newsletter-form {
+      .newsletter {
 
-        flex-direction:
-          column;
-
-        gap: 8px;
-      }
-
-
-      .newsletter-form input {
-
-        width: 100%;
-
-        border:
-          1px solid var(--border);
-      }
-
-
-      .newsletter-form button {
-
-        width: 100%;
+        padding:
+          30px 8px;
       }
 
     }
@@ -1219,7 +1197,12 @@
 <body>
 
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
+
 
   <div class="header-top">
 
@@ -1238,8 +1221,11 @@
     </a>
 
 
+
     <div class="header-actions">
 
+
+      <!-- EL | EN -->
 
       <div
         class="language-switch"
@@ -1272,6 +1258,8 @@
 
 
 
+      <!-- LIGHT / DARK -->
+
       <button
         class="icon-button"
         id="theme-toggle"
@@ -1286,7 +1274,11 @@
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+
+          <path
+            d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"
+          ></path>
+
         </svg>
 
 
@@ -1304,31 +1296,20 @@
 
           <path d="M12 2v2"></path>
           <path d="M12 20v2"></path>
-
-          <path
-            d="M4.93 4.93l1.41 1.41"
-          ></path>
-
-          <path
-            d="M17.66 17.66l1.41 1.41"
-          ></path>
-
+          <path d="M4.93 4.93l1.41 1.41"></path>
+          <path d="M17.66 17.66l1.41 1.41"></path>
           <path d="M2 12h2"></path>
           <path d="M20 12h2"></path>
-
-          <path
-            d="M4.93 19.07l1.41-1.41"
-          ></path>
-
-          <path
-            d="M17.66 6.34l1.41-1.41"
-          ></path>
+          <path d="M4.93 19.07l1.41-1.41"></path>
+          <path d="M17.66 6.34l1.41-1.41"></path>
 
         </svg>
 
       </button>
 
 
+
+      <!-- INSTAGRAM -->
 
       <a
         class="icon-button instagram-button"
@@ -1358,6 +1339,8 @@
   </div>
 
 
+
+  <!-- MENU -->
 
   <nav id="category-nav">
 
@@ -1420,12 +1403,17 @@
 
   </nav>
 
+
 </header>
 
 
 
 <main>
 
+
+<!-- =========================
+     FIND GREEK FEATURED
+========================= -->
 
 {% assign featured_post = nil %}
 
@@ -1465,6 +1453,10 @@
 {% endunless %}
 
 
+
+<!-- =========================
+     FEATURED
+========================= -->
 
 {% if featured_post %}
 
@@ -1570,6 +1562,10 @@
 
 
 
+<!-- =========================
+     LATEST
+========================= -->
+
 <section
   class="latest-area"
   id="latest"
@@ -1593,6 +1589,8 @@
 
   <div class="content-layout">
 
+
+    <!-- ARTICLES -->
 
     <div class="articles-grid">
 
@@ -1714,6 +1712,10 @@
 
 
 
+    <!-- =========================
+         READ ALSO
+    ========================= -->
+
     <aside class="read-also">
 
 
@@ -1733,7 +1735,6 @@
 
 
       {% assign skipped = 0 %}
-
       {% assign read_count = 0 %}
 
 
@@ -1869,32 +1870,28 @@
 
 
 
+<!-- =========================
+     REAL NEWSLETTER
+========================= -->
+
 <section class="newsletter">
 
 
-  <p class="newsletter-label">
+  <p class="newsletter-heading">
 
     BIOMEDFACTS NEWSLETTER
 
   </p>
 
 
-
-  <div class="newsletter-form">
-
-
-    <input
-      type="email"
-      placeholder="Το email σου"
-      aria-label="Email"
-    >
+  <div class="beehiiv-form-container">
 
 
-    <button type="button">
-
-      Εγγραφή
-
-    </button>
+    <script
+      async
+      src="https://subscribe-forms.beehiiv.com/v3/loader.js"
+      data-beehiiv-form="5b6c64fa-4be2-4884-a199-d0ebe1f9ed51"
+    ></script>
 
 
   </div>
@@ -1917,6 +1914,10 @@
 
 <script>
 
+
+  /* =========================
+     LANGUAGE MEMORY
+  ========================= */
 
   const languageLinks =
     document.querySelectorAll(
@@ -1941,6 +1942,10 @@
   });
 
 
+
+  /* =========================
+     LIGHT / DARK
+  ========================= */
 
   const themeToggle =
     document.getElementById(
@@ -1983,6 +1988,10 @@
   );
 
 
+
+  /* =========================
+     CATEGORY FILTER
+  ========================= */
 
   const categoryLinks =
     document.querySelectorAll(
