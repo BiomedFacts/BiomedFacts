@@ -33,15 +33,9 @@
   >
 
 
-  <!-- =========================================
-       LANGUAGE + THEME BEFORE PAGE LOADS
-  ========================================== -->
-
   <script>
 
     (function () {
-
-      /* LIGHT / DARK */
 
       const savedTheme =
         localStorage.getItem("biomedfacts-theme");
@@ -59,8 +53,6 @@
       );
 
 
-      /* LANGUAGE */
-
       const savedLanguage =
         localStorage.getItem("biomedfacts-language");
 
@@ -71,7 +63,6 @@
         );
 
         return;
-
       }
 
 
@@ -103,7 +94,6 @@
           );
 
           return;
-
         }
 
       }
@@ -114,10 +104,6 @@
 
 
   <style>
-
-    /* =========================================
-       COLORS
-    ========================================== */
 
     :root {
 
@@ -159,10 +145,6 @@
     }
 
 
-    /* =========================================
-       BASIC
-    ========================================== */
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -194,10 +176,6 @@
       color: inherit;
     }
 
-
-    /* =========================================
-       HEADER
-    ========================================== */
 
     header {
 
@@ -255,10 +233,6 @@
     }
 
 
-    /* =========================================
-       HEADER ACTIONS
-    ========================================== */
-
     .header-actions {
 
       display: flex;
@@ -268,8 +242,6 @@
       gap: 10px;
     }
 
-
-    /* LANGUAGE */
 
     .language-switch {
 
@@ -317,8 +289,6 @@
       color: var(--border);
     }
 
-
-    /* ICON BUTTONS */
 
     .icon-button {
 
@@ -387,8 +357,6 @@
     }
 
 
-    /* LIGHT MODE = MOON */
-
     .sun-icon {
       display: none;
     }
@@ -399,25 +367,17 @@
     }
 
 
-    /* DARK MODE = SUN */
-
-    html[data-theme="dark"]
-    .sun-icon {
+    html[data-theme="dark"] .sun-icon {
 
       display: block;
     }
 
 
-    html[data-theme="dark"]
-    .moon-icon {
+    html[data-theme="dark"] .moon-icon {
 
       display: none;
     }
 
-
-    /* =========================================
-       NAVIGATION
-    ========================================== */
 
     nav {
 
@@ -462,10 +422,6 @@
     }
 
 
-    /* =========================================
-       MAIN
-    ========================================== */
-
     main {
 
       width:
@@ -475,10 +431,6 @@
         65px auto;
     }
 
-
-    /* =========================================
-       FEATURED ARTICLE
-    ========================================== */
 
     .featured {
 
@@ -543,8 +495,6 @@
       color: var(--accent);
     }
 
-
-    /* ΟΧΙ τεράστιος τίτλος */
 
     .featured-title {
 
@@ -620,10 +570,6 @@
     }
 
 
-    /* =========================================
-       LATEST
-    ========================================== */
-
     .latest-area {
 
       margin-top: 65px;
@@ -655,10 +601,6 @@
     }
 
 
-    /* =========================================
-       MAIN CONTENT LAYOUT
-    ========================================== */
-
     .content-layout {
 
       display: grid;
@@ -672,10 +614,6 @@
       align-items: start;
     }
 
-
-    /* =========================================
-       ARTICLES
-    ========================================== */
 
     .articles-grid {
 
@@ -808,10 +746,6 @@
     }
 
 
-    /* =========================================
-       READ ALSO
-    ========================================== */
-
     .read-also {
 
       background:
@@ -934,10 +868,6 @@
     }
 
 
-    /* =========================================
-       EMPTY
-    ========================================== */
-
     #empty-message {
 
       display: none;
@@ -975,10 +905,6 @@
       font-size: 13px;
     }
 
-
-    /* =========================================
-       NEWSLETTER
-    ========================================== */
 
     .newsletter {
 
@@ -1089,10 +1015,6 @@
     }
 
 
-    /* =========================================
-       FOOTER
-    ========================================== */
-
     footer {
 
       margin-top: 65px;
@@ -1110,10 +1032,6 @@
       font-size: 12px;
     }
 
-
-    /* =========================================
-       TABLET
-    ========================================== */
 
     @media (max-width: 950px) {
 
@@ -1144,10 +1062,6 @@
 
     }
 
-
-    /* =========================================
-       MOBILE
-    ========================================== */
 
     @media (max-width: 650px) {
 
@@ -1305,10 +1219,6 @@
 <body>
 
 
-<!-- =========================================
-     HEADER
-========================================== -->
-
 <header>
 
   <div class="header-top">
@@ -1330,8 +1240,6 @@
 
     <div class="header-actions">
 
-
-      <!-- EL | EN -->
 
       <div
         class="language-switch"
@@ -1364,8 +1272,6 @@
 
 
 
-      <!-- LIGHT / DARK -->
-
       <button
         class="icon-button"
         id="theme-toggle"
@@ -1375,24 +1281,14 @@
       >
 
 
-        <!-- MOON -->
-
         <svg
           class="moon-icon"
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
-
-          <path
-            d="M21 12.8A9 9 0 1 1 11.2 3
-               7 7 0 0 0 9.8 9.8
-               7 7 0 0 0 9.8 0z"
-          />
-
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
         </svg>
 
-
-        <!-- SUN -->
 
         <svg
           class="sun-icon"
@@ -1434,8 +1330,6 @@
 
 
 
-      <!-- INSTAGRAM -->
-
       <a
         class="icon-button instagram-button"
         href="https://www.instagram.com/biomedical_sciences.gr/"
@@ -1464,8 +1358,6 @@
   </div>
 
 
-
-  <!-- MENU -->
 
   <nav id="category-nav">
 
@@ -1532,16 +1424,8 @@
 
 
 
-<!-- =========================================
-     MAIN
-========================================== -->
-
 <main>
 
-
-<!-- =========================================
-     FIND GREEK FEATURED ARTICLE
-========================================== -->
 
 {% assign featured_post = nil %}
 
@@ -1564,8 +1448,6 @@
 
 
 
-<!-- IF NONE IS FEATURED, USE NEWEST GREEK POST -->
-
 {% unless featured_post %}
 
   {% for post in site.posts %}
@@ -1583,10 +1465,6 @@
 {% endunless %}
 
 
-
-<!-- =========================================
-     FEATURED
-========================================== -->
 
 {% if featured_post %}
 
@@ -1692,10 +1570,6 @@
 
 
 
-<!-- =========================================
-     LATEST ARTICLES
-========================================== -->
-
 <section
   class="latest-area"
   id="latest"
@@ -1719,8 +1593,6 @@
 
   <div class="content-layout">
 
-
-    <!-- ARTICLES -->
 
     <div class="articles-grid">
 
@@ -1841,10 +1713,6 @@
     </div>
 
 
-
-    <!-- =========================================
-         READ ALSO
-    ========================================== -->
 
     <aside class="read-also">
 
@@ -1979,8 +1847,6 @@
 
 
 
-  <!-- EMPTY CATEGORY -->
-
   <section id="empty-message">
 
     <h2>
@@ -2002,10 +1868,6 @@
 </section>
 
 
-
-<!-- =========================================
-     NEWSLETTER
-========================================== -->
 
 <section class="newsletter">
 
@@ -2045,10 +1907,6 @@
 
 
 
-<!-- =========================================
-     FOOTER
-========================================== -->
-
 <footer>
 
   © 2026 BiomedFacts · Evidence-based science communication
@@ -2057,16 +1915,8 @@
 
 
 
-<!-- =========================================
-     JAVASCRIPT
-========================================== -->
-
 <script>
 
-
-  /* =========================================
-     LANGUAGE
-  ========================================== */
 
   const languageLinks =
     document.querySelectorAll(
@@ -2091,10 +1941,6 @@
   });
 
 
-
-  /* =========================================
-     LIGHT / DARK
-  ========================================== */
 
   const themeToggle =
     document.getElementById(
@@ -2137,10 +1983,6 @@
   );
 
 
-
-  /* =========================================
-     CATEGORY FILTER
-  ========================================== */
 
   const categoryLinks =
     document.querySelectorAll(
@@ -2242,8 +2084,6 @@
 
 
 
-        /* FEATURED ONLY ON HOME */
-
         if (featuredSection) {
 
           featuredSection.style.display =
@@ -2254,8 +2094,6 @@
         }
 
 
-
-        /* SECTION TITLE */
 
         if (category === "all") {
 
@@ -2272,8 +2110,6 @@
         }
 
 
-
-        /* EMPTY MESSAGE */
 
         if (visible === 0) {
 
