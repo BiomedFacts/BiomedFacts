@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://biomedfacts.com/sitemap.xml
