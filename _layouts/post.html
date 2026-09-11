@@ -22,7 +22,6 @@
 {% endif %}
 
 {% capture default_seo_title %}{{ page.title }} | BiomedFacts{% endcapture %}
-
 {% assign seo_title = page.seo_title | default: default_seo_title | strip %}
 
 {% assign seo_description = page.seo_description | default: page.excerpt | default: site.description | strip_html | strip_newlines | strip %}
@@ -45,8 +44,12 @@
   {% assign x_default_url = greek_translation.url | absolute_url %}
 {% endif %}
 
+{% assign default_social_image = '/assets/images/biomedfacts-social.png' | absolute_url %}
+
 {% if page.image %}
   {% assign article_image = page.image | absolute_url %}
+{% else %}
+  {% assign article_image = default_social_image %}
 {% endif %}
 
 <!DOCTYPE html>
@@ -62,13 +65,12 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <!-- FAVICON -->
-
   <link
     rel="icon"
     type="image/svg+xml"
     href="{{ '/favicon.svg' | relative_url }}"
   >
+
 
   <!-- SEO -->
 
@@ -94,6 +96,7 @@
     href="{{ canonical_url }}"
   >
 
+
   <!-- HREFLANG -->
 
   {% if greek_translation %}
@@ -114,6 +117,7 @@
 
   {% endif %}
 
+
   {% if english_translation %}
 
     <link
@@ -132,11 +136,13 @@
 
   {% endif %}
 
+
   <link
     rel="alternate"
     hreflang="x-default"
     href="{{ x_default_url }}"
   >
+
 
   <!-- OPEN GRAPH -->
 
@@ -166,9 +172,30 @@
   >
 
   <meta
+    property="og:image"
+    content="{{ article_image }}"
+  >
+
+  <meta
+    property="og:image:alt"
+    content="{{ page.title | escape }}"
+  >
+
+  <meta
+    property="og:image:width"
+    content="1200"
+  >
+
+  <meta
+    property="og:image:height"
+    content="630"
+  >
+
+  <meta
     property="og:locale"
     content="{% if is_english %}en_US{% else %}el_GR{% endif %}"
   >
+
 
   {% if greek_translation and is_english %}
 
@@ -179,6 +206,7 @@
 
   {% endif %}
 
+
   {% if english_translation and is_english == false %}
 
     <meta
@@ -188,19 +216,6 @@
 
   {% endif %}
 
-  {% if page.image %}
-
-    <meta
-      property="og:image"
-      content="{{ article_image }}"
-    >
-
-    <meta
-      property="og:image:alt"
-      content="{{ page.title | escape }}"
-    >
-
-  {% endif %}
 
   <meta
     property="article:published_time"
@@ -221,11 +236,12 @@
 
   {% endif %}
 
+
   <!-- SOCIAL -->
 
   <meta
     name="twitter:card"
-    content="{% if page.image %}summary_large_image{% else %}summary{% endif %}"
+    content="summary_large_image"
   >
 
   <meta
@@ -238,14 +254,16 @@
     content="{{ seo_description | escape }}"
   >
 
-  {% if page.image %}
+  <meta
+    name="twitter:image"
+    content="{{ article_image }}"
+  >
 
-    <meta
-      name="twitter:image"
-      content="{{ article_image }}"
-    >
+  <meta
+    name="twitter:image:alt"
+    content="{{ page.title | escape }}"
+  >
 
-  {% endif %}
 
   <!-- ARTICLE STRUCTURED DATA -->
 
@@ -274,13 +292,14 @@
         "https://www.instagram.com/biomedical_sciences.gr/"
       ]
     },
-    "inLanguage": "{% if is_english %}en{% else %}el{% endif %}"{% if page.category %},
-    "articleSection": {{ page.category | jsonify }}{% endif %}{% if page.image %},
+    "inLanguage": "{% if is_english %}en{% else %}el{% endif %}",
     "image": [
       {{ article_image | jsonify }}
-    ]{% endif %}
+    ]{% if page.category %},
+    "articleSection": {{ page.category | jsonify }}{% endif %}
   }
   </script>
+
 
   <!-- THEME -->
 
@@ -312,6 +331,7 @@
     })();
 
   </script>
+
 
   <style>
 
@@ -356,6 +376,7 @@
       color: var(--text);
       font-family: Arial, sans-serif;
       line-height: 1.6;
+
       transition:
         background 0.25s ease,
         color 0.25s ease;
@@ -364,6 +385,9 @@
     a {
       color: inherit;
     }
+
+
+    /* HEADER */
 
     .site-header {
       background: var(--surface);
@@ -428,17 +452,25 @@
       color: var(--border);
     }
 
+
+    /* ICON BUTTONS */
+
     .icon-button {
       width: 44px;
       height: 44px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       background: var(--surface);
       color: var(--text);
+
       border: 1px solid var(--text);
+
       text-decoration: none;
       cursor: pointer;
+
       transition:
         background 0.2s ease,
         color 0.2s ease,
@@ -484,6 +516,9 @@
       display: none;
     }
 
+
+    /* NAV */
+
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -505,6 +540,9 @@
     nav a:hover {
       color: var(--accent);
     }
+
+
+    /* ARTICLE */
 
     .article-container {
       width: min(920px, 88%);
@@ -529,11 +567,17 @@
     .article-title {
       max-width: 850px;
       margin: 0 auto 22px;
-      font-family: "Times New Roman", serif;
+
+      font-family:
+        "Times New Roman",
+        serif;
+
       font-size: 48px;
       font-weight: bold;
+
       line-height: 1.06;
       letter-spacing: -1.2px;
+
       overflow-wrap: break-word;
     }
 
@@ -542,8 +586,11 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
+
       gap: 8px 16px;
+
       color: var(--muted);
+
       font-size: 12px;
     }
 
@@ -562,9 +609,14 @@
     .meta-dot {
       width: 3px;
       height: 3px;
+
       border-radius: 50%;
+
       background: var(--muted);
     }
+
+
+    /* COVER */
 
     .article-cover {
       margin-top: 38px;
@@ -573,17 +625,30 @@
 
     .article-cover img {
       display: block;
+
       width: 100%;
       max-height: 560px;
+
       object-fit: cover;
+
       border: 1px solid var(--border);
     }
 
+
+    /* BODY */
+
     .article-body {
       max-width: 760px;
+
       margin: 0 auto;
+
       color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       font-size: 18px;
       line-height: 1.8;
     }
@@ -598,8 +663,13 @@
     .article-body h4 {
       margin-top: 42px;
       margin-bottom: 18px;
+
       color: var(--text);
-      font-family: "Times New Roman", serif;
+
+      font-family:
+        "Times New Roman",
+        serif;
+
       line-height: 1.15;
     }
 
@@ -636,36 +706,49 @@
 
     .article-body img {
       display: block;
+
       max-width: 100%;
       height: auto;
+
       margin: 38px auto;
+
       border: 1px solid var(--soft-border);
     }
 
     .article-body blockquote {
       margin: 35px 0;
+
       padding: 22px 25px;
+
       background: var(--blockquote-background);
+
       border-left: 4px solid var(--accent);
+
       font-style: italic;
     }
 
     .article-body hr {
       margin: 45px 0;
+
       border: none;
       border-top: 1px solid var(--border);
     }
 
     .article-body code {
       padding: 2px 5px;
+
       background: var(--code-background);
+
       font-size: 0.9em;
     }
 
     .article-body table {
       width: 100%;
+
       margin: 30px 0;
+
       border-collapse: collapse;
+
       font-family: Arial, sans-serif;
       font-size: 14px;
     }
@@ -673,7 +756,9 @@
     .article-body th,
     .article-body td {
       padding: 12px;
+
       border: 1px solid var(--border);
+
       text-align: left;
     }
 
@@ -681,18 +766,27 @@
       background: var(--surface);
     }
 
+
+    /* ARTICLE END */
+
     .article-end {
       max-width: 760px;
+
       margin: 55px auto 0;
+
       padding-top: 30px;
+
       border-top: 2px solid var(--text);
     }
 
     .back-home {
       display: inline-block;
+
       color: var(--accent);
+
       font-size: 13px;
       font-weight: bold;
+
       text-decoration: none;
     }
 
@@ -700,62 +794,100 @@
       text-decoration: underline;
     }
 
+
+    /* COMMENTS */
+
     .comments-section {
       max-width: 760px;
+
       margin: 65px auto 0;
+
       padding-top: 35px;
+
       border-top: 2px solid var(--text);
     }
 
     .comments-section h2 {
       margin-bottom: 7px;
-      font-family: "Times New Roman", serif;
+
+      font-family:
+        "Times New Roman",
+        serif;
+
       font-size: 31px;
+
       line-height: 1.1;
     }
 
     .comments-intro {
       margin-bottom: 28px;
+
       color: var(--muted);
-      font-family: Georgia, "Times New Roman", serif;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       font-size: 15px;
     }
 
+
+    /* NEWSLETTER */
+
     .newsletter {
       width: min(920px, 88%);
+
       margin: 75px auto 0;
+
       padding: 36px 20px;
+
       background: var(--surface);
+
       border-top: 2px solid var(--text);
       border-bottom: 1px solid var(--border);
+
       text-align: center;
+
       overflow: hidden;
     }
 
     .newsletter-label {
       margin-bottom: 22px;
+
       color: var(--accent);
+
       font-size: 11px;
       font-weight: bold;
+
       letter-spacing: 1.8px;
     }
 
     .beehiiv-form-container {
       width: 100%;
       max-width: 760px;
+
       margin: 0 auto;
+
       text-align: center;
     }
 
+
+    /* FOOTER */
+
     footer {
       margin-top: 65px;
+
       padding: 38px 6%;
+
       background: var(--surface);
+
       border-top: 1px solid var(--border);
     }
 
     .footer-inner {
       width: min(1100px, 100%);
+
       margin: 0 auto;
     }
 
@@ -763,16 +895,21 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+
       gap: 10px 22px;
+
       margin-bottom: 20px;
     }
 
     .footer-links a {
       color: var(--muted);
+
       font-size: 11px;
       font-weight: bold;
+
       text-decoration: none;
       text-transform: uppercase;
+
       transition: color 0.2s ease;
     }
 
@@ -782,9 +919,14 @@
 
     .footer-copy {
       color: var(--muted);
+
       text-align: center;
+
       font-size: 12px;
     }
+
+
+    /* MOBILE */
 
     @media (max-width: 700px) {
 
@@ -965,7 +1107,9 @@
         {% endif %}
 
 
-        <span class="language-divider">|</span>
+        <span class="language-divider">
+          |
+        </span>
 
 
         {% if english_translation %}
@@ -1001,11 +1145,19 @@
         title="Light / Dark mode"
       >
 
-        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <svg
+          class="moon-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
         </svg>
 
-        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <svg
+          class="sun-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <circle cx="12" cy="12" r="4"></circle>
           <path d="M12 2v2"></path>
           <path d="M12 20v2"></path>
@@ -1147,13 +1299,19 @@
 
     {% if is_english %}
 
-      <a href="{{ '/en/' | relative_url }}" class="back-home">
+      <a
+        href="{{ '/en/' | relative_url }}"
+        class="back-home"
+      >
         ← Back to BiomedFacts
       </a>
 
     {% else %}
 
-      <a href="{{ '/' | relative_url }}" class="back-home">
+      <a
+        href="{{ '/' | relative_url }}"
+        class="back-home"
+      >
         ← Επιστροφή στο BiomedFacts
       </a>
 
@@ -1234,19 +1392,47 @@
 
       {% if is_english %}
 
-        <a href="{{ '/en/about/' | relative_url }}">About BiomedFacts</a>
-        <a href="{{ '/en/editorial-policy/' | relative_url }}">Editorial Policy</a>
-        <a href="{{ '/en/medical-disclaimer/' | relative_url }}">Medical Disclaimer</a>
-        <a href="{{ '/en/privacy-policy/' | relative_url }}">Privacy Policy</a>
-        <a href="{{ '/en/contact/' | relative_url }}">Contact</a>
+        <a href="{{ '/en/about/' | relative_url }}">
+          About BiomedFacts
+        </a>
+
+        <a href="{{ '/en/editorial-policy/' | relative_url }}">
+          Editorial Policy
+        </a>
+
+        <a href="{{ '/en/medical-disclaimer/' | relative_url }}">
+          Medical Disclaimer
+        </a>
+
+        <a href="{{ '/en/privacy-policy/' | relative_url }}">
+          Privacy Policy
+        </a>
+
+        <a href="{{ '/en/contact/' | relative_url }}">
+          Contact
+        </a>
 
       {% else %}
 
-        <a href="{{ '/about/' | relative_url }}">Σχετικά με το BiomedFacts</a>
-        <a href="{{ '/editorial-policy/' | relative_url }}">Μεθοδολογία</a>
-        <a href="{{ '/medical-disclaimer/' | relative_url }}">Ιατρική αποποίηση ευθύνης</a>
-        <a href="{{ '/privacy-policy/' | relative_url }}">Πολιτική απορρήτου</a>
-        <a href="{{ '/contact/' | relative_url }}">Επικοινωνία</a>
+        <a href="{{ '/about/' | relative_url }}">
+          Σχετικά με το BiomedFacts
+        </a>
+
+        <a href="{{ '/editorial-policy/' | relative_url }}">
+          Μεθοδολογία
+        </a>
+
+        <a href="{{ '/medical-disclaimer/' | relative_url }}">
+          Ιατρική αποποίηση ευθύνης
+        </a>
+
+        <a href="{{ '/privacy-policy/' | relative_url }}">
+          Πολιτική απορρήτου
+        </a>
+
+        <a href="{{ '/contact/' | relative_url }}">
+          Επικοινωνία
+        </a>
 
       {% endif %}
 
@@ -1261,8 +1447,6 @@
 
 </footer>
 
-
-<!-- ANALYTICS CONSENT -->
 
 <script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
 
