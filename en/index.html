@@ -73,8 +73,6 @@
       --accent: #6c3bb8;
       --top-border: #32103f;
 
-      --input-background: #ffffff;
-
       --shadow: #e3e0e6;
     }
 
@@ -92,8 +90,6 @@
 
       --accent: #b58cff;
       --top-border: #6c3bb8;
-
-      --input-background: #151515;
 
       --shadow: #080808;
     }
@@ -117,6 +113,7 @@
       color: var(--text);
 
       font-family: Arial, sans-serif;
+
       line-height: 1.6;
 
       transition:
@@ -140,7 +137,8 @@
       border-bottom:
         1px solid var(--border);
 
-      padding: 28px 6% 0;
+      padding:
+        28px 6% 0;
     }
 
 
@@ -148,8 +146,8 @@
 
       display: flex;
 
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
 
       gap: 25px;
 
@@ -159,9 +157,9 @@
 
     .logo-link {
 
-      text-decoration: none;
-
       color: var(--text);
+
+      text-decoration: none;
     }
 
 
@@ -285,7 +283,6 @@
       stroke-width: 1.8;
 
       stroke-linecap: round;
-
       stroke-linejoin: round;
     }
 
@@ -293,7 +290,6 @@
     .instagram-button svg {
 
       fill: currentColor;
-
       stroke: none;
     }
 
@@ -312,25 +308,21 @@
 
 
     .sun-icon {
-
       display: none;
     }
 
 
     .moon-icon {
-
       display: block;
     }
 
 
     html[data-theme="dark"] .sun-icon {
-
       display: block;
     }
 
 
     html[data-theme="dark"] .moon-icon {
-
       display: none;
     }
 
@@ -339,9 +331,9 @@
 
       display: flex;
 
-      flex-wrap: wrap;
-
       align-items: center;
+
+      flex-wrap: wrap;
 
       gap: 18px 34px;
 
@@ -407,7 +399,6 @@
 
 
     .featured-content {
-
       min-width: 0;
     }
 
@@ -441,13 +432,11 @@
 
       letter-spacing: 1px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
 
     .featured-category {
-
       color: var(--accent);
     }
 
@@ -479,7 +468,6 @@
 
 
     .featured-title a:hover {
-
       color: var(--accent);
     }
 
@@ -513,11 +501,11 @@
 
     .featured-image {
 
+      display: block;
+
       width: 100%;
 
       height: 430px;
-
-      display: block;
 
       object-fit: cover;
 
@@ -634,8 +622,7 @@
 
       letter-spacing: 1.1px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
 
@@ -727,8 +714,7 @@
 
       letter-spacing: 1.4px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
 
@@ -766,8 +752,7 @@
         18px 0;
 
       border-bottom:
-        1px solid
-        var(--soft-border);
+        1px solid var(--soft-border);
     }
 
 
@@ -799,14 +784,13 @@
 
     .read-item h3 a {
 
-      text-decoration: none;
-
       color: var(--text);
+
+      text-decoration: none;
     }
 
 
     .read-item h3 a:hover {
-
       color: var(--accent);
     }
 
@@ -819,8 +803,7 @@
 
       font-size: 10px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
 
@@ -852,7 +835,6 @@
 
 
     .empty-language p {
-
       color: var(--muted);
     }
 
@@ -875,31 +857,35 @@
     }
 
 
+    /* REAL NEWSLETTER */
+
     .newsletter {
 
       margin-top: 75px;
 
       padding:
-        30px 20px;
+        36px 20px;
 
       background:
         var(--surface);
-
-      text-align: center;
 
       border-top:
         2px solid var(--text);
 
       border-bottom:
         1px solid var(--border);
+
+      overflow: hidden;
     }
 
 
-    .newsletter-label {
+    .newsletter-heading {
 
-      margin-bottom: 16px;
+      margin-bottom: 22px;
 
       color: var(--accent);
+
+      text-align: center;
 
       font-size: 11px;
 
@@ -909,79 +895,16 @@
     }
 
 
-    .newsletter-form {
+    .beehiiv-form-container {
 
-      display: flex;
+      width: 100%;
 
-      max-width: 480px;
+      max-width: 760px;
 
-      margin: 0 auto;
-    }
+      margin:
+        0 auto;
 
-
-    .newsletter-form input {
-
-      flex: 1;
-
-      min-width: 0;
-
-      padding:
-        13px 15px;
-
-      border:
-        1px solid var(--border);
-
-      border-right: none;
-
-      background:
-        var(--input-background);
-
-      color: var(--text);
-
-      font-size: 14px;
-
-      outline: none;
-    }
-
-
-    .newsletter-form input:focus {
-
-      border-color:
-        var(--accent);
-    }
-
-
-    .newsletter-form button {
-
-      padding:
-        13px 24px;
-
-      border:
-        1px solid var(--text);
-
-      background:
-        var(--text);
-
-      color:
-        var(--background);
-
-      font-size: 13px;
-
-      font-weight: bold;
-
-      cursor: pointer;
-    }
-
-
-    .newsletter-form button:hover {
-
-      background:
-        var(--accent);
-
-      border-color:
-        var(--accent);
-
-      color: #ffffff;
+      text-align: center;
     }
 
 
@@ -1014,19 +937,16 @@
 
 
       .featured-image {
-
         height: 420px;
       }
 
 
       .content-layout {
-
         grid-template-columns: 1fr;
       }
 
 
       .read-also {
-
         box-shadow: none;
       }
 
@@ -1043,13 +963,11 @@
 
 
       .logo {
-
         font-size: 34px;
       }
 
 
       .header-actions {
-
         gap: 7px;
       }
 
@@ -1091,7 +1009,6 @@
 
 
       nav a {
-
         font-size: 10px;
       }
 
@@ -1105,7 +1022,6 @@
 
 
       .featured {
-
         padding-bottom: 45px;
       }
 
@@ -1119,19 +1035,16 @@
 
 
       .featured-excerpt {
-
         font-size: 16px;
       }
 
 
       .featured-image {
-
         height: 280px;
       }
 
 
       .section-title {
-
         font-size: 33px;
       }
 
@@ -1145,37 +1058,19 @@
 
 
       .article-card-image {
-
         height: 230px;
       }
 
 
       .article-card h2 {
-
         font-size: 26px;
       }
 
 
-      .newsletter-form {
+      .newsletter {
 
-        flex-direction: column;
-
-        gap: 8px;
-      }
-
-
-      .newsletter-form input {
-
-        width: 100%;
-
-        border:
-          1px solid var(--border);
-      }
-
-
-      .newsletter-form button {
-
-        width: 100%;
+        padding:
+          30px 8px;
       }
 
     }
@@ -1189,6 +1084,7 @@
 
 
 <header>
+
 
   <div class="header-top">
 
@@ -1205,6 +1101,7 @@
       </div>
 
     </a>
+
 
 
     <div class="header-actions">
@@ -1255,7 +1152,11 @@
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+
+          <path
+            d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"
+          ></path>
+
         </svg>
 
 
@@ -1273,25 +1174,12 @@
 
           <path d="M12 2v2"></path>
           <path d="M12 20v2"></path>
-
-          <path
-            d="M4.93 4.93l1.41 1.41"
-          ></path>
-
-          <path
-            d="M17.66 17.66l1.41 1.41"
-          ></path>
-
+          <path d="M4.93 4.93l1.41 1.41"></path>
+          <path d="M17.66 17.66l1.41 1.41"></path>
           <path d="M2 12h2"></path>
           <path d="M20 12h2"></path>
-
-          <path
-            d="M4.93 19.07l1.41-1.41"
-          ></path>
-
-          <path
-            d="M17.66 6.34l1.41-1.41"
-          ></path>
+          <path d="M4.93 19.07l1.41-1.41"></path>
+          <path d="M17.66 6.34l1.41-1.41"></path>
 
         </svg>
 
@@ -1308,7 +1196,10 @@
         title="Instagram"
       >
 
-        <svg viewBox="0 0 24 24">
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
 
           <path
             d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
@@ -1386,6 +1277,7 @@
 
   </nav>
 
+
 </header>
 
 
@@ -1403,6 +1295,7 @@
     english_posts | where: "featured", true
   %}
 
+
   {% assign featured_post =
     english_featured.first
   %}
@@ -1418,11 +1311,17 @@
 
 
 
-  <section class="featured">
+  <section
+    class="featured"
+    id="featured-section"
+  >
+
 
     <div class="featured-content">
 
+
       <div class="featured-topline">
+
 
         <span class="featured-category">
 
@@ -1430,24 +1329,30 @@
 
         </span>
 
+
         <span class="featured-date">
 
           {{ featured_post.date | date: "%d/%m/%Y" }}
 
         </span>
 
+
       </div>
+
 
 
       <h1 class="featured-title">
 
-        <a href="{{ featured_post.url | relative_url }}">
+        <a
+          href="{{ featured_post.url | relative_url }}"
+        >
 
           {{ featured_post.title }}
 
         </a>
 
       </h1>
+
 
 
       {% if featured_post.excerpt %}
@@ -1461,6 +1366,7 @@
       {% endif %}
 
 
+
       {% if featured_post.author %}
 
         <p class="featured-author">
@@ -1471,15 +1377,19 @@
 
       {% endif %}
 
+
     </div>
 
 
 
     <div>
 
+
       {% if featured_post.image %}
 
-        <a href="{{ featured_post.url | relative_url }}">
+        <a
+          href="{{ featured_post.url | relative_url }}"
+        >
 
           <img
             class="featured-image"
@@ -1491,7 +1401,9 @@
 
       {% endif %}
 
+
     </div>
+
 
   </section>
 
@@ -1502,9 +1414,13 @@
     id="latest"
   >
 
+
     <div class="section-header">
 
-      <h2 class="section-title">
+      <h2
+        class="section-title"
+        id="section-title"
+      >
 
         Latest articles
 
@@ -1537,7 +1453,9 @@
 
               {% if post.image %}
 
-                <a href="{{ post.url | relative_url }}">
+                <a
+                  href="{{ post.url | relative_url }}"
+                >
 
                   <img
                     class="article-card-image"
@@ -1554,11 +1472,13 @@
 
               <div class="article-card-meta">
 
+
                 <span class="article-card-category">
 
                   {{ post.category }}
 
                 </span>
+
 
                 <span class="article-card-date">
 
@@ -1566,13 +1486,16 @@
 
                 </span>
 
+
               </div>
 
 
 
               <h2>
 
-                <a href="{{ post.url | relative_url }}">
+                <a
+                  href="{{ post.url | relative_url }}"
+                >
 
                   {{ post.title }}
 
@@ -1624,11 +1547,13 @@
 
       <aside class="read-also">
 
+
         <div class="read-also-label">
 
           BIOMEDFACTS
 
         </div>
+
 
         <h2 class="read-also-title">
 
@@ -1637,9 +1562,10 @@
         </h2>
 
 
-        {% assign skipped = 0 %}
 
+        {% assign skipped = 0 %}
         {% assign read_count = 0 %}
+
 
 
         {% for post in english_posts %}
@@ -1649,6 +1575,7 @@
 
 
             {% if skipped < 4 %}
+
 
               {% assign skipped =
                 skipped | plus: 1 %}
@@ -1662,21 +1589,29 @@
                 data-category="{{ post.category | escape }}"
               >
 
+
                 <div class="read-number">
+
 
                   {% assign number =
                     read_count | plus: 1 %}
 
+
                   0{{ number }}
+
 
                 </div>
 
 
+
                 <div>
+
 
                   <h3>
 
-                    <a href="{{ post.url | relative_url }}">
+                    <a
+                      href="{{ post.url | relative_url }}"
+                    >
 
                       {{ post.title }}
 
@@ -1691,7 +1626,9 @@
 
                   </div>
 
+
                 </div>
+
 
               </div>
 
@@ -1707,6 +1644,7 @@
 
 
         {% endfor %}
+
 
 
         {% if read_count == 0 %}
@@ -1725,7 +1663,9 @@
 
         {% endif %}
 
+
       </aside>
+
 
     </div>
 
@@ -1746,6 +1686,7 @@
       </p>
 
     </section>
+
 
   </section>
 
@@ -1778,30 +1719,30 @@
 
 
 
+<!-- REAL BEEHIIV NEWSLETTER -->
+
 <section class="newsletter">
 
-  <p class="newsletter-label">
+
+  <p class="newsletter-heading">
 
     BIOMEDFACTS NEWSLETTER
 
   </p>
 
 
-  <div class="newsletter-form">
+  <div class="beehiiv-form-container">
 
-    <input
-      type="email"
-      placeholder="Your email"
-      aria-label="Email"
-    >
 
-    <button type="button">
+    <script
+      async
+      src="https://subscribe-forms.beehiiv.com/v3/loader.js"
+      data-beehiiv-form="5b6c64fa-4be2-4884-a199-d0ebe1f9ed51"
+    ></script>
 
-      Subscribe
-
-    </button>
 
   </div>
+
 
 </section>
 
@@ -1822,53 +1763,65 @@
 
 
   const languageLinks =
-    document.querySelectorAll(".language-link");
+    document.querySelectorAll(
+      ".language-link"
+    );
 
 
   languageLinks.forEach(link => {
 
-    link.addEventListener("click", function () {
+    link.addEventListener(
+      "click",
+      function () {
 
-      localStorage.setItem(
-        "biomedfacts-language",
-        this.dataset.language
-      );
+        localStorage.setItem(
+          "biomedfacts-language",
+          this.dataset.language
+        );
 
-    });
+      }
+    );
 
   });
 
 
 
   const themeToggle =
-    document.getElementById("theme-toggle");
+    document.getElementById(
+      "theme-toggle"
+    );
 
 
   themeToggle.addEventListener(
     "click",
     function () {
 
-      const current =
-        document.documentElement.getAttribute(
-          "data-theme"
-        );
 
-      const next =
-        current === "dark"
+      const currentTheme =
+        document.documentElement
+          .getAttribute(
+            "data-theme"
+          );
+
+
+      const newTheme =
+        currentTheme === "dark"
           ? "light"
           : "dark";
 
 
-      document.documentElement.setAttribute(
-        "data-theme",
-        next
-      );
+      document.documentElement
+        .setAttribute(
+          "data-theme",
+          newTheme
+        );
 
 
       localStorage.setItem(
         "biomedfacts-theme",
-        next
+        newTheme
       );
+
 
     }
   );
@@ -1876,20 +1829,43 @@
 
 
   const categoryLinks =
-    document.querySelectorAll("#category-nav a");
+    document.querySelectorAll(
+      "#category-nav a"
+    );
+
 
   const filterableArticles =
-    document.querySelectorAll(".filterable");
+    document.querySelectorAll(
+      ".filterable"
+    );
+
 
   const emptyMessage =
-    document.getElementById("empty-message");
+    document.getElementById(
+      "empty-message"
+    );
+
+
+  const sectionTitle =
+    document.getElementById(
+      "section-title"
+    );
+
+
+  const featuredSection =
+    document.getElementById(
+      "featured-section"
+    );
+
 
 
   categoryLinks.forEach(link => {
 
+
     link.addEventListener(
       "click",
       function(event) {
+
 
         event.preventDefault();
 
@@ -1901,40 +1877,86 @@
         let visible = 0;
 
 
-        categoryLinks.forEach(item => {
 
-          item.classList.remove("active");
+        categoryLinks.forEach(
+          item => {
 
-        });
+            item.classList.remove(
+              "active"
+            );
 
-
-        this.classList.add("active");
-
-
-        filterableArticles.forEach(article => {
-
-          const articleCategory =
-            article.dataset.category;
+          }
+        );
 
 
-          if (
-            category === "all" ||
-            articleCategory === category
-          ) {
+        this.classList.add(
+          "active"
+        );
 
-            article.style.display = "";
 
-            visible++;
+
+        filterableArticles.forEach(
+          article => {
+
+
+            const articleCategory =
+              article.dataset.category;
+
+
+            if (
+              category === "all" ||
+              articleCategory === category
+            ) {
+
+              article.style.display =
+                "";
+
+              visible++;
+
+            }
+
+            else {
+
+              article.style.display =
+                "none";
+
+            }
+
+
+          }
+        );
+
+
+
+        if (featuredSection) {
+
+          featuredSection.style.display =
+            category === "all"
+              ? ""
+              : "none";
+
+        }
+
+
+
+        if (sectionTitle) {
+
+          if (category === "all") {
+
+            sectionTitle.textContent =
+              "Latest articles";
 
           }
 
           else {
 
-            article.style.display = "none";
+            sectionTitle.textContent =
+              category;
 
           }
 
-        });
+        }
+
 
 
         if (emptyMessage) {
@@ -1956,17 +1978,24 @@
         }
 
 
+
         document
           .getElementById("latest")
           .scrollIntoView({
+
             behavior: "smooth",
+
             block: "start"
+
           });
+
 
       }
     );
 
+
   });
+
 
 </script>
 
