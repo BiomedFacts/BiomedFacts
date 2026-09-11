@@ -60,6 +60,18 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+
+  <!-- =========================
+       FAVICON
+  ========================== -->
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="{{ '/favicon.svg' | relative_url }}"
+  >
+
+
   <!-- =========================
        BASIC SEO
   ========================== -->
@@ -319,21 +331,13 @@
     }
 
 
-    /* =========================
-       HEADER
-    ========================== */
+    /* HEADER */
 
     .site-header {
       background: var(--surface);
-
-      border-top:
-        5px solid var(--top-border);
-
-      border-bottom:
-        1px solid var(--border);
-
-      padding:
-        28px 6% 0;
+      border-top: 5px solid var(--top-border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 6% 0;
     }
 
     .header-top {
@@ -350,10 +354,7 @@
     }
 
     .logo {
-      font-family:
-        "Times New Roman",
-        serif;
-
+      font-family: "Times New Roman", serif;
       font-size: 46px;
       font-weight: bold;
       letter-spacing: -1.5px;
@@ -371,16 +372,13 @@
     }
 
 
-    /* =========================
-       LANGUAGE
-    ========================== */
+    /* LANGUAGE */
 
     .language-switch {
       display: flex;
       align-items: center;
       gap: 7px;
       margin-right: 5px;
-
       font-size: 12px;
       font-weight: bold;
       letter-spacing: 0.5px;
@@ -401,9 +399,7 @@
     }
 
 
-    /* =========================
-       ICON BUTTONS
-    ========================== */
+    /* ICON BUTTONS */
 
     .icon-button {
       width: 44px;
@@ -416,8 +412,7 @@
       background: var(--surface);
       color: var(--text);
 
-      border:
-        1px solid var(--text);
+      border: 1px solid var(--text);
 
       text-decoration: none;
       cursor: pointer;
@@ -432,10 +427,8 @@
     .icon-button svg {
       width: 21px;
       height: 21px;
-
       fill: none;
       stroke: currentColor;
-
       stroke-width: 1.8;
       stroke-linecap: round;
       stroke-linejoin: round;
@@ -450,9 +443,7 @@
       background: var(--accent);
       border-color: var(--accent);
       color: #ffffff;
-
-      transform:
-        translateY(-2px);
+      transform: translateY(-2px);
     }
 
     .sun-icon {
@@ -472,36 +463,24 @@
     }
 
 
-    /* =========================
-       NAVIGATION
-    ========================== */
+    /* NAVIGATION */
 
     nav {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-
-      gap:
-        18px 34px;
-
-      padding:
-        18px 0;
-
-      border-top:
-        1px solid var(--soft-border);
+      gap: 18px 34px;
+      padding: 18px 0;
+      border-top: 1px solid var(--soft-border);
     }
 
     nav a {
       color: var(--text);
       text-decoration: none;
-
       font-size: 13px;
       font-weight: bold;
-
       text-transform: uppercase;
-
-      transition:
-        color 0.2s ease;
+      transition: color 0.2s ease;
     }
 
     nav a:hover {
@@ -509,88 +488,52 @@
     }
 
 
-    /* =========================
-       PAGE
-    ========================== */
+    /* PAGE */
 
     .page-container {
-      width:
-        min(920px, 88%);
-
-      margin:
-        65px auto 0;
+      width: min(920px, 88%);
+      margin: 65px auto 0;
     }
 
     .page-header {
       max-width: 780px;
-
-      margin:
-        0 auto 50px;
-
+      margin: 0 auto 50px;
       padding-bottom: 28px;
-
-      border-bottom:
-        2px solid var(--text);
+      border-bottom: 2px solid var(--text);
     }
 
     .page-label {
       margin-bottom: 13px;
-
       color: var(--accent);
-
       font-size: 11px;
       font-weight: bold;
-
       letter-spacing: 1.5px;
       text-transform: uppercase;
     }
 
     .page-title {
-      font-family:
-        "Times New Roman",
-        serif;
-
+      font-family: "Times New Roman", serif;
       font-size: 52px;
-
       line-height: 1.05;
       letter-spacing: -1.4px;
     }
 
     .page-intro {
       max-width: 780px;
-
-      margin:
-        0 auto 42px;
-
-      padding:
-        26px 28px;
-
-      background:
-        var(--soft-accent);
-
-      border-left:
-        4px solid var(--accent);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
+      margin: 0 auto 42px;
+      padding: 26px 28px;
+      background: var(--soft-accent);
+      border-left: 4px solid var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 20px;
       font-weight: bold;
-
       line-height: 1.65;
     }
 
     .page-body {
       max-width: 780px;
       margin: 0 auto;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 18px;
       line-height: 1.8;
     }
@@ -603,13 +546,8 @@
       margin-top: 48px;
       margin-bottom: 18px;
       padding-top: 10px;
-
-      font-family:
-        "Times New Roman",
-        serif;
-
+      font-family: "Times New Roman", serif;
       font-size: 31px;
-
       line-height: 1.15;
       letter-spacing: -0.5px;
     }
@@ -617,11 +555,7 @@
     .page-body h3 {
       margin-top: 35px;
       margin-bottom: 15px;
-
-      font-family:
-        "Times New Roman",
-        serif;
-
+      font-family: "Times New Roman", serif;
       font-size: 24px;
       line-height: 1.2;
     }
@@ -632,15 +566,13 @@
 
     .page-body a {
       color: var(--accent);
-
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
     }
 
     .page-body ul,
     .page-body ol {
-      margin:
-        0 0 25px 27px;
+      margin: 0 0 25px 27px;
     }
 
     .page-body li {
@@ -648,44 +580,27 @@
     }
 
     .page-body blockquote {
-      margin:
-        35px 0;
-
-      padding:
-        22px 25px;
-
-      background:
-        var(--soft-accent);
-
-      border-left:
-        4px solid var(--accent);
-
+      margin: 35px 0;
+      padding: 22px 25px;
+      background: var(--soft-accent);
+      border-left: 4px solid var(--accent);
       font-style: italic;
     }
 
 
-    /* =========================
-       BACK LINK
-    ========================== */
+    /* BACK LINK */
 
     .page-end {
       max-width: 780px;
-
-      margin:
-        55px auto 0;
-
+      margin: 55px auto 0;
       padding-top: 25px;
-
-      border-top:
-        1px solid var(--border);
+      border-top: 1px solid var(--border);
     }
 
     .back-home {
       color: var(--accent);
-
       font-size: 13px;
       font-weight: bold;
-
       text-decoration: none;
     }
 
@@ -694,98 +609,61 @@
     }
 
 
-    /* =========================
-       NEWSLETTER
-    ========================== */
+    /* NEWSLETTER */
 
     .newsletter {
-      width:
-        min(920px, 88%);
-
-      margin:
-        75px auto 0;
-
-      padding:
-        32px 20px;
-
-      background:
-        var(--surface);
-
-      border-top:
-        2px solid var(--text);
-
-      border-bottom:
-        1px solid var(--border);
-
+      width: min(920px, 88%);
+      margin: 75px auto 0;
+      padding: 32px 20px;
+      background: var(--surface);
+      border-top: 2px solid var(--text);
+      border-bottom: 1px solid var(--border);
       text-align: center;
-
       overflow: hidden;
     }
 
     .newsletter-label {
       margin-bottom: 18px;
-
       color: var(--accent);
-
       font-size: 11px;
       font-weight: bold;
-
       letter-spacing: 1.8px;
     }
 
     .beehiiv-form-container {
       width: 100%;
       max-width: 760px;
-
-      margin:
-        0 auto;
-
+      margin: 0 auto;
       text-align: center;
     }
 
 
-    /* =========================
-       FOOTER
-    ========================== */
+    /* FOOTER */
 
     footer {
       margin-top: 65px;
-
-      padding:
-        38px 6%;
-
-      background:
-        var(--surface);
-
-      border-top:
-        1px solid var(--border);
+      padding: 38px 6%;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
     }
 
     .footer-inner {
-      width:
-        min(1100px, 100%);
-
-      margin:
-        0 auto;
+      width: min(1100px, 100%);
+      margin: 0 auto;
     }
 
     .footer-links {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-
-      gap:
-        10px 22px;
-
+      gap: 10px 22px;
       margin-bottom: 20px;
     }
 
     .footer-links a {
       color: var(--muted);
-
       font-size: 11px;
       font-weight: bold;
-
       text-decoration: none;
       text-transform: uppercase;
     }
@@ -796,22 +674,17 @@
 
     .footer-copy {
       color: var(--muted);
-
       text-align: center;
-
       font-size: 12px;
     }
 
 
-    /* =========================
-       MOBILE
-    ========================== */
+    /* MOBILE */
 
     @media (max-width: 700px) {
 
       .site-header {
-        padding:
-          22px 5% 0;
+        padding: 22px 5% 0;
       }
 
       .header-top {
@@ -844,11 +717,8 @@
       }
 
       nav {
-        gap:
-          11px 18px;
-
-        padding:
-          15px 0;
+        gap: 11px 18px;
+        padding: 15px 0;
       }
 
       nav a {
@@ -869,9 +739,7 @@
       }
 
       .page-intro {
-        padding:
-          22px 20px;
-
+        padding: 22px 20px;
         font-size: 18px;
       }
 
@@ -886,9 +754,7 @@
 
       .newsletter {
         width: 90%;
-
-        padding:
-          28px 8px;
+        padding: 28px 8px;
       }
 
     }
@@ -926,15 +792,9 @@
 <body>
 
 
-<!-- =========================
-     HEADER
-========================== -->
-
 <header class="site-header">
 
-
   <div class="header-top">
-
 
     <a
       href="{% if is_english %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}"
@@ -952,16 +812,12 @@
     <div class="header-actions">
 
 
-      <!-- LANGUAGE -->
-
       <div
         class="language-switch"
         aria-label="{% if is_english %}Language{% else %}Γλώσσα{% endif %}"
       >
 
-
         {% if is_english %}
-
 
           {% if page.translation_url %}
 
@@ -1042,11 +898,8 @@
 
         {% endif %}
 
-
       </div>
 
-
-      <!-- THEME -->
 
       <button
         class="icon-button"
@@ -1055,7 +908,6 @@
         aria-label="{% if is_english %}Switch theme{% else %}Αλλαγή θέματος{% endif %}"
         title="Light / Dark mode"
       >
-
 
         <svg
           class="moon-icon"
@@ -1094,8 +946,6 @@
       </button>
 
 
-      <!-- INSTAGRAM -->
-
       <a
         class="icon-button instagram-button"
         href="https://www.instagram.com/biomedical_sciences.gr/"
@@ -1118,15 +968,9 @@
 
       </a>
 
-
     </div>
 
   </div>
-
-
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
 
 
   {% if is_english %}
@@ -1167,9 +1011,7 @@
 
     </nav>
 
-
   {% else %}
-
 
     <nav>
 
@@ -1207,32 +1049,22 @@
 
     </nav>
 
-
   {% endif %}
-
 
 </header>
 
 
-<!-- =========================
-     PAGE CONTENT
-========================== -->
-
 <main class="page-container">
 
-
   <header class="page-header">
-
 
     <div class="page-label">
       BIOMEDFACTS
     </div>
 
-
     <h1 class="page-title">
       {{ page.title }}
     </h1>
-
 
   </header>
 
@@ -1247,14 +1079,11 @@
 
 
   <div class="page-body">
-
     {{ content }}
-
   </div>
 
 
   <div class="page-end">
-
 
     {% if is_english %}
 
@@ -1276,24 +1105,16 @@
 
     {% endif %}
 
-
   </div>
-
 
 </main>
 
 
-<!-- =========================
-     NEWSLETTER
-========================== -->
-
 <section class="newsletter">
-
 
   <p class="newsletter-label">
     BIOMEDFACTS NEWSLETTER
   </p>
-
 
   <div class="beehiiv-form-container">
 
@@ -1305,25 +1126,16 @@
 
   </div>
 
-
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================== -->
-
 <footer>
-
 
   <div class="footer-inner">
 
-
     <div class="footer-links">
 
-
       {% if is_english %}
-
 
         <a href="{{ '/en/about/' | relative_url }}">
           About BiomedFacts
@@ -1345,9 +1157,7 @@
           Contact
         </a>
 
-
       {% else %}
-
 
         <a href="{{ '/about/' | relative_url }}">
           Σχετικά με το BiomedFacts
@@ -1369,9 +1179,7 @@
           Επικοινωνία
         </a>
 
-
       {% endif %}
-
 
     </div>
 
@@ -1380,27 +1188,17 @@
       © 2026 BiomedFacts · Evidence-based science communication
     </div>
 
-
   </div>
-
 
 </footer>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================== -->
-
 <script>
-
-
-  /* LANGUAGE MEMORY */
 
   const languageLinks =
     document.querySelectorAll(
       ".language-link"
     );
-
 
   languageLinks.forEach(link => {
 
@@ -1419,13 +1217,10 @@
   });
 
 
-  /* LIGHT / DARK */
-
   const themeToggle =
     document.getElementById(
       "theme-toggle"
     );
-
 
   themeToggle.addEventListener(
     "click",
@@ -1437,12 +1232,10 @@
             "data-theme"
           );
 
-
       const newTheme =
         currentTheme === "dark"
           ? "light"
           : "dark";
-
 
       document.documentElement
         .setAttribute(
@@ -1450,16 +1243,13 @@
           newTheme
         );
 
-
       localStorage.setItem(
         "biomedfacts-theme",
         newTheme
       );
 
-
     }
   );
-
 
 </script>
 
