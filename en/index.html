@@ -1,0 +1,1783 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>BiomedFacts | Evidence-based health information</title>
+
+  <meta
+    name="description"
+    content="Evidence-based health information, fact-checking, biomedical science, nutrition, laboratory tests and new research."
+  >
+
+  <link
+    rel="alternate"
+    hreflang="el"
+    href="{{ '/' | absolute_url }}"
+  >
+
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="{{ '/en/' | absolute_url }}"
+  >
+
+
+  <!-- LOAD SAVED LIGHT / DARK MODE -->
+
+  <script>
+
+    (function () {
+
+      const savedTheme =
+        localStorage.getItem("biomedfacts-theme");
+
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      const theme =
+        savedTheme || (prefersDark ? "dark" : "light");
+
+      document.documentElement.setAttribute(
+        "data-theme",
+        theme
+      );
+
+    })();
+
+  </script>
+
+
+  <style>
+
+    /* =========================
+       COLORS
+    ========================= */
+
+    :root {
+
+      --background: #f8f7fa;
+      --surface: #ffffff;
+
+      --text: #111111;
+      --muted: #666666;
+
+      --border: #cccccc;
+      --soft-border: #dddddd;
+
+      --accent: #6c3bb8;
+      --top-border: #32103f;
+
+      --input-background: #ffffff;
+
+      --shadow: #e3e0e6;
+    }
+
+
+    html[data-theme="dark"] {
+
+      --background: #111111;
+      --surface: #1b1b1b;
+
+      --text: #f4f4f4;
+      --muted: #b5b5b5;
+
+      --border: #444444;
+      --soft-border: #333333;
+
+      --accent: #b58cff;
+      --top-border: #6c3bb8;
+
+      --input-background: #151515;
+
+      --shadow: #080808;
+    }
+
+
+    /* =========================
+       BASIC
+    ========================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--text);
+
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      background: var(--surface);
+
+      border-top: 5px solid var(--top-border);
+      border-bottom: 1px solid var(--border);
+
+      padding: 28px 6% 0;
+    }
+
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 25px;
+
+      padding-bottom: 28px;
+    }
+
+
+    .logo-link {
+      text-decoration: none;
+      color: var(--text);
+    }
+
+
+    .logo {
+      font-family: "Times New Roman", serif;
+
+      font-size: 46px;
+      font-weight: bold;
+
+      letter-spacing: -1.5px;
+      line-height: 1;
+    }
+
+
+    .logo span {
+      color: var(--accent);
+    }
+
+
+    /* =========================
+       HEADER ACTIONS
+    ========================= */
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+    }
+
+
+    /* LANGUAGE SWITCH */
+
+    .language-switch {
+      display: flex;
+      align-items: center;
+
+      gap: 7px;
+
+      margin-right: 5px;
+
+      font-size: 12px;
+      font-weight: bold;
+
+      letter-spacing: 0.5px;
+    }
+
+
+    .language-switch a {
+      color: var(--muted);
+
+      text-decoration: none;
+
+      transition: color 0.2s ease;
+    }
+
+
+    .language-switch a:hover {
+      color: var(--accent);
+    }
+
+
+    .language-switch .active-language {
+      color: var(--accent);
+    }
+
+
+    .language-divider {
+      color: var(--border);
+    }
+
+
+    /* ICON BUTTONS */
+
+    .icon-button {
+      width: 44px;
+      height: 44px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--surface);
+      color: var(--text);
+
+      border: 1px solid var(--text);
+
+      text-decoration: none;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+
+    .icon-button svg {
+      width: 21px;
+      height: 21px;
+
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+
+    .instagram-button svg {
+      fill: currentColor;
+      stroke: none;
+    }
+
+
+    .icon-button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+
+      color: #ffffff;
+
+      transform: translateY(-2px);
+    }
+
+
+    .sun-icon {
+      display: none;
+    }
+
+    .moon-icon {
+      display: block;
+    }
+
+
+    html[data-theme="dark"] .sun-icon {
+      display: block;
+    }
+
+    html[data-theme="dark"] .moon-icon {
+      display: none;
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+      gap: 18px 34px;
+
+      padding: 18px 0;
+
+      border-top: 1px solid var(--soft-border);
+    }
+
+
+    nav a {
+      color: var(--text);
+
+      text-decoration: none;
+
+      font-size: 13px;
+      font-weight: bold;
+
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      transition: color 0.2s ease;
+    }
+
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      width: min(1250px, 88%);
+      margin: 65px auto;
+    }
+
+
+    /* =========================
+       FEATURED
+    ========================= */
+
+    .featured {
+      display: grid;
+
+      grid-template-columns: 0.95fr 1.25fr;
+
+      gap: 55px;
+
+      align-items: center;
+
+      padding-bottom: 65px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .featured-content {
+      min-width: 0;
+    }
+
+
+    .featured-topline {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+
+      border-bottom: 1px solid var(--text);
+    }
+
+
+    .featured-category,
+    .featured-date {
+      font-size: 11px;
+      font-weight: bold;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+    }
+
+
+    .featured-category {
+      color: var(--accent);
+    }
+
+
+    .featured-title {
+      margin-bottom: 20px;
+
+      font-family: "Times New Roman", serif;
+
+      font-size: 46px;
+      font-weight: bold;
+
+      line-height: 1.03;
+
+      letter-spacing: -1.2px;
+    }
+
+
+    .featured-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+
+    .featured-title a:hover {
+      color: var(--accent);
+    }
+
+
+    .featured-excerpt {
+      max-width: 580px;
+
+      color: var(--muted);
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: 18px;
+      line-height: 1.65;
+
+      margin-bottom: 22px;
+    }
+
+
+    .featured-author {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+
+    .featured-image {
+      width: 100%;
+      height: 430px;
+
+      display: block;
+
+      object-fit: cover;
+
+      border: 1px solid var(--text);
+    }
+
+
+    /* =========================
+       LATEST
+    ========================= */
+
+    .latest-area {
+      margin-top: 65px;
+    }
+
+
+    .section-header {
+      margin-bottom: 28px;
+      padding-bottom: 13px;
+
+      border-bottom: 2px solid var(--text);
+    }
+
+
+    .section-label {
+      color: var(--accent);
+
+      font-size: 11px;
+      font-weight: bold;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 4px;
+    }
+
+
+    .section-title {
+      font-family: "Times New Roman", serif;
+
+      font-size: 40px;
+      line-height: 1;
+
+      letter-spacing: -1px;
+    }
+
+
+    /* =========================
+       CONTENT LAYOUT
+    ========================= */
+
+    .content-layout {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 2fr)
+        minmax(260px, 0.8fr);
+
+      gap: 55px;
+
+      align-items: start;
+    }
+
+
+    /* =========================
+       ARTICLE GRID
+    ========================= */
+
+    .articles-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 42px 30px;
+    }
+
+
+    .article-card {
+      border-top: 4px solid var(--text);
+
+      padding-top: 14px;
+    }
+
+
+    .article-card-image {
+      display: block;
+
+      width: 100%;
+      height: 245px;
+
+      object-fit: cover;
+
+      margin-bottom: 16px;
+    }
+
+
+    .article-card-meta {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-bottom: 10px;
+    }
+
+
+    .article-card-category {
+      color: var(--accent);
+
+      font-size: 11px;
+      font-weight: bold;
+
+      letter-spacing: 1.1px;
+
+      text-transform: uppercase;
+    }
+
+
+    .article-card-date {
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+
+    .article-card h2 {
+      margin-bottom: 12px;
+
+      font-family: "Times New Roman", serif;
+
+      font-size: 29px;
+      line-height: 1.05;
+
+      letter-spacing: -0.6px;
+    }
+
+
+    .article-card h2 a {
+      color: var(--text);
+
+      text-decoration: none;
+    }
+
+
+    .article-card h2 a:hover {
+      color: var(--accent);
+    }
+
+
+    .article-card-excerpt {
+      color: var(--muted);
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: 15px;
+      line-height: 1.6;
+
+      margin-bottom: 13px;
+    }
+
+
+    .article-card-author {
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+
+    /* =========================
+       READ ALSO
+    ========================= */
+
+    .read-also {
+      background: var(--surface);
+
+      border-top: 5px solid var(--accent);
+
+      padding: 22px;
+
+      box-shadow:
+        8px 8px 0 var(--shadow);
+    }
+
+
+    .read-also-label {
+      color: var(--accent);
+
+      font-size: 11px;
+      font-weight: bold;
+
+      letter-spacing: 1.4px;
+
+      text-transform: uppercase;
+    }
+
+
+    .read-also-title {
+      margin-top: 7px;
+      margin-bottom: 18px;
+
+      padding-bottom: 15px;
+
+      border-bottom: 1px solid var(--border);
+
+      font-family: "Times New Roman", serif;
+
+      font-size: 29px;
+      line-height: 1;
+    }
+
+
+    .read-item {
+      display: grid;
+
+      grid-template-columns: 46px 1fr;
+
+      gap: 12px;
+
+      padding: 18px 0;
+
+      border-bottom: 1px solid var(--soft-border);
+    }
+
+
+    .read-number {
+      color: var(--accent);
+
+      font-family: "Times New Roman", serif;
+
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .read-item h3 {
+      font-family: "Times New Roman", serif;
+
+      font-size: 18px;
+      line-height: 1.15;
+    }
+
+
+    .read-item h3 a {
+      text-decoration: none;
+      color: var(--text);
+    }
+
+
+    .read-item h3 a:hover {
+      color: var(--accent);
+    }
+
+
+    .read-item-category {
+      margin-top: 7px;
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================
+       EMPTY ENGLISH SITE
+    ========================= */
+
+    .empty-language {
+      background: var(--surface);
+
+      padding: 60px 25px;
+
+      text-align: center;
+
+      border-top: 3px solid var(--text);
+    }
+
+
+    .empty-language h1 {
+      font-family: "Times New Roman", serif;
+
+      font-size: 38px;
+
+      margin-bottom: 12px;
+    }
+
+
+    .empty-language p {
+      color: var(--muted);
+    }
+
+
+    #empty-message {
+      display: none;
+
+      margin-top: 30px;
+
+      padding: 35px;
+
+      background: var(--surface);
+
+      text-align: center;
+
+      border-top: 3px solid var(--text);
+    }
+
+
+    /* =========================
+       NEWSLETTER
+    ========================= */
+
+    .newsletter {
+      margin-top: 75px;
+
+      padding: 30px 20px;
+
+      background: var(--surface);
+
+      text-align: center;
+
+      border-top: 2px solid var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .newsletter-label {
+      margin-bottom: 16px;
+
+      color: var(--accent);
+
+      font-size: 11px;
+      font-weight: bold;
+
+      letter-spacing: 1.8px;
+    }
+
+
+    .newsletter-form {
+      display: flex;
+
+      max-width: 480px;
+
+      margin: 0 auto;
+    }
+
+
+    .newsletter-form input {
+      flex: 1;
+
+      min-width: 0;
+
+      padding: 13px 15px;
+
+      border: 1px solid var(--border);
+      border-right: none;
+
+      background: var(--input-background);
+      color: var(--text);
+
+      font-size: 14px;
+
+      outline: none;
+    }
+
+
+    .newsletter-form input:focus {
+      border-color: var(--accent);
+    }
+
+
+    .newsletter-form button {
+      padding: 13px 24px;
+
+      border: 1px solid var(--text);
+
+      background: var(--text);
+      color: var(--background);
+
+      font-size: 13px;
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+
+    .newsletter-form button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+
+      color: #ffffff;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      margin-top: 65px;
+
+      padding: 35px 20px;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+
+      text-align: center;
+
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 950px) {
+
+      .featured {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+      }
+
+      .featured-image {
+        height: 420px;
+      }
+
+      .content-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .read-also {
+        box-shadow: none;
+      }
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 650px) {
+
+      header {
+        padding: 22px 5% 0;
+      }
+
+      .logo {
+        font-size: 34px;
+      }
+
+      .header-actions {
+        gap: 7px;
+      }
+
+      .language-switch {
+        gap: 5px;
+
+        margin-right: 1px;
+
+        font-size: 10px;
+      }
+
+      .icon-button {
+        width: 37px;
+        height: 37px;
+      }
+
+      .icon-button svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      nav {
+        gap: 11px 18px;
+
+        padding: 15px 0;
+      }
+
+      nav a {
+        font-size: 10px;
+      }
+
+      main {
+        width: 90%;
+
+        margin-top: 40px;
+      }
+
+      .featured {
+        padding-bottom: 45px;
+      }
+
+      .featured-title {
+        font-size: 34px;
+
+        line-height: 1.06;
+      }
+
+      .featured-excerpt {
+        font-size: 16px;
+      }
+
+      .featured-image {
+        height: 280px;
+      }
+
+      .section-title {
+        font-size: 33px;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+      }
+
+      .article-card-image {
+        height: 230px;
+      }
+
+      .article-card h2 {
+        font-size: 26px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+
+        gap: 8px;
+      }
+
+      .newsletter-form input {
+        width: 100%;
+
+        border: 1px solid var(--border);
+      }
+
+      .newsletter-form button {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="header-top">
+
+    <a
+      href="{{ '/en/' | relative_url }}"
+      class="logo-link"
+    >
+
+      <div class="logo">
+        Biomed<span>Facts</span>
+      </div>
+
+    </a>
+
+
+    <div class="header-actions">
+
+
+      <!-- EL | EN -->
+
+      <div
+        class="language-switch"
+        aria-label="Language"
+      >
+
+        <a
+          href="{{ '/' | relative_url }}"
+          class="language-link"
+          data-language="el"
+        >
+          EL
+        </a>
+
+        <span class="language-divider">
+          |
+        </span>
+
+        <a
+          href="{{ '/en/' | relative_url }}"
+          class="active-language language-link"
+          data-language="en"
+        >
+          EN
+        </a>
+
+      </div>
+
+
+
+      <!-- LIGHT / DARK -->
+
+      <button
+        class="icon-button"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch theme"
+        title="Light / Dark mode"
+      >
+
+        <svg
+          class="moon-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M21 12.8A9 9 0 1 1 11.2 3
+               7 7 0 0 0 9.8 9.8
+               7 7 0 0 0 9.8 0z"
+          />
+
+        </svg>
+
+
+        <svg
+          class="sun-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <circle cx="12" cy="12" r="4"></circle>
+
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="M4.93 4.93l1.41 1.41"></path>
+          <path d="M17.66 17.66l1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="M4.93 19.07l1.41-1.41"></path>
+          <path d="M17.66 6.34l1.41-1.41"></path>
+
+        </svg>
+
+      </button>
+
+
+
+      <!-- INSTAGRAM -->
+
+      <a
+        class="icon-button instagram-button"
+        href="https://www.instagram.com/biomedical_sciences.gr/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        title="Instagram"
+      >
+
+        <svg viewBox="0 0 24 24">
+
+          <path
+            d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
+          />
+
+        </svg>
+
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <nav id="category-nav">
+
+    <a
+      href="#latest"
+      data-filter="all"
+      class="active"
+    >
+      Home
+    </a>
+
+    <a
+      href="#latest"
+      data-filter="Health"
+    >
+      Health
+    </a>
+
+    <a
+      href="#latest"
+      data-filter="Nutrition"
+    >
+      Nutrition
+    </a>
+
+    <a
+      href="#latest"
+      data-filter="Women's Health"
+    >
+      Women's Health
+    </a>
+
+    <a
+      href="#latest"
+      data-filter="Lab Tests"
+    >
+      Lab Tests
+    </a>
+
+    <a
+      href="#latest"
+      data-filter="Fact-Checking"
+    >
+      Fact-Checking
+    </a>
+
+    <a
+      href="#latest"
+      data-filter="News"
+    >
+      News
+    </a>
+
+    <a
+      href="#latest"
+      data-filter="Research"
+    >
+      Research
+    </a>
+
+  </nav>
+
+</header>
+
+
+
+<main>
+
+
+<!--
+  English articles are stored in en/_posts.
+  We separate them from the Greek posts here.
+-->
+
+{% assign english_posts = site.posts | where_exp: "post", "post.path contains 'en/_posts'" %}
+
+
+{% if english_posts.size > 0 %}
+
+
+  {% assign english_featured =
+    english_posts | where: "featured", true
+  %}
+
+  {% assign featured_post =
+    english_featured.first
+  %}
+
+
+  {% unless featured_post %}
+
+    {% assign featured_post =
+      english_posts.first
+    %}
+
+  {% endunless %}
+
+
+
+  <!-- FEATURED ARTICLE -->
+
+  <section class="featured">
+
+    <div class="featured-content">
+
+      <div class="featured-topline">
+
+        <span class="featured-category">
+          {{ featured_post.category }}
+        </span>
+
+        <span class="featured-date">
+          {{ featured_post.date | date: "%d/%m/%Y" }}
+        </span>
+
+      </div>
+
+
+      <h1 class="featured-title">
+
+        <a href="{{ featured_post.url | relative_url }}">
+          {{ featured_post.title }}
+        </a>
+
+      </h1>
+
+
+      {% if featured_post.excerpt %}
+
+        <p class="featured-excerpt">
+
+          {{ featured_post.excerpt | strip_html }}
+
+        </p>
+
+      {% endif %}
+
+
+      {% if featured_post.author %}
+
+        <p class="featured-author">
+          {{ featured_post.author }}
+        </p>
+
+      {% endif %}
+
+    </div>
+
+
+
+    <div>
+
+      {% if featured_post.image %}
+
+        <a href="{{ featured_post.url | relative_url }}">
+
+          <img
+            class="featured-image"
+            src="{{ featured_post.image }}"
+            alt="{{ featured_post.title | escape }}"
+          >
+
+        </a>
+
+      {% endif %}
+
+    </div>
+
+  </section>
+
+
+
+  <!-- LATEST ARTICLES -->
+
+  <section
+    class="latest-area"
+    id="latest"
+  >
+
+    <div class="section-header">
+
+      <div class="section-label">
+        NEW PUBLICATIONS
+      </div>
+
+      <h2 class="section-title">
+        Latest articles
+      </h2>
+
+    </div>
+
+
+
+    <div class="content-layout">
+
+
+      <div class="articles-grid">
+
+
+        {% assign latest_count = 0 %}
+
+
+        {% for post in english_posts %}
+
+
+          {% if post.url != featured_post.url and latest_count < 4 %}
+
+
+            <article
+              class="article-card filterable"
+              data-category="{{ post.category | escape }}"
+            >
+
+
+              {% if post.image %}
+
+                <a href="{{ post.url | relative_url }}">
+
+                  <img
+                    class="article-card-image"
+                    src="{{ post.image }}"
+                    alt="{{ post.title | escape }}"
+                    loading="lazy"
+                  >
+
+                </a>
+
+              {% endif %}
+
+
+
+              <div class="article-card-meta">
+
+                <span class="article-card-category">
+                  {{ post.category }}
+                </span>
+
+                <span class="article-card-date">
+                  {{ post.date | date: "%d/%m/%Y" }}
+                </span>
+
+              </div>
+
+
+
+              <h2>
+
+                <a href="{{ post.url | relative_url }}">
+                  {{ post.title }}
+                </a>
+
+              </h2>
+
+
+
+              {% if post.excerpt %}
+
+                <p class="article-card-excerpt">
+                  {{ post.excerpt | strip_html }}
+                </p>
+
+              {% endif %}
+
+
+
+              {% if post.author %}
+
+                <p class="article-card-author">
+                  {{ post.author }}
+                </p>
+
+              {% endif %}
+
+
+            </article>
+
+
+            {% assign latest_count =
+              latest_count | plus: 1 %}
+
+
+          {% endif %}
+
+
+        {% endfor %}
+
+
+      </div>
+
+
+
+      <!-- READ ALSO -->
+
+      <aside class="read-also">
+
+        <div class="read-also-label">
+          BIOMEDFACTS
+        </div>
+
+        <h2 class="read-also-title">
+          Read also
+        </h2>
+
+
+        {% assign skipped = 0 %}
+        {% assign read_count = 0 %}
+
+
+        {% for post in english_posts %}
+
+
+          {% if post.url != featured_post.url %}
+
+
+            {% if skipped < 4 %}
+
+              {% assign skipped =
+                skipped | plus: 1 %}
+
+
+            {% elsif read_count < 4 %}
+
+
+              <div
+                class="read-item filterable"
+                data-category="{{ post.category | escape }}"
+              >
+
+                <div class="read-number">
+
+                  {% assign number =
+                    read_count | plus: 1 %}
+
+                  0{{ number }}
+
+                </div>
+
+
+                <div>
+
+                  <h3>
+
+                    <a href="{{ post.url | relative_url }}">
+                      {{ post.title }}
+                    </a>
+
+                  </h3>
+
+
+                  <div class="read-item-category">
+                    {{ post.category }}
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              {% assign read_count =
+                read_count | plus: 1 %}
+
+
+            {% endif %}
+
+
+          {% endif %}
+
+
+        {% endfor %}
+
+
+        {% if read_count == 0 %}
+
+          <p
+            style="
+              color:var(--muted);
+              font-size:13px;
+              padding-top:5px;
+            "
+          >
+            More articles coming soon.
+          </p>
+
+        {% endif %}
+
+      </aside>
+
+    </div>
+
+
+
+    <section id="empty-message">
+
+      <h2>
+        There are no articles in this category yet.
+      </h2>
+
+      <p>
+        New content will be added soon.
+      </p>
+
+    </section>
+
+  </section>
+
+
+
+{% else %}
+
+
+  <!-- SHOWN UNTIL YOU ADD YOUR FIRST ENGLISH ARTICLE -->
+
+  <section
+    class="empty-language"
+    id="latest"
+  >
+
+    <h1>
+      BiomedFacts in English
+    </h1>
+
+    <p>
+      English articles are coming soon.
+    </p>
+
+  </section>
+
+
+{% endif %}
+
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+  <p class="newsletter-label">
+    BIOMEDFACTS NEWSLETTER
+  </p>
+
+
+  <div class="newsletter-form">
+
+    <input
+      type="email"
+      placeholder="Your email"
+      aria-label="Email"
+    >
+
+    <button type="button">
+      Subscribe
+    </button>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+  © 2026 BiomedFacts · Evidence-based science communication
+
+</footer>
+
+
+
+<script>
+
+  /* =========================
+     SAVE MANUAL LANGUAGE CHOICE
+  ========================= */
+
+  const languageLinks =
+    document.querySelectorAll(".language-link");
+
+
+  languageLinks.forEach(link => {
+
+    link.addEventListener("click", function () {
+
+      localStorage.setItem(
+        "biomedfacts-language",
+        this.dataset.language
+      );
+
+    });
+
+  });
+
+
+
+  /* =========================
+     LIGHT / DARK
+  ========================= */
+
+  const themeToggle =
+    document.getElementById("theme-toggle");
+
+
+  themeToggle.addEventListener(
+    "click",
+    function () {
+
+      const current =
+        document.documentElement.getAttribute(
+          "data-theme"
+        );
+
+      const next =
+        current === "dark"
+          ? "light"
+          : "dark";
+
+
+      document.documentElement.setAttribute(
+        "data-theme",
+        next
+      );
+
+
+      localStorage.setItem(
+        "biomedfacts-theme",
+        next
+      );
+
+    }
+  );
+
+
+
+  /* =========================
+     CATEGORY FILTER
+  ========================= */
+
+  const categoryLinks =
+    document.querySelectorAll("#category-nav a");
+
+  const filterableArticles =
+    document.querySelectorAll(".filterable");
+
+  const emptyMessage =
+    document.getElementById("empty-message");
+
+
+  categoryLinks.forEach(link => {
+
+    link.addEventListener(
+      "click",
+      function(event) {
+
+        event.preventDefault();
+
+
+        const category =
+          this.dataset.filter;
+
+
+        let visible = 0;
+
+
+        categoryLinks.forEach(item => {
+
+          item.classList.remove("active");
+
+        });
+
+
+        this.classList.add("active");
+
+
+        filterableArticles.forEach(article => {
+
+          const articleCategory =
+            article.dataset.category;
+
+
+          if (
+            category === "all" ||
+            articleCategory === category
+          ) {
+
+            article.style.display = "";
+
+            visible++;
+
+          }
+
+          else {
+
+            article.style.display = "none";
+
+          }
+
+        });
+
+
+        if (emptyMessage) {
+
+          if (visible === 0) {
+
+            emptyMessage.style.display =
+              "block";
+
+          }
+
+          else {
+
+            emptyMessage.style.display =
+              "none";
+
+          }
+
+        }
+
+
+        document
+          .getElementById("latest")
+          .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+      }
+    );
+
+  });
+
+</script>
+
+
+</body>
+
+</html>
