@@ -180,7 +180,6 @@
 
 
     .logo span {
-
       color: var(--accent);
     }
 
@@ -218,18 +217,10 @@
       color: var(--muted);
 
       text-decoration: none;
-
-      transition:
-        color 0.2s ease;
     }
 
 
-    .language-switch a:hover {
-
-      color: var(--accent);
-    }
-
-
+    .language-switch a:hover,
     .language-switch .active-language {
 
       color: var(--accent);
@@ -237,7 +228,6 @@
 
 
     .language-divider {
-
       color: var(--border);
     }
 
@@ -357,9 +347,6 @@
       text-transform: uppercase;
 
       cursor: pointer;
-
-      transition:
-        color 0.2s ease;
     }
 
 
@@ -564,10 +551,7 @@
       display: grid;
 
       grid-template-columns:
-        repeat(
-          2,
-          minmax(0, 1fr)
-        );
+        repeat(2, minmax(0, 1fr));
 
       gap:
         42px 30px;
@@ -659,7 +643,6 @@
 
 
     .article-card h2 a:hover {
-
       color: var(--accent);
     }
 
@@ -691,8 +674,7 @@
 
     .read-also {
 
-      background:
-        var(--surface);
+      background: var(--surface);
 
       border-top:
         5px solid var(--accent);
@@ -809,8 +791,7 @@
 
     .empty-language {
 
-      background:
-        var(--surface);
+      background: var(--surface);
 
       padding:
         60px 25px;
@@ -847,8 +828,7 @@
 
       padding: 35px;
 
-      background:
-        var(--surface);
+      background: var(--surface);
 
       text-align: center;
 
@@ -857,8 +837,6 @@
     }
 
 
-    /* REAL NEWSLETTER */
-
     .newsletter {
 
       margin-top: 75px;
@@ -866,8 +844,7 @@
       padding:
         36px 20px;
 
-      background:
-        var(--surface);
+      background: var(--surface);
 
       border-top:
         2px solid var(--text);
@@ -913,10 +890,64 @@
       margin-top: 65px;
 
       padding:
-        35px 20px;
+        38px 6%;
+
+      background: var(--surface);
 
       border-top:
         1px solid var(--border);
+    }
+
+
+    .footer-inner {
+
+      width:
+        min(1100px, 100%);
+
+      margin:
+        0 auto;
+    }
+
+
+    .footer-links {
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap:
+        10px 22px;
+
+      margin-bottom: 20px;
+    }
+
+
+    .footer-links a {
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      font-weight: bold;
+
+      text-decoration: none;
+
+      text-transform: uppercase;
+
+      transition:
+        color 0.2s ease;
+    }
+
+
+    .footer-links a:hover {
+
+      color: var(--accent);
+    }
+
+
+    .footer-copy {
 
       color: var(--muted);
 
@@ -1073,6 +1104,19 @@
           30px 8px;
       }
 
+
+      .footer-links {
+
+        gap:
+          11px 17px;
+      }
+
+
+      .footer-links a {
+
+        font-size: 10px;
+      }
+
     }
 
   </style>
@@ -1101,7 +1145,6 @@
       </div>
 
     </a>
-
 
 
     <div class="header-actions">
@@ -1135,7 +1178,6 @@
         </a>
 
       </div>
-
 
 
       <button
@@ -1186,7 +1228,6 @@
       </button>
 
 
-
       <a
         class="icon-button instagram-button"
         href="https://www.instagram.com/biomedical_sciences.gr/"
@@ -1215,7 +1256,6 @@
   </div>
 
 
-
   <nav id="category-nav">
 
     <a
@@ -1226,52 +1266,31 @@
       Home
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Health"
-    >
+    <a href="#latest" data-filter="Health">
       Health
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Nutrition"
-    >
+    <a href="#latest" data-filter="Nutrition">
       Nutrition
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Women's Health"
-    >
+    <a href="#latest" data-filter="Women's Health">
       Women's Health
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Lab Tests"
-    >
+    <a href="#latest" data-filter="Lab Tests">
       Lab Tests
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Fact-Checking"
-    >
+    <a href="#latest" data-filter="Fact-Checking">
       Fact-Checking
     </a>
 
-    <a
-      href="#latest"
-      data-filter="News"
-    >
+    <a href="#latest" data-filter="News">
       News
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Research"
-    >
+    <a href="#latest" data-filter="Research">
       Research
     </a>
 
@@ -1310,7 +1329,6 @@
   {% endunless %}
 
 
-
   <section
     class="featured"
     id="featured-section"
@@ -1340,7 +1358,6 @@
       </div>
 
 
-
       <h1 class="featured-title">
 
         <a
@@ -1354,7 +1371,6 @@
       </h1>
 
 
-
       {% if featured_post.excerpt %}
 
         <p class="featured-excerpt">
@@ -1364,7 +1380,6 @@
         </p>
 
       {% endif %}
-
 
 
       {% if featured_post.author %}
@@ -1379,7 +1394,6 @@
 
 
     </div>
-
 
 
     <div>
@@ -1408,7 +1422,6 @@
   </section>
 
 
-
   <section
     class="latest-area"
     id="latest"
@@ -1427,7 +1440,6 @@
       </h2>
 
     </div>
-
 
 
     <div class="content-layout">
@@ -1469,7 +1481,6 @@
               {% endif %}
 
 
-
               <div class="article-card-meta">
 
 
@@ -1490,7 +1501,6 @@
               </div>
 
 
-
               <h2>
 
                 <a
@@ -1504,7 +1514,6 @@
               </h2>
 
 
-
               {% if post.excerpt %}
 
                 <p class="article-card-excerpt">
@@ -1514,7 +1523,6 @@
                 </p>
 
               {% endif %}
-
 
 
               {% if post.author %}
@@ -1544,7 +1552,6 @@
       </div>
 
 
-
       <aside class="read-also">
 
 
@@ -1562,10 +1569,8 @@
         </h2>
 
 
-
         {% assign skipped = 0 %}
         {% assign read_count = 0 %}
-
 
 
         {% for post in english_posts %}
@@ -1601,7 +1606,6 @@
 
 
                 </div>
-
 
 
                 <div>
@@ -1646,7 +1650,6 @@
         {% endfor %}
 
 
-
         {% if read_count == 0 %}
 
           <p
@@ -1670,26 +1673,20 @@
     </div>
 
 
-
     <section id="empty-message">
 
       <h2>
-
         There are no articles in this category yet.
-
       </h2>
 
       <p>
-
         New content will be added soon.
-
       </p>
 
     </section>
 
 
   </section>
-
 
 
 {% else %}
@@ -1701,15 +1698,11 @@
   >
 
     <h1>
-
       BiomedFacts in English
-
     </h1>
 
     <p>
-
       English articles are coming soon.
-
     </p>
 
   </section>
@@ -1717,9 +1710,6 @@
 
 {% endif %}
 
-
-
-<!-- REAL BEEHIIV NEWSLETTER -->
 
 <section class="newsletter">
 
@@ -1753,7 +1743,50 @@
 
 <footer>
 
-  © 2026 BiomedFacts · Evidence-based science communication
+
+  <div class="footer-inner">
+
+
+    <div class="footer-links">
+
+
+      <a href="{{ '/en/about/' | relative_url }}">
+        About BiomedFacts
+      </a>
+
+
+      <a href="{{ '/en/editorial-policy/' | relative_url }}">
+        Editorial Policy
+      </a>
+
+
+      <a href="{{ '/en/medical-disclaimer/' | relative_url }}">
+        Medical Disclaimer
+      </a>
+
+
+      <a href="{{ '/en/privacy-policy/' | relative_url }}">
+        Privacy Policy
+      </a>
+
+
+      <a href="{{ '/en/contact/' | relative_url }}">
+        Contact
+      </a>
+
+
+    </div>
+
+
+    <div class="footer-copy">
+
+      © 2026 BiomedFacts · Evidence-based science communication
+
+    </div>
+
+
+  </div>
+
 
 </footer>
 
@@ -1877,7 +1910,6 @@
         let visible = 0;
 
 
-
         categoryLinks.forEach(
           item => {
 
@@ -1892,7 +1924,6 @@
         this.classList.add(
           "active"
         );
-
 
 
         filterableArticles.forEach(
@@ -1927,7 +1958,6 @@
         );
 
 
-
         if (featuredSection) {
 
           featuredSection.style.display =
@@ -1936,7 +1966,6 @@
               : "none";
 
         }
-
 
 
         if (sectionTitle) {
@@ -1958,25 +1987,14 @@
         }
 
 
-
         if (emptyMessage) {
 
-          if (visible === 0) {
-
-            emptyMessage.style.display =
-              "block";
-
-          }
-
-          else {
-
-            emptyMessage.style.display =
-              "none";
-
-          }
+          emptyMessage.style.display =
+            visible === 0
+              ? "block"
+              : "none";
 
         }
-
 
 
         document
