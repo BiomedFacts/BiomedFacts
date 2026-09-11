@@ -4,14 +4,19 @@ media:
   rename: safe
   categories: [image]
 
+
 content:
 
-  - name: posts
-    label: Άρθρα
+  # ==================================================
+  # ΕΛΛΗΝΙΚΑ ΑΡΘΡΑ
+  # ==================================================
+
+  - name: greek_posts
+    label: Ελληνικά άρθρα
     type: collection
     path: _posts
     format: yaml-frontmatter
-    filename: "{year}-{month}-{day}-{title}.md"
+    filename: "{date}-{title}.md"
 
     view:
       primary: title
@@ -51,10 +56,14 @@ content:
             - Νέα
             - Έρευνα
 
+      - name: translation_key
+        label: Κωδικός μετάφρασης
+        type: string
+        description: Βάλε τον ίδιο κωδικό στην ελληνική και αγγλική έκδοση του ίδιου άρθρου. Παράδειγμα: hba1c-basics
+
       - name: image
         label: Εικόνα εξωφύλλου
         type: image
-        description: Η βασική εικόνα που θα εμφανίζεται στην αρχική και στην κορυφή του άρθρου.
         options:
           path: assets/images
           extensions: [jpg, jpeg, png, webp]
@@ -64,7 +73,7 @@ content:
       - name: excerpt
         label: Σύντομη περιγραφή
         type: text
-        description: Γράψε 1–2 προτάσεις που θα εμφανίζονται κάτω από τον τίτλο στην αρχική.
+        description: 1–2 προτάσεις που εμφανίζονται στην αρχική.
 
       - name: author
         label: Συγγραφέας
@@ -77,15 +86,109 @@ content:
       - name: seo_title
         label: SEO Title
         type: string
-        description: Ο τίτλος που θα χρησιμοποιείται για τις μηχανές αναζήτησης.
 
       - name: seo_description
         label: SEO Description
         type: text
-        description: Σύντομη περιγραφή του άρθρου για Google και άλλες μηχανές αναζήτησης.
 
       - name: body
         label: Κείμενο άρθρου
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          switcher: true
+          path: assets/images
+          extensions: [jpg, jpeg, png, webp]
+          categories: [image]
+          rename: safe
+
+
+  # ==================================================
+  # ENGLISH ARTICLES
+  # ==================================================
+
+  - name: english_posts
+    label: English articles
+    type: collection
+    path: en/_posts
+    format: yaml-frontmatter
+    filename: "{date}-{title}.md"
+
+    view:
+      primary: title
+      fields: [title, date, category]
+      sort: [date, title]
+      search: [title, category, author]
+      default:
+        sort: date
+        order: desc
+
+    fields:
+
+      - name: title
+        label: Title
+        type: string
+        required: true
+
+      - name: date
+        label: Publication date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          placeholder: Select category
+          values:
+            - Health
+            - Nutrition
+            - Women's Health
+            - Lab Tests
+            - Fact-Checking
+            - News
+            - Research
+
+      - name: translation_key
+        label: Translation key
+        type: string
+        description: Use the same key as the Greek version. Example: hba1c-basics
+
+      - name: image
+        label: Cover image
+        type: image
+        options:
+          path: assets/images
+          extensions: [jpg, jpeg, png, webp]
+          categories: [image]
+          rename: safe
+
+      - name: excerpt
+        label: Short description
+        type: text
+
+      - name: author
+        label: Author
+        type: string
+
+      - name: featured
+        label: Featured article
+        type: boolean
+
+      - name: seo_title
+        label: SEO Title
+        type: string
+
+      - name: seo_description
+        label: SEO Description
+        type: text
+
+      - name: body
+        label: Article content
         type: rich-text
         required: true
         options:
