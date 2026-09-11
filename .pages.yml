@@ -1,6 +1,6 @@
 media:
   input: assets/images
-  output: /BiomedFacts/assets/images
+  output: /assets/images
   rename: safe
   categories: [image]
 
@@ -59,6 +59,7 @@ content:
       - name: translation_key
         label: Κωδικός μετάφρασης
         type: string
+        description: Βάλε τον ίδιο κωδικό στην ελληνική και αγγλική έκδοση του ίδιου άρθρου. Παράδειγμα: hba1c-basics
 
       - name: image
         label: Εικόνα εξωφύλλου
@@ -72,6 +73,7 @@ content:
       - name: excerpt
         label: Σύντομη περιγραφή
         type: text
+        description: 1–2 προτάσεις που εμφανίζονται στην αρχική.
 
       - name: author
         label: Συγγραφέας
@@ -154,6 +156,7 @@ content:
       - name: translation_key
         label: Translation key
         type: string
+        description: Use the same key as the Greek version. Example: hba1c-basics
 
       - name: image
         label: Cover image
