@@ -19,13 +19,9 @@
     {% if post.translation_key == page.translation_key %}
 
       {% if post.path contains "en/_posts" %}
-
         {% assign english_translation = post %}
-
       {% else %}
-
         {% assign greek_translation = post %}
-
       {% endif %}
 
     {% endif %}
@@ -92,13 +88,14 @@
   {% endif %}
 
 
-
   <script>
 
     (function () {
 
       const savedTheme =
-        localStorage.getItem("biomedfacts-theme");
+        localStorage.getItem(
+          "biomedfacts-theme"
+        );
 
       const prefersDark =
         window.matchMedia &&
@@ -110,15 +107,15 @@
         savedTheme ||
         (prefersDark ? "dark" : "light");
 
-      document.documentElement.setAttribute(
-        "data-theme",
-        theme
-      );
+      document.documentElement
+        .setAttribute(
+          "data-theme",
+          theme
+        );
 
     })();
 
   </script>
-
 
 
   <style>
@@ -161,15 +158,17 @@
     }
 
 
-
     * {
+
       box-sizing: border-box;
+
       margin: 0;
       padding: 0;
     }
 
 
     html {
+
       scroll-behavior: smooth;
     }
 
@@ -190,14 +189,14 @@
 
 
     a {
+
       color: inherit;
     }
 
 
-
-    /* ==========================================
+    /* =========================
        HEADER
-    =========================================== */
+    ========================= */
 
     .site-header {
 
@@ -209,7 +208,8 @@
       border-bottom:
         1px solid var(--border);
 
-      padding: 28px 6% 0;
+      padding:
+        28px 6% 0;
     }
 
 
@@ -251,14 +251,14 @@
 
 
     .logo span {
+
       color: var(--accent);
     }
 
 
-
-    /* ==========================================
+    /* =========================
        HEADER ACTIONS
-    =========================================== */
+    ========================= */
 
     .header-actions {
 
@@ -317,10 +317,9 @@
     }
 
 
-
-    /* ==========================================
+    /* =========================
        ICONS
-    =========================================== */
+    ========================= */
 
     .icon-button {
 
@@ -363,7 +362,6 @@
       stroke-width: 1.8;
 
       stroke-linecap: round;
-
       stroke-linejoin: round;
     }
 
@@ -371,7 +369,6 @@
     .instagram-button svg {
 
       fill: currentColor;
-
       stroke: none;
     }
 
@@ -390,29 +387,32 @@
 
 
     .sun-icon {
+
       display: none;
     }
 
 
     .moon-icon {
+
       display: block;
     }
 
 
     html[data-theme="dark"] .sun-icon {
+
       display: block;
     }
 
 
     html[data-theme="dark"] .moon-icon {
+
       display: none;
     }
 
 
-
-    /* ==========================================
+    /* =========================
        NAVIGATION
-    =========================================== */
+    ========================= */
 
     nav {
 
@@ -449,14 +449,14 @@
 
 
     nav a:hover {
+
       color: var(--accent);
     }
 
 
-
-    /* ==========================================
+    /* =========================
        ARTICLE
-    =========================================== */
+    ========================= */
 
     .article-container {
 
@@ -522,7 +522,6 @@
       display: flex;
 
       justify-content: center;
-
       align-items: center;
 
       flex-wrap: wrap;
@@ -538,7 +537,6 @@
     .meta-dot {
 
       width: 3px;
-
       height: 3px;
 
       border-radius: 50%;
@@ -547,15 +545,13 @@
     }
 
 
-
-    /* ==========================================
+    /* =========================
        COVER
-    =========================================== */
+    ========================= */
 
     .article-cover {
 
       margin-top: 38px;
-
       margin-bottom: 48px;
     }
 
@@ -575,16 +571,16 @@
     }
 
 
-
-    /* ==========================================
+    /* =========================
        ARTICLE BODY
-    =========================================== */
+    ========================= */
 
     .article-body {
 
       max-width: 760px;
 
-      margin: 0 auto;
+      margin:
+        0 auto;
 
       font-family:
         Georgia,
@@ -600,6 +596,7 @@
 
 
     .article-body p {
+
       margin-bottom: 25px;
     }
 
@@ -618,27 +615,30 @@
       line-height: 1.15;
 
       margin-top: 42px;
-
       margin-bottom: 18px;
     }
 
 
     .article-body h1 {
+
       font-size: 36px;
     }
 
 
     .article-body h2 {
+
       font-size: 31px;
     }
 
 
     .article-body h3 {
+
       font-size: 25px;
     }
 
 
     .article-body h4 {
+
       font-size: 21px;
     }
 
@@ -662,6 +662,7 @@
 
 
     .article-body li {
+
       margin-bottom: 9px;
     }
 
@@ -754,14 +755,15 @@
 
 
     .article-body th {
-      background: var(--surface);
+
+      background:
+        var(--surface);
     }
 
 
-
-    /* ==========================================
+    /* =========================
        ARTICLE END
-    =========================================== */
+    ========================= */
 
     .article-end {
 
@@ -792,14 +794,14 @@
 
 
     .back-home:hover {
+
       text-decoration: underline;
     }
 
 
-
-    /* ==========================================
-       GISCUS COMMENTS
-    =========================================== */
+    /* =========================
+       COMMENTS
+    ========================= */
 
     .comments-section {
 
@@ -858,10 +860,9 @@
     }
 
 
-
-    /* ==========================================
-       NEWSLETTER
-    =========================================== */
+    /* =========================
+       REAL BEEHIIV NEWSLETTER
+    ========================= */
 
     .newsletter {
 
@@ -872,24 +873,26 @@
         75px auto 0;
 
       padding:
-        30px 20px;
+        36px 20px;
 
       background:
         var(--surface);
-
-      text-align: center;
 
       border-top:
         2px solid var(--text);
 
       border-bottom:
         1px solid var(--border);
+
+      text-align: center;
+
+      overflow: hidden;
     }
 
 
     .newsletter-label {
 
-      margin-bottom: 16px;
+      margin-bottom: 22px;
 
       color: var(--accent);
 
@@ -901,85 +904,22 @@
     }
 
 
-    .newsletter-form {
+    .beehiiv-form-container {
 
-      display: flex;
+      width: 100%;
 
-      max-width: 480px;
+      max-width: 760px;
 
       margin:
         0 auto;
+
+      text-align: center;
     }
 
 
-    .newsletter-form input {
-
-      flex: 1;
-
-      min-width: 0;
-
-      padding:
-        13px 15px;
-
-      background:
-        var(--surface);
-
-      color: var(--text);
-
-      border:
-        1px solid var(--border);
-
-      border-right: none;
-
-      font-size: 14px;
-
-      outline: none;
-    }
-
-
-    .newsletter-form input:focus {
-      border-color: var(--accent);
-    }
-
-
-    .newsletter-form button {
-
-      padding:
-        13px 24px;
-
-      border:
-        1px solid var(--text);
-
-      background:
-        var(--text);
-
-      color:
-        var(--background);
-
-      font-size: 13px;
-
-      font-weight: bold;
-
-      cursor: pointer;
-    }
-
-
-    .newsletter-form button:hover {
-
-      background:
-        var(--accent);
-
-      border-color:
-        var(--accent);
-
-      color: #ffffff;
-    }
-
-
-
-    /* ==========================================
+    /* =========================
        FOOTER
-    =========================================== */
+    ========================= */
 
     footer {
 
@@ -999,10 +939,9 @@
     }
 
 
-
-    /* ==========================================
+    /* =========================
        MOBILE
-    =========================================== */
+    ========================= */
 
     @media (max-width: 700px) {
 
@@ -1022,11 +961,13 @@
 
 
       .logo {
+
         font-size: 34px;
       }
 
 
       .header-actions {
+
         gap: 7px;
       }
 
@@ -1044,7 +985,6 @@
       .icon-button {
 
         width: 37px;
-
         height: 37px;
       }
 
@@ -1052,7 +992,6 @@
       .icon-button svg {
 
         width: 18px;
-
         height: 18px;
       }
 
@@ -1068,6 +1007,7 @@
 
 
       nav a {
+
         font-size: 10px;
       }
 
@@ -1091,12 +1031,12 @@
       .article-cover {
 
         margin-top: 28px;
-
         margin-bottom: 35px;
       }
 
 
       .article-cover img {
+
         max-height: none;
       }
 
@@ -1110,49 +1050,35 @@
 
 
       .article-body h1 {
+
         font-size: 31px;
       }
 
 
       .article-body h2 {
+
         font-size: 27px;
       }
 
 
       .article-body h3 {
+
         font-size: 23px;
       }
 
 
       .comments-section h2 {
+
         font-size: 28px;
       }
 
 
       .newsletter {
+
         width: 90%;
-      }
 
-
-      .newsletter-form {
-
-        flex-direction: column;
-
-        gap: 8px;
-      }
-
-
-      .newsletter-form input {
-
-        width: 100%;
-
-        border:
-          1px solid var(--border);
-      }
-
-
-      .newsletter-form button {
-        width: 100%;
+        padding:
+          30px 8px;
       }
 
     }
@@ -1161,16 +1087,19 @@
     @media (max-width: 470px) {
 
       .logo {
+
         font-size: 29px;
       }
 
 
       .header-actions {
+
         gap: 5px;
       }
 
 
       .language-switch {
+
         font-size: 9px;
       }
 
@@ -1178,12 +1107,12 @@
       .icon-button {
 
         width: 34px;
-
         height: 34px;
       }
 
 
       .article-title {
+
         font-size: 31px;
       }
 
@@ -1195,7 +1124,6 @@
 
 
 <body>
-
 
 
 <header class="site-header">
@@ -1218,11 +1146,10 @@
     </a>
 
 
-
     <div class="header-actions">
 
 
-      <!-- EL | EN -->
+      <!-- LANGUAGE -->
 
       <div
         class="language-switch"
@@ -1284,7 +1211,6 @@
       </div>
 
 
-
       <!-- LIGHT / DARK -->
 
       <button
@@ -1332,8 +1258,8 @@
 
         </svg>
 
-      </button>
 
+      </button>
 
 
       <!-- INSTAGRAM -->
@@ -1364,7 +1290,6 @@
     </div>
 
   </div>
-
 
 
   {% if is_english %}
@@ -1453,7 +1378,6 @@
 </header>
 
 
-
 <main class="article-container">
 
 
@@ -1474,13 +1398,11 @@
       {% endif %}
 
 
-
       <h1 class="article-title">
 
         {{ page.title }}
 
       </h1>
-
 
 
       <div class="article-meta">
@@ -1489,11 +1411,8 @@
         {% if page.author %}
 
           <span>
-
             {{ page.author }}
-
           </span>
-
 
           <span class="meta-dot"></span>
 
@@ -1513,7 +1432,6 @@
     </div>
 
 
-
     {% if page.image %}
 
       <div class="article-cover">
@@ -1528,7 +1446,6 @@
     {% endif %}
 
 
-
     <div class="article-body">
 
       {{ content }}
@@ -1537,7 +1454,6 @@
 
 
   </article>
-
 
 
   <div class="article-end">
@@ -1549,9 +1465,7 @@
         href="{{ '/en/' | relative_url }}"
         class="back-home"
       >
-
         ← Back to BiomedFacts
-
       </a>
 
     {% else %}
@@ -1560,9 +1474,7 @@
         href="{{ '/' | relative_url }}"
         class="back-home"
       >
-
         ← Επιστροφή στο BiomedFacts
-
       </a>
 
     {% endif %}
@@ -1571,46 +1483,34 @@
   </div>
 
 
-
-  <!-- ==========================================
+  <!-- =========================
        REAL COMMENTS
-  =========================================== -->
+  ========================= -->
 
   <section class="comments-section">
 
 
     {% if is_english %}
 
-
       <h2>
         Comments
       </h2>
 
-
       <p class="comments-intro">
-
         💬 <em>Join the discussion</em>
-
       </p>
 
-
     {% else %}
-
 
       <h2>
         Σχόλια
       </h2>
 
-
       <p class="comments-intro">
-
         💬 <em>Συμμετέχετε στη συζήτηση</em>
-
       </p>
 
-
     {% endif %}
-
 
 
     <div class="giscus"></div>
@@ -1640,6 +1540,9 @@
 </main>
 
 
+<!-- =========================
+     REAL BEEHIIV NEWSLETTER
+========================= -->
 
 <section class="newsletter">
 
@@ -1651,41 +1554,20 @@
   </p>
 
 
-  <div class="newsletter-form">
+  <div class="beehiiv-form-container">
 
 
-    {% if is_english %}
-
-      <input
-        type="email"
-        placeholder="Your email"
-        aria-label="Email"
-      >
-
-      <button type="button">
-        Subscribe
-      </button>
-
-    {% else %}
-
-      <input
-        type="email"
-        placeholder="Το email σου"
-        aria-label="Email"
-      >
-
-      <button type="button">
-        Εγγραφή
-      </button>
-
-    {% endif %}
+    <script
+      async
+      src="https://subscribe-forms.beehiiv.com/v3/loader.js"
+      data-beehiiv-form="5b6c64fa-4be2-4884-a199-d0ebe1f9ed51"
+    ></script>
 
 
   </div>
 
 
 </section>
-
 
 
 <footer>
@@ -1695,13 +1577,12 @@
 </footer>
 
 
-
 <script>
 
 
-  /* ==========================================
+  /* =========================
      LANGUAGE MEMORY
-  =========================================== */
+  ========================= */
 
   const languageLinks =
     document.querySelectorAll(
@@ -1726,12 +1607,12 @@
   });
 
 
-
-  /* ==========================================
-     UPDATE GISCUS THEME
-  =========================================== */
+  /* =========================
+     GISCUS THEME
+  ========================= */
 
   function updateGiscusTheme(theme) {
+
 
     const iframe =
       document.querySelector(
@@ -1740,13 +1621,16 @@
 
 
     if (!iframe) {
+
       return;
+
     }
 
 
     iframe.contentWindow.postMessage(
 
       {
+
         giscus: {
 
           setConfig: {
@@ -1756,6 +1640,7 @@
           }
 
         }
+
       },
 
       "https://giscus.app"
@@ -1765,42 +1650,44 @@
   }
 
 
-
-  /* ==========================================
+  /* =========================
      WAIT FOR GISCUS
-  =========================================== */
+  ========================= */
 
   const giscusObserver =
-    new MutationObserver(function () {
+    new MutationObserver(
+      function () {
 
 
-      const iframe =
-        document.querySelector(
-          "iframe.giscus-frame"
-        );
+        const iframe =
+          document.querySelector(
+            "iframe.giscus-frame"
+          );
 
 
-      if (iframe) {
+        if (iframe) {
 
 
-        const currentTheme =
-          document.documentElement
-            .getAttribute(
-              "data-theme"
-            );
+          const currentTheme =
+            document.documentElement
+              .getAttribute(
+                "data-theme"
+              );
 
 
-        updateGiscusTheme(
-          currentTheme
-        );
+          updateGiscusTheme(
+            currentTheme
+          );
 
 
-        giscusObserver.disconnect();
+          giscusObserver.disconnect();
+
+
+        }
+
 
       }
-
-
-    });
+    );
 
 
   giscusObserver.observe(
@@ -1808,17 +1695,18 @@
     document.body,
 
     {
+
       childList: true,
       subtree: true
+
     }
 
   );
 
 
-
-  /* ==========================================
+  /* =========================
      LIGHT / DARK
-  =========================================== */
+  ========================= */
 
   const themeToggle =
     document.getElementById(
