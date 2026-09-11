@@ -17,15 +17,151 @@
 
   <meta
     name="description"
-    content="Evidence-based ενημέρωση για υγεία, διατροφή, εξετάσεις, νέα έρευνα και fact-checking."
+    content="Evidence-based ενημέρωση για υγεία, διατροφή, εξετάσεις, έρευνα και fact-checking."
   >
+
+  <link
+    rel="alternate"
+    hreflang="el"
+    href="{{ '/' | absolute_url }}"
+  >
+
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="{{ '/en/' | absolute_url }}"
+  >
+
+
+  <!-- =========================================
+       LANGUAGE + THEME BEFORE PAGE LOADS
+  ========================================== -->
+
+  <script>
+
+    (function () {
+
+      /* LIGHT / DARK */
+
+      const savedTheme =
+        localStorage.getItem("biomedfacts-theme");
+
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      const theme =
+        savedTheme || (prefersDark ? "dark" : "light");
+
+      document.documentElement.setAttribute(
+        "data-theme",
+        theme
+      );
+
+
+      /* LANGUAGE */
+
+      const savedLanguage =
+        localStorage.getItem("biomedfacts-language");
+
+      if (savedLanguage === "en") {
+
+        window.location.replace(
+          "{{ '/en/' | relative_url }}"
+        );
+
+        return;
+
+      }
+
+
+      if (!savedLanguage) {
+
+        const browserLanguages =
+          navigator.languages ||
+          [navigator.language || ""];
+
+        const usesGreek =
+          browserLanguages.some(function(language) {
+
+            return language
+              .toLowerCase()
+              .startsWith("el");
+
+          });
+
+
+        if (!usesGreek) {
+
+          localStorage.setItem(
+            "biomedfacts-language",
+            "en"
+          );
+
+          window.location.replace(
+            "{{ '/en/' | relative_url }}"
+          );
+
+          return;
+
+        }
+
+      }
+
+    })();
+
+  </script>
 
 
   <style>
 
-    /* =========================
+    /* =========================================
+       COLORS
+    ========================================== */
+
+    :root {
+
+      --background: #f8f7fa;
+      --surface: #ffffff;
+
+      --text: #111111;
+      --muted: #666666;
+
+      --border: #cccccc;
+      --soft-border: #dddddd;
+
+      --accent: #6c3bb8;
+      --top-border: #32103f;
+
+      --input-background: #ffffff;
+
+      --shadow: #e3e0e6;
+    }
+
+
+    html[data-theme="dark"] {
+
+      --background: #111111;
+      --surface: #1b1b1b;
+
+      --text: #f4f4f4;
+      --muted: #b5b5b5;
+
+      --border: #444444;
+      --soft-border: #333333;
+
+      --accent: #b58cff;
+      --top-border: #6c3bb8;
+
+      --input-background: #151515;
+
+      --shadow: #080808;
+    }
+
+
+    /* =========================================
        BASIC
-    ========================= */
+    ========================================== */
 
     * {
       box-sizing: border-box;
@@ -33,38 +169,54 @@
       padding: 0;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
-      background: #f8f7fa;
-      color: #111;
+
+      background: var(--background);
+      color: var(--text);
 
       font-family: Arial, sans-serif;
 
       line-height: 1.6;
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease;
     }
+
 
     a {
       color: inherit;
     }
 
 
-    /* =========================
+    /* =========================================
        HEADER
-    ========================= */
+    ========================================== */
 
     header {
-      background: #ffffff;
-      border-top: 5px solid #32103f;
-      border-bottom: 1px solid #ccc;
+
+      background: var(--surface);
+
+      border-top:
+        5px solid var(--top-border);
+
+      border-bottom:
+        1px solid var(--border);
 
       padding: 28px 6% 0;
     }
 
+
     .header-top {
+
       display: flex;
+
       align-items: center;
       justify-content: space-between;
 
@@ -73,42 +225,121 @@
       padding-bottom: 28px;
     }
 
+
     .logo-link {
-      color: #111;
+
+      color: var(--text);
+
       text-decoration: none;
     }
 
+
     .logo {
-      font-family: "Times New Roman", serif;
+
+      font-family:
+        "Times New Roman",
+        serif;
 
       font-size: 46px;
+
       font-weight: bold;
 
       letter-spacing: -1.5px;
+
       line-height: 1;
     }
 
+
     .logo span {
-      color: #6c3bb8;
+      color: var(--accent);
     }
 
 
-    /* INSTAGRAM */
+    /* =========================================
+       HEADER ACTIONS
+    ========================================== */
 
-    .instagram-button {
+    .header-actions {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+
+    /* LANGUAGE */
+
+    .language-switch {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      margin-right: 5px;
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 0.5px;
+    }
+
+
+    .language-switch a {
+
+      color: var(--muted);
+
+      text-decoration: none;
+
+      transition:
+        color 0.2s ease;
+    }
+
+
+    .language-switch a:hover {
+
+      color: var(--accent);
+    }
+
+
+    .language-switch .active-language {
+
+      color: var(--accent);
+    }
+
+
+    .language-divider {
+
+      color: var(--border);
+    }
+
+
+    /* ICON BUTTONS */
+
+    .icon-button {
+
       width: 44px;
       height: 44px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
-      background: #ffffff;
-      color: #111;
+      background: var(--surface);
 
-      border: 1px solid #111;
+      color: var(--text);
+
+      border:
+        1px solid var(--text);
 
       text-decoration: none;
+
+      cursor: pointer;
 
       transition:
         background 0.2s ease,
@@ -117,78 +348,144 @@
         transform 0.2s ease;
     }
 
-    .instagram-button svg {
+
+    .icon-button svg {
+
       width: 21px;
       height: 21px;
 
-      fill: currentColor;
+      fill: none;
+
+      stroke: currentColor;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
     }
 
-    .instagram-button:hover {
-      background: #6c3bb8;
-      border-color: #6c3bb8;
+
+    .instagram-button svg {
+
+      fill: currentColor;
+
+      stroke: none;
+    }
+
+
+    .icon-button:hover {
+
+      background: var(--accent);
+
+      border-color: var(--accent);
+
       color: #ffffff;
 
-      transform: translateY(-2px);
+      transform:
+        translateY(-2px);
     }
 
 
-    /* =========================
+    /* LIGHT MODE = MOON */
+
+    .sun-icon {
+      display: none;
+    }
+
+
+    .moon-icon {
+      display: block;
+    }
+
+
+    /* DARK MODE = SUN */
+
+    html[data-theme="dark"]
+    .sun-icon {
+
+      display: block;
+    }
+
+
+    html[data-theme="dark"]
+    .moon-icon {
+
+      display: none;
+    }
+
+
+    /* =========================================
        NAVIGATION
-    ========================= */
+    ========================================== */
 
     nav {
+
       display: flex;
+
       align-items: center;
+
       flex-wrap: wrap;
 
       gap: 18px 34px;
 
-      border-top: 1px solid #ddd;
-
       padding: 18px 0;
+
+      border-top:
+        1px solid var(--soft-border);
     }
 
+
     nav a {
-      color: #111;
+
+      color: var(--text);
 
       text-decoration: none;
 
       font-size: 13px;
+
       font-weight: bold;
 
       text-transform: uppercase;
 
       cursor: pointer;
 
-      transition: color 0.2s ease;
+      transition:
+        color 0.2s ease;
     }
+
 
     nav a:hover,
     nav a.active {
-      color: #6c3bb8;
+
+      color: var(--accent);
     }
 
 
-    /* =========================
+    /* =========================================
        MAIN
-    ========================= */
+    ========================================== */
 
     main {
-      width: min(1250px, 88%);
 
-      margin: 65px auto;
+      width:
+        min(1250px, 88%);
+
+      margin:
+        65px auto;
     }
 
 
-    /* =========================
+    /* =========================================
        FEATURED ARTICLE
-    ========================= */
+    ========================================== */
 
     .featured {
+
       display: grid;
 
-      grid-template-columns: 0.95fr 1.25fr;
+      grid-template-columns:
+        0.95fr 1.25fr;
 
       gap: 55px;
 
@@ -196,145 +493,179 @@
 
       padding-bottom: 65px;
 
-      border-bottom: 1px solid #bbb;
+      border-bottom:
+        1px solid var(--border);
     }
 
+
     .featured-content {
+
       min-width: 0;
     }
 
+
     .featured-topline {
+
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       flex-wrap: wrap;
 
       gap: 10px;
 
       padding-bottom: 12px;
+
       margin-bottom: 24px;
 
-      border-bottom: 1px solid #111;
+      border-bottom:
+        1px solid var(--text);
     }
+
 
     .featured-category,
     .featured-date {
+
       font-size: 11px;
+
       font-weight: bold;
 
       letter-spacing: 1px;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
     }
+
 
     .featured-category {
-      color: #6c3bb8;
+
+      color: var(--accent);
     }
+
+
+    /* ΟΧΙ τεράστιος τίτλος */
 
     .featured-title {
+
       margin-bottom: 20px;
 
-      font-family: "Times New Roman", serif;
+      font-family:
+        "Times New Roman",
+        serif;
 
-      font-size: 46px;
+      font-size: 44px;
+
       font-weight: bold;
 
-      line-height: 1.02;
+      line-height: 1.05;
 
-      letter-spacing: -1.3px;
+      letter-spacing: -1px;
     }
 
+
     .featured-title a {
-      color: #111;
+
+      color: var(--text);
+
       text-decoration: none;
     }
 
+
     .featured-title a:hover {
-      color: #6c3bb8;
+
+      color: var(--accent);
     }
 
+
     .featured-excerpt {
+
       max-width: 580px;
 
-      color: #444;
+      color: var(--muted);
 
-      font-family: Georgia, "Times New Roman", serif;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
       font-size: 18px;
+
       line-height: 1.65;
 
       margin-bottom: 22px;
     }
 
+
     .featured-author {
-      color: #777;
+
+      color: var(--muted);
 
       font-size: 12px;
     }
 
+
     .featured-image {
-      width: 100%;
-      height: 430px;
 
       display: block;
 
+      width: 100%;
+
+      height: 430px;
+
       object-fit: cover;
 
-      border: 1px solid #222;
+      border:
+        1px solid var(--text);
     }
 
 
-    /* =========================
-       LATEST SECTION
-    ========================= */
+    /* =========================================
+       LATEST
+    ========================================== */
 
     .latest-area {
+
       margin-top: 65px;
     }
 
-    .section-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
 
-      gap: 20px;
+    .section-header {
 
       margin-bottom: 28px;
+
       padding-bottom: 13px;
 
-      border-bottom: 2px solid #111;
+      border-bottom:
+        2px solid var(--text);
     }
 
-    .section-label {
-      color: #6c3bb8;
-
-      font-size: 11px;
-      font-weight: bold;
-
-      letter-spacing: 1.5px;
-
-      text-transform: uppercase;
-
-      margin-bottom: 4px;
-    }
 
     .section-title {
-      font-family: "Times New Roman", serif;
+
+      font-family:
+        "Times New Roman",
+        serif;
 
       font-size: 40px;
+
       line-height: 1;
 
       letter-spacing: -1px;
     }
 
 
-    /* =========================
-       LATEST + SIDEBAR
-    ========================= */
+    /* =========================================
+       MAIN CONTENT LAYOUT
+    ========================================== */
 
     .content-layout {
+
       display: grid;
 
-      grid-template-columns: minmax(0, 2fr) minmax(260px, 0.8fr);
+      grid-template-columns:
+        minmax(0, 2fr)
+        minmax(260px, 0.8fr);
 
       gap: 55px;
 
@@ -342,36 +673,55 @@
     }
 
 
-    /* ARTICLE GRID */
+    /* =========================================
+       ARTICLES
+    ========================================== */
 
     .articles-grid {
+
       display: grid;
 
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
 
-      gap: 42px 30px;
+      gap:
+        42px 30px;
     }
 
+
     .article-card {
-      border-top: 4px solid #111;
+
+      border-top:
+        4px solid var(--text);
 
       padding-top: 14px;
     }
 
+
     .article-card-image {
-      width: 100%;
-      height: 245px;
 
       display: block;
+
+      width: 100%;
+
+      height: 245px;
 
       object-fit: cover;
 
       margin-bottom: 16px;
     }
 
+
     .article-card-meta {
+
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       flex-wrap: wrap;
 
       gap: 8px;
@@ -379,208 +729,292 @@
       margin-bottom: 10px;
     }
 
+
     .article-card-category {
-      color: #6c3bb8;
+
+      color: var(--accent);
 
       font-size: 11px;
+
       font-weight: bold;
 
       letter-spacing: 1.1px;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
     }
 
+
     .article-card-date {
-      color: #666;
+
+      color: var(--muted);
 
       font-size: 11px;
     }
 
+
     .article-card h2 {
+
       margin-bottom: 12px;
 
-      font-family: "Times New Roman", serif;
+      font-family:
+        "Times New Roman",
+        serif;
 
       font-size: 29px;
+
       line-height: 1.05;
 
       letter-spacing: -0.6px;
     }
 
+
     .article-card h2 a {
-      color: #111;
+
+      color: var(--text);
+
       text-decoration: none;
     }
 
+
     .article-card h2 a:hover {
-      color: #6c3bb8;
+
+      color: var(--accent);
     }
 
-    .article-card-excerpt {
-      color: #555;
 
-      font-family: Georgia, "Times New Roman", serif;
+    .article-card-excerpt {
+
+      color: var(--muted);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
       font-size: 15px;
+
       line-height: 1.6;
 
       margin-bottom: 13px;
     }
 
+
     .article-card-author {
-      color: #777;
+
+      color: var(--muted);
 
       font-size: 11px;
     }
 
 
-    /* =========================
+    /* =========================================
        READ ALSO
-    ========================= */
+    ========================================== */
 
     .read-also {
-      background: #ffffff;
 
-      border-top: 5px solid #6c3bb8;
+      background:
+        var(--surface);
+
+      border-top:
+        5px solid var(--accent);
 
       padding: 22px;
 
-      box-shadow: 8px 8px 0 #e3e0e6;
+      box-shadow:
+        8px 8px 0 var(--shadow);
     }
 
+
     .read-also-label {
-      color: #6c3bb8;
+
+      color: var(--accent);
 
       font-size: 11px;
+
       font-weight: bold;
 
       letter-spacing: 1.4px;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
     }
 
+
     .read-also-title {
+
       margin-top: 7px;
+
       margin-bottom: 18px;
 
       padding-bottom: 15px;
 
-      border-bottom: 1px solid #bbb;
+      border-bottom:
+        1px solid var(--border);
 
-      font-family: "Times New Roman", serif;
+      font-family:
+        "Times New Roman",
+        serif;
 
       font-size: 29px;
+
       line-height: 1;
     }
 
+
     .read-item {
+
       display: grid;
 
-      grid-template-columns: 46px 1fr;
+      grid-template-columns:
+        46px 1fr;
 
       gap: 12px;
 
-      padding: 18px 0;
+      padding:
+        18px 0;
 
-      border-bottom: 1px solid #ddd;
+      border-bottom:
+        1px solid
+        var(--soft-border);
     }
 
-    .read-number {
-      color: #6c3bb8;
 
-      font-family: "Times New Roman", serif;
+    .read-number {
+
+      color: var(--accent);
+
+      font-family:
+        "Times New Roman",
+        serif;
 
       font-size: 20px;
+
       font-weight: bold;
     }
 
+
     .read-item h3 {
-      font-family: "Times New Roman", serif;
+
+      font-family:
+        "Times New Roman",
+        serif;
 
       font-size: 18px;
+
       line-height: 1.15;
     }
 
+
     .read-item h3 a {
-      color: #111;
+
+      color: var(--text);
+
       text-decoration: none;
     }
 
+
     .read-item h3 a:hover {
-      color: #6c3bb8;
+
+      color: var(--accent);
     }
 
+
     .read-item-category {
+
       margin-top: 7px;
 
-      color: #777;
+      color: var(--muted);
 
       font-size: 10px;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
     }
 
 
-    /* EMPTY CATEGORY */
+    /* =========================================
+       EMPTY
+    ========================================== */
 
     #empty-message {
+
       display: none;
 
       margin-top: 30px;
 
       padding: 35px;
 
-      background: #ffffff;
+      background:
+        var(--surface);
 
-      border-top: 3px solid #111;
+      border-top:
+        3px solid var(--text);
 
       text-align: center;
     }
 
+
     #empty-message h2 {
-      font-family: "Times New Roman", serif;
+
+      font-family:
+        "Times New Roman",
+        serif;
 
       font-size: 25px;
 
       margin-bottom: 7px;
     }
 
+
     #empty-message p {
-      color: #666;
+
+      color: var(--muted);
 
       font-size: 13px;
     }
 
 
-    /* =========================
+    /* =========================================
        NEWSLETTER
-    ========================= */
+    ========================================== */
 
     .newsletter {
+
       margin-top: 75px;
 
       padding: 30px 20px;
 
-      background: #ffffff;
+      background:
+        var(--surface);
 
       text-align: center;
 
-      border-top: 2px solid #111;
-      border-bottom: 1px solid #ccc;
+      border-top:
+        2px solid var(--text);
+
+      border-bottom:
+        1px solid var(--border);
     }
 
+
     .newsletter-label {
+
       margin-bottom: 16px;
 
-      color: #6c3bb8;
+      color: var(--accent);
 
       font-size: 11px;
+
       font-weight: bold;
 
       letter-spacing: 1.8px;
     }
 
+
     .newsletter-form {
+
       display: flex;
 
       max-width: 480px;
@@ -588,59 +1022,88 @@
       margin: 0 auto;
     }
 
+
     .newsletter-form input {
+
       flex: 1;
 
       min-width: 0;
 
-      padding: 13px 15px;
+      padding:
+        13px 15px;
 
-      border: 1px solid #aaa;
+      border:
+        1px solid var(--border);
+
       border-right: none;
 
-      background: #fff;
+      background:
+        var(--input-background);
+
+      color: var(--text);
 
       font-size: 14px;
 
       outline: none;
     }
 
+
     .newsletter-form input:focus {
-      border-color: #6c3bb8;
+
+      border-color:
+        var(--accent);
     }
 
+
     .newsletter-form button {
-      padding: 13px 24px;
 
-      border: 1px solid #111;
+      padding:
+        13px 24px;
 
-      background: #111;
-      color: #fff;
+      border:
+        1px solid var(--text);
+
+      background:
+        var(--text);
+
+      color:
+        var(--background);
 
       font-size: 13px;
+
       font-weight: bold;
 
       cursor: pointer;
     }
 
+
     .newsletter-form button:hover {
-      background: #6c3bb8;
-      border-color: #6c3bb8;
+
+      background:
+        var(--accent);
+
+      border-color:
+        var(--accent);
+
+      color: #ffffff;
     }
 
 
-    /* =========================
+    /* =========================================
        FOOTER
-    ========================= */
+    ========================================== */
 
     footer {
+
       margin-top: 65px;
 
-      padding: 35px 20px;
+      padding:
+        35px 20px;
 
-      border-top: 1px solid #ccc;
+      border-top:
+        1px solid var(--border);
 
-      color: #666;
+      color: var(--muted);
 
       text-align: center;
 
@@ -648,120 +1111,187 @@
     }
 
 
-    /* =========================
+    /* =========================================
        TABLET
-    ========================= */
+    ========================================== */
 
     @media (max-width: 950px) {
 
       .featured {
+
         grid-template-columns: 1fr;
+
         gap: 30px;
       }
 
+
       .featured-image {
+
         height: 420px;
       }
 
+
       .content-layout {
+
         grid-template-columns: 1fr;
       }
 
+
       .read-also {
+
         box-shadow: none;
       }
 
     }
 
 
-    /* =========================
+    /* =========================================
        MOBILE
-    ========================= */
+    ========================================== */
 
     @media (max-width: 650px) {
 
       header {
-        padding: 22px 5% 0;
+
+        padding:
+          22px 5% 0;
       }
 
+
       .logo {
+
         font-size: 34px;
       }
 
-      .instagram-button {
-        width: 38px;
-        height: 38px;
+
+      .header-actions {
+
+        gap: 7px;
       }
 
-      .instagram-button svg {
-        width: 18px;
-        height: 18px;
-      }
 
-      nav {
-        gap: 11px 18px;
+      .language-switch {
 
-        padding: 15px 0;
-      }
+        gap: 5px;
 
-      nav a {
+        margin-right: 1px;
+
         font-size: 10px;
       }
 
+
+      .icon-button {
+
+        width: 37px;
+
+        height: 37px;
+      }
+
+
+      .icon-button svg {
+
+        width: 18px;
+
+        height: 18px;
+      }
+
+
+      nav {
+
+        gap:
+          11px 18px;
+
+        padding:
+          15px 0;
+      }
+
+
+      nav a {
+
+        font-size: 10px;
+      }
+
+
       main {
+
         width: 90%;
 
         margin-top: 40px;
       }
 
+
       .featured {
+
         padding-bottom: 45px;
       }
 
+
       .featured-title {
+
         font-size: 34px;
-        line-height: 1.06;
+
+        line-height: 1.07;
       }
 
+
       .featured-excerpt {
+
         font-size: 16px;
       }
 
+
       .featured-image {
+
         height: 280px;
       }
 
+
       .section-title {
+
         font-size: 33px;
       }
 
+
       .articles-grid {
+
         grid-template-columns: 1fr;
 
         gap: 35px;
       }
 
+
       .article-card-image {
+
         height: 230px;
       }
 
+
       .article-card h2 {
+
         font-size: 26px;
       }
 
+
       .newsletter-form {
-        flex-direction: column;
+
+        flex-direction:
+          column;
 
         gap: 8px;
       }
 
+
       .newsletter-form input {
+
         width: 100%;
 
-        border: 1px solid #aaa;
+        border:
+          1px solid var(--border);
       }
 
+
       .newsletter-form button {
+
         width: 100%;
       }
 
@@ -775,13 +1305,14 @@
 <body>
 
 
-<!-- =========================
+<!-- =========================================
      HEADER
-========================= -->
+========================================== -->
 
 <header>
 
   <div class="header-top">
+
 
     <a
       href="{{ '/' | relative_url }}"
@@ -789,65 +1320,209 @@
     >
 
       <div class="logo">
+
         Biomed<span>Facts</span>
+
       </div>
 
     </a>
 
 
-    <a
-      class="instagram-button"
-      href="https://www.instagram.com/biomedical_sciences.gr/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Instagram"
-      title="Instagram"
-    >
+    <div class="header-actions">
 
-      <svg viewBox="0 0 24 24">
 
-        <path
-          d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
-        />
+      <!-- EL | EN -->
 
-      </svg>
+      <div
+        class="language-switch"
+        aria-label="Γλώσσα"
+      >
 
-    </a>
+        <a
+          href="{{ '/' | relative_url }}"
+          class="active-language language-link"
+          data-language="el"
+        >
+          EL
+        </a>
+
+
+        <span class="language-divider">
+          |
+        </span>
+
+
+        <a
+          href="{{ '/en/' | relative_url }}"
+          class="language-link"
+          data-language="en"
+        >
+          EN
+        </a>
+
+      </div>
+
+
+
+      <!-- LIGHT / DARK -->
+
+      <button
+        class="icon-button"
+        id="theme-toggle"
+        type="button"
+        aria-label="Αλλαγή θέματος"
+        title="Light / Dark mode"
+      >
+
+
+        <!-- MOON -->
+
+        <svg
+          class="moon-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M21 12.8A9 9 0 1 1 11.2 3
+               7 7 0 0 0 9.8 9.8
+               7 7 0 0 0 9.8 0z"
+          />
+
+        </svg>
+
+
+        <!-- SUN -->
+
+        <svg
+          class="sun-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+          ></circle>
+
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+
+          <path
+            d="M4.93 4.93l1.41 1.41"
+          ></path>
+
+          <path
+            d="M17.66 17.66l1.41 1.41"
+          ></path>
+
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+
+          <path
+            d="M4.93 19.07l1.41-1.41"
+          ></path>
+
+          <path
+            d="M17.66 6.34l1.41-1.41"
+          ></path>
+
+        </svg>
+
+      </button>
+
+
+
+      <!-- INSTAGRAM -->
+
+      <a
+        class="icon-button instagram-button"
+        href="https://www.instagram.com/biomedical_sciences.gr/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        title="Instagram"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
+          />
+
+        </svg>
+
+      </a>
+
+
+    </div>
 
   </div>
 
 
+
+  <!-- MENU -->
+
   <nav id="category-nav">
 
-    <a href="#latest" data-filter="all" class="active">
+    <a
+      href="#latest"
+      data-filter="all"
+      class="active"
+    >
       Αρχική
     </a>
 
-    <a href="#latest" data-filter="Υγεία">
+    <a
+      href="#latest"
+      data-filter="Υγεία"
+    >
       Υγεία
     </a>
 
-    <a href="#latest" data-filter="Διατροφή">
+    <a
+      href="#latest"
+      data-filter="Διατροφή"
+    >
       Διατροφή
     </a>
 
-    <a href="#latest" data-filter="Γυναικεία Υγεία">
+    <a
+      href="#latest"
+      data-filter="Γυναικεία Υγεία"
+    >
       Γυναικεία Υγεία
     </a>
 
-    <a href="#latest" data-filter="Εξετάσεις">
+    <a
+      href="#latest"
+      data-filter="Εξετάσεις"
+    >
       Εξετάσεις
     </a>
 
-    <a href="#latest" data-filter="Fact-Checking">
+    <a
+      href="#latest"
+      data-filter="Fact-Checking"
+    >
       Fact-Checking
     </a>
 
-    <a href="#latest" data-filter="Νέα">
+    <a
+      href="#latest"
+      data-filter="Νέα"
+    >
       Νέα
     </a>
 
-    <a href="#latest" data-filter="Έρευνα">
+    <a
+      href="#latest"
+      data-filter="Έρευνα"
+    >
       Έρευνα
     </a>
 
@@ -857,79 +1532,144 @@
 
 
 
+<!-- =========================================
+     MAIN
+========================================== -->
+
 <main>
 
 
-<!-- =========================
-     FIND FEATURED POST
-========================= -->
+<!-- =========================================
+     FIND GREEK FEATURED ARTICLE
+========================================== -->
 
-{% assign featured_posts = site.posts | where: "featured", true %}
-{% assign featured_post = featured_posts.first %}
+{% assign featured_post = nil %}
+
+
+{% for post in site.posts %}
+
+  {% unless post.path contains "en/_posts" %}
+
+    {% if post.featured == true %}
+
+      {% assign featured_post = post %}
+
+      {% break %}
+
+    {% endif %}
+
+  {% endunless %}
+
+{% endfor %}
+
+
+
+<!-- IF NONE IS FEATURED, USE NEWEST GREEK POST -->
 
 {% unless featured_post %}
-  {% assign featured_post = site.posts.first %}
+
+  {% for post in site.posts %}
+
+    {% unless post.path contains "en/_posts" %}
+
+      {% assign featured_post = post %}
+
+      {% break %}
+
+    {% endunless %}
+
+  {% endfor %}
+
 {% endunless %}
 
 
 
-<!-- =========================
-     FEATURED ARTICLE
-========================= -->
+<!-- =========================================
+     FEATURED
+========================================== -->
 
 {% if featured_post %}
 
-<section class="featured">
+<section
+  class="featured"
+  id="featured-section"
+>
+
 
   <div class="featured-content">
 
+
     <div class="featured-topline">
 
+
       <span class="featured-category">
+
         {{ featured_post.category }}
+
       </span>
 
+
       <span class="featured-date">
+
         {{ featured_post.date | date: "%d/%m/%Y" }}
+
       </span>
+
 
     </div>
 
 
+
     <h1 class="featured-title">
 
-      <a href="{{ featured_post.url | relative_url }}">
+      <a
+        href="{{ featured_post.url | relative_url }}"
+      >
+
         {{ featured_post.title }}
+
       </a>
 
     </h1>
 
 
+
     {% if featured_post.excerpt %}
 
       <p class="featured-excerpt">
+
         {{ featured_post.excerpt | strip_html }}
+
       </p>
 
     {% endif %}
+
 
 
     {% if featured_post.author %}
 
       <p class="featured-author">
+
         {{ featured_post.author }}
+
       </p>
 
     {% endif %}
 
+
   </div>
+
 
 
   <div>
 
-    <a href="{{ featured_post.url | relative_url }}">
 
-      {% if featured_post.image %}
+    {% if featured_post.image %}
+
+
+      <a
+        href="{{ featured_post.url | relative_url }}"
+      >
 
         <img
           class="featured-image"
@@ -937,11 +1677,14 @@
           alt="{{ featured_post.title | escape }}"
         >
 
-      {% endif %}
+      </a>
 
-    </a>
+
+    {% endif %}
+
 
   </div>
+
 
 </section>
 
@@ -949,234 +1692,334 @@
 
 
 
-<!-- =========================
+<!-- =========================================
      LATEST ARTICLES
-========================= -->
+========================================== -->
 
 <section
   class="latest-area"
   id="latest"
 >
 
+
   <div class="section-header">
 
-    <div>
+    <h2
+      class="section-title"
+      id="section-title"
+    >
 
-      <div class="section-label">
-        ΝΕΕΣ ΔΗΜΟΣΙΕΥΣΕΙΣ
-      </div>
+      Τελευταία άρθρα
 
-      <h2 class="section-title">
-        Τελευταία άρθρα
-      </h2>
-
-    </div>
+    </h2>
 
   </div>
+
 
 
   <div class="content-layout">
 
 
-    <!-- MAIN ARTICLE GRID -->
+    <!-- ARTICLES -->
 
     <div class="articles-grid">
 
+
       {% assign latest_count = 0 %}
+
 
       {% for post in site.posts %}
 
-        {% if post.url != featured_post.url and latest_count < 4 %}
 
-          <article
-            class="article-card filterable"
-            data-category="{{ post.category | escape }}"
-          >
+        {% unless post.path contains "en/_posts" %}
 
-            {% if post.image %}
 
-              <a href="{{ post.url | relative_url }}">
+          {% if post.url != featured_post.url and latest_count < 4 %}
 
-                <img
-                  class="article-card-image"
-                  src="{{ post.image }}"
-                  alt="{{ post.title | escape }}"
-                  loading="lazy"
+
+            <article
+              class="article-card filterable"
+              data-category="{{ post.category | escape }}"
+            >
+
+
+              {% if post.image %}
+
+
+                <a
+                  href="{{ post.url | relative_url }}"
                 >
 
-              </a>
+                  <img
+                    class="article-card-image"
+                    src="{{ post.image }}"
+                    alt="{{ post.title | escape }}"
+                    loading="lazy"
+                  >
 
-            {% endif %}
-
-
-            <div class="article-card-meta">
-
-              <span class="article-card-category">
-                {{ post.category }}
-              </span>
-
-              <span class="article-card-date">
-                {{ post.date | date: "%d/%m/%Y" }}
-              </span>
-
-            </div>
+                </a>
 
 
-            <h2>
-
-              <a href="{{ post.url | relative_url }}">
-                {{ post.title }}
-              </a>
-
-            </h2>
+              {% endif %}
 
 
-            {% if post.excerpt %}
 
-              <p class="article-card-excerpt">
-                {{ post.excerpt | strip_html }}
-              </p>
-
-            {% endif %}
+              <div class="article-card-meta">
 
 
-            {% if post.author %}
+                <span class="article-card-category">
 
-              <p class="article-card-author">
-                {{ post.author }}
-              </p>
+                  {{ post.category }}
 
-            {% endif %}
+                </span>
 
-          </article>
 
-          {% assign latest_count = latest_count | plus: 1 %}
+                <span class="article-card-date">
 
-        {% endif %}
+                  {{ post.date | date: "%d/%m/%Y" }}
+
+                </span>
+
+
+              </div>
+
+
+
+              <h2>
+
+                <a
+                  href="{{ post.url | relative_url }}"
+                >
+
+                  {{ post.title }}
+
+                </a>
+
+              </h2>
+
+
+
+              {% if post.excerpt %}
+
+                <p class="article-card-excerpt">
+
+                  {{ post.excerpt | strip_html }}
+
+                </p>
+
+              {% endif %}
+
+
+
+              {% if post.author %}
+
+                <p class="article-card-author">
+
+                  {{ post.author }}
+
+                </p>
+
+              {% endif %}
+
+
+            </article>
+
+
+            {% assign latest_count =
+              latest_count | plus: 1 %}
+
+
+          {% endif %}
+
+
+        {% endunless %}
+
 
       {% endfor %}
+
 
     </div>
 
 
 
-    <!-- =========================
+    <!-- =========================================
          READ ALSO
-    ========================= -->
+    ========================================== -->
 
     <aside class="read-also">
 
+
       <div class="read-also-label">
+
         BIOMEDFACTS
+
       </div>
 
+
       <h2 class="read-also-title">
+
         Διαβάστε επίσης
+
       </h2>
 
 
+
       {% assign skipped = 0 %}
+
       {% assign read_count = 0 %}
+
 
 
       {% for post in site.posts %}
 
-        {% if post.url != featured_post.url %}
 
-          {% if skipped < 4 %}
-
-            {% assign skipped = skipped | plus: 1 %}
-
-          {% elsif read_count < 4 %}
-
-            <div
-              class="read-item filterable"
-              data-category="{{ post.category | escape }}"
-            >
-
-              <div class="read-number">
-
-                {% assign number = read_count | plus: 1 %}
-
-                0{{ number }}
-
-              </div>
+        {% unless post.path contains "en/_posts" %}
 
 
-              <div>
+          {% if post.url != featured_post.url %}
 
-                <h3>
 
-                  <a href="{{ post.url | relative_url }}">
-                    {{ post.title }}
-                  </a>
+            {% if skipped < 4 %}
 
-                </h3>
 
-                <div class="read-item-category">
-                  {{ post.category }}
+              {% assign skipped =
+                skipped | plus: 1 %}
+
+
+            {% elsif read_count < 4 %}
+
+
+              <div
+                class="read-item filterable"
+                data-category="{{ post.category | escape }}"
+              >
+
+
+                <div class="read-number">
+
+
+                  {% assign number =
+                    read_count | plus: 1 %}
+
+
+                  0{{ number }}
+
+
                 </div>
 
+
+
+                <div>
+
+
+                  <h3>
+
+                    <a
+                      href="{{ post.url | relative_url }}"
+                    >
+
+                      {{ post.title }}
+
+                    </a>
+
+                  </h3>
+
+
+                  <div class="read-item-category">
+
+                    {{ post.category }}
+
+                  </div>
+
+
+                </div>
+
+
               </div>
 
-            </div>
 
-            {% assign read_count = read_count | plus: 1 %}
+              {% assign read_count =
+                read_count | plus: 1 %}
+
+
+            {% endif %}
+
 
           {% endif %}
 
-        {% endif %}
+
+        {% endunless %}
+
 
       {% endfor %}
+
 
 
       {% if read_count == 0 %}
 
         <p
           style="
-            color:#777;
+            color:var(--muted);
             font-size:13px;
             padding-top:5px;
           "
         >
+
           Περισσότερα άρθρα σύντομα.
+
         </p>
 
       {% endif %}
 
+
     </aside>
+
 
   </div>
 
 
+
+  <!-- EMPTY CATEGORY -->
+
   <section id="empty-message">
 
     <h2>
-      Δεν υπάρχουν ακόμη άρθρα σε αυτή την κατηγορία.
+
+      Δεν υπάρχουν ακόμη άρθρα
+      σε αυτή την κατηγορία.
+
     </h2>
 
     <p>
+
       Νέο περιεχόμενο θα προστεθεί σύντομα.
+
     </p>
 
   </section>
+
 
 </section>
 
 
 
-<!-- =========================
+<!-- =========================================
      NEWSLETTER
-========================= -->
+========================================== -->
 
 <section class="newsletter">
 
+
   <p class="newsletter-label">
+
     BIOMEDFACTS NEWSLETTER
+
   </p>
 
 
+
   <div class="newsletter-form">
+
 
     <input
       type="email"
@@ -1184,11 +2027,16 @@
       aria-label="Email"
     >
 
+
     <button type="button">
+
       Εγγραφή
+
     </button>
 
+
   </div>
+
 
 </section>
 
@@ -1197,9 +2045,9 @@
 
 
 
-<!-- =========================
+<!-- =========================================
      FOOTER
-========================= -->
+========================================== -->
 
 <footer>
 
@@ -1209,90 +2057,257 @@
 
 
 
-<!-- =========================
-     CATEGORY FILTER
-========================= -->
+<!-- =========================================
+     JAVASCRIPT
+========================================== -->
 
 <script>
 
+
+  /* =========================================
+     LANGUAGE
+  ========================================== */
+
+  const languageLinks =
+    document.querySelectorAll(
+      ".language-link"
+    );
+
+
+  languageLinks.forEach(link => {
+
+    link.addEventListener(
+      "click",
+      function () {
+
+        localStorage.setItem(
+          "biomedfacts-language",
+          this.dataset.language
+        );
+
+      }
+    );
+
+  });
+
+
+
+  /* =========================================
+     LIGHT / DARK
+  ========================================== */
+
+  const themeToggle =
+    document.getElementById(
+      "theme-toggle"
+    );
+
+
+  themeToggle.addEventListener(
+    "click",
+    function () {
+
+
+      const currentTheme =
+        document.documentElement
+          .getAttribute(
+            "data-theme"
+          );
+
+
+      const newTheme =
+        currentTheme === "dark"
+          ? "light"
+          : "dark";
+
+
+      document.documentElement
+        .setAttribute(
+          "data-theme",
+          newTheme
+        );
+
+
+      localStorage.setItem(
+        "biomedfacts-theme",
+        newTheme
+      );
+
+
+    }
+  );
+
+
+
+  /* =========================================
+     CATEGORY FILTER
+  ========================================== */
+
   const categoryLinks =
-    document.querySelectorAll("#category-nav a");
+    document.querySelectorAll(
+      "#category-nav a"
+    );
+
 
   const filterableArticles =
-    document.querySelectorAll(".filterable");
+    document.querySelectorAll(
+      ".filterable"
+    );
+
 
   const emptyMessage =
-    document.getElementById("empty-message");
+    document.getElementById(
+      "empty-message"
+    );
+
+
+  const sectionTitle =
+    document.getElementById(
+      "section-title"
+    );
+
+
+  const featuredSection =
+    document.getElementById(
+      "featured-section"
+    );
+
 
 
   categoryLinks.forEach(link => {
 
-    link.addEventListener("click", function(event) {
 
-      event.preventDefault();
-
-      const category =
-        this.dataset.filter;
-
-      let visible = 0;
+    link.addEventListener(
+      "click",
+      function(event) {
 
 
-      categoryLinks.forEach(item => {
-        item.classList.remove("active");
-      });
+        event.preventDefault();
 
 
-      this.classList.add("active");
+        const category =
+          this.dataset.filter;
 
 
-      filterableArticles.forEach(article => {
-
-        const articleCategory =
-          article.dataset.category;
+        let visible = 0;
 
 
-        if (
-          category === "all" ||
-          articleCategory === category
-        ) {
 
-          article.style.display = "";
-          visible++;
+        categoryLinks.forEach(
+          item => {
+
+            item.classList.remove(
+              "active"
+            );
+
+          }
+        );
+
+
+        this.classList.add(
+          "active"
+        );
+
+
+
+        filterableArticles.forEach(
+          article => {
+
+
+            const articleCategory =
+              article.dataset.category;
+
+
+            if (
+              category === "all" ||
+              articleCategory === category
+            ) {
+
+              article.style.display =
+                "";
+
+              visible++;
+
+            }
+
+            else {
+
+              article.style.display =
+                "none";
+
+            }
+
+
+          }
+        );
+
+
+
+        /* FEATURED ONLY ON HOME */
+
+        if (featuredSection) {
+
+          featuredSection.style.display =
+            category === "all"
+              ? ""
+              : "none";
+
+        }
+
+
+
+        /* SECTION TITLE */
+
+        if (category === "all") {
+
+          sectionTitle.textContent =
+            "Τελευταία άρθρα";
 
         }
 
         else {
 
-          article.style.display = "none";
+          sectionTitle.textContent =
+            category;
 
         }
 
-      });
 
 
-      if (visible === 0) {
+        /* EMPTY MESSAGE */
 
-        emptyMessage.style.display = "block";
+        if (visible === 0) {
+
+          emptyMessage.style.display =
+            "block";
+
+        }
+
+        else {
+
+          emptyMessage.style.display =
+            "none";
+
+        }
+
+
+
+        document
+          .getElementById("latest")
+          .scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+          });
+
 
       }
+    );
 
-      else {
-
-        emptyMessage.style.display = "none";
-
-      }
-
-
-      document
-        .getElementById("latest")
-        .scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
-    });
 
   });
+
 
 </script>
 
