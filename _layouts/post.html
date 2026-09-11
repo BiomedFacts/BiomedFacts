@@ -93,10 +93,6 @@
 
 
 
-  <!-- ==========================================
-       LOAD SAVED THEME
-  =========================================== -->
-
   <script>
 
     (function () {
@@ -114,7 +110,6 @@
         savedTheme ||
         (prefersDark ? "dark" : "light");
 
-
       document.documentElement.setAttribute(
         "data-theme",
         theme
@@ -127,10 +122,6 @@
 
 
   <style>
-
-    /* ==========================================
-       COLORS
-    =========================================== */
 
     :root {
 
@@ -171,10 +162,6 @@
 
 
 
-    /* ==========================================
-       BASIC
-    =========================================== */
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -209,7 +196,7 @@
 
 
     /* ==========================================
-       SITE HEADER
+       HEADER
     =========================================== */
 
     .site-header {
@@ -332,7 +319,7 @@
 
 
     /* ==========================================
-       ICON BUTTONS
+       ICONS
     =========================================== */
 
     .icon-button {
@@ -384,6 +371,7 @@
     .instagram-button svg {
 
       fill: currentColor;
+
       stroke: none;
     }
 
@@ -401,9 +389,6 @@
     }
 
 
-
-    /* MOON / SUN */
-
     .sun-icon {
       display: none;
     }
@@ -415,13 +400,11 @@
 
 
     html[data-theme="dark"] .sun-icon {
-
       display: block;
     }
 
 
     html[data-theme="dark"] .moon-icon {
-
       display: none;
     }
 
@@ -466,14 +449,13 @@
 
 
     nav a:hover {
-
       color: var(--accent);
     }
 
 
 
     /* ==========================================
-       ARTICLE CONTAINER
+       ARTICLE
     =========================================== */
 
     .article-container {
@@ -485,11 +467,6 @@
         65px auto 0;
     }
 
-
-
-    /* ==========================================
-       ARTICLE HEADER
-    =========================================== */
 
     .article-header {
 
@@ -623,7 +600,6 @@
 
 
     .article-body p {
-
       margin-bottom: 25px;
     }
 
@@ -686,7 +662,6 @@
 
 
     .article-body li {
-
       margin-bottom: 9px;
     }
 
@@ -779,9 +754,7 @@
 
 
     .article-body th {
-
-      background:
-        var(--surface);
+      background: var(--surface);
     }
 
 
@@ -819,14 +792,13 @@
 
 
     .back-home:hover {
-
       text-decoration: underline;
     }
 
 
 
     /* ==========================================
-       COMMENTS / GISCUS
+       GISCUS COMMENTS
     =========================================== */
 
     .comments-section {
@@ -966,9 +938,7 @@
 
 
     .newsletter-form input:focus {
-
-      border-color:
-        var(--accent);
+      border-color: var(--accent);
     }
 
 
@@ -1031,7 +1001,7 @@
 
 
     /* ==========================================
-       TABLET / MOBILE
+       MOBILE
     =========================================== */
 
     @media (max-width: 700px) {
@@ -1052,13 +1022,11 @@
 
 
       .logo {
-
         font-size: 34px;
       }
 
 
       .header-actions {
-
         gap: 7px;
       }
 
@@ -1100,7 +1068,6 @@
 
 
       nav a {
-
         font-size: 10px;
       }
 
@@ -1130,7 +1097,6 @@
 
 
       .article-cover img {
-
         max-height: none;
       }
 
@@ -1159,13 +1125,11 @@
 
 
       .comments-section h2 {
-
         font-size: 28px;
       }
 
 
       .newsletter {
-
         width: 90%;
       }
 
@@ -1188,7 +1152,6 @@
 
 
       .newsletter-form button {
-
         width: 100%;
       }
 
@@ -1198,19 +1161,16 @@
     @media (max-width: 470px) {
 
       .logo {
-
         font-size: 29px;
       }
 
 
       .header-actions {
-
         gap: 5px;
       }
 
 
       .language-switch {
-
         font-size: 9px;
       }
 
@@ -1224,7 +1184,6 @@
 
 
       .article-title {
-
         font-size: 31px;
       }
 
@@ -1238,10 +1197,6 @@
 <body>
 
 
-
-<!-- ==========================================
-     HEADER
-=========================================== -->
 
 <header class="site-header">
 
@@ -1267,9 +1222,7 @@
     <div class="header-actions">
 
 
-      <!-- ======================================
-           LANGUAGE
-      ======================================= -->
+      <!-- EL | EN -->
 
       <div
         class="language-switch"
@@ -1332,9 +1285,7 @@
 
 
 
-      <!-- ======================================
-           LIGHT / DARK
-      ======================================= -->
+      <!-- LIGHT / DARK -->
 
       <button
         class="icon-button"
@@ -1371,28 +1322,13 @@
           ></circle>
 
           <path d="M12 2v2"></path>
-
           <path d="M12 20v2"></path>
-
-          <path
-            d="M4.93 4.93l1.41 1.41"
-          ></path>
-
-          <path
-            d="M17.66 17.66l1.41 1.41"
-          ></path>
-
+          <path d="M4.93 4.93l1.41 1.41"></path>
+          <path d="M17.66 17.66l1.41 1.41"></path>
           <path d="M2 12h2"></path>
-
           <path d="M20 12h2"></path>
-
-          <path
-            d="M4.93 19.07l1.41-1.41"
-          ></path>
-
-          <path
-            d="M17.66 6.34l1.41-1.41"
-          ></path>
+          <path d="M4.93 19.07l1.41-1.41"></path>
+          <path d="M17.66 6.34l1.41-1.41"></path>
 
         </svg>
 
@@ -1400,9 +1336,7 @@
 
 
 
-      <!-- ======================================
-           INSTAGRAM
-      ======================================= -->
+      <!-- INSTAGRAM -->
 
       <a
         class="icon-button instagram-button"
@@ -1431,11 +1365,6 @@
 
   </div>
 
-
-
-  <!-- ==========================================
-       MENU
-  =========================================== -->
 
 
   {% if is_english %}
@@ -1525,10 +1454,6 @@
 
 
 
-<!-- ==========================================
-     ARTICLE
-=========================================== -->
-
 <main class="article-container">
 
 
@@ -1564,7 +1489,9 @@
         {% if page.author %}
 
           <span>
+
             {{ page.author }}
+
           </span>
 
 
@@ -1587,10 +1514,6 @@
 
 
 
-    <!-- ======================================
-         COVER
-    ======================================= -->
-
     {% if page.image %}
 
       <div class="article-cover">
@@ -1606,10 +1529,6 @@
 
 
 
-    <!-- ======================================
-         CONTENT
-    ======================================= -->
-
     <div class="article-body">
 
       {{ content }}
@@ -1621,10 +1540,6 @@
 
 
 
-  <!-- ==========================================
-       BACK
-  =========================================== -->
-
   <div class="article-end">
 
 
@@ -1634,7 +1549,9 @@
         href="{{ '/en/' | relative_url }}"
         class="back-home"
       >
+
         ← Back to BiomedFacts
+
       </a>
 
     {% else %}
@@ -1643,7 +1560,9 @@
         href="{{ '/' | relative_url }}"
         class="back-home"
       >
+
         ← Επιστροφή στο BiomedFacts
+
       </a>
 
     {% endif %}
@@ -1654,7 +1573,7 @@
 
 
   <!-- ==========================================
-       REAL COMMENTS — GISCUS
+       REAL COMMENTS
   =========================================== -->
 
   <section class="comments-section">
@@ -1709,7 +1628,7 @@
       data-emit-metadata="0"
       data-input-position="bottom"
       data-theme="preferred_color_scheme"
-      data-lang="{% if is_english %}en{% else %}el{% endif %}"
+      data-lang="{% if is_english %}en{% else %}gr{% endif %}"
       crossorigin="anonymous"
       async>
     </script>
@@ -1721,10 +1640,6 @@
 </main>
 
 
-
-<!-- ==========================================
-     NEWSLETTER
-=========================================== -->
 
 <section class="newsletter">
 
@@ -1741,23 +1656,17 @@
 
     {% if is_english %}
 
-
       <input
         type="email"
         placeholder="Your email"
         aria-label="Email"
       >
 
-
       <button type="button">
-
         Subscribe
-
       </button>
 
-
     {% else %}
-
 
       <input
         type="email"
@@ -1765,13 +1674,9 @@
         aria-label="Email"
       >
 
-
       <button type="button">
-
         Εγγραφή
-
       </button>
-
 
     {% endif %}
 
@@ -1783,10 +1688,6 @@
 
 
 
-<!-- ==========================================
-     FOOTER
-=========================================== -->
-
 <footer>
 
   © 2026 BiomedFacts · Evidence-based science communication
@@ -1794,10 +1695,6 @@
 </footer>
 
 
-
-<!-- ==========================================
-     JAVASCRIPT
-=========================================== -->
 
 <script>
 
@@ -1831,7 +1728,7 @@
 
 
   /* ==========================================
-     GISCUS THEME
+     UPDATE GISCUS THEME
   =========================================== */
 
   function updateGiscusTheme(theme) {
@@ -1853,7 +1750,9 @@
         giscus: {
 
           setConfig: {
+
             theme: theme
+
           }
 
         }
@@ -1868,7 +1767,7 @@
 
 
   /* ==========================================
-     WAIT UNTIL GISCUS LOADS
+     WAIT FOR GISCUS
   =========================================== */
 
   const giscusObserver =
@@ -1918,7 +1817,7 @@
 
 
   /* ==========================================
-     LIGHT / DARK MODE
+     LIGHT / DARK
   =========================================== */
 
   const themeToggle =
