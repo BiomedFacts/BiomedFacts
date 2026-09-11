@@ -94,7 +94,6 @@
     href="{{ canonical_url }}"
   >
 
-
   <!-- HREFLANG -->
 
   {% if greek_translation %}
@@ -115,7 +114,6 @@
 
   {% endif %}
 
-
   {% if english_translation %}
 
     <link
@@ -134,13 +132,11 @@
 
   {% endif %}
 
-
   <link
     rel="alternate"
     hreflang="x-default"
     href="{{ x_default_url }}"
   >
-
 
   <!-- OPEN GRAPH -->
 
@@ -225,7 +221,6 @@
 
   {% endif %}
 
-
   <!-- SOCIAL -->
 
   <meta
@@ -251,7 +246,6 @@
     >
 
   {% endif %}
-
 
   <!-- ARTICLE STRUCTURED DATA -->
 
@@ -288,7 +282,6 @@
   }
   </script>
 
-
   <!-- THEME -->
 
   <script>
@@ -319,7 +312,6 @@
     })();
 
   </script>
-
 
   <style>
 
@@ -372,9 +364,6 @@
     a {
       color: inherit;
     }
-
-
-    /* HEADER */
 
     .site-header {
       background: var(--surface);
@@ -439,9 +428,6 @@
       color: var(--border);
     }
 
-
-    /* ICON BUTTONS */
-
     .icon-button {
       width: 44px;
       height: 44px;
@@ -498,9 +484,6 @@
       display: none;
     }
 
-
-    /* NAV */
-
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -522,9 +505,6 @@
     nav a:hover {
       color: var(--accent);
     }
-
-
-    /* ARTICLE */
 
     .article-container {
       width: min(920px, 88%);
@@ -586,9 +566,6 @@
       background: var(--muted);
     }
 
-
-    /* COVER */
-
     .article-cover {
       margin-top: 38px;
       margin-bottom: 48px;
@@ -601,9 +578,6 @@
       object-fit: cover;
       border: 1px solid var(--border);
     }
-
-
-    /* BODY */
 
     .article-body {
       max-width: 760px;
@@ -707,9 +681,6 @@
       background: var(--surface);
     }
 
-
-    /* ARTICLE END */
-
     .article-end {
       max-width: 760px;
       margin: 55px auto 0;
@@ -728,9 +699,6 @@
     .back-home:hover {
       text-decoration: underline;
     }
-
-
-    /* COMMENTS */
 
     .comments-section {
       max-width: 760px;
@@ -752,9 +720,6 @@
       font-family: Georgia, "Times New Roman", serif;
       font-size: 15px;
     }
-
-
-    /* NEWSLETTER */
 
     .newsletter {
       width: min(920px, 88%);
@@ -781,9 +746,6 @@
       margin: 0 auto;
       text-align: center;
     }
-
-
-    /* FOOTER */
 
     footer {
       margin-top: 65px;
@@ -823,9 +785,6 @@
       text-align: center;
       font-size: 12px;
     }
-
-
-    /* MOBILE */
 
     @media (max-width: 700px) {
 
@@ -977,7 +936,6 @@
 
 
     <div class="header-actions">
-
 
       <div
         class="language-switch"
@@ -1302,6 +1260,11 @@
   </div>
 
 </footer>
+
+
+<!-- ANALYTICS CONSENT -->
+
+<script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
 
 
 <script>
