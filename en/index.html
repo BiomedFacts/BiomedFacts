@@ -2,6 +2,7 @@
 ---
 
 {% assign featured_post = nil %}
+{% assign social_image = '/assets/images/biomedfacts-social.png' | absolute_url %}
 
 {% for post in site.posts %}
   {% if post.path contains "en/_posts" %}
@@ -33,15 +34,11 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <!-- FAVICON -->
-
   <link
     rel="icon"
     type="image/svg+xml"
     href="{{ '/favicon.svg' | relative_url }}"
   >
-
-  <!-- SEO -->
 
   <title>BiomedFacts | Evidence-Based Health & Biomedical Science</title>
 
@@ -59,8 +56,6 @@
     rel="canonical"
     href="{{ '/en/' | absolute_url }}"
   >
-
-  <!-- HREFLANG -->
 
   <link
     rel="alternate"
@@ -80,17 +75,8 @@
     href="{{ '/' | absolute_url }}"
   >
 
-  <!-- OPEN GRAPH -->
-
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:site_name"
-    content="BiomedFacts"
-  >
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BiomedFacts">
 
   <meta
     property="og:title"
@@ -108,20 +94,24 @@
   >
 
   <meta
-    property="og:locale"
-    content="en_US"
+    property="og:image"
+    content="{{ social_image }}"
   >
 
   <meta
-    property="og:locale:alternate"
-    content="el_GR"
+    property="og:image:alt"
+    content="BiomedFacts — Evidence-based science communication"
   >
 
-  <!-- SOCIAL -->
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="el_GR">
 
   <meta
     name="twitter:card"
-    content="summary"
+    content="summary_large_image"
   >
 
   <meta
@@ -134,7 +124,15 @@
     content="Evidence-based health information, biomedical science, research and fact-checking."
   >
 
-  <!-- STRUCTURED DATA -->
+  <meta
+    name="twitter:image"
+    content="{{ social_image }}"
+  >
+
+  <meta
+    name="twitter:image:alt"
+    content="BiomedFacts — Evidence-based science communication"
+  >
 
   <script type="application/ld+json">
   {
@@ -160,12 +158,8 @@
   }
   </script>
 
-  <!-- THEME -->
-
   <script>
-
     (function () {
-
       const savedTheme =
         localStorage.getItem("biomedfacts-theme");
 
@@ -183,9 +177,7 @@
         "data-theme",
         theme
       );
-
     })();
-
   </script>
 
   <style>
@@ -883,9 +875,7 @@
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -896,20 +886,14 @@
       class="logo-link"
       aria-label="BiomedFacts"
     >
-
       <div class="logo">
         Biomed<span>Facts</span>
       </div>
-
     </a>
-
 
     <div class="header-actions">
 
-      <div
-        class="language-switch"
-        aria-label="Language"
-      >
+      <div class="language-switch" aria-label="Language">
 
         <a
           href="{{ '/' | relative_url }}"
@@ -919,9 +903,7 @@
           EL
         </a>
 
-        <span class="language-divider">
-          |
-        </span>
+        <span class="language-divider">|</span>
 
         <a
           href="{{ '/en/' | relative_url }}"
@@ -933,7 +915,6 @@
 
       </div>
 
-
       <button
         class="icon-button"
         id="theme-toggle"
@@ -942,19 +923,11 @@
         title="Light / Dark mode"
       >
 
-        <svg
-          class="moon-icon"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
         </svg>
 
-        <svg
-          class="sun-icon"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="4"></circle>
           <path d="M12 2v2"></path>
           <path d="M12 20v2"></path>
@@ -968,7 +941,6 @@
 
       </button>
 
-
       <a
         class="icon-button instagram-button"
         href="https://www.instagram.com/biomedical_sciences.gr/"
@@ -978,10 +950,7 @@
         title="Instagram"
       >
 
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
           <path
             d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
           />
@@ -993,40 +962,16 @@
 
   </div>
 
-
   <nav id="category-nav">
 
-    <a href="#latest" data-filter="all" class="active">
-      Home
-    </a>
-
-    <a href="#latest" data-filter="Health">
-      Health
-    </a>
-
-    <a href="#latest" data-filter="Nutrition">
-      Nutrition
-    </a>
-
-    <a href="#latest" data-filter="Women's Health">
-      Women's Health
-    </a>
-
-    <a href="#latest" data-filter="Lab Tests">
-      Lab Tests
-    </a>
-
-    <a href="#latest" data-filter="Fact-Checking">
-      Fact-Checking
-    </a>
-
-    <a href="#latest" data-filter="News">
-      News
-    </a>
-
-    <a href="#latest" data-filter="Research">
-      Research
-    </a>
+    <a href="#latest" data-filter="all" class="active">Home</a>
+    <a href="#latest" data-filter="Health">Health</a>
+    <a href="#latest" data-filter="Nutrition">Nutrition</a>
+    <a href="#latest" data-filter="Women's Health">Women's Health</a>
+    <a href="#latest" data-filter="Lab Tests">Lab Tests</a>
+    <a href="#latest" data-filter="Fact-Checking">Fact-Checking</a>
+    <a href="#latest" data-filter="News">News</a>
+    <a href="#latest" data-filter="Research">Research</a>
 
   </nav>
 
@@ -1035,13 +980,9 @@
 
 <main>
 
-
   {% if featured_post %}
 
-    <section
-      class="featured"
-      id="featured-section"
-    >
+    <section class="featured" id="featured-section">
 
       <div class="featured-content">
 
@@ -1057,38 +998,25 @@
 
         </div>
 
-
         <h1 class="featured-title">
-
           <a href="{{ featured_post.url | relative_url }}">
             {{ featured_post.title }}
           </a>
-
         </h1>
 
-
         {% if featured_post.excerpt %}
-
           <p class="featured-excerpt">
             {{ featured_post.excerpt | strip_html }}
           </p>
-
         {% endif %}
 
-
         <p class="featured-author">
-
-          <a
-            href="{{ '/en/author/' | relative_url }}"
-            rel="author"
-          >
+          <a href="{{ '/en/author/' | relative_url }}" rel="author">
             {{ featured_post.author | default: "Dimitra M, BSc Biomedical Science" }}
           </a>
-
         </p>
 
       </div>
-
 
       <div>
 
@@ -1116,9 +1044,7 @@
 
     <section class="no-posts">
 
-      <h1>
-        BiomedFacts
-      </h1>
+      <h1>BiomedFacts</h1>
 
       <p>
         New evidence-based articles are coming soon.
@@ -1129,17 +1055,11 @@
   {% endif %}
 
 
-  <section
-    class="latest-area"
-    id="latest"
-  >
+  <section class="latest-area" id="latest">
 
     <div class="section-header">
 
-      <h2
-        class="section-title"
-        id="section-title"
-      >
+      <h2 class="section-title" id="section-title">
         Latest articles
       </h2>
 
@@ -1147,7 +1067,6 @@
 
 
     <div class="content-layout">
-
 
       <div class="articles-grid">
 
@@ -1181,7 +1100,6 @@
 
                   {% endif %}
 
-
                   <div class="article-card-meta">
 
                     <span class="article-card-category">
@@ -1194,15 +1112,11 @@
 
                   </div>
 
-
                   <h2>
-
                     <a href="{{ post.url | relative_url }}">
                       {{ post.title }}
                     </a>
-
                   </h2>
-
 
                   {% if post.excerpt %}
 
@@ -1211,7 +1125,6 @@
                     </p>
 
                   {% endif %}
-
 
                   <p class="article-card-author">
 
@@ -1254,7 +1167,6 @@
 
                   {% endif %}
 
-
                   <div class="article-card-meta">
 
                     <span class="article-card-category">
@@ -1267,15 +1179,11 @@
 
                   </div>
 
-
                   <h2>
-
                     <a href="{{ post.url | relative_url }}">
                       {{ post.title }}
                     </a>
-
                   </h2>
-
 
                   {% if post.excerpt %}
 
@@ -1284,7 +1192,6 @@
                     </p>
 
                   {% endif %}
-
 
                   <p class="article-card-author">
 
@@ -1322,10 +1229,8 @@
           Read also
         </h2>
 
-
         {% assign skipped = 0 %}
         {% assign read_count = 0 %}
-
 
         {% for post in site.posts %}
 
@@ -1350,15 +1255,12 @@
                       0{{ read_count | plus: 1 }}
                     </div>
 
-
                     <div>
 
                       <h3>
-
                         <a href="{{ post.url | relative_url }}">
                           {{ post.title }}
                         </a>
-
                       </h3>
 
                       <div class="read-item-category">
@@ -1380,7 +1282,6 @@
           {% endif %}
 
         {% endfor %}
-
 
         {% if read_count == 0 %}
 
@@ -1434,7 +1335,6 @@
 
   </section>
 
-
 </main>
 
 
@@ -1466,7 +1366,6 @@
 
     </div>
 
-
     <div class="footer-copy">
       © 2026 BiomedFacts · Evidence-based science communication
     </div>
@@ -1475,8 +1374,6 @@
 
 </footer>
 
-
-<!-- ANALYTICS CONSENT -->
 
 <script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
 
