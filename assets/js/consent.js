@@ -2,7 +2,12 @@
   "use strict";
 
   const MEASUREMENT_ID = "G-GPVJNXFT1R";
-  const STORAGE_KEY = "biomedfacts-analytics-consent";
+
+  const STORAGE_KEY =
+    "biomedfacts-analytics-consent";
+
+  const GA_DISABLE_KEY =
+    "ga-disable-" + MEASUREMENT_ID;
 
   let analyticsLoaded = false;
 
@@ -11,25 +16,123 @@
      GOOGLE CONSENT MODE
   ========================== */
 
-  window.dataLayer = window.dataLayer || [];
+  window.dataLayer =
+    window.dataLayer || [];
 
-  window.gtag = window.gtag || function () {
-    window.dataLayer.push(arguments);
-  };
+  window.gtag =
+    window.gtag ||
+    function () {
+      window.dataLayer.push(arguments);
+    };
 
 
   /*
     Default state:
-    No Google Analytics storage or advertising consent.
-    This runs before the Google tag is loaded.
+    Analytics and advertising-related
+    storage are denied.
   */
 
-  window.gtag("consent", "default", {
-    ad_storage: "denied",
-    ad_user_data: "denied",
-    ad_personalization: "denied",
-    analytics_storage: "denied"
-  });
+  window.gtag(
+    "consent",
+    "default",
+    {
+      analytics_storage: "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied"
+    }
+  );
+
+
+  /* =========================
+     DELETE ANALYTICS COOKIES
+  ========================== */
+
+  function deleteCookie(
+    name,
+    domain
+  ) {
+
+    let cookieString =
+      encodeURIComponent(name) +
+      "=; Max-Age=0; path=/; SameSite=Lax";
+
+    if (domain) {
+
+      cookieString +=
+        "; domain=" + domain;
+
+    }
+
+    document.cookie =
+      cookieString;
+
+  }
+
+
+  function clearAnalyticsCookies() {
+
+    const cookieNames =
+      document.cookie
+        .split(";")
+        .map(function (cookie) {
+
+          return decodeURIComponent(
+            cookie
+              .trim()
+              .split("=")[0]
+          );
+
+        });
+
+
+    const analyticsCookieNames =
+      cookieNames.filter(
+        function (name) {
+
+          return (
+            name === "_ga" ||
+            name.indexOf("_ga_") === 0 ||
+            name === "_gid" ||
+            name.indexOf("_gat") === 0
+          );
+
+        }
+      );
+
+
+    analyticsCookieNames.forEach(
+      function (name) {
+
+        /*
+          Try removing host-only cookie.
+        */
+
+        deleteCookie(
+          name,
+          null
+        );
+
+
+        /*
+          Try removing cookies set for
+          the root domain.
+        */
+
+        deleteCookie(
+          name,
+          "biomedfacts.com"
+        );
+
+        deleteCookie(
+          name,
+          ".biomedfacts.com"
+        );
+
+      }
+    );
+
+  }
 
 
   /* =========================
@@ -39,22 +142,49 @@
 
   function loadAnalytics() {
 
+    /*
+      Allow Google Analytics again
+      if the user previously revoked
+      consent in this browser session.
+    */
+
+    window[GA_DISABLE_KEY] =
+      false;
+
+
+    window.gtag(
+      "consent",
+      "update",
+      {
+        analytics_storage: "granted",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied"
+      }
+    );
+
+
     if (analyticsLoaded) {
+
       return;
+
     }
 
-    analyticsLoaded = true;
+
+    analyticsLoaded =
+      true;
 
 
-    window.gtag("consent", "update", {
-      analytics_storage: "granted",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied"
-    });
+    /*
+      Queue Google Analytics commands
+      before the external script loads.
+    */
 
+    window.gtag(
+      "js",
+      new Date()
+    );
 
-    window.gtag("js", new Date());
 
     window.gtag(
       "config",
@@ -63,13 +193,19 @@
 
 
     const googleScript =
-      document.createElement("script");
+      document.createElement(
+        "script"
+      );
 
-    googleScript.async = true;
+    googleScript.async =
+      true;
 
     googleScript.src =
       "https://www.googletagmanager.com/gtag/js?id=" +
-      encodeURIComponent(MEASUREMENT_ID);
+      encodeURIComponent(
+        MEASUREMENT_ID
+      );
+
 
     document.head.appendChild(
       googleScript
@@ -79,7 +215,7 @@
 
 
   /* =========================
-     CONSENT CHOICES
+     ACCEPT CONSENT
   ========================== */
 
   function acceptAnalytics() {
@@ -89,12 +225,18 @@
       "granted"
     );
 
+
     loadAnalytics();
+
 
     closeBanner();
 
   }
 
+
+  /* =========================
+     REJECT / REVOKE CONSENT
+  ========================== */
 
   function rejectAnalytics() {
 
@@ -102,6 +244,11 @@
       STORAGE_KEY,
       "denied"
     );
+
+
+    /*
+      Update Consent Mode.
+    */
 
     window.gtag(
       "consent",
@@ -114,6 +261,26 @@
       }
     );
 
+
+    /*
+      Disable further GA collection
+      on the current page if the
+      Analytics library had already
+      been loaded.
+    */
+
+    window[GA_DISABLE_KEY] =
+      true;
+
+
+    /*
+      Remove accessible Google
+      Analytics cookies.
+    */
+
+    clearAnalyticsCookies();
+
+
     closeBanner();
 
   }
@@ -125,7 +292,9 @@
 
   function isEnglish() {
 
-    return document.documentElement.lang
+    return document
+      .documentElement
+      .lang
       .toLowerCase()
       .startsWith("en");
 
@@ -143,12 +312,17 @@
         "biomedfacts-consent-styles"
       )
     ) {
+
       return;
+
     }
 
 
     const style =
-      document.createElement("style");
+      document.createElement(
+        "style"
+      );
+
 
     style.id =
       "biomedfacts-consent-styles";
@@ -158,67 +332,95 @@
 
       #biomedfacts-consent-banner {
         position: fixed;
+
         left: 0;
         right: 0;
         bottom: 0;
+
         z-index: 999999;
 
         padding: 18px;
 
-        background: rgba(17, 17, 17, 0.98);
+        background:
+          rgba(17, 17, 17, 0.98);
+
         color: #ffffff;
 
-        border-top: 3px solid #6c3bb8;
+        border-top:
+          3px solid #6c3bb8;
 
-        font-family: Arial, sans-serif;
+        font-family:
+          Arial,
+          sans-serif;
 
         box-shadow:
-          0 -6px 30px rgba(0, 0, 0, 0.18);
+          0 -6px 30px
+          rgba(0, 0, 0, 0.18);
       }
 
 
       .biomedfacts-consent-inner {
-        width: min(1100px, 100%);
-        margin: 0 auto;
+        width:
+          min(1100px, 100%);
 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        margin:
+          0 auto;
 
-        gap: 28px;
+        display:
+          flex;
+
+        align-items:
+          center;
+
+        justify-content:
+          space-between;
+
+        gap:
+          28px;
       }
 
 
       .biomedfacts-consent-copy {
-        max-width: 720px;
+        max-width:
+          720px;
       }
 
 
       .biomedfacts-consent-title {
-        margin: 0 0 7px;
+        margin:
+          0 0 7px;
 
         font-family:
           "Times New Roman",
           Times,
           serif;
 
-        font-size: 20px;
-        font-weight: bold;
+        font-size:
+          20px;
+
+        font-weight:
+          bold;
       }
 
 
       .biomedfacts-consent-text {
-        margin: 0;
+        margin:
+          0;
 
-        color: #dddddd;
+        color:
+          #dddddd;
 
-        font-size: 13px;
-        line-height: 1.55;
+        font-size:
+          13px;
+
+        line-height:
+          1.55;
       }
 
 
       .biomedfacts-consent-text a {
-        color: #c6a9ff;
+        color:
+          #c6a9ff;
 
         text-decoration:
           underline;
@@ -229,25 +431,39 @@
 
 
       .biomedfacts-consent-actions {
-        display: flex;
-        flex-shrink: 0;
+        display:
+          flex;
 
-        gap: 10px;
+        flex-shrink:
+          0;
+
+        gap:
+          10px;
       }
 
 
       .biomedfacts-consent-button {
-        min-width: 125px;
+        min-width:
+          125px;
 
-        padding: 12px 17px;
+        padding:
+          12px 17px;
 
-        border: 1px solid #ffffff;
+        border:
+          1px solid #ffffff;
 
-        font-family: Arial, sans-serif;
-        font-size: 12px;
-        font-weight: bold;
+        font-family:
+          Arial,
+          sans-serif;
 
-        cursor: pointer;
+        font-size:
+          12px;
+
+        font-weight:
+          bold;
+
+        cursor:
+          pointer;
 
         transition:
           transform 0.15s ease,
@@ -256,90 +472,145 @@
 
 
       .biomedfacts-consent-button:hover {
-        transform: translateY(-1px);
+        transform:
+          translateY(-1px);
       }
 
 
       .biomedfacts-consent-accept {
-        background: #6c3bb8;
-        border-color: #6c3bb8;
-        color: #ffffff;
+        background:
+          #6c3bb8;
+
+        border-color:
+          #6c3bb8;
+
+        color:
+          #ffffff;
       }
 
 
       .biomedfacts-consent-reject {
-        background: #ffffff;
-        border-color: #ffffff;
-        color: #111111;
+        background:
+          #ffffff;
+
+        border-color:
+          #ffffff;
+
+        color:
+          #111111;
       }
 
 
       #biomedfacts-cookie-settings {
-        position: fixed;
-        left: 15px;
-        bottom: 15px;
+        position:
+          fixed;
 
-        z-index: 999998;
+        left:
+          15px;
 
-        padding: 8px 11px;
+        bottom:
+          15px;
 
-        background: #ffffff;
-        color: #111111;
+        z-index:
+          999998;
 
-        border: 1px solid #111111;
+        padding:
+          8px 11px;
 
-        font-family: Arial, sans-serif;
-        font-size: 10px;
-        font-weight: bold;
+        background:
+          #ffffff;
 
-        cursor: pointer;
+        color:
+          #111111;
+
+        border:
+          1px solid #111111;
+
+        font-family:
+          Arial,
+          sans-serif;
+
+        font-size:
+          10px;
+
+        font-weight:
+          bold;
+
+        cursor:
+          pointer;
 
         box-shadow:
-          0 3px 12px rgba(0, 0, 0, 0.12);
+          0 3px 12px
+          rgba(0, 0, 0, 0.12);
+      }
+
+
+      #biomedfacts-cookie-settings:hover {
+        border-color:
+          #6c3bb8;
+
+        color:
+          #6c3bb8;
       }
 
 
       html[data-theme="dark"]
       #biomedfacts-cookie-settings {
-        background: #1b1b1b;
-        color: #f4f4f4;
-        border-color: #f4f4f4;
+        background:
+          #1b1b1b;
+
+        color:
+          #f4f4f4;
+
+        border-color:
+          #f4f4f4;
       }
 
 
       @media (max-width: 760px) {
 
         #biomedfacts-consent-banner {
-          padding: 17px 16px;
+          padding:
+            17px 16px;
         }
 
 
         .biomedfacts-consent-inner {
-          align-items: stretch;
-          flex-direction: column;
+          align-items:
+            stretch;
 
-          gap: 16px;
+          flex-direction:
+            column;
+
+          gap:
+            16px;
         }
 
 
         .biomedfacts-consent-actions {
-          width: 100%;
+          width:
+            100%;
         }
 
 
         .biomedfacts-consent-button {
-          flex: 1;
-          min-width: 0;
+          flex:
+            1;
+
+          min-width:
+            0;
         }
 
 
         .biomedfacts-consent-title {
-          font-size: 19px;
+          font-size:
+            19px;
         }
 
 
         .biomedfacts-consent-text {
-          font-size: 12px;
+          font-size:
+            12px;
         }
 
       }
@@ -348,12 +619,14 @@
       @media (max-width: 430px) {
 
         .biomedfacts-consent-actions {
-          flex-direction: column;
+          flex-direction:
+            column;
         }
 
 
         .biomedfacts-consent-button {
-          width: 100%;
+          width:
+            100%;
         }
 
       }
@@ -361,7 +634,9 @@
     `;
 
 
-    document.head.appendChild(style);
+    document.head.appendChild(
+      style
+    );
 
   }
 
@@ -377,22 +652,38 @@
         "biomedfacts-cookie-settings"
       )
     ) {
+
       return;
+
     }
 
 
     const button =
-      document.createElement("button");
+      document.createElement(
+        "button"
+      );
+
 
     button.id =
       "biomedfacts-cookie-settings";
 
-    button.type = "button";
+
+    button.type =
+      "button";
+
 
     button.textContent =
       isEnglish()
         ? "Cookie settings"
         : "Ρυθμίσεις cookies";
+
+
+    button.setAttribute(
+      "aria-label",
+      isEnglish()
+        ? "Change cookie preferences"
+        : "Αλλαγή προτιμήσεων cookies"
+    );
 
 
     button.addEventListener(
@@ -405,7 +696,9 @@
     );
 
 
-    document.body.appendChild(button);
+    document.body.appendChild(
+      button
+    );
 
   }
 
@@ -437,20 +730,26 @@
 
 
     const banner =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     banner.id =
       "biomedfacts-consent-banner";
+
 
     banner.setAttribute(
       "role",
       "dialog"
     );
 
+
     banner.setAttribute(
       "aria-modal",
       "true"
     );
+
 
     banner.setAttribute(
       "aria-label",
@@ -461,24 +760,34 @@
 
 
     const inner =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     inner.className =
       "biomedfacts-consent-inner";
 
 
     const copy =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     copy.className =
       "biomedfacts-consent-copy";
 
 
     const title =
-      document.createElement("p");
+      document.createElement(
+        "p"
+      );
+
 
     title.className =
       "biomedfacts-consent-title";
+
 
     title.textContent =
       english
@@ -487,7 +796,10 @@
 
 
     const text =
-      document.createElement("p");
+      document.createElement(
+        "p"
+      );
+
 
     text.className =
       "biomedfacts-consent-text";
@@ -496,35 +808,49 @@
     if (english) {
 
       text.innerHTML =
-        'BiomedFacts uses Google Analytics only with your consent to understand website traffic and improve its content. If you reject analytics, Google Analytics will not be loaded. <a href="/en/privacy-policy/">Privacy Policy</a>.';
+        'BiomedFacts uses Google Analytics only with your consent to understand website traffic and improve its content. If you reject analytics, Google Analytics will not be loaded on future page loads. You can change your choice at any time. <a href="/en/privacy-policy/">Privacy Policy</a>.';
 
     } else {
 
       text.innerHTML =
-        'Το BiomedFacts χρησιμοποιεί Google Analytics μόνο με τη συγκατάθεσή σου, ώστε να κατανοεί την επισκεψιμότητα και να βελτιώνει το περιεχόμενό του. Αν απορρίψεις τα analytics, το Google Analytics δεν θα φορτωθεί. <a href="/privacy-policy/">Πολιτική Απορρήτου</a>.';
+        'Το BiomedFacts χρησιμοποιεί Google Analytics μόνο με τη συγκατάθεσή σου, ώστε να κατανοεί την επισκεψιμότητα και να βελτιώνει το περιεχόμενό του. Αν απορρίψεις τα analytics, το Google Analytics δεν θα φορτώνεται στις επόμενες σελίδες. Μπορείς να αλλάξεις την επιλογή σου οποιαδήποτε στιγμή. <a href="/privacy-policy/">Πολιτική Απορρήτου</a>.';
 
     }
 
 
-    copy.appendChild(title);
-    copy.appendChild(text);
+    copy.appendChild(
+      title
+    );
+
+
+    copy.appendChild(
+      text
+    );
 
 
     const actions =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     actions.className =
       "biomedfacts-consent-actions";
 
 
     const rejectButton =
-      document.createElement("button");
+      document.createElement(
+        "button"
+      );
+
 
     rejectButton.type =
       "button";
 
+
     rejectButton.className =
       "biomedfacts-consent-button biomedfacts-consent-reject";
+
 
     rejectButton.textContent =
       english
@@ -533,13 +859,18 @@
 
 
     const acceptButton =
-      document.createElement("button");
+      document.createElement(
+        "button"
+      );
+
 
     acceptButton.type =
       "button";
 
+
     acceptButton.className =
       "biomedfacts-consent-button biomedfacts-consent-accept";
+
 
     acceptButton.textContent =
       english
@@ -563,15 +894,26 @@
       rejectButton
     );
 
+
     actions.appendChild(
       acceptButton
     );
 
 
-    inner.appendChild(copy);
-    inner.appendChild(actions);
+    inner.appendChild(
+      copy
+    );
 
-    banner.appendChild(inner);
+
+    inner.appendChild(
+      actions
+    );
+
+
+    banner.appendChild(
+      inner
+    );
+
 
     document.body.appendChild(
       banner
@@ -608,9 +950,24 @@
     );
 
 
-  if (savedConsent === "granted") {
+  if (
+    savedConsent === "granted"
+  ) {
+
+    window[GA_DISABLE_KEY] =
+      false;
 
     loadAnalytics();
+
+  } else {
+
+    /*
+      If consent has not been granted,
+      GA stays disabled.
+    */
+
+    window[GA_DISABLE_KEY] =
+      true;
 
   }
 
