@@ -2,9 +2,49 @@
 ---
 
 {% assign is_english = false %}
-
 {% if page.lang == "en" %}
   {% assign is_english = true %}
+{% endif %}
+
+{% capture default_seo_title %}{{ page.title }} | BiomedFacts{% endcapture %}
+{% assign seo_title = page.seo_title | default: default_seo_title | strip %}
+
+{% assign seo_description = page.seo_description
+  | default: page.description
+  | default: page.intro
+  | default: site.description
+  | strip_html
+  | strip_newlines
+  | strip
+%}
+
+{% assign canonical_url = page.url | absolute_url %}
+
+{% assign is_author_page = false %}
+{% if page.url == "/author/" or page.url == "/en/author/" %}
+  {% assign is_author_page = true %}
+{% endif %}
+
+{% if page.translation_url %}
+  {% assign translation_absolute = page.translation_url | absolute_url %}
+{% endif %}
+
+{% if is_english %}
+  {% if page.translation_url %}
+    {% assign greek_url = translation_absolute %}
+  {% else %}
+    {% assign greek_url = "/" | absolute_url %}
+  {% endif %}
+  {% assign english_url = canonical_url %}
+  {% assign x_default_url = greek_url %}
+{% else %}
+  {% assign greek_url = canonical_url %}
+  {% if page.translation_url %}
+    {% assign english_url = translation_absolute %}
+  {% else %}
+    {% assign english_url = "/en/" | absolute_url %}
+  {% endif %}
+  {% assign x_default_url = canonical_url %}
 {% endif %}
 
 <!DOCTYPE html>
@@ -20,34 +60,182 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>
-    {% if page.seo_title %}
-      {{ page.seo_title }}
-    {% else %}
-      {{ page.title }} | BiomedFacts
-    {% endif %}
-  </title>
+  <!-- =========================
+       BASIC SEO
+  ========================== -->
+
+  <title>{{ seo_title | escape }}</title>
 
   <meta
     name="description"
-    content="{{ page.seo_description | default: page.description | strip_html | strip_newlines | escape }}"
+    content="{{ seo_description | escape }}"
+  >
+
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large"
   >
 
   <link
     rel="canonical"
-    href="{{ page.url | absolute_url }}"
+    href="{{ canonical_url }}"
   >
 
-  {% if page.translation_url %}
 
-    <link
-      rel="alternate"
-      hreflang="{% if is_english %}el{% else %}en{% endif %}"
-      href="{{ page.translation_url | absolute_url }}"
-    >
+  <!-- =========================
+       LANGUAGE / HREFLANG
+  ========================== -->
+
+  <link
+    rel="alternate"
+    hreflang="el"
+    href="{{ greek_url }}"
+  >
+
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="{{ english_url }}"
+  >
+
+  <link
+    rel="alternate"
+    hreflang="x-default"
+    href="{{ x_default_url }}"
+  >
+
+
+  <!-- =========================
+       OPEN GRAPH
+  ========================== -->
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:site_name"
+    content="BiomedFacts"
+  >
+
+  <meta
+    property="og:title"
+    content="{{ seo_title | escape }}"
+  >
+
+  <meta
+    property="og:description"
+    content="{{ seo_description | escape }}"
+  >
+
+  <meta
+    property="og:url"
+    content="{{ canonical_url }}"
+  >
+
+  <meta
+    property="og:locale"
+    content="{% if is_english %}en_US{% else %}el_GR{% endif %}"
+  >
+
+  <meta
+    property="og:locale:alternate"
+    content="{% if is_english %}el_GR{% else %}en_US{% endif %}"
+  >
+
+
+  <!-- =========================
+       SOCIAL
+  ========================== -->
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <meta
+    name="twitter:title"
+    content="{{ seo_title | escape }}"
+  >
+
+  <meta
+    name="twitter:description"
+    content="{{ seo_description | escape }}"
+  >
+
+
+  <!-- =========================
+       STRUCTURED DATA
+  ========================== -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://biomedfacts.com/#website",
+        "url": "https://biomedfacts.com/",
+        "name": "BiomedFacts",
+        "description": "Evidence-based health and biomedical science publication."
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://biomedfacts.com/#organization",
+        "name": "BiomedFacts",
+        "url": "https://biomedfacts.com/",
+        "sameAs": [
+          "https://www.instagram.com/biomedical_sciences.gr/"
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": {{ canonical_url | append: "#webpage" | jsonify }},
+        "url": {{ canonical_url | jsonify }},
+        "name": {{ page.title | jsonify }},
+        "description": {{ seo_description | jsonify }},
+        "inLanguage": "{% if is_english %}en{% else %}el{% endif %}",
+        "isPartOf": {
+          "@id": "https://biomedfacts.com/#website"
+        },
+        "publisher": {
+          "@id": "https://biomedfacts.com/#organization"
+        }
+      }
+    ]
+  }
+  </script>
+
+
+  {% if is_author_page %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": {{ canonical_url | append: "#profile" | jsonify }},
+    "url": {{ canonical_url | jsonify }},
+    "name": {{ page.title | jsonify }},
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://biomedfacts.com/author/#person",
+      "name": "Dimitra M",
+      "honorificSuffix": "BSc Biomedical Science",
+      "url": "https://biomedfacts.com/author/",
+      "sameAs": [
+        "https://www.instagram.com/biomedical_sciences.gr/"
+      ]
+    }
+  }
+  </script>
 
   {% endif %}
 
+
+  <!-- =========================
+       THEME BEFORE PAGE LOAD
+  ========================== -->
 
   <script>
 
@@ -82,65 +270,43 @@
   <style>
 
     :root {
-
       --background: #f8f7fa;
       --surface: #ffffff;
-
       --text: #111111;
       --muted: #666666;
-
       --border: #cccccc;
       --soft-border: #dddddd;
-
       --accent: #6c3bb8;
       --top-border: #32103f;
-
       --soft-accent: #f1ecf8;
     }
 
-
     html[data-theme="dark"] {
-
       --background: #111111;
       --surface: #1b1b1b;
-
       --text: #f4f4f4;
       --muted: #b5b5b5;
-
       --border: #444444;
       --soft-border: #333333;
-
       --accent: #b58cff;
       --top-border: #6c3bb8;
-
       --soft-accent: #1d1922;
     }
 
-
     * {
-
       box-sizing: border-box;
-
       margin: 0;
       padding: 0;
     }
 
-
     html {
-
       scroll-behavior: smooth;
     }
 
-
     body {
-
       background: var(--background);
       color: var(--text);
-
-      font-family:
-        Arial,
-        sans-serif;
-
+      font-family: Arial, sans-serif;
       line-height: 1.6;
 
       transition:
@@ -148,19 +314,16 @@
         color 0.25s ease;
     }
 
-
     a {
-
       color: inherit;
     }
 
 
     /* =========================
        HEADER
-    ========================= */
+    ========================== */
 
     .site-header {
-
       background: var(--surface);
 
       border-top:
@@ -173,118 +336,90 @@
         28px 6% 0;
     }
 
-
     .header-top {
-
       display: flex;
-
       align-items: center;
       justify-content: space-between;
-
       gap: 25px;
-
       padding-bottom: 28px;
     }
 
-
     .logo-link {
-
       color: var(--text);
-
       text-decoration: none;
     }
 
-
     .logo {
-
       font-family:
         "Times New Roman",
         serif;
 
       font-size: 46px;
-
       font-weight: bold;
-
       letter-spacing: -1.5px;
-
       line-height: 1;
     }
 
-
     .logo span {
-
       color: var(--accent);
     }
 
-
     .header-actions {
-
       display: flex;
-
       align-items: center;
-
       gap: 10px;
     }
 
 
+    /* =========================
+       LANGUAGE
+    ========================== */
+
     .language-switch {
-
       display: flex;
-
       align-items: center;
-
       gap: 7px;
-
       margin-right: 5px;
 
       font-size: 12px;
-
       font-weight: bold;
-
       letter-spacing: 0.5px;
     }
 
-
     .language-switch a {
-
       color: var(--muted);
-
       text-decoration: none;
     }
 
-
     .language-switch a:hover,
     .language-switch .active-language {
-
       color: var(--accent);
     }
 
-
     .language-divider {
-
       color: var(--border);
     }
 
 
-    .icon-button {
+    /* =========================
+       ICON BUTTONS
+    ========================== */
 
+    .icon-button {
       width: 44px;
       height: 44px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
       background: var(--surface);
-
       color: var(--text);
 
       border:
         1px solid var(--text);
 
       text-decoration: none;
-
       cursor: pointer;
 
       transition:
@@ -294,96 +429,73 @@
         transform 0.2s ease;
     }
 
-
     .icon-button svg {
-
       width: 21px;
       height: 21px;
 
       fill: none;
-
       stroke: currentColor;
 
       stroke-width: 1.8;
-
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-
     .instagram-button svg {
-
       fill: currentColor;
       stroke: none;
     }
 
-
     .icon-button:hover {
-
       background: var(--accent);
-
       border-color: var(--accent);
-
       color: #ffffff;
 
       transform:
         translateY(-2px);
     }
 
-
     .sun-icon {
-
       display: none;
     }
 
-
     .moon-icon {
-
       display: block;
     }
-
 
     html[data-theme="dark"] .sun-icon {
-
       display: block;
     }
 
-
     html[data-theme="dark"] .moon-icon {
-
       display: none;
     }
 
 
     /* =========================
        NAVIGATION
-    ========================= */
+    ========================== */
 
     nav {
-
       display: flex;
-
       align-items: center;
-
       flex-wrap: wrap;
 
-      gap: 18px 34px;
+      gap:
+        18px 34px;
 
-      padding: 18px 0;
+      padding:
+        18px 0;
 
       border-top:
         1px solid var(--soft-border);
     }
 
-
     nav a {
-
       color: var(--text);
-
       text-decoration: none;
 
       font-size: 13px;
-
       font-weight: bold;
 
       text-transform: uppercase;
@@ -392,19 +504,16 @@
         color 0.2s ease;
     }
 
-
     nav a:hover {
-
       color: var(--accent);
     }
 
 
     /* =========================
        PAGE
-    ========================= */
+    ========================== */
 
     .page-container {
-
       width:
         min(920px, 88%);
 
@@ -412,9 +521,7 @@
         65px auto 0;
     }
 
-
     .page-header {
-
       max-width: 780px;
 
       margin:
@@ -426,25 +533,19 @@
         2px solid var(--text);
     }
 
-
     .page-label {
-
       margin-bottom: 13px;
 
       color: var(--accent);
 
       font-size: 11px;
-
       font-weight: bold;
 
       letter-spacing: 1.5px;
-
       text-transform: uppercase;
     }
 
-
     .page-title {
-
       font-family:
         "Times New Roman",
         serif;
@@ -452,13 +553,10 @@
       font-size: 52px;
 
       line-height: 1.05;
-
       letter-spacing: -1.4px;
     }
 
-
     .page-intro {
-
       max-width: 780px;
 
       margin:
@@ -479,17 +577,13 @@
         serif;
 
       font-size: 20px;
-
       font-weight: bold;
 
       line-height: 1.65;
     }
 
-
     .page-body {
-
       max-width: 780px;
-
       margin: 0 auto;
 
       font-family:
@@ -498,22 +592,16 @@
         serif;
 
       font-size: 18px;
-
       line-height: 1.8;
     }
 
-
     .page-body p {
-
       margin-bottom: 25px;
     }
 
-
     .page-body h2 {
-
       margin-top: 48px;
       margin-bottom: 18px;
-
       padding-top: 10px;
 
       font-family:
@@ -523,13 +611,10 @@
       font-size: 31px;
 
       line-height: 1.15;
-
       letter-spacing: -0.5px;
     }
 
-
     .page-body h3 {
-
       margin-top: 35px;
       margin-bottom: 15px;
 
@@ -538,43 +623,31 @@
         serif;
 
       font-size: 24px;
-
       line-height: 1.2;
     }
 
-
     .page-body strong {
-
       font-weight: bold;
     }
 
-
     .page-body a {
-
       color: var(--accent);
 
       text-decoration-thickness: 1px;
-
       text-underline-offset: 3px;
     }
 
-
     .page-body ul,
     .page-body ol {
-
       margin:
         0 0 25px 27px;
     }
 
-
     .page-body li {
-
       margin-bottom: 10px;
     }
 
-
     .page-body blockquote {
-
       margin:
         35px 0;
 
@@ -593,10 +666,9 @@
 
     /* =========================
        BACK LINK
-    ========================= */
+    ========================== */
 
     .page-end {
-
       max-width: 780px;
 
       margin:
@@ -608,31 +680,25 @@
         1px solid var(--border);
     }
 
-
     .back-home {
-
       color: var(--accent);
 
       font-size: 13px;
-
       font-weight: bold;
 
       text-decoration: none;
     }
 
-
     .back-home:hover {
-
       text-decoration: underline;
     }
 
 
     /* =========================
        NEWSLETTER
-    ========================= */
+    ========================== */
 
     .newsletter {
-
       width:
         min(920px, 88%);
 
@@ -656,25 +722,19 @@
       overflow: hidden;
     }
 
-
     .newsletter-label {
-
       margin-bottom: 18px;
 
       color: var(--accent);
 
       font-size: 11px;
-
       font-weight: bold;
 
       letter-spacing: 1.8px;
     }
 
-
     .beehiiv-form-container {
-
       width: 100%;
-
       max-width: 760px;
 
       margin:
@@ -686,10 +746,9 @@
 
     /* =========================
        FOOTER
-    ========================= */
+    ========================== */
 
     footer {
-
       margin-top: 65px;
 
       padding:
@@ -702,9 +761,7 @@
         1px solid var(--border);
     }
 
-
     .footer-inner {
-
       width:
         min(1100px, 100%);
 
@@ -712,13 +769,9 @@
         0 auto;
     }
 
-
     .footer-links {
-
       display: flex;
-
       justify-content: center;
-
       flex-wrap: wrap;
 
       gap:
@@ -727,29 +780,21 @@
       margin-bottom: 20px;
     }
 
-
     .footer-links a {
-
       color: var(--muted);
 
       font-size: 11px;
-
       font-weight: bold;
 
       text-decoration: none;
-
       text-transform: uppercase;
     }
 
-
     .footer-links a:hover {
-
       color: var(--accent);
     }
 
-
     .footer-copy {
-
       color: var(--muted);
 
       text-align: center;
@@ -760,63 +805,45 @@
 
     /* =========================
        MOBILE
-    ========================= */
+    ========================== */
 
     @media (max-width: 700px) {
 
       .site-header {
-
         padding:
           22px 5% 0;
       }
 
-
       .header-top {
-
         gap: 14px;
-
         padding-bottom: 22px;
       }
 
-
       .logo {
-
         font-size: 34px;
       }
 
-
       .header-actions {
-
         gap: 7px;
       }
 
-
       .language-switch {
-
         gap: 5px;
-
         margin-right: 0;
-
         font-size: 10px;
       }
 
-
       .icon-button {
-
         width: 37px;
         height: 37px;
       }
 
-
       .icon-button svg {
-
         width: 18px;
         height: 18px;
       }
 
-
       nav {
-
         gap:
           11px 18px;
 
@@ -824,58 +851,40 @@
           15px 0;
       }
 
-
       nav a {
-
         font-size: 10px;
       }
 
-
       .page-container {
-
         width: 90%;
-
         margin-top: 42px;
       }
 
-
       .page-title {
-
         font-size: 38px;
       }
 
-
       .page-header {
-
         margin-bottom: 35px;
       }
 
-
       .page-intro {
-
         padding:
           22px 20px;
 
         font-size: 18px;
       }
 
-
       .page-body {
-
         font-size: 17px;
-
         line-height: 1.75;
       }
 
-
       .page-body h2 {
-
         font-size: 27px;
       }
 
-
       .newsletter {
-
         width: 90%;
 
         padding:
@@ -884,36 +893,26 @@
 
     }
 
-
     @media (max-width: 470px) {
 
       .logo {
-
         font-size: 29px;
       }
 
-
       .header-actions {
-
         gap: 5px;
       }
 
-
       .language-switch {
-
         font-size: 9px;
       }
 
-
       .icon-button {
-
         width: 34px;
         height: 34px;
       }
 
-
       .page-title {
-
         font-size: 34px;
       }
 
@@ -927,6 +926,10 @@
 <body>
 
 
+<!-- =========================
+     HEADER
+========================== -->
+
 <header class="site-header">
 
 
@@ -936,12 +939,11 @@
     <a
       href="{% if is_english %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}"
       class="logo-link"
+      aria-label="BiomedFacts"
     >
 
       <div class="logo">
-
         Biomed<span>Facts</span>
-
       </div>
 
     </a>
@@ -959,6 +961,7 @@
 
 
         {% if is_english %}
+
 
           {% if page.translation_url %}
 
@@ -1059,11 +1062,9 @@
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
-
           <path
             d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"
           ></path>
-
         </svg>
 
 
@@ -1123,6 +1124,11 @@
   </div>
 
 
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+
   {% if is_english %}
 
     <nav>
@@ -1137,6 +1143,10 @@
 
       <a href="{{ '/en/' | relative_url }}#latest">
         Nutrition
+      </a>
+
+      <a href="{{ '/en/' | relative_url }}#latest">
+        Women's Health
       </a>
 
       <a href="{{ '/en/' | relative_url }}#latest">
@@ -1157,7 +1167,9 @@
 
     </nav>
 
+
   {% else %}
+
 
     <nav>
 
@@ -1171,6 +1183,10 @@
 
       <a href="{{ '/' | relative_url }}#latest">
         Διατροφή
+      </a>
+
+      <a href="{{ '/' | relative_url }}#latest">
+        Γυναικεία Υγεία
       </a>
 
       <a href="{{ '/' | relative_url }}#latest">
@@ -1191,11 +1207,16 @@
 
     </nav>
 
+
   {% endif %}
 
 
 </header>
 
+
+<!-- =========================
+     PAGE CONTENT
+========================== -->
 
 <main class="page-container">
 
@@ -1204,16 +1225,12 @@
 
 
     <div class="page-label">
-
       BIOMEDFACTS
-
     </div>
 
 
     <h1 class="page-title">
-
       {{ page.title }}
-
     </h1>
 
 
@@ -1223,9 +1240,7 @@
   {% if page.intro %}
 
     <div class="page-intro">
-
       {{ page.intro }}
-
     </div>
 
   {% endif %}
@@ -1268,13 +1283,15 @@
 </main>
 
 
+<!-- =========================
+     NEWSLETTER
+========================== -->
+
 <section class="newsletter">
 
 
   <p class="newsletter-label">
-
     BIOMEDFACTS NEWSLETTER
-
   </p>
 
 
@@ -1292,6 +1309,10 @@
 </section>
 
 
+<!-- =========================
+     FOOTER
+========================== -->
+
 <footer>
 
 
@@ -1303,8 +1324,9 @@
 
       {% if is_english %}
 
+
         <a href="{{ '/en/about/' | relative_url }}">
-          About
+          About BiomedFacts
         </a>
 
         <a href="{{ '/en/editorial-policy/' | relative_url }}">
@@ -1323,10 +1345,12 @@
           Contact
         </a>
 
+
       {% else %}
 
+
         <a href="{{ '/about/' | relative_url }}">
-          Σχετικά
+          Σχετικά με το BiomedFacts
         </a>
 
         <a href="{{ '/editorial-policy/' | relative_url }}">
@@ -1345,6 +1369,7 @@
           Επικοινωνία
         </a>
 
+
       {% endif %}
 
 
@@ -1352,9 +1377,7 @@
 
 
     <div class="footer-copy">
-
       © 2026 BiomedFacts · Evidence-based science communication
-
     </div>
 
 
@@ -1363,6 +1386,10 @@
 
 </footer>
 
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
 
 <script>
 
@@ -1403,7 +1430,6 @@
   themeToggle.addEventListener(
     "click",
     function () {
-
 
       const currentTheme =
         document.documentElement
