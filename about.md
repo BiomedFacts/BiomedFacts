@@ -3,6 +3,7 @@ layout: page
 title: "Σχετικά με το BiomedFacts"
 lang: el
 permalink: /about/
+translation_url: /en/about/
 seo_title: "Σχετικά με το BiomedFacts | BiomedFacts"
 seo_description: "Μάθετε τι είναι το BiomedFacts, πώς τεκμηριώνεται το περιεχόμενό του και ποιος είναι ο στόχος της πλατφόρμας."
 intro: "Το BiomedFacts είναι μια ανεξάρτητη πλατφόρμα επικοινωνίας της επιστήμης με στόχο να κάνει την πληροφορία για την υγεία πιο κατανοητή και προσβάσιμη."
