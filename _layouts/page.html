@@ -1,0 +1,1443 @@
+---
+---
+
+{% assign is_english = false %}
+
+{% if page.lang == "en" %}
+  {% assign is_english = true %}
+{% endif %}
+
+<!DOCTYPE html>
+
+<html lang="{% if is_english %}en{% else %}el{% endif %}">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    {% if page.seo_title %}
+      {{ page.seo_title }}
+    {% else %}
+      {{ page.title }} | BiomedFacts
+    {% endif %}
+  </title>
+
+  <meta
+    name="description"
+    content="{{ page.seo_description | default: page.description | strip_html | strip_newlines | escape }}"
+  >
+
+  <link
+    rel="canonical"
+    href="{{ page.url | absolute_url }}"
+  >
+
+  {% if page.translation_url %}
+
+    <link
+      rel="alternate"
+      hreflang="{% if is_english %}el{% else %}en{% endif %}"
+      href="{{ page.translation_url | absolute_url }}"
+    >
+
+  {% endif %}
+
+
+  <script>
+
+    (function () {
+
+      const savedTheme =
+        localStorage.getItem(
+          "biomedfacts-theme"
+        );
+
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+      const theme =
+        savedTheme ||
+        (prefersDark ? "dark" : "light");
+
+      document.documentElement
+        .setAttribute(
+          "data-theme",
+          theme
+        );
+
+    })();
+
+  </script>
+
+
+  <style>
+
+    :root {
+
+      --background: #f8f7fa;
+      --surface: #ffffff;
+
+      --text: #111111;
+      --muted: #666666;
+
+      --border: #cccccc;
+      --soft-border: #dddddd;
+
+      --accent: #6c3bb8;
+      --top-border: #32103f;
+
+      --soft-accent: #f1ecf8;
+    }
+
+
+    html[data-theme="dark"] {
+
+      --background: #111111;
+      --surface: #1b1b1b;
+
+      --text: #f4f4f4;
+      --muted: #b5b5b5;
+
+      --border: #444444;
+      --soft-border: #333333;
+
+      --accent: #b58cff;
+      --top-border: #6c3bb8;
+
+      --soft-accent: #1d1922;
+    }
+
+
+    * {
+
+      box-sizing: border-box;
+
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html {
+
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      background: var(--background);
+      color: var(--text);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      line-height: 1.6;
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease;
+    }
+
+
+    a {
+
+      color: inherit;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .site-header {
+
+      background: var(--surface);
+
+      border-top:
+        5px solid var(--top-border);
+
+      border-bottom:
+        1px solid var(--border);
+
+      padding:
+        28px 6% 0;
+    }
+
+
+    .header-top {
+
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+
+      padding-bottom: 28px;
+    }
+
+
+    .logo-link {
+
+      color: var(--text);
+
+      text-decoration: none;
+    }
+
+
+    .logo {
+
+      font-family:
+        "Times New Roman",
+        serif;
+
+      font-size: 46px;
+
+      font-weight: bold;
+
+      letter-spacing: -1.5px;
+
+      line-height: 1;
+    }
+
+
+    .logo span {
+
+      color: var(--accent);
+    }
+
+
+    .header-actions {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+
+    .language-switch {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      margin-right: 5px;
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 0.5px;
+    }
+
+
+    .language-switch a {
+
+      color: var(--muted);
+
+      text-decoration: none;
+    }
+
+
+    .language-switch a:hover,
+    .language-switch .active-language {
+
+      color: var(--accent);
+    }
+
+
+    .language-divider {
+
+      color: var(--border);
+    }
+
+
+    .icon-button {
+
+      width: 44px;
+      height: 44px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background: var(--surface);
+
+      color: var(--text);
+
+      border:
+        1px solid var(--text);
+
+      text-decoration: none;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+
+    .icon-button svg {
+
+      width: 21px;
+      height: 21px;
+
+      fill: none;
+
+      stroke: currentColor;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+
+    .instagram-button svg {
+
+      fill: currentColor;
+      stroke: none;
+    }
+
+
+    .icon-button:hover {
+
+      background: var(--accent);
+
+      border-color: var(--accent);
+
+      color: #ffffff;
+
+      transform:
+        translateY(-2px);
+    }
+
+
+    .sun-icon {
+
+      display: none;
+    }
+
+
+    .moon-icon {
+
+      display: block;
+    }
+
+
+    html[data-theme="dark"] .sun-icon {
+
+      display: block;
+    }
+
+
+    html[data-theme="dark"] .moon-icon {
+
+      display: none;
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+
+      display: flex;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 18px 34px;
+
+      padding: 18px 0;
+
+      border-top:
+        1px solid var(--soft-border);
+    }
+
+
+    nav a {
+
+      color: var(--text);
+
+      text-decoration: none;
+
+      font-size: 13px;
+
+      font-weight: bold;
+
+      text-transform: uppercase;
+
+      transition:
+        color 0.2s ease;
+    }
+
+
+    nav a:hover {
+
+      color: var(--accent);
+    }
+
+
+    /* =========================
+       PAGE
+    ========================= */
+
+    .page-container {
+
+      width:
+        min(920px, 88%);
+
+      margin:
+        65px auto 0;
+    }
+
+
+    .page-header {
+
+      max-width: 780px;
+
+      margin:
+        0 auto 50px;
+
+      padding-bottom: 28px;
+
+      border-bottom:
+        2px solid var(--text);
+    }
+
+
+    .page-label {
+
+      margin-bottom: 13px;
+
+      color: var(--accent);
+
+      font-size: 11px;
+
+      font-weight: bold;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+    }
+
+
+    .page-title {
+
+      font-family:
+        "Times New Roman",
+        serif;
+
+      font-size: 52px;
+
+      line-height: 1.05;
+
+      letter-spacing: -1.4px;
+    }
+
+
+    .page-intro {
+
+      max-width: 780px;
+
+      margin:
+        0 auto 42px;
+
+      padding:
+        26px 28px;
+
+      background:
+        var(--soft-accent);
+
+      border-left:
+        4px solid var(--accent);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 20px;
+
+      font-weight: bold;
+
+      line-height: 1.65;
+    }
+
+
+    .page-body {
+
+      max-width: 780px;
+
+      margin: 0 auto;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 18px;
+
+      line-height: 1.8;
+    }
+
+
+    .page-body p {
+
+      margin-bottom: 25px;
+    }
+
+
+    .page-body h2 {
+
+      margin-top: 48px;
+      margin-bottom: 18px;
+
+      padding-top: 10px;
+
+      font-family:
+        "Times New Roman",
+        serif;
+
+      font-size: 31px;
+
+      line-height: 1.15;
+
+      letter-spacing: -0.5px;
+    }
+
+
+    .page-body h3 {
+
+      margin-top: 35px;
+      margin-bottom: 15px;
+
+      font-family:
+        "Times New Roman",
+        serif;
+
+      font-size: 24px;
+
+      line-height: 1.2;
+    }
+
+
+    .page-body strong {
+
+      font-weight: bold;
+    }
+
+
+    .page-body a {
+
+      color: var(--accent);
+
+      text-decoration-thickness: 1px;
+
+      text-underline-offset: 3px;
+    }
+
+
+    .page-body ul,
+    .page-body ol {
+
+      margin:
+        0 0 25px 27px;
+    }
+
+
+    .page-body li {
+
+      margin-bottom: 10px;
+    }
+
+
+    .page-body blockquote {
+
+      margin:
+        35px 0;
+
+      padding:
+        22px 25px;
+
+      background:
+        var(--soft-accent);
+
+      border-left:
+        4px solid var(--accent);
+
+      font-style: italic;
+    }
+
+
+    /* =========================
+       BACK LINK
+    ========================= */
+
+    .page-end {
+
+      max-width: 780px;
+
+      margin:
+        55px auto 0;
+
+      padding-top: 25px;
+
+      border-top:
+        1px solid var(--border);
+    }
+
+
+    .back-home {
+
+      color: var(--accent);
+
+      font-size: 13px;
+
+      font-weight: bold;
+
+      text-decoration: none;
+    }
+
+
+    .back-home:hover {
+
+      text-decoration: underline;
+    }
+
+
+    /* =========================
+       NEWSLETTER
+    ========================= */
+
+    .newsletter {
+
+      width:
+        min(920px, 88%);
+
+      margin:
+        75px auto 0;
+
+      padding:
+        32px 20px;
+
+      background:
+        var(--surface);
+
+      border-top:
+        2px solid var(--text);
+
+      border-bottom:
+        1px solid var(--border);
+
+      text-align: center;
+
+      overflow: hidden;
+    }
+
+
+    .newsletter-label {
+
+      margin-bottom: 18px;
+
+      color: var(--accent);
+
+      font-size: 11px;
+
+      font-weight: bold;
+
+      letter-spacing: 1.8px;
+    }
+
+
+    .beehiiv-form-container {
+
+      width: 100%;
+
+      max-width: 760px;
+
+      margin:
+        0 auto;
+
+      text-align: center;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+
+      margin-top: 65px;
+
+      padding:
+        38px 6%;
+
+      background:
+        var(--surface);
+
+      border-top:
+        1px solid var(--border);
+    }
+
+
+    .footer-inner {
+
+      width:
+        min(1100px, 100%);
+
+      margin:
+        0 auto;
+    }
+
+
+    .footer-links {
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap:
+        10px 22px;
+
+      margin-bottom: 20px;
+    }
+
+
+    .footer-links a {
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      font-weight: bold;
+
+      text-decoration: none;
+
+      text-transform: uppercase;
+    }
+
+
+    .footer-links a:hover {
+
+      color: var(--accent);
+    }
+
+
+    .footer-copy {
+
+      color: var(--muted);
+
+      text-align: center;
+
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      .site-header {
+
+        padding:
+          22px 5% 0;
+      }
+
+
+      .header-top {
+
+        gap: 14px;
+
+        padding-bottom: 22px;
+      }
+
+
+      .logo {
+
+        font-size: 34px;
+      }
+
+
+      .header-actions {
+
+        gap: 7px;
+      }
+
+
+      .language-switch {
+
+        gap: 5px;
+
+        margin-right: 0;
+
+        font-size: 10px;
+      }
+
+
+      .icon-button {
+
+        width: 37px;
+        height: 37px;
+      }
+
+
+      .icon-button svg {
+
+        width: 18px;
+        height: 18px;
+      }
+
+
+      nav {
+
+        gap:
+          11px 18px;
+
+        padding:
+          15px 0;
+      }
+
+
+      nav a {
+
+        font-size: 10px;
+      }
+
+
+      .page-container {
+
+        width: 90%;
+
+        margin-top: 42px;
+      }
+
+
+      .page-title {
+
+        font-size: 38px;
+      }
+
+
+      .page-header {
+
+        margin-bottom: 35px;
+      }
+
+
+      .page-intro {
+
+        padding:
+          22px 20px;
+
+        font-size: 18px;
+      }
+
+
+      .page-body {
+
+        font-size: 17px;
+
+        line-height: 1.75;
+      }
+
+
+      .page-body h2 {
+
+        font-size: 27px;
+      }
+
+
+      .newsletter {
+
+        width: 90%;
+
+        padding:
+          28px 8px;
+      }
+
+    }
+
+
+    @media (max-width: 470px) {
+
+      .logo {
+
+        font-size: 29px;
+      }
+
+
+      .header-actions {
+
+        gap: 5px;
+      }
+
+
+      .language-switch {
+
+        font-size: 9px;
+      }
+
+
+      .icon-button {
+
+        width: 34px;
+        height: 34px;
+      }
+
+
+      .page-title {
+
+        font-size: 34px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+
+  <div class="header-top">
+
+
+    <a
+      href="{% if is_english %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}"
+      class="logo-link"
+    >
+
+      <div class="logo">
+
+        Biomed<span>Facts</span>
+
+      </div>
+
+    </a>
+
+
+    <div class="header-actions">
+
+
+      <!-- LANGUAGE -->
+
+      <div
+        class="language-switch"
+        aria-label="{% if is_english %}Language{% else %}Γλώσσα{% endif %}"
+      >
+
+
+        {% if is_english %}
+
+          {% if page.translation_url %}
+
+            <a
+              href="{{ page.translation_url | relative_url }}"
+              class="language-link"
+              data-language="el"
+            >
+              EL
+            </a>
+
+          {% else %}
+
+            <a
+              href="{{ '/' | relative_url }}"
+              class="language-link"
+              data-language="el"
+            >
+              EL
+            </a>
+
+          {% endif %}
+
+
+          <span class="language-divider">
+            |
+          </span>
+
+
+          <a
+            href="{{ page.url | relative_url }}"
+            class="language-link active-language"
+            data-language="en"
+          >
+            EN
+          </a>
+
+
+        {% else %}
+
+
+          <a
+            href="{{ page.url | relative_url }}"
+            class="language-link active-language"
+            data-language="el"
+          >
+            EL
+          </a>
+
+
+          <span class="language-divider">
+            |
+          </span>
+
+
+          {% if page.translation_url %}
+
+            <a
+              href="{{ page.translation_url | relative_url }}"
+              class="language-link"
+              data-language="en"
+            >
+              EN
+            </a>
+
+          {% else %}
+
+            <a
+              href="{{ '/en/' | relative_url }}"
+              class="language-link"
+              data-language="en"
+            >
+              EN
+            </a>
+
+          {% endif %}
+
+
+        {% endif %}
+
+
+      </div>
+
+
+      <!-- THEME -->
+
+      <button
+        class="icon-button"
+        id="theme-toggle"
+        type="button"
+        aria-label="{% if is_english %}Switch theme{% else %}Αλλαγή θέματος{% endif %}"
+        title="Light / Dark mode"
+      >
+
+
+        <svg
+          class="moon-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"
+          ></path>
+
+        </svg>
+
+
+        <svg
+          class="sun-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+          ></circle>
+
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="M4.93 4.93l1.41 1.41"></path>
+          <path d="M17.66 17.66l1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="M4.93 19.07l1.41-1.41"></path>
+          <path d="M17.66 6.34l1.41-1.41"></path>
+
+        </svg>
+
+      </button>
+
+
+      <!-- INSTAGRAM -->
+
+      <a
+        class="icon-button instagram-button"
+        href="https://www.instagram.com/biomedical_sciences.gr/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        title="Instagram"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
+          />
+
+        </svg>
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+
+  {% if is_english %}
+
+    <nav>
+
+      <a href="{{ '/en/' | relative_url }}">
+        Home
+      </a>
+
+      <a href="{{ '/en/' | relative_url }}#latest">
+        Health
+      </a>
+
+      <a href="{{ '/en/' | relative_url }}#latest">
+        Nutrition
+      </a>
+
+      <a href="{{ '/en/' | relative_url }}#latest">
+        Lab Tests
+      </a>
+
+      <a href="{{ '/en/' | relative_url }}#latest">
+        Fact-Checking
+      </a>
+
+      <a href="{{ '/en/' | relative_url }}#latest">
+        News
+      </a>
+
+      <a href="{{ '/en/' | relative_url }}#latest">
+        Research
+      </a>
+
+    </nav>
+
+  {% else %}
+
+    <nav>
+
+      <a href="{{ '/' | relative_url }}">
+        Αρχική
+      </a>
+
+      <a href="{{ '/' | relative_url }}#latest">
+        Υγεία
+      </a>
+
+      <a href="{{ '/' | relative_url }}#latest">
+        Διατροφή
+      </a>
+
+      <a href="{{ '/' | relative_url }}#latest">
+        Εξετάσεις
+      </a>
+
+      <a href="{{ '/' | relative_url }}#latest">
+        Fact-Checking
+      </a>
+
+      <a href="{{ '/' | relative_url }}#latest">
+        Νέα
+      </a>
+
+      <a href="{{ '/' | relative_url }}#latest">
+        Έρευνα
+      </a>
+
+    </nav>
+
+  {% endif %}
+
+
+</header>
+
+
+<main class="page-container">
+
+
+  <header class="page-header">
+
+
+    <div class="page-label">
+
+      BIOMEDFACTS
+
+    </div>
+
+
+    <h1 class="page-title">
+
+      {{ page.title }}
+
+    </h1>
+
+
+  </header>
+
+
+  {% if page.intro %}
+
+    <div class="page-intro">
+
+      {{ page.intro }}
+
+    </div>
+
+  {% endif %}
+
+
+  <div class="page-body">
+
+    {{ content }}
+
+  </div>
+
+
+  <div class="page-end">
+
+
+    {% if is_english %}
+
+      <a
+        href="{{ '/en/' | relative_url }}"
+        class="back-home"
+      >
+        ← Back to BiomedFacts
+      </a>
+
+    {% else %}
+
+      <a
+        href="{{ '/' | relative_url }}"
+        class="back-home"
+      >
+        ← Επιστροφή στο BiomedFacts
+      </a>
+
+    {% endif %}
+
+
+  </div>
+
+
+</main>
+
+
+<section class="newsletter">
+
+
+  <p class="newsletter-label">
+
+    BIOMEDFACTS NEWSLETTER
+
+  </p>
+
+
+  <div class="beehiiv-form-container">
+
+    <script
+      async
+      src="https://subscribe-forms.beehiiv.com/v3/loader.js"
+      data-beehiiv-form="5b6c64fa-4be2-4884-a199-d0ebe1f9ed51"
+    ></script>
+
+  </div>
+
+
+</section>
+
+
+<footer>
+
+
+  <div class="footer-inner">
+
+
+    <div class="footer-links">
+
+
+      {% if is_english %}
+
+        <a href="{{ '/en/about/' | relative_url }}">
+          About
+        </a>
+
+        <a href="{{ '/en/editorial-policy/' | relative_url }}">
+          Editorial Policy
+        </a>
+
+        <a href="{{ '/en/medical-disclaimer/' | relative_url }}">
+          Medical Disclaimer
+        </a>
+
+        <a href="{{ '/en/privacy-policy/' | relative_url }}">
+          Privacy Policy
+        </a>
+
+        <a href="{{ '/en/contact/' | relative_url }}">
+          Contact
+        </a>
+
+      {% else %}
+
+        <a href="{{ '/about/' | relative_url }}">
+          Σχετικά
+        </a>
+
+        <a href="{{ '/editorial-policy/' | relative_url }}">
+          Μεθοδολογία
+        </a>
+
+        <a href="{{ '/medical-disclaimer/' | relative_url }}">
+          Ιατρική αποποίηση ευθύνης
+        </a>
+
+        <a href="{{ '/privacy-policy/' | relative_url }}">
+          Πολιτική απορρήτου
+        </a>
+
+        <a href="{{ '/contact/' | relative_url }}">
+          Επικοινωνία
+        </a>
+
+      {% endif %}
+
+
+    </div>
+
+
+    <div class="footer-copy">
+
+      © 2026 BiomedFacts · Evidence-based science communication
+
+    </div>
+
+
+  </div>
+
+
+</footer>
+
+
+<script>
+
+
+  /* LANGUAGE MEMORY */
+
+  const languageLinks =
+    document.querySelectorAll(
+      ".language-link"
+    );
+
+
+  languageLinks.forEach(link => {
+
+    link.addEventListener(
+      "click",
+      function () {
+
+        localStorage.setItem(
+          "biomedfacts-language",
+          this.dataset.language
+        );
+
+      }
+    );
+
+  });
+
+
+  /* LIGHT / DARK */
+
+  const themeToggle =
+    document.getElementById(
+      "theme-toggle"
+    );
+
+
+  themeToggle.addEventListener(
+    "click",
+    function () {
+
+
+      const currentTheme =
+        document.documentElement
+          .getAttribute(
+            "data-theme"
+          );
+
+
+      const newTheme =
+        currentTheme === "dark"
+          ? "light"
+          : "dark";
+
+
+      document.documentElement
+        .setAttribute(
+          "data-theme",
+          newTheme
+        );
+
+
+      localStorage.setItem(
+        "biomedfacts-theme",
+        newTheme
+      );
+
+
+    }
+  );
+
+
+</script>
+
+
+</body>
+
+</html>
