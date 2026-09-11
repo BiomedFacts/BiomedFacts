@@ -1230,6 +1230,79 @@
 
               {% endif %}
 
+            {% else %}
+
+              {% if latest_count < 4 %}
+
+                <article
+                  class="article-card filterable"
+                  data-category="{{ post.category | escape }}"
+                >
+
+                  {% if post.image %}
+
+                    <a href="{{ post.url | relative_url }}">
+
+                      <img
+                        class="article-card-image"
+                        src="{{ post.image | relative_url }}"
+                        alt="{{ post.title | escape }}"
+                        loading="lazy"
+                      >
+
+                    </a>
+
+                  {% endif %}
+
+
+                  <div class="article-card-meta">
+
+                    <span class="article-card-category">
+                      {{ post.category }}
+                    </span>
+
+                    <span class="article-card-date">
+                      {{ post.date | date: "%d/%m/%Y" }}
+                    </span>
+
+                  </div>
+
+
+                  <h2>
+
+                    <a href="{{ post.url | relative_url }}">
+                      {{ post.title }}
+                    </a>
+
+                  </h2>
+
+
+                  {% if post.excerpt %}
+
+                    <p class="article-card-excerpt">
+                      {{ post.excerpt | strip_html }}
+                    </p>
+
+                  {% endif %}
+
+
+                  <p class="article-card-author">
+
+                    <a
+                      href="{{ '/en/author/' | relative_url }}"
+                      rel="author"
+                    >
+                      {{ post.author | default: "Dimitra M, BSc Biomedical Science" }}
+                    </a>
+
+                  </p>
+
+                </article>
+
+                {% assign latest_count = latest_count | plus: 1 %}
+
+              {% endif %}
+
             {% endif %}
 
           {% endif %}
@@ -1401,6 +1474,11 @@
   </div>
 
 </footer>
+
+
+<!-- ANALYTICS CONSENT -->
+
+<script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
 
 
 <script>
