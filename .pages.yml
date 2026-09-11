@@ -4,7 +4,6 @@ media:
   rename: safe
   categories: [image]
 
-
 content:
 
   # ==================================================
@@ -59,13 +58,11 @@ content:
       - name: translation_key
         label: Κωδικός μετάφρασης
         type: string
-        description: Βάλε τον ίδιο κωδικό στην ελληνική και αγγλική έκδοση του ίδιου άρθρου. Παράδειγμα: hba1c-basics
 
       - name: image
         label: Εικόνα εξωφύλλου
         type: image
         options:
-          path: assets/images
           extensions: [jpg, jpeg, png, webp]
           categories: [image]
           rename: safe
@@ -73,7 +70,6 @@ content:
       - name: excerpt
         label: Σύντομη περιγραφή
         type: text
-        description: 1–2 προτάσεις που εμφανίζονται στην αρχική.
 
       - name: author
         label: Συγγραφέας
@@ -98,7 +94,6 @@ content:
         options:
           format: markdown
           switcher: true
-          path: assets/images
           extensions: [jpg, jpeg, png, webp]
           categories: [image]
           rename: safe
@@ -156,13 +151,11 @@ content:
       - name: translation_key
         label: Translation key
         type: string
-        description: Use the same key as the Greek version. Example: hba1c-basics
 
       - name: image
         label: Cover image
         type: image
         options:
-          path: assets/images
           extensions: [jpg, jpeg, png, webp]
           categories: [image]
           rename: safe
@@ -194,7 +187,6 @@ content:
         options:
           format: markdown
           switcher: true
-          path: assets/images
           extensions: [jpg, jpeg, png, webp]
           categories: [image]
           rename: safe
