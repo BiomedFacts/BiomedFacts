@@ -2,37 +2,26 @@
 ---
 
 {% assign is_english = false %}
-
 {% if page.path contains "en/_posts" %}
   {% assign is_english = true %}
 {% endif %}
 
-
 {% assign greek_translation = nil %}
 {% assign english_translation = nil %}
 
-
 {% if page.translation_key %}
-
   {% for post in site.posts %}
-
     {% if post.translation_key == page.translation_key %}
-
       {% if post.path contains "en/_posts" %}
         {% assign english_translation = post %}
       {% else %}
         {% assign greek_translation = post %}
       {% endif %}
-
     {% endif %}
-
   {% endfor %}
-
 {% endif %}
 
-
 <!DOCTYPE html>
-
 <html lang="{% if is_english %}en{% else %}el{% endif %}">
 
 <head>
@@ -44,7 +33,6 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-
   <title>
     {% if page.seo_title %}
       {{ page.seo_title }}
@@ -53,40 +41,31 @@
     {% endif %}
   </title>
 
-
   <meta
     name="description"
     content="{{ page.seo_description | default: page.excerpt | strip_html | strip_newlines | escape }}"
   >
-
 
   <link
     rel="canonical"
     href="{{ page.url | absolute_url }}"
   >
 
-
   {% if greek_translation %}
-
     <link
       rel="alternate"
       hreflang="el"
       href="{{ greek_translation.url | absolute_url }}"
     >
-
   {% endif %}
 
-
   {% if english_translation %}
-
     <link
       rel="alternate"
       hreflang="en"
       href="{{ english_translation.url | absolute_url }}"
     >
-
   {% endif %}
-
 
   <script>
 
@@ -178,7 +157,9 @@
       background: var(--background);
       color: var(--text);
 
-      font-family: Arial, sans-serif;
+      font-family:
+        Arial,
+        sans-serif;
 
       line-height: 1.6;
 
@@ -256,10 +237,6 @@
     }
 
 
-    /* =========================
-       HEADER ACTIONS
-    ========================= */
-
     .header-actions {
 
       display: flex;
@@ -299,12 +276,7 @@
     }
 
 
-    .language-switch a:hover {
-
-      color: var(--accent);
-    }
-
-
+    .language-switch a:hover,
     .language-switch .active-language {
 
       color: var(--accent);
@@ -318,7 +290,7 @@
 
 
     /* =========================
-       ICONS
+       ICON BUTTONS
     ========================= */
 
     .icon-button {
@@ -332,7 +304,6 @@
       justify-content: center;
 
       background: var(--surface);
-
       color: var(--text);
 
       border:
@@ -422,9 +393,11 @@
 
       align-items: center;
 
-      gap: 18px 34px;
+      gap:
+        18px 34px;
 
-      padding: 18px 0;
+      padding:
+        18px 0;
 
       border-top:
         1px solid var(--soft-border);
@@ -526,7 +499,8 @@
 
       flex-wrap: wrap;
 
-      gap: 8px 16px;
+      gap:
+        8px 16px;
 
       color: var(--muted);
 
@@ -546,7 +520,7 @@
 
 
     /* =========================
-       COVER
+       COVER IMAGE
     ========================= */
 
     .article-cover {
@@ -582,6 +556,8 @@
       margin:
         0 auto;
 
+      color: var(--text);
+
       font-family:
         Georgia,
         "Times New Roman",
@@ -590,8 +566,6 @@
       font-size: 18px;
 
       line-height: 1.8;
-
-      color: var(--text);
     }
 
 
@@ -606,6 +580,9 @@
     .article-body h3,
     .article-body h4 {
 
+      margin-top: 42px;
+      margin-bottom: 18px;
+
       color: var(--text);
 
       font-family:
@@ -613,9 +590,6 @@
         serif;
 
       line-height: 1.15;
-
-      margin-top: 42px;
-      margin-bottom: 18px;
     }
 
 
@@ -703,13 +677,13 @@
 
     .article-body hr {
 
+      margin:
+        45px 0;
+
       border: none;
 
       border-top:
         1px solid var(--border);
-
-      margin:
-        45px 0;
     }
 
 
@@ -729,10 +703,10 @@
 
       width: 100%;
 
-      border-collapse: collapse;
-
       margin:
         30px 0;
+
+      border-collapse: collapse;
 
       font-family:
         Arial,
@@ -861,7 +835,7 @@
 
 
     /* =========================
-       REAL BEEHIIV NEWSLETTER
+       NEWSLETTER
     ========================= */
 
     .newsletter {
@@ -926,12 +900,67 @@
       margin-top: 65px;
 
       padding:
-        35px 20px;
+        38px 6%;
 
-      color: var(--muted);
+      background:
+        var(--surface);
 
       border-top:
         1px solid var(--border);
+    }
+
+
+    .footer-inner {
+
+      width:
+        min(1100px, 100%);
+
+      margin:
+        0 auto;
+    }
+
+
+    .footer-links {
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap:
+        10px 22px;
+
+      margin-bottom: 20px;
+    }
+
+
+    .footer-links a {
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      font-weight: bold;
+
+      text-decoration: none;
+
+      text-transform: uppercase;
+
+      transition:
+        color 0.2s ease;
+    }
+
+
+    .footer-links a:hover {
+
+      color: var(--accent);
+    }
+
+
+    .footer-copy {
+
+      color: var(--muted);
 
       text-align: center;
 
@@ -1081,6 +1110,19 @@
           30px 8px;
       }
 
+
+      .footer-links {
+
+        gap:
+          11px 17px;
+      }
+
+
+      .footer-links a {
+
+        font-size: 10px;
+      }
+
     }
 
 
@@ -1125,6 +1167,10 @@
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header class="site-header">
 
@@ -1289,11 +1335,15 @@
 
     </div>
 
+
   </div>
 
 
-  {% if is_english %}
+  <!-- =========================
+       MENU
+  ========================= -->
 
+  {% if is_english %}
 
     <nav>
 
@@ -1378,6 +1428,10 @@
 </header>
 
 
+<!-- =========================
+     ARTICLE
+========================= -->
+
 <main class="article-container">
 
 
@@ -1456,6 +1510,8 @@
   </article>
 
 
+  <!-- BACK -->
+
   <div class="article-end">
 
 
@@ -1484,7 +1540,7 @@
 
 
   <!-- =========================
-       REAL COMMENTS
+       COMMENTS
   ========================= -->
 
   <section class="comments-section">
@@ -1541,7 +1597,7 @@
 
 
 <!-- =========================
-     REAL BEEHIIV NEWSLETTER
+     NEWSLETTER
 ========================= -->
 
 <section class="newsletter">
@@ -1570,9 +1626,90 @@
 </section>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-  © 2026 BiomedFacts · Evidence-based science communication
+
+  <div class="footer-inner">
+
+
+    <div class="footer-links">
+
+
+      {% if is_english %}
+
+
+        <a href="{{ '/en/about/' | relative_url }}">
+          About BiomedFacts
+        </a>
+
+
+        <a href="{{ '/en/editorial-policy/' | relative_url }}">
+          Editorial Policy
+        </a>
+
+
+        <a href="{{ '/en/medical-disclaimer/' | relative_url }}">
+          Medical Disclaimer
+        </a>
+
+
+        <a href="{{ '/en/privacy-policy/' | relative_url }}">
+          Privacy Policy
+        </a>
+
+
+        <a href="{{ '/en/contact/' | relative_url }}">
+          Contact
+        </a>
+
+
+      {% else %}
+
+
+        <a href="{{ '/about/' | relative_url }}">
+          Σχετικά με το BiomedFacts
+        </a>
+
+
+        <a href="{{ '/editorial-policy/' | relative_url }}">
+          Μεθοδολογία
+        </a>
+
+
+        <a href="{{ '/medical-disclaimer/' | relative_url }}">
+          Ιατρική αποποίηση ευθύνης
+        </a>
+
+
+        <a href="{{ '/privacy-policy/' | relative_url }}">
+          Πολιτική απορρήτου
+        </a>
+
+
+        <a href="{{ '/contact/' | relative_url }}">
+          Επικοινωνία
+        </a>
+
+
+      {% endif %}
+
+
+    </div>
+
+
+    <div class="footer-copy">
+
+      © 2026 BiomedFacts · Evidence-based science communication
+
+    </div>
+
+
+  </div>
+
 
 </footer>
 
