@@ -22,12 +22,25 @@
 {% endif %}
 
 {% capture default_seo_title %}{{ page.title }} | BiomedFacts{% endcapture %}
+
 {% assign seo_title = page.seo_title | default: default_seo_title | strip %}
+
 {% assign seo_description = page.seo_description | default: page.excerpt | default: site.description | strip_html | strip_newlines | strip %}
+
 {% assign canonical_url = page.url | absolute_url %}
+
 {% assign article_author = page.author | default: "Dimitra M, BSc Biomedical Science" %}
 
+{% if is_english %}
+  {% assign author_profile_path = "/en/author/" %}
+{% else %}
+  {% assign author_profile_path = "/author/" %}
+{% endif %}
+
+{% assign author_profile_url = author_profile_path | absolute_url %}
+
 {% assign x_default_url = canonical_url %}
+
 {% if greek_translation %}
   {% assign x_default_url = greek_translation.url | absolute_url %}
 {% endif %}
@@ -48,10 +61,6 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-
-  <!-- =========================
-       BASIC SEO
-  ========================== -->
 
   <title>{{ seo_title | escape }}</title>
 
@@ -75,8 +84,9 @@
     href="{{ canonical_url }}"
   >
 
+
   <!-- =========================
-       LANGUAGE / HREFLANG
+       HREFLANG
   ========================== -->
 
   {% if greek_translation %}
@@ -97,6 +107,7 @@
 
   {% endif %}
 
+
   {% if english_translation %}
 
     <link
@@ -115,11 +126,13 @@
 
   {% endif %}
 
+
   <link
     rel="alternate"
     hreflang="x-default"
     href="{{ x_default_url }}"
   >
+
 
   <!-- =========================
        OPEN GRAPH
@@ -194,7 +207,7 @@
 
   <meta
     property="article:author"
-    content="{{ article_author | escape }}"
+    content="{{ author_profile_url }}"
   >
 
   {% if page.category %}
@@ -205,6 +218,7 @@
     >
 
   {% endif %}
+
 
   <!-- =========================
        TWITTER / SOCIAL
@@ -234,6 +248,7 @@
 
   {% endif %}
 
+
   <!-- =========================
        ARTICLE STRUCTURED DATA
   ========================== -->
@@ -252,7 +267,8 @@
     "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
     "author": {
       "@type": "Person",
-      "name": {{ article_author | jsonify }}
+      "name": {{ article_author | jsonify }},
+      "url": {{ author_profile_url | jsonify }}
     },
     "publisher": {
       "@type": "Organization",
@@ -270,8 +286,9 @@
   }
   </script>
 
+
   <!-- =========================
-       THEME BEFORE PAGE LOAD
+       THEME BEFORE LOAD
   ========================== -->
 
   <script>
@@ -357,9 +374,7 @@
     }
 
 
-    /* =========================
-       HEADER
-    ========================== */
+    /* HEADER */
 
     .site-header {
       background: var(--surface);
@@ -425,9 +440,7 @@
     }
 
 
-    /* =========================
-       ICON BUTTONS
-    ========================== */
+    /* ICON BUTTONS */
 
     .icon-button {
       width: 44px;
@@ -486,9 +499,7 @@
     }
 
 
-    /* =========================
-       NAVIGATION
-    ========================== */
+    /* NAV */
 
     nav {
       display: flex;
@@ -513,9 +524,7 @@
     }
 
 
-    /* =========================
-       ARTICLE
-    ========================== */
+    /* ARTICLE */
 
     .article-container {
       width: min(920px, 88%);
@@ -558,6 +567,18 @@
       font-size: 12px;
     }
 
+    .article-author {
+      color: var(--muted);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .article-author:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .meta-dot {
       width: 3px;
       height: 3px;
@@ -566,9 +587,7 @@
     }
 
 
-    /* =========================
-       COVER IMAGE
-    ========================== */
+    /* COVER */
 
     .article-cover {
       margin-top: 38px;
@@ -584,9 +603,7 @@
     }
 
 
-    /* =========================
-       ARTICLE BODY
-    ========================== */
+    /* BODY */
 
     .article-body {
       max-width: 760px;
@@ -691,9 +708,7 @@
     }
 
 
-    /* =========================
-       ARTICLE END
-    ========================== */
+    /* ARTICLE END */
 
     .article-end {
       max-width: 760px;
@@ -715,9 +730,7 @@
     }
 
 
-    /* =========================
-       COMMENTS
-    ========================== */
+    /* COMMENTS */
 
     .comments-section {
       max-width: 760px;
@@ -740,19 +753,8 @@
       font-size: 15px;
     }
 
-    .giscus {
-      width: 100%;
-    }
 
-    .giscus-frame {
-      width: 100%;
-      border: none;
-    }
-
-
-    /* =========================
-       NEWSLETTER
-    ========================== */
+    /* NEWSLETTER */
 
     .newsletter {
       width: min(920px, 88%);
@@ -781,9 +783,7 @@
     }
 
 
-    /* =========================
-       FOOTER
-    ========================== */
+    /* FOOTER */
 
     footer {
       margin-top: 65px;
@@ -825,9 +825,7 @@
     }
 
 
-    /* =========================
-       MOBILE
-    ========================== */
+    /* MOBILE */
 
     @media (max-width: 700px) {
 
@@ -961,10 +959,6 @@
 <body>
 
 
-<!-- =========================
-     HEADER
-========================== -->
-
 <header class="site-header">
 
   <div class="header-top">
@@ -984,8 +978,6 @@
 
     <div class="header-actions">
 
-
-      <!-- LANGUAGE -->
 
       <div
         class="language-switch"
@@ -1015,9 +1007,7 @@
         {% endif %}
 
 
-        <span class="language-divider">
-          |
-        </span>
+        <span class="language-divider">|</span>
 
 
         {% if english_translation %}
@@ -1045,8 +1035,6 @@
       </div>
 
 
-      <!-- LIGHT / DARK -->
-
       <button
         class="icon-button"
         id="theme-toggle"
@@ -1055,19 +1043,11 @@
         title="Light / Dark mode"
       >
 
-        <svg
-          class="moon-icon"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
         </svg>
 
-        <svg
-          class="sun-icon"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="4"></circle>
           <path d="M12 2v2"></path>
           <path d="M12 20v2"></path>
@@ -1082,8 +1062,6 @@
       </button>
 
 
-      <!-- INSTAGRAM -->
-
       <a
         class="icon-button instagram-button"
         href="https://www.instagram.com/biomedical_sciences.gr/"
@@ -1093,10 +1071,7 @@
         title="Instagram"
       >
 
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
           <path
             d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
           />
@@ -1109,45 +1084,18 @@
   </div>
 
 
-  <!-- =========================
-       MENU
-  ========================== -->
-
   {% if is_english %}
 
     <nav>
 
-      <a href="{{ '/en/' | relative_url }}">
-        Home
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Health
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Nutrition
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Women's Health
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Lab Tests
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Fact-Checking
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        News
-      </a>
-
-      <a href="{{ '/en/' | relative_url }}#latest">
-        Research
-      </a>
+      <a href="{{ '/en/' | relative_url }}">Home</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Health</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Nutrition</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Women's Health</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Lab Tests</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Fact-Checking</a>
+      <a href="{{ '/en/' | relative_url }}#latest">News</a>
+      <a href="{{ '/en/' | relative_url }}#latest">Research</a>
 
     </nav>
 
@@ -1155,37 +1103,14 @@
 
     <nav>
 
-      <a href="{{ '/' | relative_url }}">
-        Αρχική
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Υγεία
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Διατροφή
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Γυναικεία Υγεία
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Εξετάσεις
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Fact-Checking
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Νέα
-      </a>
-
-      <a href="{{ '/' | relative_url }}#latest">
-        Έρευνα
-      </a>
+      <a href="{{ '/' | relative_url }}">Αρχική</a>
+      <a href="{{ '/' | relative_url }}#latest">Υγεία</a>
+      <a href="{{ '/' | relative_url }}#latest">Διατροφή</a>
+      <a href="{{ '/' | relative_url }}#latest">Γυναικεία Υγεία</a>
+      <a href="{{ '/' | relative_url }}#latest">Εξετάσεις</a>
+      <a href="{{ '/' | relative_url }}#latest">Fact-Checking</a>
+      <a href="{{ '/' | relative_url }}#latest">Νέα</a>
+      <a href="{{ '/' | relative_url }}#latest">Έρευνα</a>
 
     </nav>
 
@@ -1193,10 +1118,6 @@
 
 </header>
 
-
-<!-- =========================
-     ARTICLE
-========================== -->
 
 <main class="article-container">
 
@@ -1220,9 +1141,13 @@
 
       <div class="article-meta">
 
-        <span>
+        <a
+          href="{{ author_profile_path | relative_url }}"
+          class="article-author"
+          rel="author"
+        >
           {{ article_author }}
-        </span>
+        </a>
 
         <span class="meta-dot"></span>
 
@@ -1260,25 +1185,17 @@
   </article>
 
 
-  <!-- BACK -->
-
   <div class="article-end">
 
     {% if is_english %}
 
-      <a
-        href="{{ '/en/' | relative_url }}"
-        class="back-home"
-      >
+      <a href="{{ '/en/' | relative_url }}" class="back-home">
         ← Back to BiomedFacts
       </a>
 
     {% else %}
 
-      <a
-        href="{{ '/' | relative_url }}"
-        class="back-home"
-      >
+      <a href="{{ '/' | relative_url }}" class="back-home">
         ← Επιστροφή στο BiomedFacts
       </a>
 
@@ -1287,17 +1204,11 @@
   </div>
 
 
-  <!-- =========================
-       COMMENTS
-  ========================== -->
-
   <section class="comments-section">
 
     {% if is_english %}
 
-      <h2>
-        Comments
-      </h2>
+      <h2>Comments</h2>
 
       <p class="comments-intro">
         💬 <em>Join the discussion</em>
@@ -1305,9 +1216,7 @@
 
     {% else %}
 
-      <h2>
-        Σχόλια
-      </h2>
+      <h2>Σχόλια</h2>
 
       <p class="comments-intro">
         💬 <em>Συμμετέχετε στη συζήτηση</em>
@@ -1340,10 +1249,6 @@
 </main>
 
 
-<!-- =========================
-     NEWSLETTER
-========================== -->
-
 <section class="newsletter">
 
   <p class="newsletter-label">
@@ -1363,10 +1268,6 @@
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================== -->
-
 <footer>
 
   <div class="footer-inner">
@@ -1375,47 +1276,19 @@
 
       {% if is_english %}
 
-        <a href="{{ '/en/about/' | relative_url }}">
-          About BiomedFacts
-        </a>
-
-        <a href="{{ '/en/editorial-policy/' | relative_url }}">
-          Editorial Policy
-        </a>
-
-        <a href="{{ '/en/medical-disclaimer/' | relative_url }}">
-          Medical Disclaimer
-        </a>
-
-        <a href="{{ '/en/privacy-policy/' | relative_url }}">
-          Privacy Policy
-        </a>
-
-        <a href="{{ '/en/contact/' | relative_url }}">
-          Contact
-        </a>
+        <a href="{{ '/en/about/' | relative_url }}">About BiomedFacts</a>
+        <a href="{{ '/en/editorial-policy/' | relative_url }}">Editorial Policy</a>
+        <a href="{{ '/en/medical-disclaimer/' | relative_url }}">Medical Disclaimer</a>
+        <a href="{{ '/en/privacy-policy/' | relative_url }}">Privacy Policy</a>
+        <a href="{{ '/en/contact/' | relative_url }}">Contact</a>
 
       {% else %}
 
-        <a href="{{ '/about/' | relative_url }}">
-          Σχετικά με το BiomedFacts
-        </a>
-
-        <a href="{{ '/editorial-policy/' | relative_url }}">
-          Μεθοδολογία
-        </a>
-
-        <a href="{{ '/medical-disclaimer/' | relative_url }}">
-          Ιατρική αποποίηση ευθύνης
-        </a>
-
-        <a href="{{ '/privacy-policy/' | relative_url }}">
-          Πολιτική απορρήτου
-        </a>
-
-        <a href="{{ '/contact/' | relative_url }}">
-          Επικοινωνία
-        </a>
+        <a href="{{ '/about/' | relative_url }}">Σχετικά με το BiomedFacts</a>
+        <a href="{{ '/editorial-policy/' | relative_url }}">Μεθοδολογία</a>
+        <a href="{{ '/medical-disclaimer/' | relative_url }}">Ιατρική αποποίηση ευθύνης</a>
+        <a href="{{ '/privacy-policy/' | relative_url }}">Πολιτική απορρήτου</a>
+        <a href="{{ '/contact/' | relative_url }}">Επικοινωνία</a>
 
       {% endif %}
 
@@ -1432,10 +1305,6 @@
 
 
 <script>
-
-  /* =========================
-     LANGUAGE MEMORY
-  ========================== */
 
   const languageLinks =
     document.querySelectorAll(
@@ -1458,10 +1327,6 @@
 
   });
 
-
-  /* =========================
-     GISCUS THEME
-  ========================== */
 
   function updateGiscusTheme(theme) {
 
@@ -1487,10 +1352,6 @@
 
   }
 
-
-  /* =========================
-     WAIT FOR GISCUS
-  ========================== */
 
   const giscusObserver =
     new MutationObserver(
@@ -1528,10 +1389,6 @@
     }
   );
 
-
-  /* =========================
-     LIGHT / DARK
-  ========================== */
 
   const themeToggle =
     document.getElementById(
