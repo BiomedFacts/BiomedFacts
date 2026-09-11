@@ -64,6 +64,12 @@
   >
 
 
+  <link
+    rel="canonical"
+    href="{{ page.url | absolute_url }}"
+  >
+
+
   {% if greek_translation %}
 
     <link
@@ -86,15 +92,10 @@
   {% endif %}
 
 
-  <link
-    rel="canonical"
-    href="{{ page.url | absolute_url }}"
-  >
 
-
-  <!-- =====================================
-       LOAD SAVED LIGHT / DARK MODE
-  ====================================== -->
+  <!-- ==========================================
+       LOAD SAVED THEME
+  =========================================== -->
 
   <script>
 
@@ -105,10 +106,13 @@
 
       const prefersDark =
         window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
+        window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
 
       const theme =
-        savedTheme || (prefersDark ? "dark" : "light");
+        savedTheme ||
+        (prefersDark ? "dark" : "light");
 
 
       document.documentElement.setAttribute(
@@ -121,34 +125,28 @@
   </script>
 
 
+
   <style>
 
-    /* =====================================
+    /* ==========================================
        COLORS
-    ====================================== */
+    =========================================== */
 
     :root {
 
       --background: #f8f7fa;
-
       --surface: #ffffff;
 
       --text: #111111;
-
       --muted: #666666;
 
       --border: #cccccc;
-
       --soft-border: #dddddd;
 
       --accent: #6c3bb8;
-
       --top-border: #32103f;
 
-      --input-background: #ffffff;
-
       --blockquote-background: #f0edf4;
-
       --code-background: #eeeeee;
     }
 
@@ -156,45 +154,35 @@
     html[data-theme="dark"] {
 
       --background: #111111;
-
       --surface: #1b1b1b;
 
       --text: #f4f4f4;
-
       --muted: #b5b5b5;
 
       --border: #444444;
-
       --soft-border: #333333;
 
       --accent: #b58cff;
-
       --top-border: #6c3bb8;
 
-      --input-background: #151515;
-
       --blockquote-background: #1d1922;
-
       --code-background: #242424;
     }
 
 
-    /* =====================================
+
+    /* ==========================================
        BASIC
-    ====================================== */
+    =========================================== */
 
     * {
-
       box-sizing: border-box;
-
       margin: 0;
-
       padding: 0;
     }
 
 
     html {
-
       scroll-behavior: smooth;
     }
 
@@ -202,7 +190,6 @@
     body {
 
       background: var(--background);
-
       color: var(--text);
 
       font-family: Arial, sans-serif;
@@ -216,16 +203,16 @@
 
 
     a {
-
       color: inherit;
     }
 
 
-    /* =====================================
-       HEADER
-    ====================================== */
 
-    header {
+    /* ==========================================
+       SITE HEADER
+    =========================================== */
+
+    .site-header {
 
       background: var(--surface);
 
@@ -235,12 +222,7 @@
       border-bottom:
         1px solid var(--border);
 
-      padding:
-        28px 6% 0;
-
-      transition:
-        background 0.25s ease,
-        border-color 0.25s ease;
+      padding: 28px 6% 0;
     }
 
 
@@ -249,7 +231,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: space-between;
 
       gap: 25px;
@@ -283,14 +264,14 @@
 
 
     .logo span {
-
       color: var(--accent);
     }
 
 
-    /* =====================================
+
+    /* ==========================================
        HEADER ACTIONS
-    ====================================== */
+    =========================================== */
 
     .header-actions {
 
@@ -301,8 +282,6 @@
       gap: 10px;
     }
 
-
-    /* LANGUAGE */
 
     .language-switch {
 
@@ -351,18 +330,19 @@
     }
 
 
-    /* ICON BUTTONS */
+
+    /* ==========================================
+       ICON BUTTONS
+    =========================================== */
 
     .icon-button {
 
       width: 44px;
-
       height: 44px;
 
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       background: var(--surface);
@@ -387,7 +367,6 @@
     .icon-button svg {
 
       width: 21px;
-
       height: 21px;
 
       fill: none;
@@ -405,7 +384,6 @@
     .instagram-button svg {
 
       fill: currentColor;
-
       stroke: none;
     }
 
@@ -423,14 +401,15 @@
     }
 
 
-    .sun-icon {
 
+    /* MOON / SUN */
+
+    .sun-icon {
       display: none;
     }
 
 
     .moon-icon {
-
       display: block;
     }
 
@@ -447,9 +426,10 @@
     }
 
 
-    /* =====================================
+
+    /* ==========================================
        NAVIGATION
-    ====================================== */
+    =========================================== */
 
     nav {
 
@@ -461,8 +441,7 @@
 
       gap: 18px 34px;
 
-      padding:
-        18px 0;
+      padding: 18px 0;
 
       border-top:
         1px solid var(--soft-border);
@@ -492,9 +471,10 @@
     }
 
 
-    /* =====================================
-       ARTICLE
-    ====================================== */
+
+    /* ==========================================
+       ARTICLE CONTAINER
+    =========================================== */
 
     .article-container {
 
@@ -505,6 +485,11 @@
         65px auto 0;
     }
 
+
+
+    /* ==========================================
+       ARTICLE HEADER
+    =========================================== */
 
     .article-header {
 
@@ -585,9 +570,10 @@
     }
 
 
-    /* =====================================
-       COVER IMAGE
-    ====================================== */
+
+    /* ==========================================
+       COVER
+    =========================================== */
 
     .article-cover {
 
@@ -612,16 +598,16 @@
     }
 
 
-    /* =====================================
+
+    /* ==========================================
        ARTICLE BODY
-    ====================================== */
+    =========================================== */
 
     .article-body {
 
       max-width: 760px;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
 
       font-family:
         Georgia,
@@ -662,32 +648,22 @@
 
 
     .article-body h1 {
-
       font-size: 36px;
     }
 
 
     .article-body h2 {
-
       font-size: 31px;
     }
 
 
     .article-body h3 {
-
       font-size: 25px;
     }
 
 
     .article-body h4 {
-
       font-size: 21px;
-    }
-
-
-    .article-body strong {
-
-      font-weight: 700;
     }
 
 
@@ -782,7 +758,9 @@
       margin:
         30px 0;
 
-      font-family: Arial, sans-serif;
+      font-family:
+        Arial,
+        sans-serif;
 
       font-size: 14px;
     }
@@ -791,8 +769,7 @@
     .article-body th,
     .article-body td {
 
-      padding:
-        12px;
+      padding: 12px;
 
       border:
         1px solid var(--border);
@@ -808,9 +785,10 @@
     }
 
 
-    /* =====================================
+
+    /* ==========================================
        ARTICLE END
-    ====================================== */
+    =========================================== */
 
     .article-end {
 
@@ -846,9 +824,10 @@
     }
 
 
-    /* =====================================
-       COMMENTS
-    ====================================== */
+
+    /* ==========================================
+       COMMENTS / GISCUS
+    =========================================== */
 
     .comments-section {
 
@@ -866,19 +845,21 @@
 
     .comments-section h2 {
 
-      margin-bottom: 8px;
+      margin-bottom: 7px;
 
       font-family:
         "Times New Roman",
         serif;
 
       font-size: 31px;
+
+      line-height: 1.1;
     }
 
 
     .comments-intro {
 
-      margin-bottom: 20px;
+      margin-bottom: 28px;
 
       color: var(--muted);
 
@@ -891,54 +872,24 @@
     }
 
 
-    .comment-field {
+    .giscus {
+
+      width: 100%;
+    }
+
+
+    .giscus-frame {
 
       width: 100%;
 
-      min-height: 130px;
-
-      resize: vertical;
-
-      padding: 16px;
-
-      background:
-        var(--input-background);
-
-      color: var(--text);
-
-      border:
-        1px solid var(--border);
-
-      font-family: Arial, sans-serif;
-
-      font-size: 14px;
-
-      line-height: 1.5;
-
-      outline: none;
+      border: none;
     }
 
 
-    .comment-field:focus {
 
-      border-color:
-        var(--accent);
-    }
-
-
-    .comments-note {
-
-      margin-top: 9px;
-
-      color: var(--muted);
-
-      font-size: 11px;
-    }
-
-
-    /* =====================================
+    /* ==========================================
        NEWSLETTER
-    ====================================== */
+    =========================================== */
 
     .newsletter {
 
@@ -999,7 +950,7 @@
         13px 15px;
 
       background:
-        var(--input-background);
+        var(--surface);
 
       color: var(--text);
 
@@ -1055,9 +1006,10 @@
     }
 
 
-    /* =====================================
+
+    /* ==========================================
        FOOTER
-    ====================================== */
+    =========================================== */
 
     footer {
 
@@ -1077,13 +1029,14 @@
     }
 
 
-    /* =====================================
-       MOBILE
-    ====================================== */
+
+    /* ==========================================
+       TABLET / MOBILE
+    =========================================== */
 
     @media (max-width: 700px) {
 
-      header {
+      .site-header {
 
         padding:
           22px 5% 0;
@@ -1191,20 +1144,23 @@
 
 
       .article-body h1 {
-
         font-size: 31px;
       }
 
 
       .article-body h2 {
-
         font-size: 27px;
       }
 
 
       .article-body h3 {
-
         font-size: 23px;
+      }
+
+
+      .comments-section h2 {
+
+        font-size: 28px;
       }
 
 
@@ -1282,17 +1238,16 @@
 <body>
 
 
-<!-- =====================================
-     HEADER
-====================================== -->
 
-<header>
+<!-- ==========================================
+     HEADER
+=========================================== -->
+
+<header class="site-header">
 
 
   <div class="header-top">
 
-
-    <!-- LOGO -->
 
     <a
       href="{% if is_english %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}"
@@ -1312,9 +1267,9 @@
     <div class="header-actions">
 
 
-      <!-- =====================================
-           EL | EN
-      ====================================== -->
+      <!-- ======================================
+           LANGUAGE
+      ======================================= -->
 
       <div
         class="language-switch"
@@ -1377,9 +1332,9 @@
 
 
 
-      <!-- =====================================
+      <!-- ======================================
            LIGHT / DARK
-      ====================================== -->
+      ======================================= -->
 
       <button
         class="icon-button"
@@ -1389,8 +1344,6 @@
         title="Light / Dark mode"
       >
 
-
-        <!-- MOON -->
 
         <svg
           class="moon-icon"
@@ -1404,8 +1357,6 @@
 
         </svg>
 
-
-        <!-- SUN -->
 
         <svg
           class="sun-icon"
@@ -1449,9 +1400,9 @@
 
 
 
-      <!-- =====================================
+      <!-- ======================================
            INSTAGRAM
-      ====================================== -->
+      ======================================= -->
 
       <a
         class="icon-button instagram-button"
@@ -1482,9 +1433,9 @@
 
 
 
-  <!-- =====================================
-       NAVIGATION
-  ====================================== -->
+  <!-- ==========================================
+       MENU
+  =========================================== -->
 
 
   {% if is_english %}
@@ -1574,9 +1525,9 @@
 
 
 
-<!-- =====================================
+<!-- ==========================================
      ARTICLE
-====================================== -->
+=========================================== -->
 
 <main class="article-container">
 
@@ -1584,14 +1535,7 @@
   <article>
 
 
-    <header
-      class="article-header"
-      style="
-        background:none;
-        border:none;
-        padding:0;
-      "
-    >
+    <div class="article-header">
 
 
       {% if page.category %}
@@ -1620,15 +1564,9 @@
         {% if page.author %}
 
           <span>
-
             {{ page.author }}
-
           </span>
 
-        {% endif %}
-
-
-        {% if page.author %}
 
           <span class="meta-dot"></span>
 
@@ -1645,11 +1583,13 @@
       </div>
 
 
-    </header>
+    </div>
 
 
 
-    <!-- COVER IMAGE -->
+    <!-- ======================================
+         COVER
+    ======================================= -->
 
     {% if page.image %}
 
@@ -1666,7 +1606,9 @@
 
 
 
-    <!-- ARTICLE BODY -->
+    <!-- ======================================
+         CONTENT
+    ======================================= -->
 
     <div class="article-body">
 
@@ -1679,9 +1621,9 @@
 
 
 
-  <!-- =====================================
-       ARTICLE END
-  ====================================== -->
+  <!-- ==========================================
+       BACK
+  =========================================== -->
 
   <div class="article-end">
 
@@ -1711,9 +1653,9 @@
 
 
 
-  <!-- =====================================
-       COMMENTS
-  ====================================== -->
+  <!-- ==========================================
+       REAL COMMENTS — GISCUS
+  =========================================== -->
 
   <section class="comments-section">
 
@@ -1733,21 +1675,6 @@
       </p>
 
 
-      <textarea
-        class="comment-field"
-        rows="5"
-        placeholder="Write a comment..."
-        aria-label="Write a comment"
-      ></textarea>
-
-
-      <p class="comments-note">
-
-        Comment publishing is not enabled yet.
-
-      </p>
-
-
     {% else %}
 
 
@@ -1763,22 +1690,29 @@
       </p>
 
 
-      <textarea
-        class="comment-field"
-        rows="5"
-        placeholder="Γράψτε ένα σχόλιο..."
-        aria-label="Γράψτε ένα σχόλιο"
-      ></textarea>
-
-
-      <p class="comments-note">
-
-        Η δημοσίευση σχολίων δεν έχει ενεργοποιηθεί ακόμη.
-
-      </p>
-
-
     {% endif %}
+
+
+
+    <div class="giscus"></div>
+
+
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="BiomedFacts/BiomedFacts"
+      data-repo-id="R_kgDOUVcRYw"
+      data-category="Announcements"
+      data-category-id="DIC_kwDOUVcRY84DFXZD"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="{% if is_english %}en{% else %}el{% endif %}"
+      crossorigin="anonymous"
+      async>
+    </script>
 
 
   </section>
@@ -1788,9 +1722,9 @@
 
 
 
-<!-- =====================================
+<!-- ==========================================
      NEWSLETTER
-====================================== -->
+=========================================== -->
 
 <section class="newsletter">
 
@@ -1800,7 +1734,6 @@
     BIOMEDFACTS NEWSLETTER
 
   </p>
-
 
 
   <div class="newsletter-form">
@@ -1850,9 +1783,9 @@
 
 
 
-<!-- =====================================
+<!-- ==========================================
      FOOTER
-====================================== -->
+=========================================== -->
 
 <footer>
 
@@ -1862,16 +1795,16 @@
 
 
 
-<!-- =====================================
+<!-- ==========================================
      JAVASCRIPT
-====================================== -->
+=========================================== -->
 
 <script>
 
 
-  /* =====================================
+  /* ==========================================
      LANGUAGE MEMORY
-  ====================================== */
+  =========================================== */
 
   const languageLinks =
     document.querySelectorAll(
@@ -1881,29 +1814,112 @@
 
   languageLinks.forEach(link => {
 
-
     link.addEventListener(
       "click",
       function () {
-
 
         localStorage.setItem(
           "biomedfacts-language",
           this.dataset.language
         );
 
-
       }
     );
-
 
   });
 
 
 
-  /* =====================================
-     LIGHT / DARK
-  ====================================== */
+  /* ==========================================
+     GISCUS THEME
+  =========================================== */
+
+  function updateGiscusTheme(theme) {
+
+    const iframe =
+      document.querySelector(
+        "iframe.giscus-frame"
+      );
+
+
+    if (!iframe) {
+      return;
+    }
+
+
+    iframe.contentWindow.postMessage(
+
+      {
+        giscus: {
+
+          setConfig: {
+            theme: theme
+          }
+
+        }
+      },
+
+      "https://giscus.app"
+
+    );
+
+  }
+
+
+
+  /* ==========================================
+     WAIT UNTIL GISCUS LOADS
+  =========================================== */
+
+  const giscusObserver =
+    new MutationObserver(function () {
+
+
+      const iframe =
+        document.querySelector(
+          "iframe.giscus-frame"
+        );
+
+
+      if (iframe) {
+
+
+        const currentTheme =
+          document.documentElement
+            .getAttribute(
+              "data-theme"
+            );
+
+
+        updateGiscusTheme(
+          currentTheme
+        );
+
+
+        giscusObserver.disconnect();
+
+      }
+
+
+    });
+
+
+  giscusObserver.observe(
+
+    document.body,
+
+    {
+      childList: true,
+      subtree: true
+    }
+
+  );
+
+
+
+  /* ==========================================
+     LIGHT / DARK MODE
+  =========================================== */
 
   const themeToggle =
     document.getElementById(
@@ -1938,6 +1954,11 @@
 
       localStorage.setItem(
         "biomedfacts-theme",
+        newTheme
+      );
+
+
+      updateGiscusTheme(
         newTheme
       );
 
