@@ -176,23 +176,12 @@ seo_description: Πώς μπορείς να μειώσεις τον κίνδυν
 
 # **Βιβλιογραφικές αναφορές**
 
-1. International Agency for Research on Cancer. IARC Monographs evaluate consumption of red meat and processed meat. IARC; 2015. 
-
-2. World Health Organization. WHO guidelines on physical activity and sedentary behaviour: at a glance. Geneva: WHO; 2021. 
-
-3. EFSA Panel on Dietetic Products, Nutrition, and Allergies. Scientific Opinion on Dietary Reference Values for carbohydrates and dietary fibre. EFSA Journal. 2010;8(3):1462. doi:10.2903/j.efsa.2010.1462. 
-
-4. Reynolds A, Mann J, Cummings J, Winter N, Mete E, Te Morenga L. Carbohydrate quality and human health: a series of systematic reviews and meta-analyses. Lancet. 2019;393(10170):434–445. doi:10.1016/S0140-6736(18)31809-9. 
-
-5. Watson NF, Badr MS, Belenky G, et al. Recommended Amount of Sleep for a Healthy Adult: A Joint Consensus Statement of the American Academy of Sleep Medicine and Sleep Research Society. Sleep. 2015;38(6):843–844. doi:10.5665/sleep.4716. 
-
-6. World Health Organization Regional Office for Europe. No level of alcohol consumption is safe for our health. WHO/Europe; 2023. 
-
-7. World Health Organization Regional Office for Europe. Alcohol and cancer. WHO/Europe; 2025.
-
+1. Dart H, Wolin KY, Colditz GA. Commentary: Eight Ways to Prevent Cancer: a framework for effective prevention messages for the public. Cancer Causes Control. 2012;23(4):601–608. doi:10.1007/s10552-012-9924-y. 
+2. Nahleh Z, Bhatti NS, Mal M. How to reduce your cancer risk: mechanisms and myths. Int J Gen Med. 2011;4:277–287. doi:10.2147/IJGM.S18657. 
+3. International Agency for Research on Cancer. Human Cancer: Known Causes and Prevention by Organ Site. IARC Monographs on the Identification of Carcinogenic Hazards to Humans. Updated August 19, 2025. 
+4. Marino P, Mininni M, Deiana G, et al. Healthy Lifestyle and Cancer Risk: Modifiable Risk Factors to Prevent Cancer. Nutrients. 2024;16(6):800. doi:10.3390/nu16060800. 
+5. Centers for Disease Control and Prevention. Preventing Cancer. CDC. Updated January 16, 2025.
+6. PDQ Screening and Prevention Editorial Board. Cancer Prevention Overview (PDQ®)–Patient Version. National Cancer Institute. Updated May 2, 2025. 
+7. World Health Organization. Cancer. WHO Fact Sheet. Updated July 3, 2026. 
 8. Mayo Clinic Staff. Cancer Risk: What the Numbers Mean. Mayo Clinic. March 29, 2024.
-
-
-
-
 
