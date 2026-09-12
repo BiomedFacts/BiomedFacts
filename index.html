@@ -35,8 +35,6 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <!-- FAVICON -->
-
   <link
     rel="icon"
     type="image/svg+xml"
@@ -84,15 +82,8 @@
 
   <!-- OPEN GRAPH -->
 
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:site_name"
-    content="BiomedFacts"
-  >
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BiomedFacts">
 
   <meta
     property="og:title"
@@ -119,25 +110,10 @@
     content="BiomedFacts — Evidence-based science communication"
   >
 
-  <meta
-    property="og:image:width"
-    content="1200"
-  >
-
-  <meta
-    property="og:image:height"
-    content="630"
-  >
-
-  <meta
-    property="og:locale"
-    content="el_GR"
-  >
-
-  <meta
-    property="og:locale:alternate"
-    content="en_US"
-  >
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="el_GR">
+  <meta property="og:locale:alternate" content="en_US">
 
   <!-- SOCIAL -->
 
@@ -337,14 +313,19 @@
     .icon-button {
       width: 44px;
       height: 44px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       background: var(--surface);
       color: var(--text);
+
       border: 1px solid var(--text);
+
       text-decoration: none;
       cursor: pointer;
+
       transition:
         background 0.2s ease,
         color 0.2s ease,
@@ -394,17 +375,22 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+
       gap: 18px 34px;
+
       padding: 18px 0;
+
       border-top: 1px solid var(--soft-border);
     }
 
     nav a {
       color: var(--text);
       text-decoration: none;
+
       font-size: 13px;
       font-weight: bold;
       text-transform: uppercase;
+
       cursor: pointer;
     }
 
@@ -418,12 +404,20 @@
       margin: 65px auto;
     }
 
+    /* FEATURED */
+
     .featured {
       display: grid;
-      grid-template-columns: 0.95fr 1.25fr;
+
+      grid-template-columns:
+        0.95fr 1.25fr;
+
       gap: 55px;
+
       align-items: center;
+
       padding-bottom: 65px;
+
       border-bottom: 1px solid var(--border);
     }
 
@@ -435,9 +429,12 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+
       gap: 10px;
+
       padding-bottom: 12px;
       margin-bottom: 24px;
+
       border-bottom: 1px solid var(--text);
     }
 
@@ -455,9 +452,12 @@
 
     .featured-title {
       margin-bottom: 20px;
+
       font-family: "Times New Roman", serif;
+
       font-size: 44px;
       font-weight: bold;
+
       line-height: 1.05;
       letter-spacing: -1px;
     }
@@ -473,10 +473,17 @@
 
     .featured-excerpt {
       max-width: 580px;
+
       color: var(--muted);
-      font-family: Georgia, "Times New Roman", serif;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       font-size: 18px;
       line-height: 1.65;
+
       margin-bottom: 22px;
     }
 
@@ -499,11 +506,16 @@
 
     .featured-image {
       display: block;
+
       width: 100%;
       height: 430px;
+
       object-fit: cover;
+
       border: 1px solid var(--text);
     }
+
+    /* LATEST */
 
     .latest-area {
       margin-top: 65px;
@@ -512,6 +524,7 @@
     .section-header {
       margin-bottom: 28px;
       padding-bottom: 13px;
+
       border-bottom: 2px solid var(--text);
     }
 
@@ -524,17 +537,32 @@
 
     .content-layout {
       display: grid;
+
       grid-template-columns:
         minmax(0, 2fr)
         minmax(260px, 0.8fr);
+
       gap: 55px;
+
       align-items: start;
+    }
+
+    /*
+      Όταν ο χρήστης επιλέγει κατηγορία,
+      το sidebar κρύβεται και τα άρθρα
+      χρησιμοποιούν όλο το διαθέσιμο πλάτος.
+    */
+
+    .content-layout.category-view {
+      grid-template-columns: 1fr;
     }
 
     .articles-grid {
       display: grid;
+
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
+
       gap: 42px 30px;
     }
 
@@ -545,9 +573,12 @@
 
     .article-card-image {
       display: block;
+
       width: 100%;
       height: 245px;
+
       object-fit: cover;
+
       margin-bottom: 16px;
     }
 
@@ -555,15 +586,20 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+
       gap: 8px;
+
       margin-bottom: 10px;
     }
 
     .article-card-category {
       color: var(--accent);
+
       font-size: 11px;
       font-weight: bold;
+
       letter-spacing: 1.1px;
+
       text-transform: uppercase;
     }
 
@@ -574,8 +610,11 @@
 
     .article-card h2 {
       margin-bottom: 12px;
+
       font-family: "Times New Roman", serif;
+
       font-size: 29px;
+
       line-height: 1.05;
       letter-spacing: -0.6px;
     }
@@ -591,9 +630,15 @@
 
     .article-card-excerpt {
       color: var(--muted);
-      font-family: Georgia, "Times New Roman", serif;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       font-size: 15px;
       line-height: 1.6;
+
       margin-bottom: 13px;
     }
 
@@ -613,49 +658,71 @@
       text-decoration: underline;
     }
 
+    /* READ ALSO */
+
     .read-also {
       background: var(--surface);
+
       border-top: 5px solid var(--accent);
+
       padding: 22px;
+
       box-shadow: 8px 8px 0 var(--shadow);
     }
 
     .read-also-label {
       color: var(--accent);
+
       font-size: 11px;
       font-weight: bold;
+
       letter-spacing: 1.4px;
+
       text-transform: uppercase;
     }
 
     .read-also-title {
       margin-top: 7px;
       margin-bottom: 18px;
+
       padding-bottom: 15px;
+
       border-bottom: 1px solid var(--border);
+
       font-family: "Times New Roman", serif;
+
       font-size: 29px;
+
       line-height: 1;
     }
 
     .read-item {
       display: grid;
-      grid-template-columns: 46px 1fr;
+
+      grid-template-columns:
+        46px 1fr;
+
       gap: 12px;
+
       padding: 18px 0;
+
       border-bottom: 1px solid var(--soft-border);
     }
 
     .read-number {
       color: var(--accent);
+
       font-family: "Times New Roman", serif;
+
       font-size: 20px;
       font-weight: bold;
     }
 
     .read-item h3 {
       font-family: "Times New Roman", serif;
+
       font-size: 18px;
+
       line-height: 1.15;
     }
 
@@ -670,41 +737,60 @@
 
     .read-item-category {
       margin-top: 7px;
+
       color: var(--muted);
+
       font-size: 10px;
+
       text-transform: uppercase;
     }
 
+    /* EMPTY CATEGORY */
+
     #empty-message {
       display: none;
+
       margin-top: 30px;
+
       padding: 35px;
+
       background: var(--surface);
+
       border-top: 3px solid var(--text);
+
       text-align: center;
     }
 
     #empty-message h2 {
       font-family: "Times New Roman", serif;
+
       font-size: 25px;
+
       margin-bottom: 7px;
     }
 
     #empty-message p {
       color: var(--muted);
+
       font-size: 13px;
     }
 
+    /* NO POSTS */
+
     .no-posts {
       padding: 55px 0;
+
       text-align: center;
+
       border-top: 2px solid var(--text);
       border-bottom: 1px solid var(--border);
     }
 
     .no-posts h1 {
       margin-bottom: 10px;
+
       font-family: "Times New Roman", serif;
+
       font-size: 36px;
     }
 
@@ -712,35 +798,52 @@
       color: var(--muted);
     }
 
+    /* NEWSLETTER */
+
     .newsletter {
       margin-top: 75px;
+
       padding: 36px 20px;
+
       background: var(--surface);
+
       border-top: 2px solid var(--text);
       border-bottom: 1px solid var(--border);
+
       overflow: hidden;
     }
 
     .newsletter-heading {
       margin-bottom: 22px;
+
       color: var(--accent);
+
       text-align: center;
+
       font-size: 11px;
       font-weight: bold;
+
       letter-spacing: 1.8px;
     }
 
     .beehiiv-form-container {
       width: 100%;
       max-width: 760px;
+
       margin: 0 auto;
+
       text-align: center;
     }
 
+    /* FOOTER */
+
     footer {
       margin-top: 65px;
+
       padding: 38px 6%;
+
       background: var(--surface);
+
       border-top: 1px solid var(--border);
     }
 
@@ -753,17 +856,20 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+
       gap: 10px 22px;
+
       margin-bottom: 20px;
     }
 
     .footer-links a {
       color: var(--muted);
+
       font-size: 11px;
       font-weight: bold;
+
       text-decoration: none;
       text-transform: uppercase;
-      transition: color 0.2s ease;
     }
 
     .footer-links a:hover {
@@ -772,9 +878,13 @@
 
     .footer-copy {
       color: var(--muted);
+
       text-align: center;
+
       font-size: 12px;
     }
+
+    /* RESPONSIVE */
 
     @media (max-width: 950px) {
 
@@ -1041,52 +1151,31 @@
       Αρχική
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Υγεία"
-    >
+    <a href="#latest" data-filter="Υγεία">
       Υγεία
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Διατροφή"
-    >
+    <a href="#latest" data-filter="Διατροφή">
       Διατροφή
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Γυναικεία Υγεία"
-    >
+    <a href="#latest" data-filter="Γυναικεία Υγεία">
       Γυναικεία Υγεία
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Εξετάσεις"
-    >
+    <a href="#latest" data-filter="Εξετάσεις">
       Εξετάσεις
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Fact-Checking"
-    >
+    <a href="#latest" data-filter="Fact-Checking">
       Fact-Checking
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Νέα"
-    >
+    <a href="#latest" data-filter="Νέα">
       Νέα
     </a>
 
-    <a
-      href="#latest"
-      data-filter="Έρευνα"
-    >
+    <a href="#latest" data-filter="Έρευνα">
       Έρευνα
     </a>
 
@@ -1122,9 +1211,7 @@
 
         <h1 class="featured-title">
 
-          <a
-            href="{{ featured_post.url | relative_url }}"
-          >
+          <a href="{{ featured_post.url | relative_url }}">
             {{ featured_post.title }}
           </a>
 
@@ -1158,9 +1245,7 @@
 
         {% if featured_post.image %}
 
-          <a
-            href="{{ featured_post.url | relative_url }}"
-          >
+          <a href="{{ featured_post.url | relative_url }}">
 
             <img
               class="featured-image"
@@ -1182,9 +1267,7 @@
 
     <section class="no-posts">
 
-      <h1>
-        BiomedFacts
-      </h1>
+      <h1>BiomedFacts</h1>
 
       <p>
         Νέα evidence-based άρθρα έρχονται σύντομα.
@@ -1212,164 +1295,114 @@
     </div>
 
 
-    <div class="content-layout">
+    <div
+      class="content-layout"
+      id="content-layout"
+    >
 
+
+      <!--
+        ΣΗΜΑΝΤΙΚΟ:
+        Εδώ φορτώνονται ΠΛΕΟΝ ΟΛΑ τα ελληνικά άρθρα.
+        Στην αρχική φαίνονται μόνο τα 4 πιο πρόσφατα
+        εκτός του featured.
+        Όταν επιλέγεται κατηγορία, εμφανίζονται ΟΛΑ
+        τα άρθρα που ανήκουν σε αυτή.
+      -->
 
       <div class="articles-grid">
 
-        {% assign latest_count = 0 %}
+        {% assign home_card_count = 0 %}
 
         {% for post in site.posts %}
 
           {% unless post.path contains "en/_posts" %}
 
-            {% if featured_post %}
+            {% assign is_featured_card = false %}
 
-              {% if post.url != featured_post.url and latest_count < 4 %}
-
-                <article
-                  class="article-card filterable"
-                  data-category="{{ post.category | escape }}"
-                >
-
-                  {% if post.image %}
-
-                    <a href="{{ post.url | relative_url }}">
-
-                      <img
-                        class="article-card-image"
-                        src="{{ post.image | relative_url }}"
-                        alt="{{ post.title | escape }}"
-                        loading="lazy"
-                      >
-
-                    </a>
-
-                  {% endif %}
-
-
-                  <div class="article-card-meta">
-
-                    <span class="article-card-category">
-                      {{ post.category }}
-                    </span>
-
-                    <span class="article-card-date">
-                      {{ post.date | date: "%d/%m/%Y" }}
-                    </span>
-
-                  </div>
-
-
-                  <h2>
-
-                    <a href="{{ post.url | relative_url }}">
-                      {{ post.title }}
-                    </a>
-
-                  </h2>
-
-
-                  {% if post.excerpt %}
-
-                    <p class="article-card-excerpt">
-                      {{ post.excerpt | strip_html }}
-                    </p>
-
-                  {% endif %}
-
-
-                  <p class="article-card-author">
-
-                    <a
-                      href="{{ '/author/' | relative_url }}"
-                      rel="author"
-                    >
-                      {{ post.author | default: "Dimitra M, BSc Biomedical Science" }}
-                    </a>
-
-                  </p>
-
-                </article>
-
-                {% assign latest_count = latest_count | plus: 1 %}
-
-              {% endif %}
-
-            {% else %}
-
-              {% if latest_count < 4 %}
-
-                <article
-                  class="article-card filterable"
-                  data-category="{{ post.category | escape }}"
-                >
-
-                  {% if post.image %}
-
-                    <a href="{{ post.url | relative_url }}">
-
-                      <img
-                        class="article-card-image"
-                        src="{{ post.image | relative_url }}"
-                        alt="{{ post.title | escape }}"
-                        loading="lazy"
-                      >
-
-                    </a>
-
-                  {% endif %}
-
-
-                  <div class="article-card-meta">
-
-                    <span class="article-card-category">
-                      {{ post.category }}
-                    </span>
-
-                    <span class="article-card-date">
-                      {{ post.date | date: "%d/%m/%Y" }}
-                    </span>
-
-                  </div>
-
-
-                  <h2>
-
-                    <a href="{{ post.url | relative_url }}">
-                      {{ post.title }}
-                    </a>
-
-                  </h2>
-
-
-                  {% if post.excerpt %}
-
-                    <p class="article-card-excerpt">
-                      {{ post.excerpt | strip_html }}
-                    </p>
-
-                  {% endif %}
-
-
-                  <p class="article-card-author">
-
-                    <a
-                      href="{{ '/author/' | relative_url }}"
-                      rel="author"
-                    >
-                      {{ post.author | default: "Dimitra M, BSc Biomedical Science" }}
-                    </a>
-
-                  </p>
-
-                </article>
-
-                {% assign latest_count = latest_count | plus: 1 %}
-
-              {% endif %}
-
+            {% if featured_post and post.url == featured_post.url %}
+              {% assign is_featured_card = true %}
             {% endif %}
+
+
+            {% assign hide_home_card = true %}
+
+            {% unless is_featured_card %}
+
+              {% if home_card_count < 4 %}
+                {% assign hide_home_card = false %}
+                {% assign home_card_count = home_card_count | plus: 1 %}
+              {% endif %}
+
+            {% endunless %}
+
+
+            <article
+              class="article-card filterable"
+              data-category="{{ post.category | strip | escape }}"
+              data-featured="{% if is_featured_card %}true{% else %}false{% endif %}"
+              {% if hide_home_card %}style="display:none;"{% endif %}
+            >
+
+              {% if post.image %}
+
+                <a href="{{ post.url | relative_url }}">
+
+                  <img
+                    class="article-card-image"
+                    src="{{ post.image | relative_url }}"
+                    alt="{{ post.title | escape }}"
+                    loading="lazy"
+                  >
+
+                </a>
+
+              {% endif %}
+
+
+              <div class="article-card-meta">
+
+                <span class="article-card-category">
+                  {{ post.category }}
+                </span>
+
+                <span class="article-card-date">
+                  {{ post.date | date: "%d/%m/%Y" }}
+                </span>
+
+              </div>
+
+
+              <h2>
+
+                <a href="{{ post.url | relative_url }}">
+                  {{ post.title }}
+                </a>
+
+              </h2>
+
+
+              {% if post.excerpt %}
+
+                <p class="article-card-excerpt">
+                  {{ post.excerpt | strip_html }}
+                </p>
+
+              {% endif %}
+
+
+              <p class="article-card-author">
+
+                <a
+                  href="{{ '/author/' | relative_url }}"
+                  rel="author"
+                >
+                  {{ post.author | default: "Dimitra M, BSc Biomedical Science" }}
+                </a>
+
+              </p>
+
+            </article>
 
           {% endunless %}
 
@@ -1378,7 +1411,10 @@
       </div>
 
 
-      <aside class="read-also">
+      <aside
+        class="read-also"
+        id="read-also"
+      >
 
         <div class="read-also-label">
           BIOMEDFACTS
@@ -1407,10 +1443,7 @@
 
                 {% elsif read_count < 4 %}
 
-                  <div
-                    class="read-item filterable"
-                    data-category="{{ post.category | escape }}"
-                  >
+                  <div class="read-item">
 
                     <div class="read-number">
                       0{{ read_count | plus: 1 }}
@@ -1551,6 +1584,10 @@
 
 <script>
 
+  /*
+    LANGUAGE
+  */
+
   const languageLinks =
     document.querySelectorAll(
       ".language-link"
@@ -1572,6 +1609,10 @@
 
   });
 
+
+  /*
+    THEME
+  */
 
   const themeToggle =
     document.getElementById(
@@ -1608,14 +1649,20 @@
   );
 
 
+  /*
+    CATEGORY FILTER
+  */
+
   const categoryLinks =
     document.querySelectorAll(
       "#category-nav a"
     );
 
-  const filterableArticles =
-    document.querySelectorAll(
-      ".filterable"
+  const articleCards =
+    Array.from(
+      document.querySelectorAll(
+        ".article-card.filterable"
+      )
     );
 
   const emptyMessage =
@@ -1633,6 +1680,150 @@
       "featured-section"
     );
 
+  const readAlso =
+    document.getElementById(
+      "read-also"
+    );
+
+  const contentLayout =
+    document.getElementById(
+      "content-layout"
+    );
+
+
+  /*
+    ΑΡΧΙΚΗ:
+    featured + 4 πιο πρόσφατα άρθρα.
+  */
+
+  function showHomepage() {
+
+    let visibleCards = 0;
+
+    articleCards.forEach(card => {
+
+      const isFeatured =
+        card.dataset.featured === "true";
+
+      if (
+        !isFeatured &&
+        visibleCards < 4
+      ) {
+
+        card.style.display = "";
+        visibleCards++;
+
+      } else {
+
+        card.style.display = "none";
+
+      }
+
+    });
+
+
+    if (featuredSection) {
+      featuredSection.style.display = "";
+    }
+
+
+    if (readAlso) {
+      readAlso.style.display = "";
+    }
+
+
+    if (contentLayout) {
+      contentLayout.classList.remove(
+        "category-view"
+      );
+    }
+
+
+    sectionTitle.textContent =
+      "Τελευταία άρθρα";
+
+
+    emptyMessage.style.display =
+      "none";
+
+  }
+
+
+  /*
+    ΚΑΤΗΓΟΡΙΑ:
+    Εμφανίζει ΟΛΑ τα άρθρα της κατηγορίας,
+    ακόμα κι αν είναι παλιά ή featured.
+  */
+
+  function showCategory(category) {
+
+    let visibleCards = 0;
+
+
+    articleCards.forEach(card => {
+
+      const articleCategory =
+        card.dataset.category;
+
+      if (
+        articleCategory === category
+      ) {
+
+        card.style.display = "";
+        visibleCards++;
+
+      } else {
+
+        card.style.display = "none";
+
+      }
+
+    });
+
+
+    if (featuredSection) {
+      featuredSection.style.display =
+        "none";
+    }
+
+
+    if (readAlso) {
+      readAlso.style.display =
+        "none";
+    }
+
+
+    if (contentLayout) {
+
+      contentLayout.classList.add(
+        "category-view"
+      );
+
+    }
+
+
+    sectionTitle.textContent =
+      category;
+
+
+    if (visibleCards === 0) {
+
+      emptyMessage.style.display =
+        "block";
+
+    } else {
+
+      emptyMessage.style.display =
+        "none";
+
+    }
+
+  }
+
+
+  /*
+    NAVIGATION
+  */
 
   categoryLinks.forEach(link => {
 
@@ -1642,10 +1833,9 @@
 
         event.preventDefault();
 
+
         const category =
           this.dataset.filter;
-
-        let visible = 0;
 
 
         categoryLinks.forEach(item => {
@@ -1662,65 +1852,15 @@
         );
 
 
-        filterableArticles.forEach(
-          article => {
-
-            const articleCategory =
-              article.dataset.category;
-
-            if (
-              category === "all" ||
-              articleCategory === category
-            ) {
-
-              article.style.display = "";
-              visible++;
-
-            } else {
-
-              article.style.display = "none";
-
-            }
-
-          }
-        );
-
-
-        if (featuredSection) {
-
-          featuredSection.style.display =
-            category === "all"
-              ? ""
-              : "none";
-
-        }
-
-
         if (category === "all") {
 
-          sectionTitle.textContent =
-            "Τελευταία άρθρα";
+          showHomepage();
 
         } else {
 
-          sectionTitle.textContent =
-            category;
-
-        }
-
-
-        if (
-          visible === 0 &&
-          category !== "all"
-        ) {
-
-          emptyMessage.style.display =
-            "block";
-
-        } else {
-
-          emptyMessage.style.display =
-            "none";
+          showCategory(
+            category
+          );
 
         }
 
@@ -1736,6 +1876,14 @@
     );
 
   });
+
+
+  /*
+    Εξασφαλίζει ότι κατά το πρώτο load
+    εμφανίζεται ακριβώς η αρχική μορφή.
+  */
+
+  showHomepage();
 
 </script>
 
