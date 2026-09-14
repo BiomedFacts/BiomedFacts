@@ -2,7 +2,7 @@
 title: "Αλεξάντερ Ζβέρεφ: Η συγκινητική αναφορά στον διαβήτη τύπου 1 μετά τη
   νίκη στο US Open"
 date: 2026-09-14
-category: Υγεία
+category: Νέα
 translation_key: Diabetes-001
 image: /assets/images/6aa75e7aa9109image.jpg
 excerpt: Μετά την κατάκτηση του US Open 2026, ο Αλεξάντερ Ζβέρεφ μίλησε για τη
