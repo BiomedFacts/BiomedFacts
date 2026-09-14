@@ -8,7 +8,7 @@ image: /assets/images/6aa75e7aa9109image.jpg
 excerpt: Μετά την κατάκτηση του US Open 2026, ο Αλεξάντερ Ζβέρεφ μίλησε για τη
   ζωή του με τον διαβήτη τύπου 1 και τον καθοριστικό ρόλο της μητέρας του.
 author: Dimitra M., BSc Biomedical Science
-featured: false
+featured: true
 seo_title: "Ζβέρεφ: Η νίκη στο US Open και ο διαβήτης τύπου 1"
 seo_description: Ο Αλεξάντερ Ζβέρεφ κατέκτησε το US Open 2026 και μίλησε
   συγκινημένος για τον διαβήτη τύπου 1 και τη στήριξη της μητέρας του. Τι είναι
