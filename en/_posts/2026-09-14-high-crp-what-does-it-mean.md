@@ -1,7 +1,7 @@
 ---
 title: "High CRP: What Does It Mean?"
 date: 2026-09-14
-category: Health
+category: Lab Tests
 translation_key: CRP-001
 image: /assets/images/crp.webp
 excerpt: CRP is a marker of inflammation, but an elevated result is not a
