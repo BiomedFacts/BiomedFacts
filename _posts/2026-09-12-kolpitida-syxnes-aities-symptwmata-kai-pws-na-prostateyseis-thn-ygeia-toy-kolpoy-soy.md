@@ -168,7 +168,7 @@ seo_description: Τι προκαλεί την κολπίτιδα; Μάθετε �
 - πιστεύετε ότι μπορεί να έχετε εκτεθεί σε σεξουαλικώς μεταδιδόμενη λοίμωξη
 - η θεραπεία που έχετε ήδη δοκιμάσει δεν έχει αποδώσει.[[1]](https://www.acog.org/womens-health/faqs/vaginitis?utm), [[6]](https://www.nhs.uk/conditions/vaginitis/?utm)
 
-Η κολπίτιδα είναι συχνή και, στις περισσότερες περιπτώσεις, αντιμετωπίσιμη. Το σημαντικό είναι να εντοπιστεί **τι προκαλεί τα συμπτώματα**, αντί να θεωρούμε ότι κάθε επεισόδιο έχει την ίδια αιτία.
+Η κολπίτιδα είναι συχνή και, στις περισσότερες περιπτώσεις, αντιμετωπίσιμη. Το σημαντικό είναι να εντοπιστεί τι προκαλεί τα συμπτώματα, αντί να θεωρούμε ότι κάθε επεισόδιο έχει την ίδια αιτία.
 
 # Βιβλιογραφικές αναφορές
 
@@ -181,5 +181,4 @@ seo_description: Τι προκαλεί την κολπίτιδα; Μάθετε �
 **7.** Eunice Kennedy Shriver National Institute of Child Health and Human Development. *About Vaginitis.* NICHD.  
 **8.** Merck Manual Professional Edition. *Overview of Vaginitis.*  
 **9.** Neal CM, Kus LH, Eckert LO, Peipert JF. *Noncandidal vaginitis: a comprehensive approach to diagnosis and management.* Am J Obstet Gynecol. 2020;222(2):114–122. doi:10.1016/j.ajog.2019.09.001.  
-
 
