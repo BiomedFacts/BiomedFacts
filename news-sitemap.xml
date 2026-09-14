@@ -1,0 +1,49 @@
+---
+layout: null
+permalink: /news-sitemap.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+{% assign now_timestamp = site.time | date: "%s" | plus: 0 %}
+{% assign cutoff_timestamp = now_timestamp | minus: 172800 %}
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+
+{% for post in site.posts %}
+  {% assign post_timestamp = post.date | date: "%s" | plus: 0 %}
+  {% assign include_in_news = false %}
+
+  {% if post.category == "Νέα"
+     or post.category == "Έρευνα"
+     or post.category == "News"
+     or post.category == "Research" %}
+    {% assign include_in_news = true %}
+  {% endif %}
+
+  {% if post.news_sitemap == false %}
+    {% assign include_in_news = false %}
+  {% endif %}
+
+  {% if include_in_news and post_timestamp >= cutoff_timestamp %}
+  <url>
+    <loc>{{ post.url | absolute_url | xml_escape }}</loc>
+    <news:news>
+      <news:publication>
+        <news:name>BiomedFacts</news:name>
+        {% if post.lang %}
+        <news:language>{{ post.lang }}</news:language>
+        {% elsif post.url contains "/en/" %}
+        <news:language>en</news:language>
+        {% else %}
+        <news:language>el</news:language>
+        {% endif %}
+      </news:publication>
+      <news:publication_date>{{ post.date | date_to_xmlschema }}</news:publication_date>
+      <news:title>{{ post.title | strip_html | xml_escape }}</news:title>
+    </news:news>
+  </url>
+  {% endif %}
+{% endfor %}
+
+</urlset>
