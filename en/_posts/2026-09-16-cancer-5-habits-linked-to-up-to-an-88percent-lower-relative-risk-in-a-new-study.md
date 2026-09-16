@@ -1,5 +1,5 @@
 ---
-title: "Cancer: 5 Habits Linked to Up to an 88% Lower Relative Risk in a New Study"
+title: "Cancer: 5 Habits Linked to a Lower Risk of Developing Cancer"
 date: 2026-09-16
 category: Research
 translation_key: CANCER-002
