@@ -761,36 +761,6 @@
       text-transform: uppercase;
     }
 
-    /* EMPTY CATEGORY */
-
-    #empty-message {
-      display: none;
-
-      margin-top: 30px;
-
-      padding: 35px;
-
-      background: var(--surface);
-
-      border-top: 3px solid var(--text);
-
-      text-align: center;
-    }
-
-    #empty-message h2 {
-      font-family: "Times New Roman", serif;
-
-      font-size: 25px;
-
-      margin-bottom: 7px;
-    }
-
-    #empty-message p {
-      color: var(--muted);
-
-      font-size: 13px;
-    }
-
     /* NO POSTS */
 
     .no-posts {
@@ -1044,9 +1014,7 @@
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -1063,7 +1031,6 @@
       </div>
 
     </a>
-
 
     <div class="header-actions">
 
@@ -1093,7 +1060,6 @@
         </a>
 
       </div>
-
 
       <button
         class="icon-button"
@@ -1129,7 +1095,6 @@
 
       </button>
 
-
       <a
         class="icon-button instagram-button"
         href="https://www.instagram.com/biomedical_sciences.gr/"
@@ -1155,7 +1120,6 @@
     </div>
 
   </div>
-
 
   <nav id="category-nav">
 
@@ -1199,9 +1163,7 @@
 
 </header>
 
-
 <main>
-
 
   {% if featured_post %}
 
@@ -1224,7 +1186,6 @@
 
         </div>
 
-
         <h1 class="featured-title">
 
           <a href="{{ featured_post.url | relative_url }}">
@@ -1232,7 +1193,6 @@
           </a>
 
         </h1>
-
 
         {% if featured_post.excerpt %}
 
@@ -1242,20 +1202,18 @@
 
         {% endif %}
 
-
         <p class="featured-author">
 
           <a
             href="{{ '/en/author/' | relative_url }}"
             rel="author"
           >
-            {{ featured_post.author | default: "Dimitra M, BSc Biomedical Science" }}
+            Dimitra Mourkogianni, BSc (Hons) Biomedical Science
           </a>
 
         </p>
 
       </div>
-
 
       <div>
 
@@ -1293,7 +1251,6 @@
 
   {% endif %}
 
-
   <section
     class="latest-area"
     id="latest"
@@ -1310,22 +1267,10 @@
 
     </div>
 
-
     <div
       class="content-layout"
       id="content-layout"
     >
-
-
-      <!--
-        ALL English posts are loaded here.
-
-        On the homepage:
-        only the 4 latest non-featured posts are visible.
-
-        When a category is selected:
-        ALL posts in that category become visible.
-      -->
 
       <div class="articles-grid">
 
@@ -1340,7 +1285,6 @@
             {% if featured_post and post.url == featured_post.url %}
               {% assign is_featured_card = true %}
             {% endif %}
-
 
             {% assign hide_home_card = true %}
 
@@ -1357,7 +1301,6 @@
               {% endif %}
 
             {% endunless %}
-
 
             <article
               class="article-card filterable"
@@ -1381,7 +1324,6 @@
 
               {% endif %}
 
-
               <div class="article-card-meta">
 
                 <span class="article-card-category">
@@ -1394,7 +1336,6 @@
 
               </div>
 
-
               <h2>
 
                 <a href="{{ post.url | relative_url }}">
@@ -1402,7 +1343,6 @@
                 </a>
 
               </h2>
-
 
               {% if post.excerpt %}
 
@@ -1412,14 +1352,13 @@
 
               {% endif %}
 
-
               <p class="article-card-author">
 
                 <a
                   href="{{ '/en/author/' | relative_url }}"
                   rel="author"
                 >
-                  {{ post.author | default: "Dimitra M, BSc Biomedical Science" }}
+                  Dimitra Mourkogianni, BSc (Hons) Biomedical Science
                 </a>
 
               </p>
@@ -1431,7 +1370,6 @@
         {% endfor %}
 
       </div>
-
 
       <aside
         class="read-also"
@@ -1446,10 +1384,8 @@
           Read also
         </h2>
 
-
         {% assign skipped = 0 %}
         {% assign read_count = 0 %}
-
 
         {% for post in site.posts %}
 
@@ -1472,7 +1408,6 @@
                     <div class="read-number">
                       0{{ read_count | plus: 1 }}
                     </div>
-
 
                     <div>
 
@@ -1506,7 +1441,6 @@
 
         {% endfor %}
 
-
         {% if read_count == 0 %}
 
           <p
@@ -1525,28 +1459,13 @@
 
     </div>
 
-
-    <section id="empty-message">
-
-      <h2>
-        There are no articles in this category yet.
-      </h2>
-
-      <p>
-        New content will be added soon.
-      </p>
-
-    </section>
-
   </section>
-
 
   <section class="newsletter">
 
     <p class="newsletter-heading">
       BIOMEDFACTS NEWSLETTER
     </p>
-
 
     <div class="beehiiv-form-container">
 
@@ -1560,9 +1479,7 @@
 
   </section>
 
-
 </main>
-
 
 <footer>
 
@@ -1592,7 +1509,6 @@
 
     </div>
 
-
     <div class="footer-copy">
       © 2026 BiomedFacts · Evidence-based science communication
     </div>
@@ -1601,11 +1517,9 @@
 
 </footer>
 
-
 <!-- ANALYTICS CONSENT -->
 
 <script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
-
 
 <script>
 
@@ -1633,7 +1547,6 @@
     );
 
   });
-
 
   /*
     THEME
@@ -1673,7 +1586,6 @@
     }
   );
 
-
   /*
     CATEGORY FILTER
   */
@@ -1688,11 +1600,6 @@
       document.querySelectorAll(
         ".article-card.filterable"
       )
-    );
-
-  const emptyMessage =
-    document.getElementById(
-      "empty-message"
     );
 
   const sectionTitle =
@@ -1715,7 +1622,6 @@
       "content-layout"
     );
 
-
   /*
     HOMEPAGE:
     featured + 4 latest articles.
@@ -1725,12 +1631,10 @@
 
     let visibleCards = 0;
 
-
     articleCards.forEach(card => {
 
       const isFeatured =
         card.dataset.featured === "true";
-
 
       if (
         !isFeatured &&
@@ -1749,20 +1653,17 @@
 
     });
 
-
     if (featuredSection) {
 
       featuredSection.style.display = "";
 
     }
 
-
     if (readAlso) {
 
       readAlso.style.display = "";
 
     }
-
 
     if (contentLayout) {
 
@@ -1772,42 +1673,29 @@
 
     }
 
-
     sectionTitle.textContent =
       "Latest articles";
 
-
-    emptyMessage.style.display =
-      "none";
-
   }
-
 
   /*
     CATEGORY:
     Shows ALL posts belonging to the
-    selected category, including the
-    featured post.
+    selected category.
   */
 
   function showCategory(category) {
-
-    let visibleCards = 0;
-
 
     articleCards.forEach(card => {
 
       const articleCategory =
         card.dataset.category;
 
-
       if (
         articleCategory === category
       ) {
 
         card.style.display = "";
-
-        visibleCards++;
 
       } else {
 
@@ -1817,7 +1705,6 @@
 
     });
 
-
     if (featuredSection) {
 
       featuredSection.style.display =
@@ -1825,14 +1712,12 @@
 
     }
 
-
     if (readAlso) {
 
       readAlso.style.display =
         "none";
 
     }
-
 
     if (contentLayout) {
 
@@ -1842,25 +1727,10 @@
 
     }
 
-
     sectionTitle.textContent =
       category;
 
-
-    if (visibleCards === 0) {
-
-      emptyMessage.style.display =
-        "block";
-
-    } else {
-
-      emptyMessage.style.display =
-        "none";
-
-    }
-
   }
-
 
   /*
     NAVIGATION
@@ -1874,10 +1744,8 @@
 
         event.preventDefault();
 
-
         const category =
           this.dataset.filter;
-
 
         categoryLinks.forEach(item => {
 
@@ -1887,11 +1755,9 @@
 
         });
 
-
         this.classList.add(
           "active"
         );
-
 
         if (category === "all") {
 
@@ -1905,7 +1771,6 @@
 
         }
 
-
         document
           .getElementById("latest")
           .scrollIntoView({
@@ -1918,16 +1783,9 @@
 
   });
 
-
-  /*
-    Ensures the normal homepage layout
-    is shown on initial page load.
-  */
-
   showHomepage();
 
 </script>
-
 
 </body>
 
