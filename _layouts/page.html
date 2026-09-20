@@ -69,6 +69,14 @@
     href="{{ '/favicon.svg' | relative_url }}"
   >
 
+  <!-- GOOGLE ADSENSE -->
+
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5074253584827466"
+    crossorigin="anonymous"
+  ></script>
+
   <!-- BASIC SEO -->
 
   <title>{{ seo_title | escape }}</title>
@@ -245,8 +253,8 @@
     "mainEntity": {
       "@type": "Person",
       "@id": "https://biomedfacts.com/author/#person",
-      "name": "Dimitra M",
-      "honorificSuffix": "BSc Biomedical Science",
+      "name": "{% if is_english %}Dimitra Mourkogianni{% else %}Δήμητρα Μουρκόγιαννη{% endif %}",
+      "honorificSuffix": "BSc (Hons) Biomedical Science",
       "url": "https://biomedfacts.com/author/",
       "sameAs": [
         "https://www.instagram.com/biomedical_sciences.gr/"
@@ -766,9 +774,7 @@
 
 </head>
 
-
 <body>
-
 
 <header class="site-header">
 
@@ -785,7 +791,6 @@
       </div>
 
     </a>
-
 
     <div class="header-actions">
 
@@ -866,7 +871,6 @@
 
       </div>
 
-
       <button
         class="icon-button"
         id="theme-toggle"
@@ -893,7 +897,6 @@
 
       </button>
 
-
       <a
         class="icon-button instagram-button"
         href="https://www.instagram.com/biomedical_sciences.gr/"
@@ -916,7 +919,6 @@
     </div>
 
   </div>
-
 
   {% if is_english %}
 
@@ -952,7 +954,6 @@
 
 </header>
 
-
 <main class="page-container">
 
   <header class="page-header">
@@ -967,7 +968,6 @@
 
   </header>
 
-
   {% if page.intro %}
 
     <div class="page-intro">
@@ -976,11 +976,9 @@
 
   {% endif %}
 
-
   <div class="page-body">
     {{ content }}
   </div>
-
 
   <div class="page-end">
 
@@ -1008,7 +1006,6 @@
 
 </main>
 
-
 <section class="newsletter">
 
   <p class="newsletter-label">
@@ -1026,7 +1023,6 @@
   </div>
 
 </section>
-
 
 <footer>
 
@@ -1082,7 +1078,6 @@
 
     </div>
 
-
     <div class="footer-copy">
       © 2026 BiomedFacts · Evidence-based science communication
     </div>
@@ -1091,11 +1086,9 @@
 
 </footer>
 
-
 <!-- ANALYTICS CONSENT -->
 
 <script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
-
 
 <script>
 
@@ -1119,7 +1112,6 @@
     );
 
   });
-
 
   const themeToggle =
     document.getElementById(
@@ -1156,7 +1148,6 @@
   );
 
 </script>
-
 
 </body>
 
