@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Δήμητρα Μουρκογιάννη, BSc (Hons) Biomedical Science"
+title: "Δήμητρα Μουρκόγιαννη, BSc (Hons) Biomedical Science"
 lang: el
 permalink: /author/
 translation_url: /en/author/
@@ -8,7 +8,7 @@ translation_url: /en/author/
 
 ## Σχετικά με τη συγγραφέα
 
-Η **Δήμητρα Μουρκογιάννη** είναι πτυχιούχος **Βιοϊατρικών Επιστημών (BSc (Hons) Biomedical Science)** από το **University of East London**, με **First Class Honours**.
+Η **Δήμητρα Μουρκόγιαννη** είναι πτυχιούχος **Βιοϊατρικών Επιστημών (BSc (Hons) Biomedical Science)** από το **University of East London**, με **First Class Honours**.
 
 Έχει ακαδημαϊκό υπόβαθρο στη βιοϊατρική επιστήμη και εργαστηριακή εμπειρία σε νοσοκομειακό και διαγνωστικό περιβάλλον.
 
