@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Dimitra M, BSc Biomedical Science"
+title: "Dimitra Mourkogianni, BSc (Hons) Biomedical Science"
 lang: en
 permalink: /en/author/
 translation_url: /author/
@@ -8,10 +8,12 @@ translation_url: /author/
 
 ## About the author
 
-**Dimitra M** holds a **BSc in Biomedical Science** and is the creator of BiomedFacts.
+**Dimitra Mourkogianni** holds a **BSc (Hons) in Biomedical Science** from the **University of East London**, with **First Class Honours**.
 
-Her work focuses on science communication and evidence-based health information, including biomedical research, laboratory testing, nutrition and the fact-checking of health claims.
+She has an academic background in biomedical science and laboratory experience in both hospital and diagnostic laboratory settings.
 
-BiomedFacts articles are based, depending on the topic, on peer-reviewed scientific studies, systematic reviews and meta-analyses, official clinical or public-health guidelines, and sources from recognized scientific and public organizations.
+She is the creator and editor of **BiomedFacts**, with a focus on clear, evidence-based communication of scientific and health information.
 
-For more information about how scientific evidence and sources are evaluated, see the [Editorial Policy](/en/editorial-policy/).
+Articles are based on peer-reviewed studies, systematic reviews, clinical and public-health guidelines, and official scientific sources.
+
+For more information about the methodology used by BiomedFacts, see the [Editorial Policy](/en/editorial-policy/).
