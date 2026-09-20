@@ -11,26 +11,39 @@ sitemap: false
   xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
 
 {% for post in site.posts %}
-  {% assign post_timestamp = post.date | date: "%s" | plus: 0 %}
-  {% assign include_in_news = false %}
+
+  {% assign include_in_news_sitemap = false %}
 
   {% if post.category == "Νέα"
      or post.category == "Έρευνα"
      or post.category == "News"
      or post.category == "Research" %}
-    {% assign include_in_news = true %}
+    {% assign include_in_news_sitemap = true %}
+  {% endif %}
+
+  {% if post.categories contains "Νέα"
+     or post.categories contains "Έρευνα"
+     or post.categories contains "News"
+     or post.categories contains "Research" %}
+    {% assign include_in_news_sitemap = true %}
   {% endif %}
 
   {% if post.news_sitemap == false %}
-    {% assign include_in_news = false %}
+    {% assign include_in_news_sitemap = false %}
   {% endif %}
 
-  {% if include_in_news and post_timestamp >= cutoff_timestamp %}
+  {% if include_in_news_sitemap %}
+
+    {% assign post_timestamp = post.date | date: "%s" | plus: 0 %}
+
   <url>
     <loc>{{ post.url | absolute_url | xml_escape }}</loc>
+
+    {% if post_timestamp >= cutoff_timestamp %}
     <news:news>
       <news:publication>
         <news:name>BiomedFacts</news:name>
+
         {% if post.lang %}
         <news:language>{{ post.lang }}</news:language>
         {% elsif post.url contains "/en/" %}
@@ -38,12 +51,18 @@ sitemap: false
         {% else %}
         <news:language>el</news:language>
         {% endif %}
+
       </news:publication>
+
       <news:publication_date>{{ post.date | date_to_xmlschema }}</news:publication_date>
       <news:title>{{ post.title | strip_html | xml_escape }}</news:title>
     </news:news>
+    {% endif %}
+
   </url>
+
   {% endif %}
+
 {% endfor %}
 
 </urlset>
