@@ -547,12 +547,6 @@
       align-items: start;
     }
 
-    /*
-      Όταν ο χρήστης επιλέγει κατηγορία,
-      το sidebar κρύβεται και τα άρθρα
-      χρησιμοποιούν όλο το διαθέσιμο πλάτος.
-    */
-
     .content-layout.category-view {
       grid-template-columns: 1fr;
     }
@@ -743,36 +737,6 @@
       font-size: 10px;
 
       text-transform: uppercase;
-    }
-
-    /* EMPTY CATEGORY */
-
-    #empty-message {
-      display: none;
-
-      margin-top: 30px;
-
-      padding: 35px;
-
-      background: var(--surface);
-
-      border-top: 3px solid var(--text);
-
-      text-align: center;
-    }
-
-    #empty-message h2 {
-      font-family: "Times New Roman", serif;
-
-      font-size: 25px;
-
-      margin-bottom: 7px;
-    }
-
-    #empty-message p {
-      color: var(--muted);
-
-      font-size: 13px;
     }
 
     /* NO POSTS */
@@ -1028,9 +992,7 @@
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -1047,7 +1009,6 @@
       </div>
 
     </a>
-
 
     <div class="header-actions">
 
@@ -1077,7 +1038,6 @@
         </a>
 
       </div>
-
 
       <button
         class="icon-button"
@@ -1113,7 +1073,6 @@
 
       </button>
 
-
       <a
         class="icon-button instagram-button"
         href="https://www.instagram.com/biomedical_sciences.gr/"
@@ -1139,7 +1098,6 @@
     </div>
 
   </div>
-
 
   <nav id="category-nav">
 
@@ -1183,9 +1141,7 @@
 
 </header>
 
-
 <main>
-
 
   {% if featured_post %}
 
@@ -1208,7 +1164,6 @@
 
         </div>
 
-
         <h1 class="featured-title">
 
           <a href="{{ featured_post.url | relative_url }}">
@@ -1216,7 +1171,6 @@
           </a>
 
         </h1>
-
 
         {% if featured_post.excerpt %}
 
@@ -1226,20 +1180,18 @@
 
         {% endif %}
 
-
         <p class="featured-author">
 
           <a
             href="{{ '/author/' | relative_url }}"
             rel="author"
           >
-            {{ featured_post.author | default: "Dimitra M, BSc Biomedical Science" }}
+            Δήμητρα Μουρκογιάννη, BSc (Hons) Biomedical Science
           </a>
 
         </p>
 
       </div>
-
 
       <div>
 
@@ -1277,7 +1229,6 @@
 
   {% endif %}
 
-
   <section
     class="latest-area"
     id="latest"
@@ -1294,21 +1245,10 @@
 
     </div>
 
-
     <div
       class="content-layout"
       id="content-layout"
     >
-
-
-      <!--
-        ΣΗΜΑΝΤΙΚΟ:
-        Εδώ φορτώνονται ΠΛΕΟΝ ΟΛΑ τα ελληνικά άρθρα.
-        Στην αρχική φαίνονται μόνο τα 4 πιο πρόσφατα
-        εκτός του featured.
-        Όταν επιλέγεται κατηγορία, εμφανίζονται ΟΛΑ
-        τα άρθρα που ανήκουν σε αυτή.
-      -->
 
       <div class="articles-grid">
 
@@ -1324,7 +1264,6 @@
               {% assign is_featured_card = true %}
             {% endif %}
 
-
             {% assign hide_home_card = true %}
 
             {% unless is_featured_card %}
@@ -1335,7 +1274,6 @@
               {% endif %}
 
             {% endunless %}
-
 
             <article
               class="article-card filterable"
@@ -1359,7 +1297,6 @@
 
               {% endif %}
 
-
               <div class="article-card-meta">
 
                 <span class="article-card-category">
@@ -1372,7 +1309,6 @@
 
               </div>
 
-
               <h2>
 
                 <a href="{{ post.url | relative_url }}">
@@ -1380,7 +1316,6 @@
                 </a>
 
               </h2>
-
 
               {% if post.excerpt %}
 
@@ -1390,14 +1325,13 @@
 
               {% endif %}
 
-
               <p class="article-card-author">
 
                 <a
                   href="{{ '/author/' | relative_url }}"
                   rel="author"
                 >
-                  {{ post.author | default: "Dimitra M, BSc Biomedical Science" }}
+                  Δήμητρα Μουρκογιάννη, BSc (Hons) Biomedical Science
                 </a>
 
               </p>
@@ -1409,7 +1343,6 @@
         {% endfor %}
 
       </div>
-
 
       <aside
         class="read-also"
@@ -1424,10 +1357,8 @@
           Διαβάστε επίσης
         </h2>
 
-
         {% assign skipped = 0 %}
         {% assign read_count = 0 %}
-
 
         {% for post in site.posts %}
 
@@ -1448,7 +1379,6 @@
                     <div class="read-number">
                       0{{ read_count | plus: 1 }}
                     </div>
-
 
                     <div>
 
@@ -1480,7 +1410,6 @@
 
         {% endfor %}
 
-
         {% if read_count == 0 %}
 
           <p
@@ -1499,28 +1428,13 @@
 
     </div>
 
-
-    <section id="empty-message">
-
-      <h2>
-        Δεν υπάρχουν ακόμη άρθρα σε αυτή την κατηγορία.
-      </h2>
-
-      <p>
-        Νέο περιεχόμενο θα προστεθεί σύντομα.
-      </p>
-
-    </section>
-
   </section>
-
 
   <section class="newsletter">
 
     <p class="newsletter-heading">
       BIOMEDFACTS NEWSLETTER
     </p>
-
 
     <div class="beehiiv-form-container">
 
@@ -1534,14 +1448,11 @@
 
   </section>
 
-
 </main>
-
 
 <footer>
 
   <div class="footer-inner">
-
 
     <div class="footer-links">
 
@@ -1567,7 +1478,6 @@
 
     </div>
 
-
     <div class="footer-copy">
       © 2026 BiomedFacts · Evidence-based science communication
     </div>
@@ -1576,11 +1486,9 @@
 
 </footer>
 
-
 <!-- ANALYTICS CONSENT -->
 
 <script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
-
 
 <script>
 
@@ -1608,7 +1516,6 @@
     );
 
   });
-
 
   /*
     THEME
@@ -1648,7 +1555,6 @@
     }
   );
 
-
   /*
     CATEGORY FILTER
   */
@@ -1663,11 +1569,6 @@
       document.querySelectorAll(
         ".article-card.filterable"
       )
-    );
-
-  const emptyMessage =
-    document.getElementById(
-      "empty-message"
     );
 
   const sectionTitle =
@@ -1689,7 +1590,6 @@
     document.getElementById(
       "content-layout"
     );
-
 
   /*
     ΑΡΧΙΚΗ:
@@ -1721,16 +1621,13 @@
 
     });
 
-
     if (featuredSection) {
       featuredSection.style.display = "";
     }
 
-
     if (readAlso) {
       readAlso.style.display = "";
     }
-
 
     if (contentLayout) {
       contentLayout.classList.remove(
@@ -1738,27 +1635,17 @@
       );
     }
 
-
     sectionTitle.textContent =
       "Τελευταία άρθρα";
 
-
-    emptyMessage.style.display =
-      "none";
-
   }
-
 
   /*
     ΚΑΤΗΓΟΡΙΑ:
-    Εμφανίζει ΟΛΑ τα άρθρα της κατηγορίας,
-    ακόμα κι αν είναι παλιά ή featured.
+    Εμφανίζει ΟΛΑ τα άρθρα της κατηγορίας.
   */
 
   function showCategory(category) {
-
-    let visibleCards = 0;
-
 
     articleCards.forEach(card => {
 
@@ -1770,7 +1657,6 @@
       ) {
 
         card.style.display = "";
-        visibleCards++;
 
       } else {
 
@@ -1780,18 +1666,15 @@
 
     });
 
-
     if (featuredSection) {
       featuredSection.style.display =
         "none";
     }
 
-
     if (readAlso) {
       readAlso.style.display =
         "none";
     }
-
 
     if (contentLayout) {
 
@@ -1801,25 +1684,10 @@
 
     }
 
-
     sectionTitle.textContent =
       category;
 
-
-    if (visibleCards === 0) {
-
-      emptyMessage.style.display =
-        "block";
-
-    } else {
-
-      emptyMessage.style.display =
-        "none";
-
-    }
-
   }
-
 
   /*
     NAVIGATION
@@ -1833,10 +1701,8 @@
 
         event.preventDefault();
 
-
         const category =
           this.dataset.filter;
-
 
         categoryLinks.forEach(item => {
 
@@ -1846,11 +1712,9 @@
 
         });
 
-
         this.classList.add(
           "active"
         );
-
 
         if (category === "all") {
 
@@ -1864,7 +1728,6 @@
 
         }
 
-
         document
           .getElementById("latest")
           .scrollIntoView({
@@ -1877,16 +1740,9 @@
 
   });
 
-
-  /*
-    Εξασφαλίζει ότι κατά το πρώτο load
-    εμφανίζεται ακριβώς η αρχική μορφή.
-  */
-
   showHomepage();
 
 </script>
-
 
 </body>
 
