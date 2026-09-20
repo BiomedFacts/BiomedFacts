@@ -26,6 +26,11 @@
   {% assign is_author_page = true %}
 {% endif %}
 
+{% assign is_privacy_policy = false %}
+{% if page.url == "/privacy-policy/" or page.url == "/en/privacy-policy/" %}
+  {% assign is_privacy_policy = true %}
+{% endif %}
+
 {% if page.translation_url %}
   {% assign translation_absolute = page.translation_url | absolute_url %}
 {% endif %}
@@ -69,6 +74,8 @@
     href="{{ '/favicon.svg' | relative_url }}"
   >
 
+  {% unless is_privacy_policy %}
+
   <!-- GOOGLE ADSENSE -->
 
   <script
@@ -76,6 +83,8 @@
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5074253584827466"
     crossorigin="anonymous"
   ></script>
+
+  {% endunless %}
 
   <!-- BASIC SEO -->
 
@@ -1006,6 +1015,8 @@
 
 </main>
 
+{% unless is_privacy_policy %}
+
 <section class="newsletter">
 
   <p class="newsletter-label">
@@ -1023,6 +1034,8 @@
   </div>
 
 </section>
+
+{% endunless %}
 
 <footer>
 
@@ -1086,9 +1099,13 @@
 
 </footer>
 
+{% unless is_privacy_policy %}
+
 <!-- ANALYTICS CONSENT -->
 
 <script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
+
+{% endunless %}
 
 <script>
 
