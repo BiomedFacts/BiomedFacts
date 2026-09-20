@@ -28,7 +28,11 @@
 
 {% assign canonical_url = page.url | absolute_url %}
 
-{% assign article_author = page.author | default: "Dimitra M, BSc Biomedical Science" %}
+{% if is_english %}
+  {% assign article_author = "Dimitra Mourkogianni, BSc (Hons) Biomedical Science" %}
+{% else %}
+  {% assign article_author = "Δήμητρα Μουρκόγιαννη, BSc (Hons) Biomedical Science" %}
+{% endif %}
 
 {% if is_english %}
   {% assign author_profile_path = "/en/author/" %}
@@ -70,6 +74,15 @@
     type="image/svg+xml"
     href="{{ '/favicon.svg' | relative_url }}"
   >
+
+
+  <!-- GOOGLE ADSENSE -->
+
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5074253584827466"
+    crossorigin="anonymous"
+  ></script>
 
 
   <!-- SEO -->
