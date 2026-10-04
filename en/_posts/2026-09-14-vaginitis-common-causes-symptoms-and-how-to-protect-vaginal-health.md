@@ -1,7 +1,7 @@
 ---
 title: "Vaginitis: Common Causes, Symptoms, and How to Protect Vaginal Health"
 date: 2026-09-14
-category: Women's Health
+category: Health
 translation_key: Vagina-001
 image: /assets/images/womens-health-vaginitis-1.jpg
 excerpt: Itching, burning, or changes in vaginal discharge? Learn about the most
