@@ -2,39 +2,43 @@
 title: "Vaginitis: Common Causes, Symptoms, and How to Protect Vaginal Health"
 date: 2026-09-14
 category: Health
+permalink: "/en/women's health/2026/09/14/vaginitis-common-causes-symptoms-and-how-to-protect-vaginal-health.html"
 translation_key: Vagina-001
 image: /assets/images/womens-health-vaginitis-1.jpg
-excerpt: Itching, burning, or changes in vaginal discharge? Learn about the most
+excerpt: >
+  Itching, burning, or changes in vaginal discharge? Learn about the most
   common causes of vaginitis, the symptoms they can cause, and when medical
   evaluation may be needed.
-author: Dimitra M, BSc Biomedical Science
+author: Dimitra Mourkogianni, BSc (Hons) Biomedical Science
 featured: false
 seo_title: "Vaginitis: Causes, Symptoms, and What You Need to Know"
-seo_description: What causes vaginitis? Learn about the most common symptoms,
-  causes, and the differences between yeast infections, bacterial vaginosis, and
+seo_description: >
+  What causes vaginitis? Learn about the most common symptoms, causes,
+  and the differences between yeast infections, bacterial vaginosis, and
   other forms of vaginitis.
 ---
+
 Have you ever experienced itching, burning, discomfort during sex, or a noticeable change in vaginal discharge? These symptoms can be uncomfortable and, understandably, concerning.
 
-Vaginitis is inflammation of the vagina. It is a common reason for visiting a gynecologist and can develop for many different reasons.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm_)
+Vaginitis is inflammation of the vagina. It is a common reason for visiting a gynecologist and can develop for many different reasons.[1](https://www.acog.org/womens-health/faqs/vaginitis)
 
-Some forms are caused by infections, while others are related to hormonal changes or irritation.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm)
+Some forms are caused by infections, while others are related to hormonal changes or irritation.[1](https://www.acog.org/womens-health/faqs/vaginitis), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis)
 
 This distinction matters because similar symptoms can have very different causes and may therefore require different treatments.
 
 ## **What Is Vaginitis?**
 
-The vagina is an elastic, muscular canal that connects the cervix to the outside of the body. It plays an important role in menstruation, sexual activity, and childbirth.[2](https://my.clevelandclinic.org/health/body/22469-vagina?utm)
+The vagina is an elastic, muscular canal that connects the cervix to the outside of the body. It plays an important role in menstruation, sexual activity, and childbirth.[2](https://my.clevelandclinic.org/health/body/22469-vagina)
 
-The vagina also naturally contains a community of microorganisms. Changes in this vaginal environment can contribute to certain forms of vaginitis, although not every case of vaginitis is caused by an infection.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm), [4](https://doi.org/10.3389/fmed.2023.1040072)
+The vagina also naturally contains a community of microorganisms. Changes in this vaginal environment can contribute to certain forms of vaginitis, although not every case of vaginitis is caused by an infection.[1](https://www.acog.org/womens-health/faqs/vaginitis), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis), [4](https://doi.org/10.3389/fmed.2023.1040072)
 
-Common causes include vulvovaginal candidiasis, bacterial vaginosis, trichomoniasis, and vaginal changes associated with low estrogen levels.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext)
+Common causes include vulvovaginal candidiasis, bacterial vaginosis, trichomoniasis, and vaginal changes associated with low estrogen levels.[1](https://www.acog.org/womens-health/faqs/vaginitis), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext)
 
 # **Common Types of Vaginitis**
 
 ## **1. Vulvovaginal Candidiasis**
 
-**Vulvovaginal candidiasis**, often referred to as a vaginal yeast infection, usually develops when yeasts of the *Candida* genus overgrow in the vagina.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm)
+**Vulvovaginal candidiasis**, often referred to as a vaginal yeast infection, usually develops when yeasts of the *Candida* genus overgrow in the vagina.[1](https://www.acog.org/womens-health/faqs/vaginitis), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis)
 
 Common symptoms may include:
 
@@ -42,27 +46,27 @@ Common symptoms may include:
 - soreness or discomfort
 - a burning sensation, particularly during urination or sexual intercourse
 - redness or swelling
-- abnormal vaginal discharge, which may be thick and white.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext)
+- abnormal vaginal discharge, which may be thick and white.[1](https://www.acog.org/womens-health/faqs/vaginitis), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext)
 
 An important point is that these symptoms **are not specific to candidiasis**. Other vaginal conditions can cause very similar symptoms, which can make self-diagnosis unreliable in some cases.[4](https://doi.org/10.3389/fmed.2023.1040072), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext)
 
 ## **2. Bacterial Vaginosis**
 
-**Bacterial vaginosis (BV)** occurs when the normal balance of bacteria in the vagina is disrupted.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm)
+**Bacterial vaginosis (BV)** occurs when the normal balance of bacteria in the vagina is disrupted.[1](https://www.acog.org/womens-health/faqs/vaginitis), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis)
 
 It may cause:
 
 - thin vaginal discharge
 - a characteristic odor, often described as “fishy”
-- mild irritation or burning.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis?utm)
+- mild irritation or burning.[1](https://www.acog.org/womens-health/faqs/vaginitis), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis)
 
-However, many people with bacterial vaginosis have no symptoms at all.[7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis?utm)
+However, many people with bacterial vaginosis have no symptoms at all.[7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis)
 
-Bacterial vaginosis is not classified as a traditional sexually transmitted infection. However, sexual activity can influence the bacterial environment of the vagina and has been associated with the development of BV.[6](https://www.nhs.uk/conditions/vaginitis/?utm)
+Bacterial vaginosis is not classified as a traditional sexually transmitted infection. However, sexual activity can influence the bacterial environment of the vagina and has been associated with the development of BV.[6](https://www.nhs.uk/conditions/vaginitis/)
 
 ## **3. Trichomoniasis**
 
-Trichomoniasis is a sexually transmitted infection caused by the parasite *Trichomonas vaginalis*.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis?utm)
+Trichomoniasis is a sexually transmitted infection caused by the parasite *Trichomonas vaginalis*.[1](https://www.acog.org/womens-health/faqs/vaginitis), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis)
 
 Possible symptoms include:
 
@@ -70,7 +74,7 @@ Possible symptoms include:
 - burning
 - discomfort during urination
 - changes in vaginal discharge
-- an unpleasant odor.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis?utm)
+- an unpleasant odor.[1](https://www.acog.org/womens-health/faqs/vaginitis), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis)
 
 Some people experience only very mild symptoms or no symptoms at all. Because the symptoms can overlap with those of other forms of vaginitis, appropriate laboratory testing may be needed to confirm the cause.[4](https://doi.org/10.3389/fmed.2023.1040072), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext)
 
@@ -78,9 +82,9 @@ Some people experience only very mild symptoms or no symptoms at all. Because th
 
 Not every form of vaginitis is caused by microorganisms.
 
-Lower estrogen levels can make vaginal tissue thinner, drier, and more vulnerable to irritation.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext)
+Lower estrogen levels can make vaginal tissue thinner, drier, and more vulnerable to irritation.[1](https://www.acog.org/womens-health/faqs/vaginitis), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext)
 
-This is particularly common after menopause, although similar changes can also occur during breastfeeding and at other times when estrogen levels are lower.[3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm)
+This is particularly common after menopause, although similar changes can also occur during breastfeeding and at other times when estrogen levels are lower.[3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis)
 
 Symptoms may include:
 
@@ -88,7 +92,7 @@ Symptoms may include:
 - burning or itching
 - irritation
 - pain during sexual intercourse
-- changes in vaginal discharge.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm)
+- changes in vaginal discharge.[1](https://www.acog.org/womens-health/faqs/vaginitis), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis)
 
 In people who have gone through menopause, these vaginal symptoms may form part of **genitourinary syndrome of menopause**, which can also involve symptoms affecting the vulva and urinary tract.[5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext)
 
@@ -96,15 +100,15 @@ In people who have gone through menopause, these vaginal symptoms may form part 
 
 There is no single cause of vaginitis.
 
-**Antibiotics** can alter the microbial environment of the vagina and, in some people, may increase the likelihood of developing candidiasis.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm)
+**Antibiotics** can alter the microbial environment of the vagina and, in some people, may increase the likelihood of developing candidiasis.[1](https://www.acog.org/womens-health/faqs/vaginitis), [3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis)
 
-**Hormonal changes**, particularly declining estrogen levels, can affect vaginal tissue and contribute to dryness and irritation.[3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext)
+**Hormonal changes**, particularly declining estrogen levels, can affect vaginal tissue and contribute to dryness and irritation.[3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext)
 
-**Douching** can disrupt the normal vaginal environment and is not recommended as part of routine hygiene.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis?utm)
+**Douching** can disrupt the normal vaginal environment and is not recommended as part of routine hygiene.[1](https://www.acog.org/womens-health/faqs/vaginitis), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis)
 
-Chemical irritants may also play a role. Vaginal sprays, certain personal care products, and spermicides can irritate the sensitive tissues of the vagina or vulva.[3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm)
+Chemical irritants may also play a role. Vaginal sprays, certain personal care products, and spermicides can irritate the sensitive tissues of the vagina or vulva.[3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis)
 
-Finally, sexually transmitted infections such as trichomoniasis can directly cause vaginal inflammation.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis?utm)
+Finally, sexually transmitted infections such as trichomoniasis can directly cause vaginal inflammation.[1](https://www.acog.org/womens-health/faqs/vaginitis), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis)
 
 Because there are so many possible causes, symptoms such as itching or vaginal discharge do not automatically mean that someone has a yeast infection.
 
@@ -116,23 +120,23 @@ Not every episode of vaginitis can be prevented. However, some practical measure
 
 The inside of the vagina **does not need to be cleaned**.
 
-Douching and vaginal sprays can disrupt the normal vaginal environment or cause irritation and are therefore generally best avoided.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis?utm)
+Douching and vaginal sprays can disrupt the normal vaginal environment or cause irritation and are therefore generally best avoided.[1](https://www.acog.org/womens-health/faqs/vaginitis), [7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis)
 
 ## **Practice Safer Sex**
 
-Using condoms can reduce the risk of sexually transmitted infections that may cause vaginitis, including trichomoniasis.[7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis?utm)
+Using condoms can reduce the risk of sexually transmitted infections that may cause vaginitis, including trichomoniasis.[7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis)
 
 ## **Keep Intimate Care Simple**
 
 Using more products does not necessarily mean better hygiene.
 
-Scented sprays, heavily fragranced intimate care products, and other potentially irritating substances may trigger or worsen symptoms in people with sensitive skin or tissues.[3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis?utm), [8](https://www.merckmanuals.com/professional/gynecology-and-obstetrics/vaginitis-cervicitis-and-pelvic-inflammatory-disease/overview-of-vaginitis?utm)
+Scented sprays, heavily fragranced intimate care products, and other potentially irritating substances may trigger or worsen symptoms in people with sensitive skin or tissues.[3](https://my.clevelandclinic.org/health/diseases/9131-vaginitis), [8](https://www.merckmanuals.com/professional/gynecology-and-obstetrics/vaginitis-cervicitis-and-pelvic-inflammatory-disease/overview-of-vaginitis)
 
 Gentle external cleansing is usually enough.
 
 ## **If Yeast Infections Keep Coming Back, Avoid Very Tight Clothing**
 
-For people who experience recurrent yeast infections, avoiding clothing that traps heat and moisture — such as very tight clothes or underwear made from poorly breathable materials — may be helpful.[7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis?utm)
+For people who experience recurrent yeast infections, avoiding clothing that traps heat and moisture — such as very tight clothes or underwear made from poorly breathable materials — may be helpful.[7](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis)
 
 This should not be viewed as a guaranteed way to prevent candidiasis, but rather as a practical measure that may help reduce conditions that promote moisture or irritation.
 
@@ -148,9 +152,9 @@ If symptoms are occurring for the first time, frequently return, or do not impro
 
 Vaginitis **is not a single disease**.
 
-Bacterial vaginosis, candidiasis, trichomoniasis, and non-infectious forms of vaginitis can all cause overlapping symptoms.[4](https://doi.org/10.3389/fmed.2023.1040072), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext), [8](https://www.merckmanuals.com/professional/gynecology-and-obstetrics/vaginitis-cervicitis-and-pelvic-inflammatory-disease/overview-of-vaginitis?utm), [9](https://linkinghub.elsevier.com/retrieve/pii/S0002937819311068)
+Bacterial vaginosis, candidiasis, trichomoniasis, and non-infectious forms of vaginitis can all cause overlapping symptoms.[4](https://doi.org/10.3389/fmed.2023.1040072), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext), [8](https://www.merckmanuals.com/professional/gynecology-and-obstetrics/vaginitis-cervicitis-and-pelvic-inflammatory-disease/overview-of-vaginitis), [9](https://linkinghub.elsevier.com/retrieve/pii/S0002937819311068)
 
-A healthcare professional can assess symptoms and medical history together with findings from a clinical examination. Depending on the situation, testing may also include **vaginal pH measurement, microscopy, culture, or molecular laboratory tests**.[4](https://doi.org/10.3389/fmed.2023.1040072), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext), [8](https://www.merckmanuals.com/professional/gynecology-and-obstetrics/vaginitis-cervicitis-and-pelvic-inflammatory-disease/overview-of-vaginitis?utm)
+A healthcare professional can assess symptoms and medical history together with findings from a clinical examination. Depending on the situation, testing may also include **vaginal pH measurement, microscopy, culture, or molecular laboratory tests**.[4](https://doi.org/10.3389/fmed.2023.1040072), [5](https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext), [8](https://www.merckmanuals.com/professional/gynecology-and-obstetrics/vaginitis-cervicitis-and-pelvic-inflammatory-disease/overview-of-vaginitis)
 
 This is important because different causes require different treatments.
 
@@ -166,7 +170,7 @@ Consider seeking medical advice if:
 - you experience pain during urination or sexual intercourse
 - your symptoms keep returning
 - you think you may have been exposed to a sexually transmitted infection
-- a treatment you have already tried has not worked.[1](https://www.acog.org/womens-health/faqs/vaginitis?utm), [6](https://www.nhs.uk/conditions/vaginitis/?utm)
+- a treatment you have already tried has not worked.[1](https://www.acog.org/womens-health/faqs/vaginitis), [6](https://www.nhs.uk/conditions/vaginitis/)
 
 Vaginitis is common and, in most cases, treatable. The important thing is to identify **what is causing the symptoms** rather than assuming that every episode has the same cause.
 
