@@ -24,19 +24,21 @@
 {% capture default_seo_title %}{{ page.title }} | BiomedFacts{% endcapture %}
 {% assign seo_title = page.seo_title | default: default_seo_title | strip %}
 
-{% assign seo_description = page.seo_description | default: page.excerpt | default: site.description | strip_html | strip_newlines | strip %}
+{% assign seo_description = page.seo_description
+  | default: page.excerpt
+  | default: site.description
+  | strip_html
+  | strip_newlines
+  | strip
+%}
 
 {% assign canonical_url = page.url | absolute_url %}
 
 {% if is_english %}
   {% assign article_author = "Dimitra Mourkogianni, BSc (Hons) Biomedical Science" %}
-{% else %}
-  {% assign article_author = "Δήμητρα Μουρκόγιαννη, BSc (Hons) Biomedical Science" %}
-{% endif %}
-
-{% if is_english %}
   {% assign author_profile_path = "/en/author/" %}
 {% else %}
+  {% assign article_author = "Δήμητρα Μουρκόγιαννη, BSc (Hons) Biomedical Science" %}
   {% assign author_profile_path = "/author/" %}
 {% endif %}
 
@@ -54,6 +56,40 @@
   {% assign article_image = page.image | absolute_url %}
 {% else %}
   {% assign article_image = default_social_image %}
+{% endif %}
+
+{% assign category_url = nil %}
+
+{% if is_english %}
+
+  {% case page.category %}
+    {% when "Health" %}
+      {% assign category_url = "/en/health/" %}
+    {% when "Nutrition" %}
+      {% assign category_url = "/en/nutrition/" %}
+    {% when "Lab Tests" %}
+      {% assign category_url = "/en/lab-tests/" %}
+    {% when "Fact-Checking" %}
+      {% assign category_url = "/en/fact-checking/" %}
+    {% when "Research" %}
+      {% assign category_url = "/en/research/" %}
+  {% endcase %}
+
+{% else %}
+
+  {% case page.category %}
+    {% when "Υγεία" %}
+      {% assign category_url = "/ygeia/" %}
+    {% when "Διατροφή" %}
+      {% assign category_url = "/diatrofi/" %}
+    {% when "Εξετάσεις" %}
+      {% assign category_url = "/exetaseis/" %}
+    {% when "Fact-Checking" %}
+      {% assign category_url = "/fact-checking/" %}
+    {% when "Έρευνα" %}
+      {% assign category_url = "/erevna/" %}
+  {% endcase %}
+
 {% endif %}
 
 <!DOCTYPE html>
@@ -75,7 +111,6 @@
     href="{{ '/favicon.svg' | relative_url }}"
   >
 
-
   <!-- GOOGLE ADSENSE -->
 
   <script
@@ -83,7 +118,6 @@
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5074253584827466"
     crossorigin="anonymous"
   ></script>
-
 
   <!-- SEO -->
 
@@ -109,7 +143,6 @@
     href="{{ canonical_url }}"
   >
 
-
   <!-- HREFLANG -->
 
   {% if greek_translation %}
@@ -130,7 +163,6 @@
 
   {% endif %}
 
-
   {% if english_translation %}
 
     <link
@@ -149,13 +181,11 @@
 
   {% endif %}
 
-
   <link
     rel="alternate"
     hreflang="x-default"
     href="{{ x_default_url }}"
   >
-
 
   <!-- OPEN GRAPH -->
 
@@ -199,7 +229,6 @@
     content="{% if is_english %}en_US{% else %}el_GR{% endif %}"
   >
 
-
   {% if greek_translation and is_english %}
 
     <meta
@@ -209,7 +238,6 @@
 
   {% endif %}
 
-
   {% if english_translation and is_english == false %}
 
     <meta
@@ -218,7 +246,6 @@
     >
 
   {% endif %}
-
 
   <meta
     property="article:published_time"
@@ -238,7 +265,6 @@
     >
 
   {% endif %}
-
 
   <!-- SOCIAL -->
 
@@ -266,7 +292,6 @@
     name="twitter:image:alt"
     content="{{ page.title | escape }}"
   >
-
 
   <!-- ARTICLE STRUCTURED DATA -->
 
@@ -303,7 +328,6 @@
   }
   </script>
 
-
   <!-- THEME -->
 
   <script>
@@ -334,7 +358,6 @@
     })();
 
   </script>
-
 
   <style>
 
@@ -388,7 +411,6 @@
     a {
       color: inherit;
     }
-
 
     /* HEADER */
 
@@ -455,7 +477,6 @@
       color: var(--border);
     }
 
-
     /* ICON BUTTONS */
 
     .icon-button {
@@ -519,31 +540,35 @@
       display: none;
     }
 
-
     /* NAV */
 
     nav {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+
       gap: 18px 34px;
+
       padding: 18px 0;
+
       border-top: 1px solid var(--soft-border);
     }
 
     nav a {
       color: var(--text);
       text-decoration: none;
+
       font-size: 13px;
       font-weight: bold;
       text-transform: uppercase;
+
       transition: color 0.2s ease;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a.active {
       color: var(--accent);
     }
-
 
     /* ARTICLE */
 
@@ -559,12 +584,22 @@
 
     .article-category {
       display: inline-block;
+
       margin-bottom: 15px;
+
       color: var(--accent);
+
       font-size: 11px;
       font-weight: bold;
+
       letter-spacing: 1.3px;
       text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    a.article-category:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .article-title {
@@ -618,26 +653,29 @@
       background: var(--muted);
     }
 
-
     /* COVER */
 
     .article-cover {
       width: 100%;
+
       margin-top: 38px;
       margin-bottom: 48px;
     }
 
     .article-cover img {
       display: block;
+
       width: 100%;
       height: auto;
+
       max-width: 100%;
       max-height: none;
+
       object-fit: contain;
       object-position: center;
+
       border: 1px solid var(--border);
     }
-
 
     /* BODY */
 
@@ -770,7 +808,6 @@
       background: var(--surface);
     }
 
-
     /* ARTICLE END */
 
     .article-end {
@@ -798,7 +835,6 @@
       text-decoration: underline;
     }
 
-
     /* COMMENTS */
 
     .comments-section {
@@ -819,7 +855,6 @@
         serif;
 
       font-size: 31px;
-
       line-height: 1.1;
     }
 
@@ -835,7 +870,6 @@
 
       font-size: 15px;
     }
-
 
     /* NEWSLETTER */
 
@@ -876,7 +910,6 @@
       text-align: center;
     }
 
-
     /* FOOTER */
 
     footer {
@@ -891,7 +924,6 @@
 
     .footer-inner {
       width: min(1100px, 100%);
-
       margin: 0 auto;
     }
 
@@ -928,7 +960,6 @@
 
       font-size: 12px;
     }
-
 
     /* MOBILE */
 
@@ -988,6 +1019,7 @@
 
       .article-cover {
         width: 100%;
+
         margin-top: 28px;
         margin-bottom: 35px;
       }
@@ -995,8 +1027,10 @@
       .article-cover img {
         width: 100%;
         height: auto;
+
         max-width: 100%;
         max-height: none;
+
         object-fit: contain;
         object-position: center;
       }
@@ -1066,9 +1100,7 @@
 
 </head>
 
-
 <body>
-
 
 <header class="site-header">
 
@@ -1085,7 +1117,6 @@
       </div>
 
     </a>
-
 
     <div class="header-actions">
 
@@ -1116,11 +1147,9 @@
 
         {% endif %}
 
-
         <span class="language-divider">
           |
         </span>
-
 
         {% if english_translation %}
 
@@ -1145,7 +1174,6 @@
         {% endif %}
 
       </div>
-
 
       <button
         class="icon-button"
@@ -1181,7 +1209,6 @@
 
       </button>
 
-
       <a
         class="icon-button instagram-button"
         href="https://www.instagram.com/biomedical_sciences.gr/"
@@ -1191,10 +1218,15 @@
         title="Instagram"
       >
 
-        <svg viewBox="0 0 24 24" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
           <path
             d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
           />
+
         </svg>
 
       </a>
@@ -1203,19 +1235,48 @@
 
   </div>
 
-
   {% if is_english %}
 
     <nav>
 
-      <a href="{{ '/en/' | relative_url }}">Home</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Health</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Nutrition</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Women's Health</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Lab Tests</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Fact-Checking</a>
-      <a href="{{ '/en/' | relative_url }}#latest">News</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Research</a>
+      <a href="{{ '/en/' | relative_url }}">
+        Home
+      </a>
+
+      <a
+        href="{{ '/en/health/' | relative_url }}"
+        {% if page.category == "Health" %}class="active"{% endif %}
+      >
+        Health
+      </a>
+
+      <a
+        href="{{ '/en/nutrition/' | relative_url }}"
+        {% if page.category == "Nutrition" %}class="active"{% endif %}
+      >
+        Nutrition
+      </a>
+
+      <a
+        href="{{ '/en/lab-tests/' | relative_url }}"
+        {% if page.category == "Lab Tests" %}class="active"{% endif %}
+      >
+        Lab Tests
+      </a>
+
+      <a
+        href="{{ '/en/fact-checking/' | relative_url }}"
+        {% if page.category == "Fact-Checking" %}class="active"{% endif %}
+      >
+        Fact-Checking
+      </a>
+
+      <a
+        href="{{ '/en/research/' | relative_url }}"
+        {% if page.category == "Research" %}class="active"{% endif %}
+      >
+        Research
+      </a>
 
     </nav>
 
@@ -1223,21 +1284,50 @@
 
     <nav>
 
-      <a href="{{ '/' | relative_url }}">Αρχική</a>
-      <a href="{{ '/' | relative_url }}#latest">Υγεία</a>
-      <a href="{{ '/' | relative_url }}#latest">Διατροφή</a>
-      <a href="{{ '/' | relative_url }}#latest">Γυναικεία Υγεία</a>
-      <a href="{{ '/' | relative_url }}#latest">Εξετάσεις</a>
-      <a href="{{ '/' | relative_url }}#latest">Fact-Checking</a>
-      <a href="{{ '/' | relative_url }}#latest">Νέα</a>
-      <a href="{{ '/' | relative_url }}#latest">Έρευνα</a>
+      <a href="{{ '/' | relative_url }}">
+        Αρχική
+      </a>
+
+      <a
+        href="{{ '/ygeia/' | relative_url }}"
+        {% if page.category == "Υγεία" %}class="active"{% endif %}
+      >
+        Υγεία
+      </a>
+
+      <a
+        href="{{ '/diatrofi/' | relative_url }}"
+        {% if page.category == "Διατροφή" %}class="active"{% endif %}
+      >
+        Διατροφή
+      </a>
+
+      <a
+        href="{{ '/exetaseis/' | relative_url }}"
+        {% if page.category == "Εξετάσεις" %}class="active"{% endif %}
+      >
+        Εξετάσεις
+      </a>
+
+      <a
+        href="{{ '/fact-checking/' | relative_url }}"
+        {% if page.category == "Fact-Checking" %}class="active"{% endif %}
+      >
+        Fact-Checking
+      </a>
+
+      <a
+        href="{{ '/erevna/' | relative_url }}"
+        {% if page.category == "Έρευνα" %}class="active"{% endif %}
+      >
+        Έρευνα
+      </a>
 
     </nav>
 
   {% endif %}
 
 </header>
-
 
 <main class="article-container">
 
@@ -1247,17 +1337,28 @@
 
       {% if page.category %}
 
-        <div class="article-category">
-          {{ page.category }}
-        </div>
+        {% if category_url %}
+
+          <a
+            href="{{ category_url | relative_url }}"
+            class="article-category"
+          >
+            {{ page.category }}
+          </a>
+
+        {% else %}
+
+          <div class="article-category">
+            {{ page.category }}
+          </div>
+
+        {% endif %}
 
       {% endif %}
-
 
       <h1 class="article-title">
         {{ page.title }}
       </h1>
-
 
       <div class="article-meta">
 
@@ -1279,7 +1380,6 @@
 
     </div>
 
-
     {% if page.image %}
 
       <div class="article-cover">
@@ -1295,13 +1395,11 @@
 
     {% endif %}
 
-
     <div class="article-body">
       {{ content }}
     </div>
 
   </article>
-
 
   <div class="article-end">
 
@@ -1327,7 +1425,6 @@
 
   </div>
 
-
   <section class="comments-section">
 
     {% if is_english %}
@@ -1348,7 +1445,6 @@
 
     {% endif %}
 
-
     <div class="giscus"></div>
 
     <script
@@ -1363,7 +1459,7 @@
       data-emit-metadata="0"
       data-input-position="bottom"
       data-theme="preferred_color_scheme"
-      data-lang="{% if is_english %}en{% else %}gr{% endif %}"
+      data-lang="{% if is_english %}en{% else %}el{% endif %}"
       crossorigin="anonymous"
       async>
     </script>
@@ -1371,7 +1467,6 @@
   </section>
 
 </main>
-
 
 <section class="newsletter">
 
@@ -1390,7 +1485,6 @@
   </div>
 
 </section>
-
 
 <footer>
 
@@ -1446,7 +1540,6 @@
 
     </div>
 
-
     <div class="footer-copy">
       © 2026 BiomedFacts · Evidence-based science communication
     </div>
@@ -1455,9 +1548,7 @@
 
 </footer>
 
-
 <script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
-
 
 <script>
 
@@ -1482,7 +1573,6 @@
 
   });
 
-
   function updateGiscusTheme(theme) {
 
     const iframe =
@@ -1506,7 +1596,6 @@
     );
 
   }
-
 
   const giscusObserver =
     new MutationObserver(
@@ -1543,7 +1632,6 @@
       subtree: true
     }
   );
-
 
   const themeToggle =
     document.getElementById(
@@ -1584,7 +1672,6 @@
   );
 
 </script>
-
 
 </body>
 
