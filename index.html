@@ -6,18 +6,24 @@
 
 {% for post in site.posts %}
   {% unless post.path contains "en/_posts" %}
-    {% if post.featured == true %}
-      {% assign featured_post = post %}
-      {% break %}
-    {% endif %}
+    {% assign post_category = post.category | default: "" | strip %}
+    {% unless post_category == "Νέα" or post_category == "Γυναικεία Υγεία" %}
+      {% if post.featured == true %}
+        {% assign featured_post = post %}
+        {% break %}
+      {% endif %}
+    {% endunless %}
   {% endunless %}
 {% endfor %}
 
 {% unless featured_post %}
   {% for post in site.posts %}
     {% unless post.path contains "en/_posts" %}
-      {% assign featured_post = post %}
-      {% break %}
+      {% assign post_category = post.category | default: "" | strip %}
+      {% unless post_category == "Νέα" or post_category == "Γυναικεία Υγεία" %}
+        {% assign featured_post = post %}
+        {% break %}
+      {% endunless %}
     {% endunless %}
   {% endfor %}
 {% endunless %}
@@ -180,7 +186,6 @@
   <!-- THEME -->
 
   <script>
-
     (function () {
 
       const savedTheme =
@@ -202,7 +207,6 @@
       );
 
     })();
-
   </script>
 
   <style>
@@ -246,7 +250,6 @@
       color: var(--text);
       font-family: Arial, sans-serif;
       line-height: 1.6;
-
       transition:
         background 0.25s ease,
         color 0.25s ease;
@@ -321,19 +324,14 @@
     .icon-button {
       width: 44px;
       height: 44px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       background: var(--surface);
       color: var(--text);
-
       border: 1px solid var(--text);
-
       text-decoration: none;
       cursor: pointer;
-
       transition:
         background 0.2s ease,
         color 0.2s ease,
@@ -383,22 +381,17 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-
       gap: 18px 34px;
-
       padding: 18px 0;
-
       border-top: 1px solid var(--soft-border);
     }
 
     nav a {
       color: var(--text);
       text-decoration: none;
-
       font-size: 13px;
       font-weight: bold;
       text-transform: uppercase;
-
       cursor: pointer;
     }
 
@@ -416,16 +409,11 @@
 
     .featured {
       display: grid;
-
       grid-template-columns:
         0.95fr 1.25fr;
-
       gap: 55px;
-
       align-items: center;
-
       padding-bottom: 65px;
-
       border-bottom: 1px solid var(--border);
     }
 
@@ -437,12 +425,9 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-
       gap: 10px;
-
       padding-bottom: 12px;
       margin-bottom: 24px;
-
       border-bottom: 1px solid var(--text);
     }
 
@@ -460,12 +445,9 @@
 
     .featured-title {
       margin-bottom: 20px;
-
       font-family: "Times New Roman", serif;
-
       font-size: 44px;
       font-weight: bold;
-
       line-height: 1.05;
       letter-spacing: -1px;
     }
@@ -481,17 +463,13 @@
 
     .featured-excerpt {
       max-width: 580px;
-
       color: var(--muted);
-
       font-family:
         Georgia,
         "Times New Roman",
         serif;
-
       font-size: 18px;
       line-height: 1.65;
-
       margin-bottom: 22px;
     }
 
@@ -514,12 +492,9 @@
 
     .featured-image {
       display: block;
-
       width: 100%;
       height: 430px;
-
       object-fit: cover;
-
       border: 1px solid var(--text);
     }
 
@@ -532,7 +507,6 @@
     .section-header {
       margin-bottom: 28px;
       padding-bottom: 13px;
-
       border-bottom: 2px solid var(--text);
     }
 
@@ -545,13 +519,10 @@
 
     .content-layout {
       display: grid;
-
       grid-template-columns:
         minmax(0, 2fr)
         minmax(260px, 0.8fr);
-
       gap: 55px;
-
       align-items: start;
     }
 
@@ -561,10 +532,8 @@
 
     .articles-grid {
       display: grid;
-
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
-
       gap: 42px 30px;
     }
 
@@ -575,12 +544,9 @@
 
     .article-card-image {
       display: block;
-
       width: 100%;
       height: 245px;
-
       object-fit: cover;
-
       margin-bottom: 16px;
     }
 
@@ -588,20 +554,15 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-
       gap: 8px;
-
       margin-bottom: 10px;
     }
 
     .article-card-category {
       color: var(--accent);
-
       font-size: 11px;
       font-weight: bold;
-
       letter-spacing: 1.1px;
-
       text-transform: uppercase;
     }
 
@@ -612,11 +573,8 @@
 
     .article-card h2 {
       margin-bottom: 12px;
-
       font-family: "Times New Roman", serif;
-
       font-size: 29px;
-
       line-height: 1.05;
       letter-spacing: -0.6px;
     }
@@ -632,15 +590,12 @@
 
     .article-card-excerpt {
       color: var(--muted);
-
       font-family:
         Georgia,
         "Times New Roman",
         serif;
-
       font-size: 15px;
       line-height: 1.6;
-
       margin-bottom: 13px;
     }
 
@@ -664,67 +619,48 @@
 
     .read-also {
       background: var(--surface);
-
       border-top: 5px solid var(--accent);
-
       padding: 22px;
-
       box-shadow: 8px 8px 0 var(--shadow);
     }
 
     .read-also-label {
       color: var(--accent);
-
       font-size: 11px;
       font-weight: bold;
-
       letter-spacing: 1.4px;
-
       text-transform: uppercase;
     }
 
     .read-also-title {
       margin-top: 7px;
       margin-bottom: 18px;
-
       padding-bottom: 15px;
-
       border-bottom: 1px solid var(--border);
-
       font-family: "Times New Roman", serif;
-
       font-size: 29px;
-
       line-height: 1;
     }
 
     .read-item {
       display: grid;
-
       grid-template-columns:
         46px 1fr;
-
       gap: 12px;
-
       padding: 18px 0;
-
       border-bottom: 1px solid var(--soft-border);
     }
 
     .read-number {
       color: var(--accent);
-
       font-family: "Times New Roman", serif;
-
       font-size: 20px;
       font-weight: bold;
     }
 
     .read-item h3 {
       font-family: "Times New Roman", serif;
-
       font-size: 18px;
-
       line-height: 1.15;
     }
 
@@ -739,71 +675,35 @@
 
     .read-item-category {
       margin-top: 7px;
-
       color: var(--muted);
-
       font-size: 10px;
-
       text-transform: uppercase;
-    }
-
-    /* NO POSTS */
-
-    .no-posts {
-      padding: 55px 0;
-
-      text-align: center;
-
-      border-top: 2px solid var(--text);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .no-posts h1 {
-      margin-bottom: 10px;
-
-      font-family: "Times New Roman", serif;
-
-      font-size: 36px;
-    }
-
-    .no-posts p {
-      color: var(--muted);
     }
 
     /* NEWSLETTER */
 
     .newsletter {
       margin-top: 75px;
-
       padding: 36px 20px;
-
       background: var(--surface);
-
       border-top: 2px solid var(--text);
       border-bottom: 1px solid var(--border);
-
       overflow: hidden;
     }
 
     .newsletter-heading {
       margin-bottom: 22px;
-
       color: var(--accent);
-
       text-align: center;
-
       font-size: 11px;
       font-weight: bold;
-
       letter-spacing: 1.8px;
     }
 
     .beehiiv-form-container {
       width: 100%;
       max-width: 760px;
-
       margin: 0 auto;
-
       text-align: center;
     }
 
@@ -811,11 +711,8 @@
 
     footer {
       margin-top: 65px;
-
       padding: 38px 6%;
-
       background: var(--surface);
-
       border-top: 1px solid var(--border);
     }
 
@@ -828,18 +725,14 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-
       gap: 10px 22px;
-
       margin-bottom: 20px;
     }
 
     .footer-links a {
       color: var(--muted);
-
       font-size: 11px;
       font-weight: bold;
-
       text-decoration: none;
       text-transform: uppercase;
     }
@@ -850,9 +743,7 @@
 
     .footer-copy {
       color: var(--muted);
-
       text-align: center;
-
       font-size: 12px;
     }
 
@@ -1125,20 +1016,12 @@
       Διατροφή
     </a>
 
-    <a href="#latest" data-filter="Γυναικεία Υγεία">
-      Γυναικεία Υγεία
-    </a>
-
     <a href="#latest" data-filter="Εξετάσεις">
       Εξετάσεις
     </a>
 
     <a href="#latest" data-filter="Fact-Checking">
       Fact-Checking
-    </a>
-
-    <a href="#latest" data-filter="Νέα">
-      Νέα
     </a>
 
     <a href="#latest" data-filter="Έρευνα">
@@ -1223,18 +1106,6 @@
 
     </section>
 
-  {% else %}
-
-    <section class="no-posts">
-
-      <h1>BiomedFacts</h1>
-
-      <p>
-        Νέα evidence-based άρθρα έρχονται σύντομα.
-      </p>
-
-    </section>
-
   {% endif %}
 
   <section
@@ -1266,85 +1137,91 @@
 
           {% unless post.path contains "en/_posts" %}
 
-            {% assign is_featured_card = false %}
+            {% assign post_category = post.category | default: "" | strip %}
 
-            {% if featured_post and post.url == featured_post.url %}
-              {% assign is_featured_card = true %}
-            {% endif %}
+            {% unless post_category == "Νέα" or post_category == "Γυναικεία Υγεία" %}
 
-            {% assign hide_home_card = true %}
+              {% assign is_featured_card = false %}
 
-            {% unless is_featured_card %}
-
-              {% if home_card_count < 4 %}
-                {% assign hide_home_card = false %}
-                {% assign home_card_count = home_card_count | plus: 1 %}
+              {% if featured_post and post.url == featured_post.url %}
+                {% assign is_featured_card = true %}
               {% endif %}
 
-            {% endunless %}
+              {% assign hide_home_card = true %}
 
-            <article
-              class="article-card filterable"
-              data-category="{{ post.category | strip | escape }}"
-              data-featured="{% if is_featured_card %}true{% else %}false{% endif %}"
-              {% if hide_home_card %}style="display:none;"{% endif %}
-            >
+              {% unless is_featured_card %}
 
-              {% if post.image %}
+                {% if home_card_count < 4 %}
+                  {% assign hide_home_card = false %}
+                  {% assign home_card_count = home_card_count | plus: 1 %}
+                {% endif %}
 
-                <a href="{{ post.url | relative_url }}">
+              {% endunless %}
 
-                  <img
-                    class="article-card-image"
-                    src="{{ post.image | relative_url }}"
-                    alt="{{ post.title | escape }}"
-                    loading="lazy"
+              <article
+                class="article-card filterable"
+                data-category="{{ post.category | strip | escape }}"
+                data-featured="{% if is_featured_card %}true{% else %}false{% endif %}"
+                {% if hide_home_card %}style="display:none;"{% endif %}
+              >
+
+                {% if post.image %}
+
+                  <a href="{{ post.url | relative_url }}">
+
+                    <img
+                      class="article-card-image"
+                      src="{{ post.image | relative_url }}"
+                      alt="{{ post.title | escape }}"
+                      loading="lazy"
+                    >
+
+                  </a>
+
+                {% endif %}
+
+                <div class="article-card-meta">
+
+                  <span class="article-card-category">
+                    {{ post.category }}
+                  </span>
+
+                  <span class="article-card-date">
+                    {{ post.date | date: "%d/%m/%Y" }}
+                  </span>
+
+                </div>
+
+                <h2>
+
+                  <a href="{{ post.url | relative_url }}">
+                    {{ post.title }}
+                  </a>
+
+                </h2>
+
+                {% if post.excerpt %}
+
+                  <p class="article-card-excerpt">
+                    {{ post.excerpt | strip_html }}
+                  </p>
+
+                {% endif %}
+
+                <p class="article-card-author">
+
+                  <a
+                    href="{{ '/author/' | relative_url }}"
+                    rel="author"
                   >
+                    Δήμητρα Μουρκόγιαννη, BSc (Hons) Biomedical Science
+                  </a>
 
-                </a>
-
-              {% endif %}
-
-              <div class="article-card-meta">
-
-                <span class="article-card-category">
-                  {{ post.category }}
-                </span>
-
-                <span class="article-card-date">
-                  {{ post.date | date: "%d/%m/%Y" }}
-                </span>
-
-              </div>
-
-              <h2>
-
-                <a href="{{ post.url | relative_url }}">
-                  {{ post.title }}
-                </a>
-
-              </h2>
-
-              {% if post.excerpt %}
-
-                <p class="article-card-excerpt">
-                  {{ post.excerpt | strip_html }}
                 </p>
 
-              {% endif %}
+              </article>
 
-              <p class="article-card-author">
-
-                <a
-                  href="{{ '/author/' | relative_url }}"
-                  rel="author"
-                >
-                  Δήμητρα Μουρκόγιαννη, BSc (Hons) Biomedical Science
-                </a>
-
-              </p>
-
-            </article>
+            {% endunless %}
 
           {% endunless %}
 
@@ -1372,65 +1249,57 @@
 
           {% unless post.path contains "en/_posts" %}
 
-            {% if featured_post %}
+            {% assign post_category = post.category | default: "" | strip %}
 
-              {% if post.url != featured_post.url %}
+            {% unless post_category == "Νέα" or post_category == "Γυναικεία Υγεία" %}
 
-                {% if skipped < 4 %}
+              {% if featured_post %}
 
-                  {% assign skipped = skipped | plus: 1 %}
+                {% if post.url != featured_post.url %}
 
-                {% elsif read_count < 4 %}
+                  {% if skipped < 4 %}
 
-                  <div class="read-item">
+                    {% assign skipped = skipped | plus: 1 %}
 
-                    <div class="read-number">
-                      0{{ read_count | plus: 1 }}
-                    </div>
+                  {% elsif read_count < 4 %}
 
-                    <div>
+                    <div class="read-item">
 
-                      <h3>
+                      <div class="read-number">
+                        0{{ read_count | plus: 1 }}
+                      </div>
 
-                        <a href="{{ post.url | relative_url }}">
-                          {{ post.title }}
-                        </a>
+                      <div>
 
-                      </h3>
+                        <h3>
 
-                      <div class="read-item-category">
-                        {{ post.category }}
+                          <a href="{{ post.url | relative_url }}">
+                            {{ post.title }}
+                          </a>
+
+                        </h3>
+
+                        <div class="read-item-category">
+                          {{ post.category }}
+                        </div>
+
                       </div>
 
                     </div>
 
-                  </div>
+                    {% assign read_count = read_count | plus: 1 %}
 
-                  {% assign read_count = read_count | plus: 1 %}
+                  {% endif %}
 
                 {% endif %}
 
               {% endif %}
 
-            {% endif %}
+            {% endunless %}
 
           {% endunless %}
 
         {% endfor %}
-
-        {% if read_count == 0 %}
-
-          <p
-            style="
-              color:var(--muted);
-              font-size:13px;
-              padding-top:5px;
-            "
-          >
-            Περισσότερα άρθρα σύντομα.
-          </p>
-
-        {% endif %}
 
       </aside>
 
