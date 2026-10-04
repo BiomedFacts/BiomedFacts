@@ -6,24 +6,18 @@
 
 {% for post in site.posts %}
   {% unless post.path contains "en/_posts" %}
-    {% assign post_category = post.category | default: "" | strip %}
-    {% unless post_category == "Νέα" or post_category == "Γυναικεία Υγεία" %}
-      {% if post.featured == true %}
-        {% assign featured_post = post %}
-        {% break %}
-      {% endif %}
-    {% endunless %}
+    {% if post.featured == true %}
+      {% assign featured_post = post %}
+      {% break %}
+    {% endif %}
   {% endunless %}
 {% endfor %}
 
 {% unless featured_post %}
   {% for post in site.posts %}
     {% unless post.path contains "en/_posts" %}
-      {% assign post_category = post.category | default: "" | strip %}
-      {% unless post_category == "Νέα" or post_category == "Γυναικεία Υγεία" %}
-        {% assign featured_post = post %}
-        {% break %}
-      {% endunless %}
+      {% assign featured_post = post %}
+      {% break %}
     {% endunless %}
   {% endfor %}
 {% endunless %}
@@ -186,6 +180,7 @@
   <!-- THEME -->
 
   <script>
+
     (function () {
 
       const savedTheme =
@@ -207,6 +202,7 @@
       );
 
     })();
+
   </script>
 
   <style>
@@ -250,6 +246,7 @@
       color: var(--text);
       font-family: Arial, sans-serif;
       line-height: 1.6;
+
       transition:
         background 0.25s ease,
         color 0.25s ease;
@@ -324,14 +321,19 @@
     .icon-button {
       width: 44px;
       height: 44px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       background: var(--surface);
       color: var(--text);
+
       border: 1px solid var(--text);
+
       text-decoration: none;
       cursor: pointer;
+
       transition:
         background 0.2s ease,
         color 0.2s ease,
@@ -381,17 +383,22 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+
       gap: 18px 34px;
+
       padding: 18px 0;
+
       border-top: 1px solid var(--soft-border);
     }
 
     nav a {
       color: var(--text);
       text-decoration: none;
+
       font-size: 13px;
       font-weight: bold;
       text-transform: uppercase;
+
       cursor: pointer;
     }
 
@@ -409,11 +416,16 @@
 
     .featured {
       display: grid;
+
       grid-template-columns:
         0.95fr 1.25fr;
+
       gap: 55px;
+
       align-items: center;
+
       padding-bottom: 65px;
+
       border-bottom: 1px solid var(--border);
     }
 
@@ -425,9 +437,12 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+
       gap: 10px;
+
       padding-bottom: 12px;
       margin-bottom: 24px;
+
       border-bottom: 1px solid var(--text);
     }
 
@@ -445,9 +460,12 @@
 
     .featured-title {
       margin-bottom: 20px;
+
       font-family: "Times New Roman", serif;
+
       font-size: 44px;
       font-weight: bold;
+
       line-height: 1.05;
       letter-spacing: -1px;
     }
@@ -463,13 +481,17 @@
 
     .featured-excerpt {
       max-width: 580px;
+
       color: var(--muted);
+
       font-family:
         Georgia,
         "Times New Roman",
         serif;
+
       font-size: 18px;
       line-height: 1.65;
+
       margin-bottom: 22px;
     }
 
@@ -492,9 +514,12 @@
 
     .featured-image {
       display: block;
+
       width: 100%;
       height: 430px;
+
       object-fit: cover;
+
       border: 1px solid var(--text);
     }
 
@@ -507,6 +532,7 @@
     .section-header {
       margin-bottom: 28px;
       padding-bottom: 13px;
+
       border-bottom: 2px solid var(--text);
     }
 
@@ -519,21 +545,22 @@
 
     .content-layout {
       display: grid;
+
       grid-template-columns:
         minmax(0, 2fr)
         minmax(260px, 0.8fr);
-      gap: 55px;
-      align-items: start;
-    }
 
-    .content-layout.category-view {
-      grid-template-columns: 1fr;
+      gap: 55px;
+
+      align-items: start;
     }
 
     .articles-grid {
       display: grid;
+
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
+
       gap: 42px 30px;
     }
 
@@ -544,9 +571,12 @@
 
     .article-card-image {
       display: block;
+
       width: 100%;
       height: 245px;
+
       object-fit: cover;
+
       margin-bottom: 16px;
     }
 
@@ -554,15 +584,20 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+
       gap: 8px;
+
       margin-bottom: 10px;
     }
 
     .article-card-category {
       color: var(--accent);
+
       font-size: 11px;
       font-weight: bold;
+
       letter-spacing: 1.1px;
+
       text-transform: uppercase;
     }
 
@@ -573,8 +608,11 @@
 
     .article-card h2 {
       margin-bottom: 12px;
+
       font-family: "Times New Roman", serif;
+
       font-size: 29px;
+
       line-height: 1.05;
       letter-spacing: -0.6px;
     }
@@ -590,12 +628,15 @@
 
     .article-card-excerpt {
       color: var(--muted);
+
       font-family:
         Georgia,
         "Times New Roman",
         serif;
+
       font-size: 15px;
       line-height: 1.6;
+
       margin-bottom: 13px;
     }
 
@@ -619,48 +660,67 @@
 
     .read-also {
       background: var(--surface);
+
       border-top: 5px solid var(--accent);
+
       padding: 22px;
+
       box-shadow: 8px 8px 0 var(--shadow);
     }
 
     .read-also-label {
       color: var(--accent);
+
       font-size: 11px;
       font-weight: bold;
+
       letter-spacing: 1.4px;
+
       text-transform: uppercase;
     }
 
     .read-also-title {
       margin-top: 7px;
       margin-bottom: 18px;
+
       padding-bottom: 15px;
+
       border-bottom: 1px solid var(--border);
+
       font-family: "Times New Roman", serif;
+
       font-size: 29px;
+
       line-height: 1;
     }
 
     .read-item {
       display: grid;
+
       grid-template-columns:
         46px 1fr;
+
       gap: 12px;
+
       padding: 18px 0;
+
       border-bottom: 1px solid var(--soft-border);
     }
 
     .read-number {
       color: var(--accent);
+
       font-family: "Times New Roman", serif;
+
       font-size: 20px;
       font-weight: bold;
     }
 
     .read-item h3 {
       font-family: "Times New Roman", serif;
+
       font-size: 18px;
+
       line-height: 1.15;
     }
 
@@ -675,8 +735,11 @@
 
     .read-item-category {
       margin-top: 7px;
+
       color: var(--muted);
+
       font-size: 10px;
+
       text-transform: uppercase;
     }
 
@@ -684,26 +747,36 @@
 
     .newsletter {
       margin-top: 75px;
+
       padding: 36px 20px;
+
       background: var(--surface);
+
       border-top: 2px solid var(--text);
       border-bottom: 1px solid var(--border);
+
       overflow: hidden;
     }
 
     .newsletter-heading {
       margin-bottom: 22px;
+
       color: var(--accent);
+
       text-align: center;
+
       font-size: 11px;
       font-weight: bold;
+
       letter-spacing: 1.8px;
     }
 
     .beehiiv-form-container {
       width: 100%;
       max-width: 760px;
+
       margin: 0 auto;
+
       text-align: center;
     }
 
@@ -711,8 +784,11 @@
 
     footer {
       margin-top: 65px;
+
       padding: 38px 6%;
+
       background: var(--surface);
+
       border-top: 1px solid var(--border);
     }
 
@@ -725,14 +801,18 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+
       gap: 10px 22px;
+
       margin-bottom: 20px;
     }
 
     .footer-links a {
       color: var(--muted);
+
       font-size: 11px;
       font-weight: bold;
+
       text-decoration: none;
       text-transform: uppercase;
     }
@@ -743,7 +823,9 @@
 
     .footer-copy {
       color: var(--muted);
+
       text-align: center;
+
       font-size: 12px;
     }
 
@@ -998,33 +1080,32 @@
 
   </div>
 
-  <nav id="category-nav">
+  <nav>
 
     <a
-      href="#latest"
-      data-filter="all"
+      href="{{ '/' | relative_url }}"
       class="active"
     >
       Αρχική
     </a>
 
-    <a href="#latest" data-filter="Υγεία">
+    <a href="{{ '/ygeia/' | relative_url }}">
       Υγεία
     </a>
 
-    <a href="#latest" data-filter="Διατροφή">
+    <a href="{{ '/diatrofi/' | relative_url }}">
       Διατροφή
     </a>
 
-    <a href="#latest" data-filter="Εξετάσεις">
+    <a href="{{ '/exetaseis/' | relative_url }}">
       Εξετάσεις
     </a>
 
-    <a href="#latest" data-filter="Fact-Checking">
+    <a href="{{ '/fact-checking/' | relative_url }}">
       Fact-Checking
     </a>
 
-    <a href="#latest" data-filter="Έρευνα">
+    <a href="{{ '/erevna/' | relative_url }}">
       Έρευνα
     </a>
 
@@ -1036,10 +1117,7 @@
 
   {% if featured_post %}
 
-    <section
-      class="featured"
-      id="featured-section"
-    >
+    <section class="featured">
 
       <div class="featured-content">
 
@@ -1115,19 +1193,13 @@
 
     <div class="section-header">
 
-      <h2
-        class="section-title"
-        id="section-title"
-      >
+      <h2 class="section-title">
         Τελευταία άρθρα
       </h2>
 
     </div>
 
-    <div
-      class="content-layout"
-      id="content-layout"
-    >
+    <div class="content-layout">
 
       <div class="articles-grid">
 
@@ -1137,89 +1209,77 @@
 
           {% unless post.path contains "en/_posts" %}
 
-            {% assign post_category = post.category | default: "" | strip %}
+            {% assign is_featured_card = false %}
 
-            {% unless post_category == "Νέα" or post_category == "Γυναικεία Υγεία" %}
+            {% if featured_post and post.url == featured_post.url %}
+              {% assign is_featured_card = true %}
+            {% endif %}
 
-              {% assign is_featured_card = false %}
+            {% unless is_featured_card %}
 
-              {% if featured_post and post.url == featured_post.url %}
-                {% assign is_featured_card = true %}
-              {% endif %}
+              {% if home_card_count < 4 %}
 
-              {% assign hide_home_card = true %}
+                <article class="article-card">
 
-              {% unless is_featured_card %}
+                  {% if post.image %}
 
-                {% if home_card_count < 4 %}
-                  {% assign hide_home_card = false %}
-                  {% assign home_card_count = home_card_count | plus: 1 %}
-                {% endif %}
+                    <a href="{{ post.url | relative_url }}">
 
-              {% endunless %}
+                      <img
+                        class="article-card-image"
+                        src="{{ post.image | relative_url }}"
+                        alt="{{ post.title | escape }}"
+                        loading="lazy"
+                      >
 
-              <article
-                class="article-card filterable"
-                data-category="{{ post.category | strip | escape }}"
-                data-featured="{% if is_featured_card %}true{% else %}false{% endif %}"
-                {% if hide_home_card %}style="display:none;"{% endif %}
-              >
+                    </a>
 
-                {% if post.image %}
+                  {% endif %}
 
-                  <a href="{{ post.url | relative_url }}">
+                  <div class="article-card-meta">
 
-                    <img
-                      class="article-card-image"
-                      src="{{ post.image | relative_url }}"
-                      alt="{{ post.title | escape }}"
-                      loading="lazy"
+                    <span class="article-card-category">
+                      {{ post.category }}
+                    </span>
+
+                    <span class="article-card-date">
+                      {{ post.date | date: "%d/%m/%Y" }}
+                    </span>
+
+                  </div>
+
+                  <h2>
+
+                    <a href="{{ post.url | relative_url }}">
+                      {{ post.title }}
+                    </a>
+
+                  </h2>
+
+                  {% if post.excerpt %}
+
+                    <p class="article-card-excerpt">
+                      {{ post.excerpt | strip_html }}
+                    </p>
+
+                  {% endif %}
+
+                  <p class="article-card-author">
+
+                    <a
+                      href="{{ '/author/' | relative_url }}"
+                      rel="author"
                     >
+                      Δήμητρα Μουρκόγιαννη, BSc (Hons) Biomedical Science
+                    </a>
 
-                  </a>
-
-                {% endif %}
-
-                <div class="article-card-meta">
-
-                  <span class="article-card-category">
-                    {{ post.category }}
-                  </span>
-
-                  <span class="article-card-date">
-                    {{ post.date | date: "%d/%m/%Y" }}
-                  </span>
-
-                </div>
-
-                <h2>
-
-                  <a href="{{ post.url | relative_url }}">
-                    {{ post.title }}
-                  </a>
-
-                </h2>
-
-                {% if post.excerpt %}
-
-                  <p class="article-card-excerpt">
-                    {{ post.excerpt | strip_html }}
                   </p>
 
-                {% endif %}
+                </article>
 
-                <p class="article-card-author">
+                {% assign home_card_count = home_card_count | plus: 1 %}
 
-                  <a
-                    href="{{ '/author/' | relative_url }}"
-                    rel="author"
-                  >
-                    Δήμητρα Μουρκόγιαννη, BSc (Hons) Biomedical Science
-                  </a>
-
-                </p>
-
-              </article>
+              {% endif %}
 
             {% endunless %}
 
@@ -1229,10 +1289,7 @@
 
       </div>
 
-      <aside
-        class="read-also"
-        id="read-also"
-      >
+      <aside class="read-also">
 
         <div class="read-also-label">
           BIOMEDFACTS
@@ -1249,53 +1306,47 @@
 
           {% unless post.path contains "en/_posts" %}
 
-            {% assign post_category = post.category | default: "" | strip %}
+            {% if featured_post %}
 
-            {% unless post_category == "Νέα" or post_category == "Γυναικεία Υγεία" %}
+              {% if post.url != featured_post.url %}
 
-              {% if featured_post %}
+                {% if skipped < 4 %}
 
-                {% if post.url != featured_post.url %}
+                  {% assign skipped = skipped | plus: 1 %}
 
-                  {% if skipped < 4 %}
+                {% elsif read_count < 4 %}
 
-                    {% assign skipped = skipped | plus: 1 %}
+                  <div class="read-item">
 
-                  {% elsif read_count < 4 %}
+                    <div class="read-number">
+                      0{{ read_count | plus: 1 }}
+                    </div>
 
-                    <div class="read-item">
+                    <div>
 
-                      <div class="read-number">
-                        0{{ read_count | plus: 1 }}
-                      </div>
+                      <h3>
 
-                      <div>
+                        <a href="{{ post.url | relative_url }}">
+                          {{ post.title }}
+                        </a>
 
-                        <h3>
+                      </h3>
 
-                          <a href="{{ post.url | relative_url }}">
-                            {{ post.title }}
-                          </a>
-
-                        </h3>
-
-                        <div class="read-item-category">
-                          {{ post.category }}
-                        </div>
-
+                      <div class="read-item-category">
+                        {{ post.category }}
                       </div>
 
                     </div>
 
-                    {% assign read_count = read_count | plus: 1 %}
+                  </div>
 
-                  {% endif %}
+                  {% assign read_count = read_count | plus: 1 %}
 
                 {% endif %}
 
               {% endif %}
 
-            {% endunless %}
+            {% endif %}
 
           {% endunless %}
 
@@ -1363,15 +1414,9 @@
 
 </footer>
 
-<!-- ANALYTICS CONSENT -->
-
 <script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
 
 <script>
-
-  /*
-    LANGUAGE
-  */
 
   const languageLinks =
     document.querySelectorAll(
@@ -1393,10 +1438,6 @@
     );
 
   });
-
-  /*
-    THEME
-  */
 
   const themeToggle =
     document.getElementById(
@@ -1431,193 +1472,6 @@
 
     }
   );
-
-  /*
-    CATEGORY FILTER
-  */
-
-  const categoryLinks =
-    document.querySelectorAll(
-      "#category-nav a"
-    );
-
-  const articleCards =
-    Array.from(
-      document.querySelectorAll(
-        ".article-card.filterable"
-      )
-    );
-
-  const sectionTitle =
-    document.getElementById(
-      "section-title"
-    );
-
-  const featuredSection =
-    document.getElementById(
-      "featured-section"
-    );
-
-  const readAlso =
-    document.getElementById(
-      "read-also"
-    );
-
-  const contentLayout =
-    document.getElementById(
-      "content-layout"
-    );
-
-  /*
-    ΑΡΧΙΚΗ:
-    featured + 4 πιο πρόσφατα άρθρα.
-  */
-
-  function showHomepage() {
-
-    let visibleCards = 0;
-
-    articleCards.forEach(card => {
-
-      const isFeatured =
-        card.dataset.featured === "true";
-
-      if (
-        !isFeatured &&
-        visibleCards < 4
-      ) {
-
-        card.style.display = "";
-        visibleCards++;
-
-      } else {
-
-        card.style.display = "none";
-
-      }
-
-    });
-
-    if (featuredSection) {
-      featuredSection.style.display = "";
-    }
-
-    if (readAlso) {
-      readAlso.style.display = "";
-    }
-
-    if (contentLayout) {
-      contentLayout.classList.remove(
-        "category-view"
-      );
-    }
-
-    sectionTitle.textContent =
-      "Τελευταία άρθρα";
-
-  }
-
-  /*
-    ΚΑΤΗΓΟΡΙΑ:
-    Εμφανίζει ΟΛΑ τα άρθρα της κατηγορίας.
-  */
-
-  function showCategory(category) {
-
-    articleCards.forEach(card => {
-
-      const articleCategory =
-        card.dataset.category;
-
-      if (
-        articleCategory === category
-      ) {
-
-        card.style.display = "";
-
-      } else {
-
-        card.style.display = "none";
-
-      }
-
-    });
-
-    if (featuredSection) {
-      featuredSection.style.display =
-        "none";
-    }
-
-    if (readAlso) {
-      readAlso.style.display =
-        "none";
-    }
-
-    if (contentLayout) {
-
-      contentLayout.classList.add(
-        "category-view"
-      );
-
-    }
-
-    sectionTitle.textContent =
-      category;
-
-  }
-
-  /*
-    NAVIGATION
-  */
-
-  categoryLinks.forEach(link => {
-
-    link.addEventListener(
-      "click",
-      function(event) {
-
-        event.preventDefault();
-
-        const category =
-          this.dataset.filter;
-
-        categoryLinks.forEach(item => {
-
-          item.classList.remove(
-            "active"
-          );
-
-        });
-
-        this.classList.add(
-          "active"
-        );
-
-        if (category === "all") {
-
-          showHomepage();
-
-        } else {
-
-          showCategory(
-            category
-          );
-
-        }
-
-        document
-          .getElementById("latest")
-          .scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-      }
-    );
-
-  });
-
-  showHomepage();
 
 </script>
 
