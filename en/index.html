@@ -6,18 +6,24 @@
 
 {% for post in site.posts %}
   {% if post.path contains "en/_posts" %}
-    {% if post.featured == true %}
-      {% assign featured_post = post %}
-      {% break %}
-    {% endif %}
+    {% assign post_category = post.category | default: "" | strip %}
+    {% unless post_category == "News" or post_category == "Women's Health" %}
+      {% if post.featured == true %}
+        {% assign featured_post = post %}
+        {% break %}
+      {% endif %}
+    {% endunless %}
   {% endif %}
 {% endfor %}
 
 {% unless featured_post %}
   {% for post in site.posts %}
     {% if post.path contains "en/_posts" %}
-      {% assign featured_post = post %}
-      {% break %}
+      {% assign post_category = post.category | default: "" | strip %}
+      {% unless post_category == "News" or post_category == "Women's Health" %}
+        {% assign featured_post = post %}
+        {% break %}
+      {% endunless %}
     {% endif %}
   {% endfor %}
 {% endunless %}
@@ -769,29 +775,6 @@
       text-transform: uppercase;
     }
 
-    /* NO POSTS */
-
-    .no-posts {
-      padding: 55px 0;
-
-      text-align: center;
-
-      border-top: 2px solid var(--text);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .no-posts h1 {
-      margin-bottom: 10px;
-
-      font-family: "Times New Roman", serif;
-
-      font-size: 36px;
-    }
-
-    .no-posts p {
-      color: var(--muted);
-    }
-
     /* NEWSLETTER */
 
     .newsletter {
@@ -1147,20 +1130,12 @@
       Nutrition
     </a>
 
-    <a href="#latest" data-filter="Women's Health">
-      Women's Health
-    </a>
-
     <a href="#latest" data-filter="Lab Tests">
       Lab Tests
     </a>
 
     <a href="#latest" data-filter="Fact-Checking">
       Fact-Checking
-    </a>
-
-    <a href="#latest" data-filter="News">
-      News
     </a>
 
     <a href="#latest" data-filter="Research">
@@ -1245,18 +1220,6 @@
 
     </section>
 
-  {% else %}
-
-    <section class="no-posts">
-
-      <h1>BiomedFacts</h1>
-
-      <p>
-        New evidence-based articles are coming soon.
-      </p>
-
-    </section>
-
   {% endif %}
 
   <section
@@ -1288,90 +1251,96 @@
 
           {% if post.path contains "en/_posts" %}
 
-            {% assign is_featured_card = false %}
+            {% assign post_category = post.category | default: "" | strip %}
 
-            {% if featured_post and post.url == featured_post.url %}
-              {% assign is_featured_card = true %}
-            {% endif %}
+            {% unless post_category == "News" or post_category == "Women's Health" %}
 
-            {% assign hide_home_card = true %}
+              {% assign is_featured_card = false %}
 
-            {% unless is_featured_card %}
-
-              {% if home_card_count < 4 %}
-
-                {% assign hide_home_card = false %}
-
-                {% assign home_card_count =
-                  home_card_count | plus: 1
-                %}
-
+              {% if featured_post and post.url == featured_post.url %}
+                {% assign is_featured_card = true %}
               {% endif %}
 
-            {% endunless %}
+              {% assign hide_home_card = true %}
 
-            <article
-              class="article-card filterable"
-              data-category="{{ post.category | strip | escape }}"
-              data-featured="{% if is_featured_card %}true{% else %}false{% endif %}"
-              {% if hide_home_card %}style="display:none;"{% endif %}
-            >
+              {% unless is_featured_card %}
 
-              {% if post.image %}
+                {% if home_card_count < 4 %}
 
-                <a href="{{ post.url | relative_url }}">
+                  {% assign hide_home_card = false %}
 
-                  <img
-                    class="article-card-image"
-                    src="{{ post.image | relative_url }}"
-                    alt="{{ post.title | escape }}"
-                    loading="lazy"
+                  {% assign home_card_count =
+                    home_card_count | plus: 1
+                  %}
+
+                {% endif %}
+
+              {% endunless %}
+
+              <article
+                class="article-card filterable"
+                data-category="{{ post.category | strip | escape }}"
+                data-featured="{% if is_featured_card %}true{% else %}false{% endif %}"
+                {% if hide_home_card %}style="display:none;"{% endif %}
+              >
+
+                {% if post.image %}
+
+                  <a href="{{ post.url | relative_url }}">
+
+                    <img
+                      class="article-card-image"
+                      src="{{ post.image | relative_url }}"
+                      alt="{{ post.title | escape }}"
+                      loading="lazy"
+                    >
+
+                  </a>
+
+                {% endif %}
+
+                <div class="article-card-meta">
+
+                  <span class="article-card-category">
+                    {{ post.category }}
+                  </span>
+
+                  <span class="article-card-date">
+                    {{ post.date | date: "%d/%m/%Y" }}
+                  </span>
+
+                </div>
+
+                <h2>
+
+                  <a href="{{ post.url | relative_url }}">
+                    {{ post.title }}
+                  </a>
+
+                </h2>
+
+                {% if post.excerpt %}
+
+                  <p class="article-card-excerpt">
+                    {{ post.excerpt | strip_html }}
+                  </p>
+
+                {% endif %}
+
+                <p class="article-card-author">
+
+                  <a
+                    href="{{ '/en/author/' | relative_url }}"
+                    rel="author"
                   >
+                    Dimitra Mourkogianni, BSc (Hons) Biomedical Science
+                  </a>
 
-                </a>
-
-              {% endif %}
-
-              <div class="article-card-meta">
-
-                <span class="article-card-category">
-                  {{ post.category }}
-                </span>
-
-                <span class="article-card-date">
-                  {{ post.date | date: "%d/%m/%Y" }}
-                </span>
-
-              </div>
-
-              <h2>
-
-                <a href="{{ post.url | relative_url }}">
-                  {{ post.title }}
-                </a>
-
-              </h2>
-
-              {% if post.excerpt %}
-
-                <p class="article-card-excerpt">
-                  {{ post.excerpt | strip_html }}
                 </p>
 
-              {% endif %}
+              </article>
 
-              <p class="article-card-author">
-
-                <a
-                  href="{{ '/en/author/' | relative_url }}"
-                  rel="author"
-                >
-                  Dimitra Mourkogianni, BSc (Hons) Biomedical Science
-                </a>
-
-              </p>
-
-            </article>
+            {% endunless %}
 
           {% endif %}
 
@@ -1399,69 +1368,61 @@
 
           {% if post.path contains "en/_posts" %}
 
-            {% if featured_post %}
+            {% assign post_category = post.category | default: "" | strip %}
 
-              {% if post.url != featured_post.url %}
+            {% unless post_category == "News" or post_category == "Women's Health" %}
 
-                {% if skipped < 4 %}
+              {% if featured_post %}
 
-                  {% assign skipped =
-                    skipped | plus: 1
-                  %}
+                {% if post.url != featured_post.url %}
 
-                {% elsif read_count < 4 %}
+                  {% if skipped < 4 %}
 
-                  <div class="read-item">
+                    {% assign skipped =
+                      skipped | plus: 1
+                    %}
 
-                    <div class="read-number">
-                      0{{ read_count | plus: 1 }}
-                    </div>
+                  {% elsif read_count < 4 %}
 
-                    <div>
+                    <div class="read-item">
 
-                      <h3>
+                      <div class="read-number">
+                        0{{ read_count | plus: 1 }}
+                      </div>
 
-                        <a href="{{ post.url | relative_url }}">
-                          {{ post.title }}
-                        </a>
+                      <div>
 
-                      </h3>
+                        <h3>
 
-                      <div class="read-item-category">
-                        {{ post.category }}
+                          <a href="{{ post.url | relative_url }}">
+                            {{ post.title }}
+                          </a>
+
+                        </h3>
+
+                        <div class="read-item-category">
+                          {{ post.category }}
+                        </div>
+
                       </div>
 
                     </div>
 
-                  </div>
+                    {% assign read_count =
+                      read_count | plus: 1
+                    %}
 
-                  {% assign read_count =
-                    read_count | plus: 1
-                  %}
+                  {% endif %}
 
                 {% endif %}
 
               {% endif %}
 
-            {% endif %}
+            {% endunless %}
 
           {% endif %}
 
         {% endfor %}
-
-        {% if read_count == 0 %}
-
-          <p
-            style="
-              color:var(--muted);
-              font-size:13px;
-              padding-top:5px;
-            "
-          >
-            More articles coming soon.
-          </p>
-
-        {% endif %}
 
       </aside>
 
