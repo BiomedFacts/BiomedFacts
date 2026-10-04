@@ -36,21 +36,28 @@
 {% endif %}
 
 {% if is_english %}
+
   {% if page.translation_url %}
     {% assign greek_url = translation_absolute %}
   {% else %}
     {% assign greek_url = "/" | absolute_url %}
   {% endif %}
+
   {% assign english_url = canonical_url %}
   {% assign x_default_url = greek_url %}
+
 {% else %}
+
   {% assign greek_url = canonical_url %}
+
   {% if page.translation_url %}
     {% assign english_url = translation_absolute %}
   {% else %}
     {% assign english_url = "/en/" | absolute_url %}
   {% endif %}
+
   {% assign x_default_url = canonical_url %}
+
 {% endif %}
 
 <!DOCTYPE html>
@@ -421,12 +428,16 @@
     .icon-button {
       width: 44px;
       height: 44px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       background: var(--surface);
       color: var(--text);
+
       border: 1px solid var(--text);
+
       text-decoration: none;
       cursor: pointer;
 
@@ -531,7 +542,12 @@
       padding: 26px 28px;
       background: var(--soft-accent);
       border-left: 4px solid var(--accent);
-      font-family: Georgia, "Times New Roman", serif;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       font-size: 20px;
       font-weight: bold;
       line-height: 1.65;
@@ -540,7 +556,12 @@
     .page-body {
       max-width: 780px;
       margin: 0 auto;
-      font-family: Georgia, "Times New Roman", serif;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       font-size: 18px;
       line-height: 1.8;
     }
@@ -553,6 +574,7 @@
       margin-top: 48px;
       margin-bottom: 18px;
       padding-top: 10px;
+
       font-family: "Times New Roman", serif;
       font-size: 31px;
       line-height: 1.15;
@@ -562,6 +584,7 @@
     .page-body h3 {
       margin-top: 35px;
       margin-bottom: 15px;
+
       font-family: "Times New Roman", serif;
       font-size: 24px;
       line-height: 1.2;
@@ -616,16 +639,21 @@
       width: min(920px, 88%);
       margin: 75px auto 0;
       padding: 32px 20px;
+
       background: var(--surface);
+
       border-top: 2px solid var(--text);
       border-bottom: 1px solid var(--border);
+
       text-align: center;
       overflow: hidden;
     }
 
     .newsletter-label {
       margin-bottom: 18px;
+
       color: var(--accent);
+
       font-size: 11px;
       font-weight: bold;
       letter-spacing: 1.8px;
@@ -634,6 +662,7 @@
     .beehiiv-form-container {
       width: 100%;
       max-width: 760px;
+
       margin: 0 auto;
       text-align: center;
     }
@@ -641,7 +670,9 @@
     footer {
       margin-top: 65px;
       padding: 38px 6%;
+
       background: var(--surface);
+
       border-top: 1px solid var(--border);
     }
 
@@ -654,14 +685,17 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+
       gap: 10px 22px;
       margin-bottom: 20px;
     }
 
     .footer-links a {
       color: var(--muted);
+
       font-size: 11px;
       font-weight: bold;
+
       text-decoration: none;
       text-transform: uppercase;
     }
@@ -888,11 +922,19 @@
         title="Light / Dark mode"
       >
 
-        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <svg
+          class="moon-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
         </svg>
 
-        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <svg
+          class="sun-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <circle cx="12" cy="12" r="4"></circle>
           <path d="M12 2v2"></path>
           <path d="M12 20v2"></path>
@@ -915,7 +957,10 @@
         title="Instagram"
       >
 
-        <svg viewBox="0 0 24 24" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
 
           <path
             d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
@@ -933,14 +978,29 @@
 
     <nav>
 
-      <a href="{{ '/en/' | relative_url }}">Home</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Health</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Nutrition</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Women's Health</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Lab Tests</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Fact-Checking</a>
-      <a href="{{ '/en/' | relative_url }}#latest">News</a>
-      <a href="{{ '/en/' | relative_url }}#latest">Research</a>
+      <a href="{{ '/en/' | relative_url }}">
+        Home
+      </a>
+
+      <a href="{{ '/en/health/' | relative_url }}">
+        Health
+      </a>
+
+      <a href="{{ '/en/nutrition/' | relative_url }}">
+        Nutrition
+      </a>
+
+      <a href="{{ '/en/lab-tests/' | relative_url }}">
+        Lab Tests
+      </a>
+
+      <a href="{{ '/en/fact-checking/' | relative_url }}">
+        Fact-Checking
+      </a>
+
+      <a href="{{ '/en/research/' | relative_url }}">
+        Research
+      </a>
 
     </nav>
 
@@ -948,14 +1008,29 @@
 
     <nav>
 
-      <a href="{{ '/' | relative_url }}">Αρχική</a>
-      <a href="{{ '/' | relative_url }}#latest">Υγεία</a>
-      <a href="{{ '/' | relative_url }}#latest">Διατροφή</a>
-      <a href="{{ '/' | relative_url }}#latest">Γυναικεία Υγεία</a>
-      <a href="{{ '/' | relative_url }}#latest">Εξετάσεις</a>
-      <a href="{{ '/' | relative_url }}#latest">Fact-Checking</a>
-      <a href="{{ '/' | relative_url }}#latest">Νέα</a>
-      <a href="{{ '/' | relative_url }}#latest">Έρευνα</a>
+      <a href="{{ '/' | relative_url }}">
+        Αρχική
+      </a>
+
+      <a href="{{ '/ygeia/' | relative_url }}">
+        Υγεία
+      </a>
+
+      <a href="{{ '/diatrofi/' | relative_url }}">
+        Διατροφή
+      </a>
+
+      <a href="{{ '/exetaseis/' | relative_url }}">
+        Εξετάσεις
+      </a>
+
+      <a href="{{ '/fact-checking/' | relative_url }}">
+        Fact-Checking
+      </a>
+
+      <a href="{{ '/erevna/' | relative_url }}">
+        Έρευνα
+      </a>
 
     </nav>
 
