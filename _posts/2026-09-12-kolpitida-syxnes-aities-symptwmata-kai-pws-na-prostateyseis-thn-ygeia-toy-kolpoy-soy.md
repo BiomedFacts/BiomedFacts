@@ -2,7 +2,7 @@
 title: "Κολπίτιδα: Συχνές αιτίες, συμπτώματα και πώς να προστατεύσεις την υγεία
   του κόλπου σου"
 date: 2026-09-12
-category: Γυναικεία Υγεία
+category: Υγεία
 translation_key: Vagina-001
 image: /assets/images/womens-health-vaginitis.jpg
 excerpt: >
