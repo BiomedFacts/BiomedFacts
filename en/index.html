@@ -6,24 +6,18 @@
 
 {% for post in site.posts %}
   {% if post.path contains "en/_posts" %}
-    {% assign post_category = post.category | default: "" | strip %}
-    {% unless post_category == "News" or post_category == "Women's Health" %}
-      {% if post.featured == true %}
-        {% assign featured_post = post %}
-        {% break %}
-      {% endif %}
-    {% endunless %}
+    {% if post.featured == true %}
+      {% assign featured_post = post %}
+      {% break %}
+    {% endif %}
   {% endif %}
 {% endfor %}
 
 {% unless featured_post %}
   {% for post in site.posts %}
     {% if post.path contains "en/_posts" %}
-      {% assign post_category = post.category | default: "" | strip %}
-      {% unless post_category == "News" or post_category == "Women's Health" %}
-        {% assign featured_post = post %}
-        {% break %}
-      {% endunless %}
+      {% assign featured_post = post %}
+      {% break %}
     {% endif %}
   {% endfor %}
 {% endunless %}
@@ -57,11 +51,11 @@
 
   <!-- SEO -->
 
-  <title>BiomedFacts | Evidence-Based Health & Biomedical Science</title>
+  <title>BiomedFacts | Health, Science & Fact-Checking</title>
 
   <meta
     name="description"
-    content="Evidence-based health information, biomedical science, nutrition, laboratory testing, research and fact-checking of health claims."
+    content="Evidence-based articles on health, biomedical science, nutrition, laboratory tests, research, and scientific fact-checking."
   >
 
   <meta
@@ -97,20 +91,16 @@
   <!-- OPEN GRAPH -->
 
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BiomedFacts">
 
   <meta
-    property="og:site_name"
+    property="og:title"
     content="BiomedFacts"
   >
 
   <meta
-    property="og:title"
-    content="BiomedFacts | Evidence-Based Health & Biomedical Science"
-  >
-
-  <meta
     property="og:description"
-    content="Evidence-based health information, biomedical science, nutrition, laboratory testing, research and fact-checking."
+    content="Evidence-based health and biomedical science communication."
   >
 
   <meta
@@ -128,25 +118,10 @@
     content="BiomedFacts — Evidence-based science communication"
   >
 
-  <meta
-    property="og:image:width"
-    content="1200"
-  >
-
-  <meta
-    property="og:image:height"
-    content="630"
-  >
-
-  <meta
-    property="og:locale"
-    content="en_US"
-  >
-
-  <meta
-    property="og:locale:alternate"
-    content="el_GR"
-  >
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="el_GR">
 
   <!-- SOCIAL -->
 
@@ -157,12 +132,12 @@
 
   <meta
     name="twitter:title"
-    content="BiomedFacts | Evidence-Based Health & Biomedical Science"
+    content="BiomedFacts"
   >
 
   <meta
     name="twitter:description"
-    content="Evidence-based health information, biomedical science, research and fact-checking."
+    content="Evidence-based health and biomedical science communication."
   >
 
   <meta
@@ -209,9 +184,7 @@
     (function () {
 
       const savedTheme =
-        localStorage.getItem(
-          "biomedfacts-theme"
-        );
+        localStorage.getItem("biomedfacts-theme");
 
       const prefersDark =
         window.matchMedia &&
@@ -223,11 +196,10 @@
         savedTheme ||
         (prefersDark ? "dark" : "light");
 
-      document.documentElement
-        .setAttribute(
-          "data-theme",
-          theme
-        );
+      document.documentElement.setAttribute(
+        "data-theme",
+        theme
+      );
 
     })();
 
@@ -581,10 +553,6 @@
       gap: 55px;
 
       align-items: start;
-    }
-
-    .content-layout.category-view {
-      grid-template-columns: 1fr;
     }
 
     .articles-grid {
@@ -1112,33 +1080,32 @@
 
   </div>
 
-  <nav id="category-nav">
+  <nav>
 
     <a
-      href="#latest"
-      data-filter="all"
+      href="{{ '/en/' | relative_url }}"
       class="active"
     >
       Home
     </a>
 
-    <a href="#latest" data-filter="Health">
+    <a href="{{ '/en/health/' | relative_url }}">
       Health
     </a>
 
-    <a href="#latest" data-filter="Nutrition">
+    <a href="{{ '/en/nutrition/' | relative_url }}">
       Nutrition
     </a>
 
-    <a href="#latest" data-filter="Lab Tests">
+    <a href="{{ '/en/lab-tests/' | relative_url }}">
       Lab Tests
     </a>
 
-    <a href="#latest" data-filter="Fact-Checking">
+    <a href="{{ '/en/fact-checking/' | relative_url }}">
       Fact-Checking
     </a>
 
-    <a href="#latest" data-filter="Research">
+    <a href="{{ '/en/research/' | relative_url }}">
       Research
     </a>
 
@@ -1150,10 +1117,7 @@
 
   {% if featured_post %}
 
-    <section
-      class="featured"
-      id="featured-section"
-    >
+    <section class="featured">
 
       <div class="featured-content">
 
@@ -1229,19 +1193,13 @@
 
     <div class="section-header">
 
-      <h2
-        class="section-title"
-        id="section-title"
-      >
+      <h2 class="section-title">
         Latest articles
       </h2>
 
     </div>
 
-    <div
-      class="content-layout"
-      id="content-layout"
-    >
+    <div class="content-layout">
 
       <div class="articles-grid">
 
@@ -1251,94 +1209,77 @@
 
           {% if post.path contains "en/_posts" %}
 
-            {% assign post_category = post.category | default: "" | strip %}
+            {% assign is_featured_card = false %}
 
-            {% unless post_category == "News" or post_category == "Women's Health" %}
+            {% if featured_post and post.url == featured_post.url %}
+              {% assign is_featured_card = true %}
+            {% endif %}
 
-              {% assign is_featured_card = false %}
+            {% unless is_featured_card %}
 
-              {% if featured_post and post.url == featured_post.url %}
-                {% assign is_featured_card = true %}
-              {% endif %}
+              {% if home_card_count < 4 %}
 
-              {% assign hide_home_card = true %}
+                <article class="article-card">
 
-              {% unless is_featured_card %}
+                  {% if post.image %}
 
-                {% if home_card_count < 4 %}
+                    <a href="{{ post.url | relative_url }}">
 
-                  {% assign hide_home_card = false %}
+                      <img
+                        class="article-card-image"
+                        src="{{ post.image | relative_url }}"
+                        alt="{{ post.title | escape }}"
+                        loading="lazy"
+                      >
 
-                  {% assign home_card_count =
-                    home_card_count | plus: 1
-                  %}
+                    </a>
 
-                {% endif %}
+                  {% endif %}
 
-              {% endunless %}
+                  <div class="article-card-meta">
 
-              <article
-                class="article-card filterable"
-                data-category="{{ post.category | strip | escape }}"
-                data-featured="{% if is_featured_card %}true{% else %}false{% endif %}"
-                {% if hide_home_card %}style="display:none;"{% endif %}
-              >
+                    <span class="article-card-category">
+                      {{ post.category }}
+                    </span>
 
-                {% if post.image %}
+                    <span class="article-card-date">
+                      {{ post.date | date: "%d/%m/%Y" }}
+                    </span>
 
-                  <a href="{{ post.url | relative_url }}">
+                  </div>
 
-                    <img
-                      class="article-card-image"
-                      src="{{ post.image | relative_url }}"
-                      alt="{{ post.title | escape }}"
-                      loading="lazy"
+                  <h2>
+
+                    <a href="{{ post.url | relative_url }}">
+                      {{ post.title }}
+                    </a>
+
+                  </h2>
+
+                  {% if post.excerpt %}
+
+                    <p class="article-card-excerpt">
+                      {{ post.excerpt | strip_html }}
+                    </p>
+
+                  {% endif %}
+
+                  <p class="article-card-author">
+
+                    <a
+                      href="{{ '/en/author/' | relative_url }}"
+                      rel="author"
                     >
+                      Dimitra Mourkogianni, BSc (Hons) Biomedical Science
+                    </a>
 
-                  </a>
-
-                {% endif %}
-
-                <div class="article-card-meta">
-
-                  <span class="article-card-category">
-                    {{ post.category }}
-                  </span>
-
-                  <span class="article-card-date">
-                    {{ post.date | date: "%d/%m/%Y" }}
-                  </span>
-
-                </div>
-
-                <h2>
-
-                  <a href="{{ post.url | relative_url }}">
-                    {{ post.title }}
-                  </a>
-
-                </h2>
-
-                {% if post.excerpt %}
-
-                  <p class="article-card-excerpt">
-                    {{ post.excerpt | strip_html }}
                   </p>
 
-                {% endif %}
+                </article>
 
-                <p class="article-card-author">
+                {% assign home_card_count = home_card_count | plus: 1 %}
 
-                  <a
-                    href="{{ '/en/author/' | relative_url }}"
-                    rel="author"
-                  >
-                    Dimitra Mourkogianni, BSc (Hons) Biomedical Science
-                  </a>
-
-                </p>
-
-              </article>
+              {% endif %}
 
             {% endunless %}
 
@@ -1348,10 +1289,7 @@
 
       </div>
 
-      <aside
-        class="read-also"
-        id="read-also"
-      >
+      <aside class="read-also">
 
         <div class="read-also-label">
           BIOMEDFACTS
@@ -1368,57 +1306,47 @@
 
           {% if post.path contains "en/_posts" %}
 
-            {% assign post_category = post.category | default: "" | strip %}
+            {% if featured_post %}
 
-            {% unless post_category == "News" or post_category == "Women's Health" %}
+              {% if post.url != featured_post.url %}
 
-              {% if featured_post %}
+                {% if skipped < 4 %}
 
-                {% if post.url != featured_post.url %}
+                  {% assign skipped = skipped | plus: 1 %}
 
-                  {% if skipped < 4 %}
+                {% elsif read_count < 4 %}
 
-                    {% assign skipped =
-                      skipped | plus: 1
-                    %}
+                  <div class="read-item">
 
-                  {% elsif read_count < 4 %}
+                    <div class="read-number">
+                      0{{ read_count | plus: 1 }}
+                    </div>
 
-                    <div class="read-item">
+                    <div>
 
-                      <div class="read-number">
-                        0{{ read_count | plus: 1 }}
-                      </div>
+                      <h3>
 
-                      <div>
+                        <a href="{{ post.url | relative_url }}">
+                          {{ post.title }}
+                        </a>
 
-                        <h3>
+                      </h3>
 
-                          <a href="{{ post.url | relative_url }}">
-                            {{ post.title }}
-                          </a>
-
-                        </h3>
-
-                        <div class="read-item-category">
-                          {{ post.category }}
-                        </div>
-
+                      <div class="read-item-category">
+                        {{ post.category }}
                       </div>
 
                     </div>
 
-                    {% assign read_count =
-                      read_count | plus: 1
-                    %}
+                  </div>
 
-                  {% endif %}
+                  {% assign read_count = read_count | plus: 1 %}
 
                 {% endif %}
 
               {% endif %}
 
-            {% endunless %}
+            {% endif %}
 
           {% endif %}
 
@@ -1486,15 +1414,9 @@
 
 </footer>
 
-<!-- ANALYTICS CONSENT -->
-
 <script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
 
 <script>
-
-  /*
-    LANGUAGE
-  */
 
   const languageLinks =
     document.querySelectorAll(
@@ -1516,10 +1438,6 @@
     );
 
   });
-
-  /*
-    THEME
-  */
 
   const themeToggle =
     document.getElementById(
@@ -1554,205 +1472,6 @@
 
     }
   );
-
-  /*
-    CATEGORY FILTER
-  */
-
-  const categoryLinks =
-    document.querySelectorAll(
-      "#category-nav a"
-    );
-
-  const articleCards =
-    Array.from(
-      document.querySelectorAll(
-        ".article-card.filterable"
-      )
-    );
-
-  const sectionTitle =
-    document.getElementById(
-      "section-title"
-    );
-
-  const featuredSection =
-    document.getElementById(
-      "featured-section"
-    );
-
-  const readAlso =
-    document.getElementById(
-      "read-also"
-    );
-
-  const contentLayout =
-    document.getElementById(
-      "content-layout"
-    );
-
-  /*
-    HOMEPAGE:
-    featured + 4 latest articles.
-  */
-
-  function showHomepage() {
-
-    let visibleCards = 0;
-
-    articleCards.forEach(card => {
-
-      const isFeatured =
-        card.dataset.featured === "true";
-
-      if (
-        !isFeatured &&
-        visibleCards < 4
-      ) {
-
-        card.style.display = "";
-
-        visibleCards++;
-
-      } else {
-
-        card.style.display = "none";
-
-      }
-
-    });
-
-    if (featuredSection) {
-
-      featuredSection.style.display = "";
-
-    }
-
-    if (readAlso) {
-
-      readAlso.style.display = "";
-
-    }
-
-    if (contentLayout) {
-
-      contentLayout.classList.remove(
-        "category-view"
-      );
-
-    }
-
-    sectionTitle.textContent =
-      "Latest articles";
-
-  }
-
-  /*
-    CATEGORY:
-    Shows ALL posts belonging to the
-    selected category.
-  */
-
-  function showCategory(category) {
-
-    articleCards.forEach(card => {
-
-      const articleCategory =
-        card.dataset.category;
-
-      if (
-        articleCategory === category
-      ) {
-
-        card.style.display = "";
-
-      } else {
-
-        card.style.display = "none";
-
-      }
-
-    });
-
-    if (featuredSection) {
-
-      featuredSection.style.display =
-        "none";
-
-    }
-
-    if (readAlso) {
-
-      readAlso.style.display =
-        "none";
-
-    }
-
-    if (contentLayout) {
-
-      contentLayout.classList.add(
-        "category-view"
-      );
-
-    }
-
-    sectionTitle.textContent =
-      category;
-
-  }
-
-  /*
-    NAVIGATION
-  */
-
-  categoryLinks.forEach(link => {
-
-    link.addEventListener(
-      "click",
-      function(event) {
-
-        event.preventDefault();
-
-        const category =
-          this.dataset.filter;
-
-        categoryLinks.forEach(item => {
-
-          item.classList.remove(
-            "active"
-          );
-
-        });
-
-        this.classList.add(
-          "active"
-        );
-
-        if (category === "all") {
-
-          showHomepage();
-
-        } else {
-
-          showCategory(
-            category
-          );
-
-        }
-
-        document
-          .getElementById("latest")
-          .scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-      }
-    );
-
-  });
-
-  showHomepage();
 
 </script>
 
