@@ -92,6 +92,8 @@
 
 {% endif %}
 
+{% assign fact_check_count = page.fact_checks | size %}
+
 <!DOCTYPE html>
 
 <html lang="{% if is_english %}en{% else %}el{% endif %}">
@@ -372,6 +374,8 @@
       --top-border: #32103f;
       --blockquote-background: #f0edf4;
       --code-background: #eeeeee;
+      --fact-soft: #f4effa;
+      --fact-track: #ded8e6;
     }
 
     html[data-theme="dark"] {
@@ -385,6 +389,8 @@
       --top-border: #6c3bb8;
       --blockquote-background: #1d1922;
       --code-background: #242424;
+      --fact-soft: #211a2b;
+      --fact-track: #3d3448;
     }
 
     * {
@@ -676,6 +682,280 @@
       object-position: center;
 
       border: 1px solid var(--border);
+    }
+
+    /* ==================================================
+       FACT-CHECK PANEL
+       ΜΟΝΟ ΓΙΑ FACT-CHECKING ΑΡΘΡΑ
+       ================================================== */
+
+    .fact-check-panel {
+      width: 100%;
+
+      margin: 0 auto 55px;
+
+      background: var(--surface);
+
+      border: 1px solid var(--border);
+      border-top: 5px solid var(--accent);
+    }
+
+    .fact-check-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      padding: 17px 20px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fact-check-brand {
+      color: var(--accent);
+
+      font-size: 11px;
+      font-weight: bold;
+
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .fact-check-panel-title {
+      color: var(--muted);
+
+      font-size: 10px;
+      font-weight: bold;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .fact-check-slide {
+      display: none;
+    }
+
+    .fact-check-slide.active {
+      display: block;
+    }
+
+    .fact-check-grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(190px, 0.75fr)
+        minmax(0, 1.15fr);
+
+      min-height: 285px;
+    }
+
+    .fact-check-column {
+      min-width: 0;
+      padding: 27px 25px;
+    }
+
+    .fact-check-column + .fact-check-column {
+      border-left: 1px solid var(--border);
+    }
+
+    .fact-check-column-label {
+      margin-bottom: 17px;
+
+      color: var(--accent);
+
+      font-size: 10px;
+      font-weight: bold;
+
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .fact-check-claim {
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 23px;
+      font-weight: bold;
+
+      line-height: 1.25;
+    }
+
+    .fact-check-rating-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      text-align: center;
+
+      background: var(--fact-soft);
+    }
+
+    .fact-check-verdict {
+      margin-bottom: 24px;
+
+      color: var(--accent);
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 24px;
+      font-weight: bold;
+
+      line-height: 1.1;
+    }
+
+    .fact-rating-scale {
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
+      gap: 5px;
+
+      margin-bottom: 12px;
+    }
+
+    .fact-rating-step {
+      height: 9px;
+
+      background: var(--fact-track);
+
+      border-radius: 999px;
+    }
+
+    .fact-rating-step.active {
+      background: var(--accent);
+    }
+
+    .fact-rating-labels {
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+      gap: 4px;
+    }
+
+    .fact-rating-label {
+      color: var(--muted);
+
+      font-size: 8px;
+      font-weight: bold;
+
+      line-height: 1.15;
+      text-align: center;
+    }
+
+    .fact-rating-label.active {
+      color: var(--accent);
+    }
+
+    .fact-check-conclusion-wrap {
+      max-height: 220px;
+
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      padding-right: 12px;
+
+      scrollbar-width: thin;
+      scrollbar-color:
+        var(--accent)
+        var(--fact-track);
+    }
+
+    .fact-check-conclusion-wrap::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    .fact-check-conclusion-wrap::-webkit-scrollbar-track {
+      background: var(--fact-track);
+    }
+
+    .fact-check-conclusion-wrap::-webkit-scrollbar-thumb {
+      background: var(--accent);
+
+      border-radius: 999px;
+    }
+
+    .fact-check-conclusion {
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 18px;
+
+      line-height: 1.55;
+    }
+
+    .fact-check-navigation {
+      display: grid;
+
+      grid-template-columns:
+        48px 1fr 48px;
+
+      align-items: center;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .fact-nav-button {
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--surface);
+      color: var(--text);
+
+      border: none;
+
+      font-size: 23px;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .fact-nav-button:first-child {
+      border-right: 1px solid var(--border);
+    }
+
+    .fact-nav-button:last-child {
+      border-left: 1px solid var(--border);
+    }
+
+    .fact-nav-button:hover:not(:disabled) {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .fact-nav-button:disabled {
+      color: var(--border);
+      cursor: default;
+    }
+
+    .fact-nav-status {
+      color: var(--text);
+
+      font-size: 11px;
+      font-weight: bold;
+
+      letter-spacing: 0.7px;
+      text-align: center;
+      text-transform: uppercase;
     }
 
     /* BODY */
@@ -1054,6 +1334,54 @@
         object-position: center;
       }
 
+      /* FACT CHECK MOBILE */
+
+      .fact-check-panel {
+        margin-bottom: 42px;
+      }
+
+      .fact-check-grid {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+
+      .fact-check-column {
+        padding: 23px 20px;
+      }
+
+      .fact-check-column + .fact-check-column {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+
+      .fact-check-rating-column {
+        min-height: 230px;
+      }
+
+      .fact-check-claim {
+        font-size: 21px;
+      }
+
+      .fact-check-verdict {
+        font-size: 23px;
+      }
+
+      .fact-rating-label {
+        font-size: 7px;
+      }
+
+      .fact-check-conclusion-wrap {
+        max-height: 210px;
+      }
+
+      .fact-check-conclusion {
+        font-size: 17px;
+      }
+
+      .fact-check-panel-header {
+        padding: 15px 17px;
+      }
+
       .article-body {
         font-size: 18px;
         line-height: 1.75;
@@ -1111,6 +1439,14 @@
 
       .article-title {
         font-size: 31px;
+      }
+
+      .fact-rating-labels {
+        display: none;
+      }
+
+      .fact-rating-scale {
+        margin-bottom: 0;
       }
 
     }
@@ -1414,6 +1750,244 @@
 
     {% endif %}
 
+    {% if page.category == "Fact-Checking" and fact_check_count > 0 %}
+
+      <section
+        class="fact-check-panel"
+        id="fact-check-panel"
+        aria-label="{% if is_english %}Fact-check summary{% else %}Σύνοψη fact-check{% endif %}"
+      >
+
+        <div class="fact-check-panel-header">
+
+          <div class="fact-check-brand">
+            BIOMEDFACTS FACT CHECK
+          </div>
+
+          <div class="fact-check-panel-title">
+
+            {% if is_english %}
+              Claim assessment
+            {% else %}
+              Αξιολόγηση ισχυρισμών
+            {% endif %}
+
+          </div>
+
+        </div>
+
+        {% for fact in page.fact_checks %}
+
+          {% assign verdict_level = 3 %}
+
+          {% if is_english %}
+
+            {% case fact.verdict %}
+              {% when "Accurate" %}
+                {% assign verdict_level = 1 %}
+              {% when "Partly accurate" %}
+                {% assign verdict_level = 2 %}
+              {% when "Misleading" %}
+                {% assign verdict_level = 3 %}
+              {% when "Inaccurate" %}
+                {% assign verdict_level = 4 %}
+              {% when "Highly inaccurate" %}
+                {% assign verdict_level = 5 %}
+            {% endcase %}
+
+          {% else %}
+
+            {% case fact.verdict %}
+              {% when "Ακριβές" %}
+                {% assign verdict_level = 1 %}
+              {% when "Μερικώς ακριβές" %}
+                {% assign verdict_level = 2 %}
+              {% when "Παραπλανητικό" %}
+                {% assign verdict_level = 3 %}
+              {% when "Ανακριβές" %}
+                {% assign verdict_level = 4 %}
+              {% when "Πολύ ανακριβές" %}
+                {% assign verdict_level = 5 %}
+            {% endcase %}
+
+          {% endif %}
+
+          <div
+            class="fact-check-slide{% if forloop.first %} active{% endif %}"
+            data-fact-index="{{ forloop.index0 }}"
+          >
+
+            <div class="fact-check-grid">
+
+              <div class="fact-check-column">
+
+                <div class="fact-check-column-label">
+
+                  {% if is_english %}
+                    Claim
+                  {% else %}
+                    Ισχυρισμός
+                  {% endif %}
+
+                </div>
+
+                <div class="fact-check-claim">
+                  {{ fact.claim }}
+                </div>
+
+              </div>
+
+              <div class="fact-check-column fact-check-rating-column">
+
+                <div class="fact-check-column-label">
+
+                  {% if is_english %}
+                    Rating
+                  {% else %}
+                    Αξιολόγηση
+                  {% endif %}
+
+                </div>
+
+                <div class="fact-check-verdict">
+                  {{ fact.verdict }}
+                </div>
+
+                <div
+                  class="fact-rating-scale"
+                  aria-hidden="true"
+                >
+
+                  {% for i in (1..5) %}
+
+                    <span
+                      class="fact-rating-step{% if i == verdict_level %} active{% endif %}"
+                    ></span>
+
+                  {% endfor %}
+
+                </div>
+
+                <div class="fact-rating-labels">
+
+                  {% if is_english %}
+
+                    <span class="fact-rating-label{% if verdict_level == 1 %} active{% endif %}">
+                      Accurate
+                    </span>
+
+                    <span class="fact-rating-label{% if verdict_level == 2 %} active{% endif %}">
+                      Partly accurate
+                    </span>
+
+                    <span class="fact-rating-label{% if verdict_level == 3 %} active{% endif %}">
+                      Misleading
+                    </span>
+
+                    <span class="fact-rating-label{% if verdict_level == 4 %} active{% endif %}">
+                      Inaccurate
+                    </span>
+
+                    <span class="fact-rating-label{% if verdict_level == 5 %} active{% endif %}">
+                      Highly inaccurate
+                    </span>
+
+                  {% else %}
+
+                    <span class="fact-rating-label{% if verdict_level == 1 %} active{% endif %}">
+                      Ακριβές
+                    </span>
+
+                    <span class="fact-rating-label{% if verdict_level == 2 %} active{% endif %}">
+                      Μερικώς ακριβές
+                    </span>
+
+                    <span class="fact-rating-label{% if verdict_level == 3 %} active{% endif %}">
+                      Παραπλανητικό
+                    </span>
+
+                    <span class="fact-rating-label{% if verdict_level == 4 %} active{% endif %}">
+                      Ανακριβές
+                    </span>
+
+                    <span class="fact-rating-label{% if verdict_level == 5 %} active{% endif %}">
+                      Πολύ ανακριβές
+                    </span>
+
+                  {% endif %}
+
+                </div>
+
+              </div>
+
+              <div class="fact-check-column">
+
+                <div class="fact-check-column-label">
+
+                  {% if is_english %}
+                    What the evidence shows
+                  {% else %}
+                    Τι ισχύει
+                  {% endif %}
+
+                </div>
+
+                <div class="fact-check-conclusion-wrap">
+
+                  <div class="fact-check-conclusion">
+                    {{ fact.conclusion | newline_to_br }}
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+        <div class="fact-check-navigation">
+
+          <button
+            class="fact-nav-button"
+            id="fact-prev"
+            type="button"
+            aria-label="{% if is_english %}Previous claim{% else %}Προηγούμενος ισχυρισμός{% endif %}"
+          >
+            ←
+          </button>
+
+          <div
+            class="fact-nav-status"
+            id="fact-nav-status"
+            aria-live="polite"
+          >
+
+            {% if is_english %}
+              Claim 1 of {{ fact_check_count }}
+            {% else %}
+              Ισχυρισμός 1 από {{ fact_check_count }}
+            {% endif %}
+
+          </div>
+
+          <button
+            class="fact-nav-button"
+            id="fact-next"
+            type="button"
+            aria-label="{% if is_english %}Next claim{% else %}Επόμενος ισχυρισμός{% endif %}"
+          >
+            →
+          </button>
+
+        </div>
+
+      </section>
+
+    {% endif %}
+
     <div class="article-body">
       {{ content }}
     </div>
@@ -1591,6 +2165,136 @@
     );
 
   });
+
+  /* ==================================================
+     FACT-CHECK SLIDER
+     ================================================== */
+
+  const factSlides =
+    document.querySelectorAll(
+      ".fact-check-slide"
+    );
+
+  const factPrev =
+    document.getElementById(
+      "fact-prev"
+    );
+
+  const factNext =
+    document.getElementById(
+      "fact-next"
+    );
+
+  const factStatus =
+    document.getElementById(
+      "fact-nav-status"
+    );
+
+  let currentFactIndex = 0;
+
+  function updateFactCheckPanel() {
+
+    if (!factSlides.length) {
+      return;
+    }
+
+    factSlides.forEach(
+      (slide, index) => {
+
+        slide.classList.toggle(
+          "active",
+          index === currentFactIndex
+        );
+
+      }
+    );
+
+    if (factPrev) {
+
+      factPrev.disabled =
+        currentFactIndex === 0;
+
+    }
+
+    if (factNext) {
+
+      factNext.disabled =
+        currentFactIndex ===
+        factSlides.length - 1;
+
+    }
+
+    if (factStatus) {
+
+      const current =
+        currentFactIndex + 1;
+
+      const total =
+        factSlides.length;
+
+      factStatus.textContent =
+        {% if is_english %}
+          "Claim " +
+          current +
+          " of " +
+          total;
+        {% else %}
+          "Ισχυρισμός " +
+          current +
+          " από " +
+          total;
+        {% endif %}
+
+    }
+
+  }
+
+  if (factPrev) {
+
+    factPrev.addEventListener(
+      "click",
+      function () {
+
+        if (currentFactIndex > 0) {
+
+          currentFactIndex--;
+
+          updateFactCheckPanel();
+
+        }
+
+      }
+    );
+
+  }
+
+  if (factNext) {
+
+    factNext.addEventListener(
+      "click",
+      function () {
+
+        if (
+          currentFactIndex <
+          factSlides.length - 1
+        ) {
+
+          currentFactIndex++;
+
+          updateFactCheckPanel();
+
+        }
+
+      }
+    );
+
+  }
+
+  updateFactCheckPanel();
+
+  /* ==================================================
+     GISCUS THEME
+     ================================================== */
 
   function updateGiscusTheme(theme) {
 
