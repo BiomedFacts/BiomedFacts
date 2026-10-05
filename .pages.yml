@@ -49,10 +49,8 @@ content:
           values:
             - Υγεία
             - Διατροφή
-            - Γυναικεία Υγεία
             - Εξετάσεις
             - Fact-Checking
-            - Νέα
             - Έρευνα
 
       - name: translation_key
@@ -86,6 +84,46 @@ content:
       - name: seo_description
         label: SEO Description
         type: text
+
+      # ==================================================
+      # FACT-CHECKING PANEL
+      # Συμπληρώνεται μόνο σε άρθρα κατηγορίας Fact-Checking
+      # ==================================================
+
+      - name: fact_checks
+        label: "Fact-Checking: Ισχυρισμοί"
+        type: object
+        description: "Συμπλήρωσέ το μόνο όταν η κατηγορία του άρθρου είναι Fact-Checking. Πρόσθεσε έναν ή περισσότερους ισχυρισμούς."
+        list:
+          collapsible:
+            collapsed: true
+            summary: "Ισχυρισμός {index}: {claim}"
+        fields:
+
+          - name: claim
+            label: Εξεταζόμενος ισχυρισμός
+            type: text
+            required: true
+            description: "Γράψε ακριβώς τον ισχυρισμό που εξετάζεις."
+
+          - name: verdict
+            label: Αξιολόγηση
+            type: select
+            required: true
+            options:
+              placeholder: Επίλεξε αξιολόγηση
+              values:
+                - Ακριβές
+                - Μερικώς ακριβές
+                - Παραπλανητικό
+                - Ανακριβές
+                - Πολύ ανακριβές
+
+          - name: conclusion
+            label: Τι ισχύει / Συμπέρασμα
+            type: text
+            required: true
+            description: "Σύντομη αλλά ολοκληρωμένη εξήγηση του τι δείχνουν τα επιστημονικά δεδομένα για τον συγκεκριμένο ισχυρισμό."
 
       - name: body
         label: Κείμενο άρθρου
@@ -142,10 +180,8 @@ content:
           values:
             - Health
             - Nutrition
-            - Women's Health
             - Lab Tests
             - Fact-Checking
-            - News
             - Research
 
       - name: translation_key
@@ -179,6 +215,46 @@ content:
       - name: seo_description
         label: SEO Description
         type: text
+
+      # ==================================================
+      # FACT-CHECKING PANEL
+      # Complete only for Fact-Checking articles
+      # ==================================================
+
+      - name: fact_checks
+        label: "Fact-Checking: Claims"
+        type: object
+        description: "Complete this section only when the article category is Fact-Checking. Add one or more claims."
+        list:
+          collapsible:
+            collapsed: true
+            summary: "Claim {index}: {claim}"
+        fields:
+
+          - name: claim
+            label: Claim being examined
+            type: text
+            required: true
+            description: "Enter the exact claim being evaluated."
+
+          - name: verdict
+            label: Rating
+            type: select
+            required: true
+            options:
+              placeholder: Select rating
+              values:
+                - Accurate
+                - Partly accurate
+                - Misleading
+                - Inaccurate
+                - Highly inaccurate
+
+          - name: conclusion
+            label: What the evidence shows / Conclusion
+            type: text
+            required: true
+            description: "Provide a concise but complete explanation of what the scientific evidence shows about this claim."
 
       - name: body
         label: Article content
