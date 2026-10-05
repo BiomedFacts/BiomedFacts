@@ -113,15 +113,11 @@
     href="{{ '/favicon.svg' | relative_url }}"
   >
 
-  <!-- GOOGLE ADSENSE -->
-
   <script
     async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5074253584827466"
     crossorigin="anonymous"
   ></script>
-
-  <!-- SEO -->
 
   <title>{{ seo_title | escape }}</title>
 
@@ -145,42 +141,32 @@
     href="{{ canonical_url }}"
   >
 
-  <!-- HREFLANG -->
-
   {% if greek_translation %}
-
     <link
       rel="alternate"
       hreflang="el"
       href="{{ greek_translation.url | absolute_url }}"
     >
-
   {% elsif is_english == false %}
-
     <link
       rel="alternate"
       hreflang="el"
       href="{{ canonical_url }}"
     >
-
   {% endif %}
 
   {% if english_translation %}
-
     <link
       rel="alternate"
       hreflang="en"
       href="{{ english_translation.url | absolute_url }}"
     >
-
   {% elsif is_english %}
-
     <link
       rel="alternate"
       hreflang="en"
       href="{{ canonical_url }}"
     >
-
   {% endif %}
 
   <link
@@ -189,65 +175,18 @@
     href="{{ x_default_url }}"
   >
 
-  <!-- OPEN GRAPH -->
-
-  <meta
-    property="og:type"
-    content="article"
-  >
-
-  <meta
-    property="og:site_name"
-    content="BiomedFacts"
-  >
-
-  <meta
-    property="og:title"
-    content="{{ seo_title | escape }}"
-  >
-
-  <meta
-    property="og:description"
-    content="{{ seo_description | escape }}"
-  >
-
-  <meta
-    property="og:url"
-    content="{{ canonical_url }}"
-  >
-
-  <meta
-    property="og:image"
-    content="{{ article_image }}"
-  >
-
-  <meta
-    property="og:image:alt"
-    content="{{ page.title | escape }}"
-  >
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="BiomedFacts">
+  <meta property="og:title" content="{{ seo_title | escape }}">
+  <meta property="og:description" content="{{ seo_description | escape }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:image" content="{{ article_image }}">
+  <meta property="og:image:alt" content="{{ page.title | escape }}">
 
   <meta
     property="og:locale"
     content="{% if is_english %}en_US{% else %}el_GR{% endif %}"
   >
-
-  {% if greek_translation and is_english %}
-
-    <meta
-      property="og:locale:alternate"
-      content="el_GR"
-    >
-
-  {% endif %}
-
-  {% if english_translation and is_english == false %}
-
-    <meta
-      property="og:locale:alternate"
-      content="en_US"
-    >
-
-  {% endif %}
 
   <meta
     property="article:published_time"
@@ -260,42 +199,16 @@
   >
 
   {% if page.category %}
-
     <meta
       property="article:section"
       content="{{ page.category | escape }}"
     >
-
   {% endif %}
 
-  <!-- SOCIAL -->
-
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  >
-
-  <meta
-    name="twitter:title"
-    content="{{ seo_title | escape }}"
-  >
-
-  <meta
-    name="twitter:description"
-    content="{{ seo_description | escape }}"
-  >
-
-  <meta
-    name="twitter:image"
-    content="{{ article_image }}"
-  >
-
-  <meta
-    name="twitter:image:alt"
-    content="{{ page.title | escape }}"
-  >
-
-  <!-- ARTICLE STRUCTURED DATA -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ seo_title | escape }}">
+  <meta name="twitter:description" content="{{ seo_description | escape }}">
+  <meta name="twitter:image" content="{{ article_image }}">
 
   <script type="application/ld+json">
   {
@@ -330,16 +243,11 @@
   }
   </script>
 
-  <!-- THEME -->
-
   <script>
-
     (function () {
 
       const savedTheme =
-        localStorage.getItem(
-          "biomedfacts-theme"
-        );
+        localStorage.getItem("biomedfacts-theme");
 
       const prefersDark =
         window.matchMedia &&
@@ -358,7 +266,6 @@
         );
 
     })();
-
   </script>
 
   <style>
@@ -374,8 +281,21 @@
       --top-border: #32103f;
       --blockquote-background: #f0edf4;
       --code-background: #eeeeee;
-      --fact-soft: #f4effa;
-      --fact-track: #ded8e6;
+
+      --fact-background: #27323c;
+      --fact-card: #3b343e;
+      --fact-card-secondary: #3e3448;
+      --fact-text: #ffffff;
+      --fact-muted: #ded8df;
+
+      --fact-magenta: #c71961;
+      --fact-purple: #7e42c2;
+      --fact-violet: #9d75d6;
+
+      --fact-right-accent: #8f5aca;
+
+      --fact-gauge-track: #eea0b0;
+      --fact-gauge-border: #ca405f;
     }
 
     html[data-theme="dark"] {
@@ -389,8 +309,6 @@
       --top-border: #6c3bb8;
       --blockquote-background: #1d1922;
       --code-background: #242424;
-      --fact-soft: #211a2b;
-      --fact-track: #3d3448;
     }
 
     * {
@@ -471,7 +389,6 @@
     .language-switch a {
       color: var(--muted);
       text-decoration: none;
-      transition: color 0.2s ease;
     }
 
     .language-switch a:hover,
@@ -482,8 +399,6 @@
     .language-divider {
       color: var(--border);
     }
-
-    /* ICON BUTTONS */
 
     .icon-button {
       width: 44px;
@@ -567,8 +482,6 @@
       font-size: 13px;
       font-weight: bold;
       text-transform: uppercase;
-
-      transition: color 0.2s ease;
     }
 
     nav a:hover,
@@ -579,18 +492,22 @@
     /* ARTICLE */
 
     .article-container {
-      width: min(920px, 88%);
+      width: min(1180px, 92%);
       margin: 65px auto 0;
     }
 
     .article-header {
-      margin-bottom: 35px;
+      max-width: 920px;
+
+      margin:
+        0 auto
+        35px;
+
       text-align: center;
     }
 
     .article-category {
       display: inline-block;
-
       margin-bottom: 15px;
 
       color: var(--accent);
@@ -635,7 +552,6 @@
       gap: 8px 16px;
 
       color: var(--muted);
-
       font-size: 12px;
     }
 
@@ -656,7 +572,6 @@
       height: 3px;
 
       border-radius: 50%;
-
       background: var(--muted);
     }
 
@@ -664,9 +579,11 @@
 
     .article-cover {
       width: 100%;
+      max-width: 920px;
 
-      margin-top: 38px;
-      margin-bottom: 48px;
+      margin:
+        38px auto
+        48px;
     }
 
     .article-cover img {
@@ -675,217 +592,188 @@
       width: 100%;
       height: auto;
 
-      max-width: 100%;
-      max-height: none;
-
       object-fit: contain;
-      object-position: center;
 
       border: 1px solid var(--border);
     }
 
     /* ==================================================
-       FACT-CHECK PANEL
-       ΜΟΝΟ ΓΙΑ FACT-CHECKING ΑΡΘΡΑ
+       FACT-CHECK EXPERIENCE
+       ΜΟΝΟ FACT-CHECKING
        ================================================== */
 
-    .fact-check-panel {
+    .fact-review-shell {
       width: 100%;
+      max-width: 1160px;
 
-      margin: 0 auto 55px;
+      margin:
+        0 auto
+        60px;
 
-      background: var(--surface);
+      padding: 28px 18px 22px;
 
-      border: 1px solid var(--border);
-      border-top: 5px solid var(--accent);
+      background: var(--fact-background);
+
+      border-bottom: 7px solid var(--fact-magenta);
+
+      overflow: hidden;
     }
 
-    .fact-check-panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-
-      gap: 10px;
-
-      padding: 17px 20px;
-
-      border-bottom: 1px solid var(--border);
-    }
-
-    .fact-check-brand {
-      color: var(--accent);
-
-      font-size: 11px;
-      font-weight: bold;
-
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-    }
-
-    .fact-check-panel-title {
-      color: var(--muted);
-
-      font-size: 10px;
-      font-weight: bold;
-
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .fact-check-slide {
+    .fact-review-slide {
       display: none;
     }
 
-    .fact-check-slide.active {
+    .fact-review-slide.active {
       display: block;
     }
 
-    .fact-check-grid {
+    .fact-review-grid {
       display: grid;
 
       grid-template-columns:
         minmax(0, 1fr)
-        minmax(190px, 0.75fr)
-        minmax(0, 1.15fr);
+        minmax(270px, 0.96fr)
+        minmax(0, 1fr);
 
-      min-height: 285px;
+      gap: 28px;
     }
 
-    .fact-check-column {
-      min-width: 0;
-      padding: 27px 25px;
+    /* COLUMN HEADERS */
+
+    .fact-review-heading-box {
+      min-height: 104px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 18px;
+
+      padding: 18px 22px;
+
+      background: var(--fact-card);
+
+      border: 5px solid var(--fact-magenta);
+      border-radius: 20px;
+
+      color: var(--fact-text);
     }
 
-    .fact-check-column + .fact-check-column {
-      border-left: 1px solid var(--border);
+    .fact-review-right .fact-review-heading-box {
+      border-color: var(--fact-right-accent);
     }
 
-    .fact-check-column-label {
-      margin-bottom: 17px;
+    .fact-review-heading-icon {
+      width: 58px;
+      height: 58px;
 
-      color: var(--accent);
+      flex: 0 0 58px;
 
-      font-size: 10px;
-      font-weight: bold;
-
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      color: #d8acd0;
     }
 
-    .fact-check-claim {
-      font-family:
-        "Times New Roman",
-        Times,
-        serif;
+    .fact-review-right .fact-review-heading-icon {
+      color: #c3a9e8;
+    }
 
-      font-size: 23px;
-      font-weight: bold;
+    .fact-review-heading-icon svg {
+      width: 100%;
+      height: 100%;
+
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .fact-review-heading-text {
+      font-size: 16px;
+      font-weight: 700;
 
       line-height: 1.25;
     }
 
-    .fact-check-rating-column {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    /* CLAIM / CONCLUSION CARDS */
 
-      text-align: center;
+    .fact-review-content-box {
+      height: 415px;
 
-      background: var(--fact-soft);
+      margin-top: 20px;
+
+      padding: 30px 28px;
+
+      background: var(--fact-card);
+
+      border: 5px solid var(--fact-magenta);
+      border-radius: 20px;
+
+      color: var(--fact-text);
     }
 
-    .fact-check-verdict {
-      margin-bottom: 24px;
+    .fact-review-right .fact-review-content-box {
+      border-color: var(--fact-right-accent);
+    }
 
-      color: var(--accent);
+    .fact-review-content-title {
+      display: inline-block;
 
+      margin-bottom: 30px;
+      padding-bottom: 5px;
+
+      border-bottom: 2px solid var(--fact-magenta);
+
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .fact-review-right .fact-review-content-title {
+      border-color: var(--fact-right-accent);
+    }
+
+    .fact-review-claim {
       font-family:
         "Times New Roman",
         Times,
         serif;
 
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 22px;
+      font-weight: 700;
 
-      line-height: 1.1;
+      line-height: 1.5;
     }
 
-    .fact-rating-scale {
-      display: grid;
-
-      grid-template-columns:
-        repeat(5, 1fr);
-
-      gap: 5px;
-
-      margin-bottom: 12px;
-    }
-
-    .fact-rating-step {
-      height: 9px;
-
-      background: var(--fact-track);
-
-      border-radius: 999px;
-    }
-
-    .fact-rating-step.active {
-      background: var(--accent);
-    }
-
-    .fact-rating-labels {
-      display: grid;
-
-      grid-template-columns:
-        repeat(5, minmax(0, 1fr));
-
-      gap: 4px;
-    }
-
-    .fact-rating-label {
-      color: var(--muted);
-
-      font-size: 8px;
-      font-weight: bold;
-
-      line-height: 1.15;
-      text-align: center;
-    }
-
-    .fact-rating-label.active {
-      color: var(--accent);
-    }
-
-    .fact-check-conclusion-wrap {
-      max-height: 220px;
+    .fact-review-conclusion-scroll {
+      height: 302px;
 
       overflow-y: auto;
       overflow-x: hidden;
 
-      padding-right: 12px;
+      padding-right: 13px;
 
       scrollbar-width: thin;
+
       scrollbar-color:
-        var(--accent)
-        var(--fact-track);
+        var(--fact-right-accent)
+        #1c232b;
     }
 
-    .fact-check-conclusion-wrap::-webkit-scrollbar {
-      width: 7px;
+    .fact-review-conclusion-scroll::-webkit-scrollbar {
+      width: 8px;
     }
 
-    .fact-check-conclusion-wrap::-webkit-scrollbar-track {
-      background: var(--fact-track);
+    .fact-review-conclusion-scroll::-webkit-scrollbar-track {
+      background: #1c232b;
+
+      border-radius: 10px;
     }
 
-    .fact-check-conclusion-wrap::-webkit-scrollbar-thumb {
-      background: var(--accent);
+    .fact-review-conclusion-scroll::-webkit-scrollbar-thumb {
+      background: var(--fact-right-accent);
 
-      border-radius: 999px;
+      border-radius: 10px;
     }
 
-    .fact-check-conclusion {
+    .fact-review-conclusion {
       font-family:
         "Times New Roman",
         Times,
@@ -893,69 +781,274 @@
 
       font-size: 18px;
 
-      line-height: 1.55;
+      line-height: 1.65;
+
+      color: var(--fact-text);
     }
 
-    .fact-check-navigation {
-      display: grid;
+    /* MIDDLE */
 
-      grid-template-columns:
-        48px 1fr 48px;
+    .fact-review-middle-title {
+      margin:
+        0 0
+        15px;
 
-      align-items: center;
+      color: var(--fact-text);
 
-      border-top: 1px solid var(--border);
+      font-size: 18px;
+      font-weight: 700;
+
+      text-align: center;
     }
 
-    .fact-nav-button {
-      width: 48px;
-      height: 48px;
+    .fact-review-middle-title::after {
+      content: "";
+
+      display: block;
+
+      width: 50px;
+      height: 2px;
+
+      margin: 8px auto 0;
+
+      background: var(--fact-magenta);
+    }
+
+    /* GAUGE */
+
+    .fact-gauge-card {
+      height: 122px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      background: var(--surface);
-      color: var(--text);
+      padding: 24px;
 
-      border: none;
+      background: var(--fact-card-secondary);
 
-      font-size: 23px;
+      border: 1px solid #4f5360;
+      border-radius: 3px;
+    }
+
+    .fact-gauge {
+      position: relative;
+
+      width: 100%;
+      height: 52px;
+
+      background: var(--fact-gauge-track);
+
+      border: 3px solid var(--fact-gauge-border);
+      border-radius: 999px;
+    }
+
+    .fact-gauge-marker {
+      position: absolute;
+      top: 50%;
+
+      min-width: 132px;
+      max-width: 170px;
+
+      padding: 10px 14px;
+
+      transform:
+        translate(-50%, -50%);
+
+      border-radius: 999px;
+
+      color: #ffffff;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      line-height: 1.15;
+      text-align: center;
+
+      box-shadow:
+        0 2px 7px
+        rgba(0, 0, 0, 0.22);
+    }
+
+    .rating-1 {
+      --rating-color: #3f8c5a;
+    }
+
+    .rating-2 {
+      --rating-color: #8a944a;
+    }
+
+    .rating-3 {
+      --rating-color: #d17c28;
+    }
+
+    .rating-4 {
+      --rating-color: #dc405b;
+    }
+
+    .rating-5 {
+      --rating-color: #a20c42;
+    }
+
+    .rating-1 .fact-gauge-marker {
+      left: 13%;
+      background: var(--rating-color);
+    }
+
+    .rating-2 .fact-gauge-marker {
+      left: 31%;
+      background: var(--rating-color);
+    }
+
+    .rating-3 .fact-gauge-marker {
+      left: 50%;
+      background: var(--rating-color);
+    }
+
+    .rating-4 .fact-gauge-marker {
+      left: 69%;
+      background: var(--rating-color);
+    }
+
+    .rating-5 .fact-gauge-marker {
+      left: 87%;
+      background: var(--rating-color);
+    }
+
+    /* SCIENCE SEAL */
+
+    .fact-seal-card {
+      height: 307px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 20px;
+
+      background: var(--fact-card-secondary);
+
+      border: 1px solid #4f5360;
+      border-radius: 3px;
+    }
+
+    .fact-science-seal {
+      position: relative;
+
+      width: 230px;
+      height: 230px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 17px solid #7d0061;
+      border-radius: 50%;
+
+      color: #b00078;
+    }
+
+    .fact-flask {
+      width: 95px;
+      height: 112px;
+
+      transform:
+        translateY(-26px);
+    }
+
+    .fact-flask svg {
+      width: 100%;
+      height: 100%;
+
+      fill: none;
+
+      stroke: currentColor;
+      stroke-width: 5;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .fact-flask-liquid {
+      fill: #b00078;
+      stroke: none;
+    }
+
+    .fact-seal-label {
+      position: absolute;
+
+      left: -17px;
+      right: -17px;
+      bottom: 31px;
+
+      padding: 12px 12px;
+
+      background: #8f0068;
+
+      color: #ffffff;
+
+      font-size: 17px;
+      font-weight: 800;
+
+      line-height: 1.12;
+      text-align: center;
+
+      text-transform: uppercase;
+    }
+
+    /* NAVIGATION */
+
+    .fact-review-nav {
+      display: flex;
+      justify-content: flex-end;
+
+      margin-top: 18px;
+    }
+
+    .fact-review-next {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 12px;
+
+      min-width: 190px;
+
+      padding: 12px 18px;
+
+      background: transparent;
+      color: var(--fact-text);
+
+      border: 2px solid var(--fact-text);
+      border-radius: 9px;
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 15px;
+      font-weight: 700;
 
       cursor: pointer;
 
       transition:
         background 0.2s ease,
-        color 0.2s ease;
+        color 0.2s ease,
+        border-color 0.2s ease;
     }
 
-    .fact-nav-button:first-child {
-      border-right: 1px solid var(--border);
-    }
+    .fact-review-next:hover {
+      background: var(--fact-magenta);
 
-    .fact-nav-button:last-child {
-      border-left: 1px solid var(--border);
-    }
+      border-color: var(--fact-magenta);
 
-    .fact-nav-button:hover:not(:disabled) {
-      background: var(--accent);
       color: #ffffff;
     }
 
-    .fact-nav-button:disabled {
-      color: var(--border);
-      cursor: default;
-    }
-
-    .fact-nav-status {
-      color: var(--text);
-
-      font-size: 11px;
-      font-weight: bold;
-
-      letter-spacing: 0.7px;
-      text-align: center;
-      text-transform: uppercase;
+    .fact-review-next-arrow {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
     }
 
     /* BODY */
@@ -1244,8 +1337,6 @@
 
       text-decoration: none;
       text-transform: uppercase;
-
-      transition: color 0.2s ease;
     }
 
     .footer-links a:hover {
@@ -1258,6 +1349,43 @@
       text-align: center;
 
       font-size: 12px;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 980px) {
+
+      .fact-review-grid {
+        grid-template-columns:
+          1fr
+          1fr;
+      }
+
+      .fact-review-middle {
+        grid-column:
+          1 / -1;
+
+        grid-row: 2;
+      }
+
+      .fact-review-left {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .fact-review-right {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .fact-review-middle {
+        max-width: 480px;
+
+        width: 100%;
+
+        margin: 0 auto;
+      }
+
     }
 
     /* MOBILE */
@@ -1307,7 +1435,7 @@
       }
 
       .article-container {
-        width: 90%;
+        width: 92%;
         margin-top: 42px;
       }
 
@@ -1317,69 +1445,121 @@
       }
 
       .article-cover {
-        width: 100%;
-
         margin-top: 28px;
         margin-bottom: 35px;
       }
 
-      .article-cover img {
-        width: 100%;
+      /* FACT CHECK */
+
+      .fact-review-shell {
+        padding: 20px 13px;
+        margin-bottom: 44px;
+      }
+
+      .fact-review-grid {
+        display: flex;
+        flex-direction: column;
+
+        gap: 22px;
+      }
+
+      .fact-review-left {
+        order: 1;
+      }
+
+      .fact-review-middle {
+        order: 2;
+      }
+
+      .fact-review-right {
+        order: 3;
+      }
+
+      .fact-review-heading-box {
+        min-height: 87px;
+
+        padding: 14px 17px;
+
+        border-width: 4px;
+        border-radius: 16px;
+      }
+
+      .fact-review-heading-icon {
+        width: 48px;
+        height: 48px;
+
+        flex-basis: 48px;
+      }
+
+      .fact-review-heading-text {
+        font-size: 14px;
+      }
+
+      .fact-review-content-box {
         height: auto;
+        min-height: 300px;
 
-        max-width: 100%;
-        max-height: none;
+        padding: 24px 21px;
 
-        object-fit: contain;
-        object-position: center;
+        border-width: 4px;
+        border-radius: 16px;
       }
 
-      /* FACT CHECK MOBILE */
-
-      .fact-check-panel {
-        margin-bottom: 42px;
+      .fact-review-claim {
+        font-size: 20px;
       }
 
-      .fact-check-grid {
-        grid-template-columns: 1fr;
-        min-height: 0;
+      .fact-review-conclusion-scroll {
+        height: 230px;
       }
 
-      .fact-check-column {
-        padding: 23px 20px;
-      }
-
-      .fact-check-column + .fact-check-column {
-        border-left: none;
-        border-top: 1px solid var(--border);
-      }
-
-      .fact-check-rating-column {
-        min-height: 230px;
-      }
-
-      .fact-check-claim {
-        font-size: 21px;
-      }
-
-      .fact-check-verdict {
-        font-size: 23px;
-      }
-
-      .fact-rating-label {
-        font-size: 7px;
-      }
-
-      .fact-check-conclusion-wrap {
-        max-height: 210px;
-      }
-
-      .fact-check-conclusion {
+      .fact-review-conclusion {
         font-size: 17px;
       }
 
-      .fact-check-panel-header {
-        padding: 15px 17px;
+      .fact-gauge-card {
+        height: 115px;
+
+        padding: 22px 17px;
+      }
+
+      .fact-gauge {
+        height: 50px;
+      }
+
+      .fact-gauge-marker {
+        min-width: 115px;
+        max-width: 145px;
+
+        padding: 9px 10px;
+
+        font-size: 11px;
+      }
+
+      .fact-seal-card {
+        height: 275px;
+      }
+
+      .fact-science-seal {
+        width: 205px;
+        height: 205px;
+
+        border-width: 15px;
+      }
+
+      .fact-seal-label {
+        left: -15px;
+        right: -15px;
+
+        font-size: 15px;
+      }
+
+      .fact-review-nav {
+        justify-content: center;
+      }
+
+      .fact-review-next {
+        width: 100%;
       }
 
       .article-body {
@@ -1408,14 +1588,6 @@
         padding: 30px 8px;
       }
 
-      .footer-links {
-        gap: 11px 17px;
-      }
-
-      .footer-links a {
-        font-size: 10px;
-      }
-
     }
 
     @media (max-width: 470px) {
@@ -1441,12 +1613,11 @@
         font-size: 31px;
       }
 
-      .fact-rating-labels {
-        display: none;
-      }
+      .fact-gauge-marker {
+        min-width: 100px;
+        max-width: 122px;
 
-      .fact-rating-scale {
-        margin-bottom: 0;
+        font-size: 10px;
       }
 
     }
@@ -1535,7 +1706,6 @@
         id="theme-toggle"
         type="button"
         aria-label="{% if is_english %}Switch theme{% else %}Αλλαγή θέματος{% endif %}"
-        title="Light / Dark mode"
       >
 
         <svg
@@ -1570,18 +1740,15 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
-        title="Instagram"
       >
 
         <svg
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
-
           <path
             d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
           />
-
         </svg>
 
       </a>
@@ -1753,189 +1920,323 @@
     {% if page.category == "Fact-Checking" and fact_check_count > 0 %}
 
       <section
-        class="fact-check-panel"
-        id="fact-check-panel"
-        aria-label="{% if is_english %}Fact-check summary{% else %}Σύνοψη fact-check{% endif %}"
+        class="fact-review-shell"
+        id="fact-review-shell"
+        aria-label="{% if is_english %}Fact-check assessment{% else %}Αξιολόγηση ισχυρισμών{% endif %}"
       >
-
-        <div class="fact-check-panel-header">
-
-          <div class="fact-check-brand">
-            BIOMEDFACTS FACT CHECK
-          </div>
-
-          <div class="fact-check-panel-title">
-
-            {% if is_english %}
-              Claim assessment
-            {% else %}
-              Αξιολόγηση ισχυρισμών
-            {% endif %}
-
-          </div>
-
-        </div>
 
         {% for fact in page.fact_checks %}
 
-          {% assign verdict_level = 3 %}
+          {% assign rating_number = 3 %}
 
           {% if is_english %}
 
             {% case fact.verdict %}
               {% when "Accurate" %}
-                {% assign verdict_level = 1 %}
+                {% assign rating_number = 1 %}
               {% when "Partly accurate" %}
-                {% assign verdict_level = 2 %}
+                {% assign rating_number = 2 %}
               {% when "Misleading" %}
-                {% assign verdict_level = 3 %}
+                {% assign rating_number = 3 %}
               {% when "Inaccurate" %}
-                {% assign verdict_level = 4 %}
+                {% assign rating_number = 4 %}
               {% when "Highly inaccurate" %}
-                {% assign verdict_level = 5 %}
+                {% assign rating_number = 5 %}
             {% endcase %}
 
           {% else %}
 
             {% case fact.verdict %}
               {% when "Ακριβές" %}
-                {% assign verdict_level = 1 %}
+                {% assign rating_number = 1 %}
               {% when "Μερικώς ακριβές" %}
-                {% assign verdict_level = 2 %}
+                {% assign rating_number = 2 %}
               {% when "Παραπλανητικό" %}
-                {% assign verdict_level = 3 %}
+                {% assign rating_number = 3 %}
               {% when "Ανακριβές" %}
-                {% assign verdict_level = 4 %}
+                {% assign rating_number = 4 %}
               {% when "Πολύ ανακριβές" %}
-                {% assign verdict_level = 5 %}
+                {% assign rating_number = 5 %}
             {% endcase %}
 
           {% endif %}
 
           <div
-            class="fact-check-slide{% if forloop.first %} active{% endif %}"
+            class="fact-review-slide{% if forloop.first %} active{% endif %}"
             data-fact-index="{{ forloop.index0 }}"
           >
 
-            <div class="fact-check-grid">
+            <div class="fact-review-grid">
 
-              <div class="fact-check-column">
+              <!-- LEFT -->
 
-                <div class="fact-check-column-label">
+              <div class="fact-review-left">
 
-                  {% if is_english %}
-                    Claim
-                  {% else %}
-                    Ισχυρισμός
-                  {% endif %}
+                <div class="fact-review-heading-box">
+
+                  <div class="fact-review-heading-icon">
+
+                    <svg
+                      viewBox="0 0 64 64"
+                      aria-hidden="true"
+                    >
+                      <rect
+                        x="13"
+                        y="8"
+                        width="33"
+                        height="44"
+                        rx="4"
+                      ></rect>
+
+                      <line
+                        x1="20"
+                        y1="18"
+                        x2="39"
+                        y2="18"
+                      ></line>
+
+                      <line
+                        x1="20"
+                        y1="26"
+                        x2="36"
+                        y2="26"
+                      ></line>
+
+                      <line
+                        x1="20"
+                        y1="34"
+                        x2="33"
+                        y2="34"
+                      ></line>
+
+                      <circle
+                        cx="44"
+                        cy="42"
+                        r="9"
+                      ></circle>
+
+                      <line
+                        x1="50"
+                        y1="49"
+                        x2="57"
+                        y2="56"
+                      ></line>
+
+                    </svg>
+
+                  </div>
+
+                  <div class="fact-review-heading-text">
+
+                    {% if is_english %}
+                      Claim being examined
+                    {% else %}
+                      Ο εξεταζόμενος ισχυρισμός
+                    {% endif %}
+
+                  </div>
 
                 </div>
 
-                <div class="fact-check-claim">
-                  {{ fact.claim }}
+                <div class="fact-review-content-box">
+
+                  <div class="fact-review-content-title">
+
+                    {% if is_english %}
+                      Claim {{ forloop.index }}:
+                    {% else %}
+                      Ισχυρισμός {{ forloop.index }}:
+                    {% endif %}
+
+                  </div>
+
+                  <div class="fact-review-claim">
+                    {{ fact.claim }}
+                  </div>
+
                 </div>
 
               </div>
 
-              <div class="fact-check-column fact-check-rating-column">
+              <!-- MIDDLE -->
 
-                <div class="fact-check-column-label">
+              <div class="fact-review-middle">
+
+                <div class="fact-review-middle-title">
 
                   {% if is_english %}
-                    Rating
+                    Our assessment
                   {% else %}
-                    Αξιολόγηση
+                    Η αξιολόγησή μας
                   {% endif %}
 
-                </div>
-
-                <div class="fact-check-verdict">
-                  {{ fact.verdict }}
                 </div>
 
                 <div
-                  class="fact-rating-scale"
-                  aria-hidden="true"
+                  class="fact-gauge-card rating-{{ rating_number }}"
                 >
 
-                  {% for i in (1..5) %}
+                  <div class="fact-gauge">
 
-                    <span
-                      class="fact-rating-step{% if i == verdict_level %} active{% endif %}"
-                    ></span>
+                    <div class="fact-gauge-marker">
+                      {{ fact.verdict }}
+                    </div>
 
-                  {% endfor %}
+                  </div>
 
                 </div>
 
-                <div class="fact-rating-labels">
+                <div class="fact-seal-card">
 
-                  {% if is_english %}
+                  <div class="fact-science-seal">
 
-                    <span class="fact-rating-label{% if verdict_level == 1 %} active{% endif %}">
-                      Accurate
-                    </span>
+                    <div class="fact-flask">
 
-                    <span class="fact-rating-label{% if verdict_level == 2 %} active{% endif %}">
-                      Partly accurate
-                    </span>
+                      <svg
+                        viewBox="0 0 100 125"
+                        aria-hidden="true"
+                      >
 
-                    <span class="fact-rating-label{% if verdict_level == 3 %} active{% endif %}">
-                      Misleading
-                    </span>
+                        <path
+                          d="
+                            M37 9
+                            H63
+                            M44 9
+                            V35
+                            L22 88
+                            Q18 98 29 98
+                            H71
+                            Q82 98 78 88
+                            L56 35
+                            V9
+                          "
+                        ></path>
 
-                    <span class="fact-rating-label{% if verdict_level == 4 %} active{% endif %}">
-                      Inaccurate
-                    </span>
+                        <path
+                          class="fact-flask-liquid"
+                          d="
+                            M31 79
+                            C40 75 45 82 52 79
+                            C59 76 63 70 70 76
+                            L77 91
+                            Q80 97 70 97
+                            H30
+                            Q21 97 24 91
+                            Z
+                          "
+                        ></path>
 
-                    <span class="fact-rating-label{% if verdict_level == 5 %} active{% endif %}">
-                      Highly inaccurate
-                    </span>
+                        <circle
+                          cx="60"
+                          cy="50"
+                          r="3"
+                        ></circle>
 
-                  {% else %}
+                        <circle
+                          cx="55"
+                          cy="41"
+                          r="2"
+                        ></circle>
 
-                    <span class="fact-rating-label{% if verdict_level == 1 %} active{% endif %}">
-                      Ακριβές
-                    </span>
+                      </svg>
 
-                    <span class="fact-rating-label{% if verdict_level == 2 %} active{% endif %}">
-                      Μερικώς ακριβές
-                    </span>
+                    </div>
 
-                    <span class="fact-rating-label{% if verdict_level == 3 %} active{% endif %}">
-                      Παραπλανητικό
-                    </span>
+                    <div class="fact-seal-label">
 
-                    <span class="fact-rating-label{% if verdict_level == 4 %} active{% endif %}">
-                      Ανακριβές
-                    </span>
+                      {% if is_english %}
+                        Scientific<br>Fact-Check
+                      {% else %}
+                        Επιστημονικό<br>Fact-Check
+                      {% endif %}
 
-                    <span class="fact-rating-label{% if verdict_level == 5 %} active{% endif %}">
-                      Πολύ ανακριβές
-                    </span>
+                    </div>
 
-                  {% endif %}
+                  </div>
 
                 </div>
 
               </div>
 
-              <div class="fact-check-column">
+              <!-- RIGHT -->
 
-                <div class="fact-check-column-label">
+              <div class="fact-review-right">
 
-                  {% if is_english %}
-                    What the evidence shows
-                  {% else %}
-                    Τι ισχύει
-                  {% endif %}
+                <div class="fact-review-heading-box">
+
+                  <div class="fact-review-heading-icon">
+
+                    <svg
+                      viewBox="0 0 64 64"
+                      aria-hidden="true"
+                    >
+
+                      <rect
+                        x="11"
+                        y="7"
+                        width="35"
+                        height="46"
+                        rx="4"
+                      ></rect>
+
+                      <line
+                        x1="19"
+                        y1="17"
+                        x2="38"
+                        y2="17"
+                      ></line>
+
+                      <line
+                        x1="19"
+                        y1="25"
+                        x2="35"
+                        y2="25"
+                      ></line>
+
+                      <circle
+                        cx="46"
+                        cy="43"
+                        r="11"
+                      ></circle>
+
+                      <polyline
+                        points="40,43 44,47 52,37"
+                      ></polyline>
+
+                    </svg>
+
+                  </div>
+
+                  <div class="fact-review-heading-text">
+
+                    {% if is_english %}
+                      What the evidence shows
+                    {% else %}
+                      Τι ισχύει
+                    {% endif %}
+
+                  </div>
 
                 </div>
 
-                <div class="fact-check-conclusion-wrap">
+                <div class="fact-review-content-box">
 
-                  <div class="fact-check-conclusion">
-                    {{ fact.conclusion | newline_to_br }}
+                  <div class="fact-review-content-title">
+
+                    {% if is_english %}
+                      Conclusion {{ forloop.index }}:
+                    {% else %}
+                      Συμπέρασμα {{ forloop.index }}:
+                    {% endif %}
+
+                  </div>
+
+                  <div class="fact-review-conclusion-scroll">
+
+                    <div class="fact-review-conclusion">
+                      {{ fact.conclusion | newline_to_br }}
+                    </div>
+
                   </div>
 
                 </div>
@@ -1948,38 +2249,36 @@
 
         {% endfor %}
 
-        <div class="fact-check-navigation">
+        <div class="fact-review-nav">
 
           <button
-            class="fact-nav-button"
-            id="fact-prev"
+            class="fact-review-next"
+            id="fact-review-next"
             type="button"
-            aria-label="{% if is_english %}Previous claim{% else %}Προηγούμενος ισχυρισμός{% endif %}"
-          >
-            ←
-          </button>
-
-          <div
-            class="fact-nav-status"
-            id="fact-nav-status"
-            aria-live="polite"
+            aria-label="{% if is_english %}Show next claim{% else %}Εμφάνιση επόμενου ισχυρισμού{% endif %}"
           >
 
-            {% if is_english %}
-              Claim 1 of {{ fact_check_count }}
-            {% else %}
-              Ισχυρισμός 1 από {{ fact_check_count }}
+            <span id="fact-review-status">
+
+              {% if is_english %}
+                Claim 1 of {{ fact_check_count }}
+              {% else %}
+                Ισχυρισμός 1 από {{ fact_check_count }}
+              {% endif %}
+
+            </span>
+
+            {% if fact_check_count > 1 %}
+
+              <span
+                class="fact-review-next-arrow"
+                aria-hidden="true"
+              >
+                →
+              </span>
+
             {% endif %}
 
-          </div>
-
-          <button
-            class="fact-nav-button"
-            id="fact-next"
-            type="button"
-            aria-label="{% if is_english %}Next claim{% else %}Επόμενος ισχυρισμός{% endif %}"
-          >
-            →
           </button>
 
         </div>
@@ -2167,32 +2466,27 @@
   });
 
   /* ==================================================
-     FACT-CHECK SLIDER
+     FACT-CHECK CLAIM NAVIGATION
      ================================================== */
 
   const factSlides =
     document.querySelectorAll(
-      ".fact-check-slide"
-    );
-
-  const factPrev =
-    document.getElementById(
-      "fact-prev"
+      ".fact-review-slide"
     );
 
   const factNext =
     document.getElementById(
-      "fact-next"
+      "fact-review-next"
     );
 
   const factStatus =
     document.getElementById(
-      "fact-nav-status"
+      "fact-review-status"
     );
 
   let currentFactIndex = 0;
 
-  function updateFactCheckPanel() {
+  function updateFactReview() {
 
     if (!factSlides.length) {
       return;
@@ -2208,21 +2502,6 @@
 
       }
     );
-
-    if (factPrev) {
-
-      factPrev.disabled =
-        currentFactIndex === 0;
-
-    }
-
-    if (factNext) {
-
-      factNext.disabled =
-        currentFactIndex ===
-        factSlides.length - 1;
-
-    }
 
     if (factStatus) {
 
@@ -2249,48 +2528,29 @@
 
   }
 
-  if (factPrev) {
-
-    factPrev.addEventListener(
-      "click",
-      function () {
-
-        if (currentFactIndex > 0) {
-
-          currentFactIndex--;
-
-          updateFactCheckPanel();
-
-        }
-
-      }
-    );
-
-  }
-
-  if (factNext) {
+  if (factNext && factSlides.length > 1) {
 
     factNext.addEventListener(
       "click",
       function () {
 
+        currentFactIndex++;
+
         if (
-          currentFactIndex <
-          factSlides.length - 1
+          currentFactIndex >=
+          factSlides.length
         ) {
-
-          currentFactIndex++;
-
-          updateFactCheckPanel();
-
+          currentFactIndex = 0;
         }
+
+        updateFactReview();
 
       }
     );
 
   }
 
-  updateFactCheckPanel();
+  updateFactReview();
 
   /* ==================================================
      GISCUS THEME
