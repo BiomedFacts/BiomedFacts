@@ -282,20 +282,27 @@
       --blockquote-background: #f0edf4;
       --code-background: #eeeeee;
 
-      --fact-background: #27323c;
-      --fact-card: #3b343e;
-      --fact-card-secondary: #3e3448;
-      --fact-text: #ffffff;
-      --fact-muted: #ded8df;
+      /* BIOMEDFACTS FACT-CHECK PALETTE */
 
-      --fact-magenta: #c71961;
-      --fact-purple: #7e42c2;
-      --fact-violet: #9d75d6;
+      --fact-background: #f8f7fa;
+      --fact-card: #ffffff;
+      --fact-card-secondary: #f4effa;
 
-      --fact-right-accent: #8f5aca;
+      --fact-text: #111111;
+      --fact-muted: #666666;
 
-      --fact-gauge-track: #eea0b0;
-      --fact-gauge-border: #ca405f;
+      --fact-magenta: #6c3bb8;
+      --fact-purple: #32103f;
+      --fact-violet: #a77be5;
+
+      --fact-right-accent: #8b63c7;
+
+      --fact-border: #d8cce8;
+
+      --fact-gauge-track: #e8def5;
+      --fact-gauge-border: #6c3bb8;
+
+      --fact-scroll-track: #eee9f4;
     }
 
     html[data-theme="dark"] {
@@ -614,7 +621,13 @@
 
       background: var(--fact-background);
 
-      border-bottom: 7px solid var(--fact-magenta);
+      border:
+        1px solid
+        var(--fact-border);
+
+      border-bottom:
+        7px solid
+        var(--fact-magenta);
 
       overflow: hidden;
     }
@@ -652,14 +665,18 @@
 
       background: var(--fact-card);
 
-      border: 5px solid var(--fact-magenta);
+      border:
+        5px solid
+        var(--fact-magenta);
+
       border-radius: 20px;
 
       color: var(--fact-text);
     }
 
     .fact-review-right .fact-review-heading-box {
-      border-color: var(--fact-right-accent);
+      border-color:
+        var(--fact-right-accent);
     }
 
     .fact-review-heading-icon {
@@ -668,11 +685,13 @@
 
       flex: 0 0 58px;
 
-      color: #d8acd0;
+      color: var(--fact-magenta);
     }
 
-    .fact-review-right .fact-review-heading-icon {
-      color: #c3a9e8;
+    .fact-review-right
+    .fact-review-heading-icon {
+      color:
+        var(--fact-right-accent);
     }
 
     .fact-review-heading-icon svg {
@@ -693,7 +712,7 @@
       line-height: 1.25;
     }
 
-    /* CLAIM / CONCLUSION CARDS */
+    /* CLAIM / CONCLUSION */
 
     .fact-review-content-box {
       height: 415px;
@@ -704,14 +723,19 @@
 
       background: var(--fact-card);
 
-      border: 5px solid var(--fact-magenta);
+      border:
+        5px solid
+        var(--fact-magenta);
+
       border-radius: 20px;
 
       color: var(--fact-text);
     }
 
-    .fact-review-right .fact-review-content-box {
-      border-color: var(--fact-right-accent);
+    .fact-review-right
+    .fact-review-content-box {
+      border-color:
+        var(--fact-right-accent);
     }
 
     .fact-review-content-title {
@@ -720,14 +744,24 @@
       margin-bottom: 30px;
       padding-bottom: 5px;
 
-      border-bottom: 2px solid var(--fact-magenta);
+      border-bottom:
+        2px solid
+        var(--fact-magenta);
+
+      color:
+        var(--fact-purple);
 
       font-size: 16px;
       font-weight: 700;
     }
 
-    .fact-review-right .fact-review-content-title {
-      border-color: var(--fact-right-accent);
+    .fact-review-right
+    .fact-review-content-title {
+      border-color:
+        var(--fact-right-accent);
+
+      color:
+        var(--fact-purple);
     }
 
     .fact-review-claim {
@@ -754,7 +788,7 @@
 
       scrollbar-color:
         var(--fact-right-accent)
-        #1c232b;
+        var(--fact-scroll-track);
     }
 
     .fact-review-conclusion-scroll::-webkit-scrollbar {
@@ -762,13 +796,15 @@
     }
 
     .fact-review-conclusion-scroll::-webkit-scrollbar-track {
-      background: #1c232b;
+      background:
+        var(--fact-scroll-track);
 
       border-radius: 10px;
     }
 
     .fact-review-conclusion-scroll::-webkit-scrollbar-thumb {
-      background: var(--fact-right-accent);
+      background:
+        var(--fact-right-accent);
 
       border-radius: 10px;
     }
@@ -793,7 +829,8 @@
         0 0
         15px;
 
-      color: var(--fact-text);
+      color:
+        var(--fact-purple);
 
       font-size: 18px;
       font-weight: 700;
@@ -811,7 +848,8 @@
 
       margin: 8px auto 0;
 
-      background: var(--fact-magenta);
+      background:
+        var(--fact-magenta);
     }
 
     /* GAUGE */
@@ -825,9 +863,13 @@
 
       padding: 24px;
 
-      background: var(--fact-card-secondary);
+      background:
+        var(--fact-card-secondary);
 
-      border: 1px solid #4f5360;
+      border:
+        1px solid
+        var(--fact-border);
+
       border-radius: 3px;
     }
 
@@ -837,9 +879,13 @@
       width: 100%;
       height: 52px;
 
-      background: var(--fact-gauge-track);
+      background:
+        var(--fact-gauge-track);
 
-      border: 3px solid var(--fact-gauge-border);
+      border:
+        3px solid
+        var(--fact-gauge-border);
+
       border-radius: 999px;
     }
 
@@ -867,27 +913,29 @@
 
       box-shadow:
         0 2px 7px
-        rgba(0, 0, 0, 0.22);
+        rgba(50, 16, 63, 0.16);
     }
 
+    /* ΟΛΗ Η ΚΛΙΜΑΚΑ ΣΕ ΑΠΟΧΡΩΣΕΙΣ BIOMEDFACTS */
+
     .rating-1 {
-      --rating-color: #3f8c5a;
+      --rating-color: #c3ace3;
     }
 
     .rating-2 {
-      --rating-color: #8a944a;
+      --rating-color: #a77be5;
     }
 
     .rating-3 {
-      --rating-color: #d17c28;
+      --rating-color: #6c3bb8;
     }
 
     .rating-4 {
-      --rating-color: #dc405b;
+      --rating-color: #502584;
     }
 
     .rating-5 {
-      --rating-color: #a20c42;
+      --rating-color: #32103f;
     }
 
     .rating-1 .fact-gauge-marker {
@@ -926,9 +974,13 @@
 
       margin-top: 20px;
 
-      background: var(--fact-card-secondary);
+      background:
+        var(--fact-card-secondary);
 
-      border: 1px solid #4f5360;
+      border:
+        1px solid
+        var(--fact-border);
+
       border-radius: 3px;
     }
 
@@ -942,10 +994,16 @@
       align-items: center;
       justify-content: center;
 
-      border: 17px solid #7d0061;
+      border:
+        17px solid
+        var(--fact-purple);
+
       border-radius: 50%;
 
-      color: #b00078;
+      color:
+        var(--fact-magenta);
+
+      background: #ffffff;
     }
 
     .fact-flask {
@@ -970,7 +1028,9 @@
     }
 
     .fact-flask-liquid {
-      fill: #b00078;
+      fill:
+        var(--fact-magenta);
+
       stroke: none;
     }
 
@@ -983,7 +1043,8 @@
 
       padding: 12px 12px;
 
-      background: #8f0068;
+      background:
+        var(--fact-purple);
 
       color: #ffffff;
 
@@ -1016,10 +1077,14 @@
 
       padding: 12px 18px;
 
-      background: transparent;
-      color: var(--fact-text);
+      background: #ffffff;
+      color:
+        var(--fact-purple);
 
-      border: 2px solid var(--fact-text);
+      border:
+        2px solid
+        var(--fact-purple);
+
       border-radius: 9px;
 
       font-family:
@@ -1039,15 +1104,20 @@
     }
 
     .fact-review-next:hover {
-      background: var(--fact-magenta);
+      background:
+        var(--fact-magenta);
 
-      border-color: var(--fact-magenta);
+      border-color:
+        var(--fact-magenta);
 
       color: #ffffff;
     }
 
     .fact-review-next-arrow {
-      font-family: Arial, sans-serif;
+      font-family:
+        Arial,
+        sans-serif;
+
       font-size: 18px;
     }
 
@@ -1139,7 +1209,9 @@
 
       margin: 38px auto;
 
-      border: 1px solid var(--soft-border);
+      border:
+        1px solid
+        var(--soft-border);
     }
 
     .article-body blockquote {
@@ -1147,9 +1219,12 @@
 
       padding: 22px 25px;
 
-      background: var(--blockquote-background);
+      background:
+        var(--blockquote-background);
 
-      border-left: 4px solid var(--accent);
+      border-left:
+        4px solid
+        var(--accent);
 
       font-style: italic;
     }
@@ -1158,15 +1233,22 @@
       margin: 45px 0;
 
       border: none;
-      border-top: 1px solid var(--border);
+
+      border-top:
+        1px solid
+        var(--border);
     }
 
     .article-body code {
       padding: 2px 5px;
 
-      background: var(--code-background);
+      background:
+        var(--code-background);
 
-      font-family: Consolas, monospace;
+      font-family:
+        Consolas,
+        monospace;
+
       font-size: 0.9em;
     }
 
@@ -1189,13 +1271,17 @@
     .article-body td {
       padding: 12px;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid
+        var(--border);
 
       text-align: left;
     }
 
     .article-body th {
-      background: var(--surface);
+      background:
+        var(--surface);
+
       font-weight: 700;
     }
 
@@ -1208,7 +1294,9 @@
 
       padding-top: 30px;
 
-      border-top: 2px solid var(--text);
+      border-top:
+        2px solid
+        var(--text);
     }
 
     .back-home {
@@ -1235,7 +1323,9 @@
 
       padding-top: 35px;
 
-      border-top: 2px solid var(--text);
+      border-top:
+        2px solid
+        var(--text);
     }
 
     .comments-section h2 {
@@ -1274,8 +1364,13 @@
 
       background: var(--surface);
 
-      border-top: 2px solid var(--text);
-      border-bottom: 1px solid var(--border);
+      border-top:
+        2px solid
+        var(--text);
+
+      border-bottom:
+        1px solid
+        var(--border);
 
       text-align: center;
 
@@ -1311,7 +1406,9 @@
 
       background: var(--surface);
 
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid
+        var(--border);
     }
 
     .footer-inner {
@@ -1968,8 +2065,6 @@
 
             <div class="fact-review-grid">
 
-              <!-- LEFT -->
-
               <div class="fact-review-left">
 
                 <div class="fact-review-heading-box">
@@ -2057,8 +2152,6 @@
                 </div>
 
               </div>
-
-              <!-- MIDDLE -->
 
               <div class="fact-review-middle">
 
@@ -2157,8 +2250,6 @@
                 </div>
 
               </div>
-
-              <!-- RIGHT -->
 
               <div class="fact-review-right">
 
@@ -2465,9 +2556,7 @@
 
   });
 
-  /* ==================================================
-     FACT-CHECK CLAIM NAVIGATION
-     ================================================== */
+  /* FACT-CHECK CLAIM NAVIGATION */
 
   const factSlides =
     document.querySelectorAll(
@@ -2528,7 +2617,10 @@
 
   }
 
-  if (factNext && factSlides.length > 1) {
+  if (
+    factNext &&
+    factSlides.length > 1
+  ) {
 
     factNext.addEventListener(
       "click",
@@ -2552,9 +2644,7 @@
 
   updateFactReview();
 
-  /* ==================================================
-     GISCUS THEME
-     ================================================== */
+  /* GISCUS THEME */
 
   function updateGiscusTheme(theme) {
 
