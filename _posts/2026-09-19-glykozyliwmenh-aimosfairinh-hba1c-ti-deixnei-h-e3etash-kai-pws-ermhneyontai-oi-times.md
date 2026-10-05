@@ -17,7 +17,7 @@ seo_description: Η HbA1c δείχνει τη γλυκαιμική έκθεση 
 ---
 Η γλυκοζυλιωμένη αιμοσφαιρίνη ή **HbA1c** είναι μία από τις σημαντικότερες εργαστηριακές εξετάσεις για την αξιολόγηση της γλυκόζης στο αίμα.
 
-Σε αντίθεση με μια απλή μέτρηση γλυκόζης, η οποία αποτυπώνει τη συγκέντρωση της γλυκόζης σε μια συγκεκριμένη χρονική στιγμή, η HbA1c παρέχει πληροφορίες για τη γλυκαιμική έκθεση των προηγούμενων περίπου **2–3** μηνών.[[1]](https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes?utm)
+Σε αντίθεση με μια απλή μέτρηση γλυκόζης, η οποία αποτυπώνει τη **συγκέντρωση της γλυκόζης** σε μια συγκεκριμένη χρονική στιγμή, η HbA1c παρέχει πληροφορίες για τη γλυκαιμική έκθεση των προηγούμενων περίπου **2–3** μηνών.[[1]](https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes?utm)
 
 Χρησιμοποιείται τόσο στη διάγνωση του προδιαβήτη και του σακχαρώδη διαβήτη όσο και στην παρακολούθηση ανθρώπων που έχουν ήδη διαβήτη.[[1](https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes?utm),[2](https://diabetesjournals.org/care/article/49/Supplement_1/S132/163927/6-Glycemic-Goals-Hypoglycemia-and-Hyperglycemic?utm)]
 
