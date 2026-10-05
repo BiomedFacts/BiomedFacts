@@ -244,10 +244,13 @@
   </script>
 
   <script>
+
     (function () {
 
       const savedTheme =
-        localStorage.getItem("biomedfacts-theme");
+        localStorage.getItem(
+          "biomedfacts-theme"
+        );
 
       const prefersDark =
         window.matchMedia &&
@@ -266,6 +269,7 @@
         );
 
     })();
+
   </script>
 
   <style>
@@ -282,6 +286,8 @@
       --blockquote-background: #f0edf4;
       --code-background: #eeeeee;
 
+      /* FACT-CHECK LIGHT MODE */
+
       --fact-background: #f8f7fa;
       --fact-card: #ffffff;
       --fact-card-secondary: #f4effa;
@@ -294,6 +300,7 @@
       --fact-violet: #a77be5;
 
       --fact-right-accent: #8b63c7;
+
       --fact-border: #d8cce8;
 
       --fact-gauge-track: #e8def5;
@@ -313,6 +320,28 @@
       --top-border: #6c3bb8;
       --blockquote-background: #1d1922;
       --code-background: #242424;
+
+      /* FACT-CHECK DARK MODE */
+
+      --fact-background: #151218;
+      --fact-card: #1d1922;
+      --fact-card-secondary: #211a2b;
+
+      --fact-text: #f5f2f7;
+      --fact-muted: #c5bdcc;
+
+      --fact-magenta: #b58cff;
+      --fact-purple: #d4b8ff;
+      --fact-violet: #c6a4f5;
+
+      --fact-right-accent: #a77be5;
+
+      --fact-border: #4b3a59;
+
+      --fact-gauge-track: #342940;
+      --fact-gauge-border: #9a6ed8;
+
+      --fact-scroll-track: #2a2231;
     }
 
     * {
@@ -344,8 +373,15 @@
 
     .site-header {
       background: var(--surface);
-      border-top: 5px solid var(--top-border);
-      border-bottom: 1px solid var(--border);
+
+      border-top:
+        5px solid
+        var(--top-border);
+
+      border-bottom:
+        1px solid
+        var(--border);
+
       padding: 28px 6% 0;
     }
 
@@ -353,7 +389,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 25px;
+
       padding-bottom: 28px;
     }
 
@@ -363,9 +401,14 @@
     }
 
     .logo {
-      font-family: "Times New Roman", Times, serif;
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
       font-size: 46px;
       font-weight: bold;
+
       letter-spacing: -1.5px;
       line-height: 1;
     }
@@ -377,14 +420,18 @@
     .header-actions {
       display: flex;
       align-items: center;
+
       gap: 10px;
     }
 
     .language-switch {
       display: flex;
       align-items: center;
+
       gap: 7px;
+
       margin-right: 5px;
+
       font-size: 12px;
       font-weight: bold;
       letter-spacing: 0.5px;
@@ -415,7 +462,9 @@
       background: var(--surface);
       color: var(--text);
 
-      border: 1px solid var(--text);
+      border:
+        1px solid
+        var(--text);
 
       text-decoration: none;
       cursor: pointer;
@@ -430,7 +479,9 @@
     .icon-button svg {
       width: 21px;
       height: 21px;
+
       fill: none;
+
       stroke: currentColor;
       stroke-width: 1.8;
       stroke-linecap: round;
@@ -444,9 +495,14 @@
 
     .icon-button:hover {
       background: var(--accent);
-      border-color: var(--accent);
+
+      border-color:
+        var(--accent);
+
       color: #ffffff;
-      transform: translateY(-2px);
+
+      transform:
+        translateY(-2px);
     }
 
     .sun-icon {
@@ -457,11 +513,13 @@
       display: block;
     }
 
-    html[data-theme="dark"] .sun-icon {
+    html[data-theme="dark"]
+    .sun-icon {
       display: block;
     }
 
-    html[data-theme="dark"] .moon-icon {
+    html[data-theme="dark"]
+    .moon-icon {
       display: none;
     }
 
@@ -476,15 +534,19 @@
 
       padding: 18px 0;
 
-      border-top: 1px solid var(--soft-border);
+      border-top:
+        1px solid
+        var(--soft-border);
     }
 
     nav a {
       color: var(--text);
+
       text-decoration: none;
 
       font-size: 13px;
       font-weight: bold;
+
       text-transform: uppercase;
     }
 
@@ -496,13 +558,23 @@
     /* ARTICLE */
 
     .article-container {
-      width: min(1180px, 92%);
-      margin: 65px auto 0;
+      width:
+        min(
+          1180px,
+          92%
+        );
+
+      margin:
+        65px auto 0;
     }
 
     .article-header {
       max-width: 920px;
-      margin: 0 auto 35px;
+
+      margin:
+        0 auto
+        35px;
+
       text-align: center;
     }
 
@@ -517,20 +589,28 @@
       font-weight: bold;
 
       letter-spacing: 1.3px;
+
       text-transform: uppercase;
       text-decoration: none;
     }
 
     a.article-category:hover {
       text-decoration: underline;
+
       text-underline-offset: 3px;
     }
 
     .article-title {
       max-width: 850px;
-      margin: 0 auto 22px;
 
-      font-family: "Times New Roman", Times, serif;
+      margin:
+        0 auto
+        22px;
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
 
       font-size: 48px;
       font-weight: bold;
@@ -550,18 +630,23 @@
       gap: 8px 16px;
 
       color: var(--muted);
+
       font-size: 12px;
     }
 
     .article-author {
       color: var(--muted);
+
       font-weight: bold;
+
       text-decoration: none;
     }
 
     .article-author:hover {
       color: var(--accent);
+
       text-decoration: underline;
+
       text-underline-offset: 3px;
     }
 
@@ -570,6 +655,7 @@
       height: 3px;
 
       border-radius: 50%;
+
       background: var(--muted);
     }
 
@@ -579,7 +665,9 @@
       width: 100%;
       max-width: 920px;
 
-      margin: 38px auto 48px;
+      margin:
+        38px auto
+        48px;
     }
 
     .article-cover img {
@@ -590,7 +678,9 @@
 
       object-fit: contain;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid
+        var(--border);
     }
 
     /* ==================================================
@@ -601,16 +691,30 @@
       width: 100%;
       max-width: 1160px;
 
-      margin: 0 auto 60px;
+      margin:
+        0 auto
+        60px;
 
-      padding: 28px 18px 22px;
+      padding:
+        28px 18px
+        22px;
 
-      background: var(--fact-background);
+      background:
+        var(--fact-background);
 
-      border: 1px solid var(--fact-border);
-      border-bottom: 7px solid var(--fact-magenta);
+      border:
+        1px solid
+        var(--fact-border);
+
+      border-bottom:
+        7px solid
+        var(--fact-magenta);
 
       overflow: hidden;
+
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
     }
 
     .fact-review-slide {
@@ -630,9 +734,11 @@
         minmax(0, 1fr);
 
       gap: 28px;
+
+      align-items: start;
     }
 
-    /* HEADERS */
+    /* FACT-CHECK HEADERS */
 
     .fact-review-heading-box {
       min-height: 104px;
@@ -642,31 +748,48 @@
 
       gap: 18px;
 
-      padding: 18px 22px;
+      padding:
+        18px 22px;
 
-      background: var(--fact-card);
+      background:
+        var(--fact-card);
 
-      border: 5px solid var(--fact-magenta);
+      border:
+        5px solid
+        var(--fact-magenta);
+
       border-radius: 20px;
 
-      color: var(--fact-text);
+      color:
+        var(--fact-text);
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
     }
 
-    .fact-review-right .fact-review-heading-box {
-      border-color: var(--fact-right-accent);
+    .fact-review-right
+    .fact-review-heading-box {
+      border-color:
+        var(--fact-right-accent);
     }
 
     .fact-review-heading-icon {
       width: 58px;
       height: 58px;
 
-      flex: 0 0 58px;
+      flex:
+        0 0 58px;
 
-      color: var(--fact-magenta);
+      color:
+        var(--fact-magenta);
     }
 
-    .fact-review-right .fact-review-heading-icon {
-      color: var(--fact-right-accent);
+    .fact-review-right
+    .fact-review-heading-icon {
+      color:
+        var(--fact-right-accent);
     }
 
     .fact-review-heading-icon svg {
@@ -674,8 +797,10 @@
       height: 100%;
 
       fill: none;
+
       stroke: currentColor;
       stroke-width: 2;
+
       stroke-linecap: round;
       stroke-linejoin: round;
     }
@@ -683,55 +808,81 @@
     .fact-review-heading-text {
       font-size: 16px;
       font-weight: 700;
+
       line-height: 1.25;
     }
 
-    /* CONTENT */
+    /* FACT-CHECK CONTENT */
 
     .fact-review-content-box {
       height: 415px;
 
       margin-top: 20px;
 
-      padding: 30px 28px;
+      padding:
+        30px 28px;
 
-      background: var(--fact-card);
+      background:
+        var(--fact-card);
 
-      border: 5px solid var(--fact-magenta);
+      border:
+        5px solid
+        var(--fact-magenta);
+
       border-radius: 20px;
 
-      color: var(--fact-text);
+      color:
+        var(--fact-text);
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
     }
 
-    .fact-review-right .fact-review-content-box {
-      border-color: var(--fact-right-accent);
+    .fact-review-right
+    .fact-review-content-box {
+      border-color:
+        var(--fact-right-accent);
     }
 
     .fact-review-content-title {
       display: inline-block;
 
       margin-bottom: 30px;
+
       padding-bottom: 5px;
 
-      border-bottom: 2px solid var(--fact-magenta);
+      border-bottom:
+        2px solid
+        var(--fact-magenta);
 
-      color: var(--fact-purple);
+      color:
+        var(--fact-purple);
 
       font-size: 16px;
       font-weight: 700;
     }
 
-    .fact-review-right .fact-review-content-title {
-      border-color: var(--fact-right-accent);
+    .fact-review-right
+    .fact-review-content-title {
+      border-color:
+        var(--fact-right-accent);
     }
 
     .fact-review-claim {
-      font-family: "Times New Roman", Times, serif;
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
 
       font-size: 22px;
       font-weight: 700;
 
       line-height: 1.5;
+
+      color:
+        var(--fact-text);
     }
 
     .fact-review-conclusion-scroll {
@@ -754,30 +905,42 @@
     }
 
     .fact-review-conclusion-scroll::-webkit-scrollbar-track {
-      background: var(--fact-scroll-track);
+      background:
+        var(--fact-scroll-track);
+
       border-radius: 10px;
     }
 
     .fact-review-conclusion-scroll::-webkit-scrollbar-thumb {
-      background: var(--fact-right-accent);
+      background:
+        var(--fact-right-accent);
+
       border-radius: 10px;
     }
 
     .fact-review-conclusion {
-      font-family: "Times New Roman", Times, serif;
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
 
       font-size: 18px;
+
       line-height: 1.65;
 
-      color: var(--fact-text);
+      color:
+        var(--fact-text);
     }
 
-    /* MIDDLE */
+    /* FACT-CHECK MIDDLE */
 
     .fact-review-middle-title {
-      margin: 0 0 15px;
+      margin:
+        0 0
+        15px;
 
-      color: var(--fact-purple);
+      color:
+        var(--fact-purple);
 
       font-size: 18px;
       font-weight: 700;
@@ -793,26 +956,36 @@
       width: 50px;
       height: 2px;
 
-      margin: 8px auto 0;
+      margin:
+        8px auto 0;
 
-      background: var(--fact-magenta);
+      background:
+        var(--fact-magenta);
     }
 
     /* RATING */
 
     .fact-gauge-card {
-      height: 122px;
+      min-height: 170px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      padding: 24px;
+      padding: 30px 24px;
 
-      background: var(--fact-card-secondary);
+      background:
+        var(--fact-card-secondary);
 
-      border: 1px solid var(--fact-border);
-      border-radius: 3px;
+      border:
+        1px solid
+        var(--fact-border);
+
+      border-radius: 20px;
+
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
     }
 
     .fact-gauge {
@@ -821,22 +994,32 @@
       width: 100%;
       height: 52px;
 
-      background: var(--fact-gauge-track);
+      background:
+        var(--fact-gauge-track);
 
-      border: 3px solid var(--fact-gauge-border);
+      border:
+        3px solid
+        var(--fact-gauge-border);
+
       border-radius: 999px;
     }
 
     .fact-gauge-marker {
       position: absolute;
+
       top: 50%;
 
       min-width: 132px;
       max-width: 170px;
 
-      padding: 10px 14px;
+      padding:
+        10px 14px;
 
-      transform: translate(-50%, -50%);
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
 
       border-radius: 999px;
 
@@ -846,145 +1029,119 @@
       font-weight: 800;
 
       line-height: 1.15;
+
       text-align: center;
 
       box-shadow:
         0 2px 7px
-        rgba(50, 16, 63, 0.16);
+        rgba(
+          0,
+          0,
+          0,
+          0.18
+        );
     }
 
     .rating-1 {
-      --rating-color: #c3ace3;
+      --rating-color:
+        #c3ace3;
     }
 
     .rating-2 {
-      --rating-color: #a77be5;
+      --rating-color:
+        #a77be5;
     }
 
     .rating-3 {
-      --rating-color: #6c3bb8;
+      --rating-color:
+        #6c3bb8;
     }
 
     .rating-4 {
-      --rating-color: #502584;
+      --rating-color:
+        #502584;
     }
 
     .rating-5 {
-      --rating-color: #32103f;
+      --rating-color:
+        #32103f;
     }
 
-    .rating-1 .fact-gauge-marker {
+    html[data-theme="dark"]
+    .rating-1 {
+      --rating-color:
+        #cdb6ee;
+    }
+
+    html[data-theme="dark"]
+    .rating-2 {
+      --rating-color:
+        #b58cff;
+    }
+
+    html[data-theme="dark"]
+    .rating-3 {
+      --rating-color:
+        #8f5fd1;
+    }
+
+    html[data-theme="dark"]
+    .rating-4 {
+      --rating-color:
+        #7040ad;
+    }
+
+    html[data-theme="dark"]
+    .rating-5 {
+      --rating-color:
+        #53237f;
+    }
+
+    .rating-1
+    .fact-gauge-marker {
       left: 13%;
-      background: var(--rating-color);
+
+      background:
+        var(--rating-color);
     }
 
-    .rating-2 .fact-gauge-marker {
+    .rating-2
+    .fact-gauge-marker {
       left: 31%;
-      background: var(--rating-color);
+
+      background:
+        var(--rating-color);
     }
 
-    .rating-3 .fact-gauge-marker {
+    .rating-3
+    .fact-gauge-marker {
       left: 50%;
-      background: var(--rating-color);
+
+      background:
+        var(--rating-color);
     }
 
-    .rating-4 .fact-gauge-marker {
+    .rating-4
+    .fact-gauge-marker {
       left: 69%;
-      background: var(--rating-color);
+
+      background:
+        var(--rating-color);
     }
 
-    .rating-5 .fact-gauge-marker {
+    .rating-5
+    .fact-gauge-marker {
       left: 87%;
-      background: var(--rating-color);
+
+      background:
+        var(--rating-color);
     }
 
-    /* ==================================================
-       FACT-CHECK MICROScope SEAL
-       ================================================== */
-
-    .fact-seal-card {
-      height: 307px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      margin-top: 20px;
-
-      background: transparent;
-
-      border: 1px solid var(--fact-border);
-      border-radius: 3px;
-    }
-
-    .fact-science-seal {
-      position: relative;
-
-      width: 230px;
-      height: 230px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border: 17px solid var(--fact-purple);
-      border-radius: 50%;
-
-      color: var(--fact-magenta);
-
-      background: transparent;
-    }
-
-    .fact-microscope {
-      width: 118px;
-      height: 122px;
-
-      transform: translateY(-22px);
-
-      color: var(--fact-magenta);
-    }
-
-    .fact-microscope svg {
-      width: 100%;
-      height: 100%;
-
-      fill: none;
-
-      stroke: currentColor;
-      stroke-width: 4;
-
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .fact-seal-label {
-      position: absolute;
-
-      left: -17px;
-      right: -17px;
-      bottom: 31px;
-
-      padding: 13px 12px;
-
-      background: var(--fact-purple);
-
-      color: #ffffff;
-
-      font-size: 19px;
-      font-weight: 800;
-
-      line-height: 1;
-      letter-spacing: 0.7px;
-
-      text-align: center;
-
-      text-transform: uppercase;
-    }
-
-    /* NAVIGATION */
+    /* FACT-CHECK NAVIGATION */
 
     .fact-review-nav {
       display: flex;
+
       justify-content: flex-end;
 
       margin-top: 18px;
@@ -999,15 +1156,25 @@
 
       min-width: 190px;
 
-      padding: 12px 18px;
+      padding:
+        12px 18px;
 
-      background: #ffffff;
-      color: var(--fact-purple);
+      background:
+        var(--fact-card);
 
-      border: 2px solid var(--fact-purple);
+      color:
+        var(--fact-purple);
+
+      border:
+        2px solid
+        var(--fact-purple);
+
       border-radius: 9px;
 
-      font-family: "Times New Roman", Times, serif;
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
 
       font-size: 15px;
       font-weight: 700;
@@ -1021,13 +1188,20 @@
     }
 
     .fact-review-next:hover {
-      background: var(--fact-magenta);
-      border-color: var(--fact-magenta);
+      background:
+        var(--fact-magenta);
+
+      border-color:
+        var(--fact-magenta);
+
       color: #ffffff;
     }
 
     .fact-review-next-arrow {
-      font-family: Arial, sans-serif;
+      font-family:
+        Arial,
+        sans-serif;
+
       font-size: 18px;
     }
 
@@ -1040,15 +1214,23 @@
 
       color: var(--text);
 
-      font-family: "Times New Roman", Times, serif;
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
 
       font-size: 19px;
+
       line-height: 1.78;
     }
 
     .article-body strong,
     .article-body b {
-      font-family: "Times New Roman", Times, serif;
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
       font-weight: 700;
     }
 
@@ -1065,7 +1247,11 @@
 
       color: var(--text);
 
-      font-family: "Times New Roman", Times, serif;
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
       line-height: 1.15;
     }
 
@@ -1087,13 +1273,17 @@
 
     .article-body a {
       color: var(--accent);
+
       text-decoration-thickness: 1px;
+
       text-underline-offset: 3px;
     }
 
     .article-body ul,
     .article-body ol {
-      margin: 0 0 25px 28px;
+      margin:
+        0 0
+        25px 28px;
     }
 
     .article-body li {
@@ -1106,47 +1296,69 @@
       max-width: 100%;
       height: auto;
 
-      margin: 38px auto;
+      margin:
+        38px auto;
 
-      border: 1px solid var(--soft-border);
+      border:
+        1px solid
+        var(--soft-border);
     }
 
     .article-body blockquote {
-      margin: 35px 0;
+      margin:
+        35px 0;
 
-      padding: 22px 25px;
+      padding:
+        22px 25px;
 
-      background: var(--blockquote-background);
+      background:
+        var(--blockquote-background);
 
-      border-left: 4px solid var(--accent);
+      border-left:
+        4px solid
+        var(--accent);
 
       font-style: italic;
     }
 
     .article-body hr {
-      margin: 45px 0;
+      margin:
+        45px 0;
 
       border: none;
-      border-top: 1px solid var(--border);
+
+      border-top:
+        1px solid
+        var(--border);
     }
 
     .article-body code {
-      padding: 2px 5px;
+      padding:
+        2px 5px;
 
-      background: var(--code-background);
+      background:
+        var(--code-background);
 
-      font-family: Consolas, monospace;
-      font-size: 0.9em;
+      font-family:
+        Consolas,
+        monospace;
+
+      font-size:
+        0.9em;
     }
 
     .article-body table {
       width: 100%;
 
-      margin: 30px 0;
+      margin:
+        30px 0;
 
       border-collapse: collapse;
 
-      font-family: "Times New Roman", Times, serif;
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
 
       font-size: 16px;
     }
@@ -1155,32 +1367,40 @@
     .article-body td {
       padding: 12px;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid
+        var(--border);
 
       text-align: left;
     }
 
     .article-body th {
-      background: var(--surface);
+      background:
+        var(--surface);
+
       font-weight: 700;
     }
 
-    /* END */
+    /* ARTICLE END */
 
     .article-end {
       max-width: 760px;
 
-      margin: 55px auto 0;
+      margin:
+        55px auto 0;
 
       padding-top: 30px;
 
-      border-top: 2px solid var(--text);
+      border-top:
+        2px solid
+        var(--text);
     }
 
     .back-home {
       display: inline-block;
 
-      color: var(--accent);
+      color:
+        var(--accent);
 
       font-size: 13px;
       font-weight: bold;
@@ -1197,19 +1417,26 @@
     .comments-section {
       max-width: 760px;
 
-      margin: 65px auto 0;
+      margin:
+        65px auto 0;
 
       padding-top: 35px;
 
-      border-top: 2px solid var(--text);
+      border-top:
+        2px solid
+        var(--text);
     }
 
     .comments-section h2 {
       margin-bottom: 7px;
 
-      font-family: "Times New Roman", Times, serif;
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
 
       font-size: 31px;
+
       line-height: 1.1;
     }
 
@@ -1218,7 +1445,10 @@
 
       color: var(--muted);
 
-      font-family: "Times New Roman", Times, serif;
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
 
       font-size: 17px;
     }
@@ -1226,16 +1456,28 @@
     /* NEWSLETTER */
 
     .newsletter {
-      width: min(920px, 88%);
+      width:
+        min(
+          920px,
+          88%
+        );
 
-      margin: 75px auto 0;
+      margin:
+        75px auto 0;
 
-      padding: 36px 20px;
+      padding:
+        36px 20px;
 
-      background: var(--surface);
+      background:
+        var(--surface);
 
-      border-top: 2px solid var(--text);
-      border-bottom: 1px solid var(--border);
+      border-top:
+        2px solid
+        var(--text);
+
+      border-bottom:
+        1px solid
+        var(--border);
 
       text-align: center;
 
@@ -1267,16 +1509,26 @@
     footer {
       margin-top: 65px;
 
-      padding: 38px 6%;
+      padding:
+        38px 6%;
 
-      background: var(--surface);
+      background:
+        var(--surface);
 
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid
+        var(--border);
     }
 
     .footer-inner {
-      width: min(1100px, 100%);
-      margin: 0 auto;
+      width:
+        min(
+          1100px,
+          100%
+        );
+
+      margin:
+        0 auto;
     }
 
     .footer-links {
@@ -1284,7 +1536,8 @@
       justify-content: center;
       flex-wrap: wrap;
 
-      gap: 10px 22px;
+      gap:
+        10px 22px;
 
       margin-bottom: 20px;
     }
@@ -1321,16 +1574,6 @@
           1fr;
       }
 
-      .fact-review-middle {
-        grid-column: 1 / -1;
-        grid-row: 2;
-
-        max-width: 480px;
-        width: 100%;
-
-        margin: 0 auto;
-      }
-
       .fact-review-left {
         grid-column: 1;
         grid-row: 1;
@@ -1341,6 +1584,19 @@
         grid-row: 1;
       }
 
+      .fact-review-middle {
+        grid-column:
+          1 / -1;
+
+        grid-row: 2;
+
+        width: 100%;
+        max-width: 480px;
+
+        margin:
+          0 auto;
+      }
+
     }
 
     /* MOBILE */
@@ -1348,11 +1604,13 @@
     @media (max-width: 700px) {
 
       .site-header {
-        padding: 22px 5% 0;
+        padding:
+          22px 5% 0;
       }
 
       .header-top {
         gap: 14px;
+
         padding-bottom: 22px;
       }
 
@@ -1366,7 +1624,9 @@
 
       .language-switch {
         gap: 5px;
+
         margin-right: 0;
+
         font-size: 10px;
       }
 
@@ -1381,8 +1641,11 @@
       }
 
       nav {
-        gap: 11px 18px;
-        padding: 15px 0;
+        gap:
+          11px 18px;
+
+        padding:
+          15px 0;
       }
 
       nav a {
@@ -1391,26 +1654,34 @@
 
       .article-container {
         width: 92%;
+
         margin-top: 42px;
       }
 
       .article-title {
         font-size: 34px;
+
         line-height: 1.08;
       }
 
       .article-cover {
         margin-top: 28px;
+
         margin-bottom: 35px;
       }
 
+      /* FACT CHECK MOBILE */
+
       .fact-review-shell {
-        padding: 20px 13px;
+        padding:
+          20px 13px;
+
         margin-bottom: 44px;
       }
 
       .fact-review-grid {
         display: flex;
+
         flex-direction: column;
 
         gap: 22px;
@@ -1422,6 +1693,8 @@
 
       .fact-review-middle {
         order: 2;
+
+        max-width: none;
       }
 
       .fact-review-right {
@@ -1431,9 +1704,11 @@
       .fact-review-heading-box {
         min-height: 87px;
 
-        padding: 14px 17px;
+        padding:
+          14px 17px;
 
         border-width: 4px;
+
         border-radius: 16px;
       }
 
@@ -1450,11 +1725,14 @@
 
       .fact-review-content-box {
         height: auto;
+
         min-height: 300px;
 
-        padding: 24px 21px;
+        padding:
+          24px 21px;
 
         border-width: 4px;
+
         border-radius: 16px;
       }
 
@@ -1471,9 +1749,10 @@
       }
 
       .fact-gauge-card {
-        height: 115px;
+        min-height: 145px;
 
-        padding: 22px 17px;
+        padding:
+          28px 18px;
       }
 
       .fact-gauge {
@@ -1484,32 +1763,10 @@
         min-width: 115px;
         max-width: 145px;
 
-        padding: 9px 10px;
+        padding:
+          9px 10px;
 
         font-size: 11px;
-      }
-
-      .fact-seal-card {
-        height: 275px;
-      }
-
-      .fact-science-seal {
-        width: 205px;
-        height: 205px;
-
-        border-width: 15px;
-      }
-
-      .fact-microscope {
-        width: 100px;
-        height: 105px;
-      }
-
-      .fact-seal-label {
-        left: -15px;
-        right: -15px;
-
-        font-size: 17px;
       }
 
       .fact-review-nav {
@@ -1522,6 +1779,7 @@
 
       .article-body {
         font-size: 18px;
+
         line-height: 1.75;
       }
 
@@ -1543,7 +1801,9 @@
 
       .newsletter {
         width: 90%;
-        padding: 30px 8px;
+
+        padding:
+          30px 8px;
       }
 
     }
@@ -1719,7 +1979,9 @@
 
     <nav>
 
-      <a href="{{ '/en/' | relative_url }}">Home</a>
+      <a href="{{ '/en/' | relative_url }}">
+        Home
+      </a>
 
       <a
         href="{{ '/en/health/' | relative_url }}"
@@ -1762,7 +2024,9 @@
 
     <nav>
 
-      <a href="{{ '/' | relative_url }}">Αρχική</a>
+      <a href="{{ '/' | relative_url }}">
+        Αρχική
+      </a>
 
       <a
         href="{{ '/ygeia/' | relative_url }}"
@@ -1928,7 +2192,10 @@
 
                   <div class="fact-review-heading-icon">
 
-                    <svg viewBox="0 0 64 64">
+                    <svg
+                      viewBox="0 0 64 64"
+                      aria-hidden="true"
+                    >
 
                       <rect
                         x="13"
@@ -1938,11 +2205,32 @@
                         rx="4"
                       ></rect>
 
-                      <line x1="20" y1="18" x2="39" y2="18"></line>
-                      <line x1="20" y1="26" x2="36" y2="26"></line>
-                      <line x1="20" y1="34" x2="33" y2="34"></line>
+                      <line
+                        x1="20"
+                        y1="18"
+                        x2="39"
+                        y2="18"
+                      ></line>
 
-                      <circle cx="44" cy="42" r="9"></circle>
+                      <line
+                        x1="20"
+                        y1="26"
+                        x2="36"
+                        y2="26"
+                      ></line>
+
+                      <line
+                        x1="20"
+                        y1="34"
+                        x2="33"
+                        y2="34"
+                      ></line>
+
+                      <circle
+                        cx="44"
+                        cy="42"
+                        r="9"
+                      ></circle>
 
                       <line
                         x1="50"
@@ -2015,134 +2303,6 @@
 
                 </div>
 
-                <!-- FACT-CHECK SEAL -->
-
-                <div class="fact-seal-card">
-
-                  <div class="fact-science-seal">
-
-                    <div class="fact-microscope">
-
-                      <svg
-                        viewBox="0 0 120 120"
-                        aria-hidden="true"
-                      >
-
-                        <!-- Eyepiece -->
-                        <g transform="rotate(-42 69 25)">
-
-                          <rect
-                            x="56"
-                            y="8"
-                            width="28"
-                            height="13"
-                            rx="3"
-                          ></rect>
-
-                          <!-- Microscope tube -->
-                          <rect
-                            x="62"
-                            y="20"
-                            width="16"
-                            height="39"
-                            rx="3"
-                          ></rect>
-
-                        </g>
-
-                        <!-- Objective assembly -->
-                        <path
-                          d="
-                            M54 48
-                            L67 61
-                          "
-                        ></path>
-
-                        <path
-                          d="
-                            M49 54
-                            L60 65
-                          "
-                        ></path>
-
-                        <path
-                          d="
-                            M58 64
-                            L65 71
-                          "
-                        ></path>
-
-                        <!-- Stage -->
-                        <path
-                          d="
-                            M27 73
-                            H73
-                          "
-                        ></path>
-
-                        <path
-                          d="
-                            M36 73
-                            V80
-                          "
-                        ></path>
-
-                        <path
-                          d="
-                            M64 73
-                            V80
-                          "
-                        ></path>
-
-                        <!-- Focus knob -->
-                        <circle
-                          cx="76"
-                          cy="67"
-                          r="6"
-                        ></circle>
-
-                        <!-- Main curved arm -->
-                        <path
-                          d="
-                            M72 46
-                            C91 55 99 73 92 88
-                            C86 101 73 108 59 108
-                            C44 108 33 99 30 86
-                            C29 82 29 79 30 76
-                          "
-                        ></path>
-
-                        <!-- Support -->
-                        <path
-                          d="
-                            M43 103
-                            H78
-                          "
-                        ></path>
-
-                        <!-- Base -->
-                        <path
-                          d="
-                            M36 102
-                            L27 112
-                            H94
-                            L83 102
-                            Z
-                          "
-                        ></path>
-
-                      </svg>
-
-                    </div>
-
-                    <div class="fact-seal-label">
-                      FACT-CHECK
-                    </div>
-
-                  </div>
-
-                </div>
-
               </div>
 
               <!-- CONCLUSION -->
@@ -2153,7 +2313,10 @@
 
                   <div class="fact-review-heading-icon">
 
-                    <svg viewBox="0 0 64 64">
+                    <svg
+                      viewBox="0 0 64 64"
+                      aria-hidden="true"
+                    >
 
                       <rect
                         x="11"
@@ -2163,8 +2326,19 @@
                         rx="4"
                       ></rect>
 
-                      <line x1="19" y1="17" x2="38" y2="17"></line>
-                      <line x1="19" y1="25" x2="35" y2="25"></line>
+                      <line
+                        x1="19"
+                        y1="17"
+                        x2="38"
+                        y2="17"
+                      ></line>
+
+                      <line
+                        x1="19"
+                        y1="25"
+                        x2="35"
+                        y2="25"
+                      ></line>
 
                       <circle
                         cx="46"
@@ -2241,9 +2415,14 @@
             </span>
 
             {% if fact_check_count > 1 %}
-              <span class="fact-review-next-arrow">
+
+              <span
+                class="fact-review-next-arrow"
+                aria-hidden="true"
+              >
                 →
               </span>
+
             {% endif %}
 
           </button>
@@ -2288,7 +2467,9 @@
 
     {% if is_english %}
 
-      <h2>Comments</h2>
+      <h2>
+        Comments
+      </h2>
 
       <p class="comments-intro">
         💬 <em>Join the discussion</em>
@@ -2296,7 +2477,9 @@
 
     {% else %}
 
-      <h2>Σχόλια</h2>
+      <h2>
+        Σχόλια
+      </h2>
 
       <p class="comments-intro">
         💬 <em>Συμμετέχετε στη συζήτηση</em>
@@ -2320,8 +2503,8 @@
       data-theme="preferred_color_scheme"
       data-lang="{% if is_english %}en{% else %}el{% endif %}"
       crossorigin="anonymous"
-      async>
-    </script>
+      async
+    ></script>
 
   </section>
 
@@ -2416,23 +2599,27 @@
       ".language-link"
     );
 
-  languageLinks.forEach(link => {
+  languageLinks.forEach(
+    link => {
 
-    link.addEventListener(
-      "click",
-      function () {
+      link.addEventListener(
+        "click",
+        function () {
 
-        localStorage.setItem(
-          "biomedfacts-language",
-          this.dataset.language
-        );
+          localStorage.setItem(
+            "biomedfacts-language",
+            this.dataset.language
+          );
 
-      }
-    );
+        }
+      );
 
-  });
+    }
+  );
 
-  /* FACT-CHECK NAVIGATION */
+  /* ==================================================
+     FACT-CHECK NAVIGATION
+     ================================================== */
 
   const factSlides =
     document.querySelectorAll(
@@ -2508,7 +2695,9 @@
           currentFactIndex >=
           factSlides.length
         ) {
+
           currentFactIndex = 0;
+
         }
 
         updateFactReview();
@@ -2520,9 +2709,13 @@
 
   updateFactReview();
 
-  /* GISCUS THEME */
+  /* ==================================================
+     GISCUS THEME
+     ================================================== */
 
-  function updateGiscusTheme(theme) {
+  function updateGiscusTheme(
+    theme
+  ) {
 
     const iframe =
       document.querySelector(
