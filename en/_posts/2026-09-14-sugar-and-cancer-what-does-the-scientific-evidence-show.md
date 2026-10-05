@@ -11,6 +11,37 @@ featured: false
 seo_title: Does Sugar Feed Cancer? Can Ketogenic Diets Help?
 seo_description: Does sugar really feed cancer? Learn what the evidence shows
   about glucose, tumor metabolism, PET/CT scans, and ketogenic diets.
+fact_checks:
+  - claim: “Cancer cells feed exclusively on sugar, and if we eliminate sugar from
+      our diet, we can ‘starve’ cancer.”
+    verdict: Misleading
+    conclusion: >-
+      Many cancer cells do indeed show increased glucose uptake and metabolism.
+      However, this does not mean that they rely exclusively on glucose, nor
+      does eliminating sugar from the diet selectively deprive a tumour of its
+      energy source. Tumours show considerable metabolic heterogeneity and,
+      depending on their type and microenvironment, may also use other
+      substrates, including glutamine, fatty acids, and lactate.
+
+
+      At the same time, the body maintains blood glucose levels even when
+      carbohydrate intake is restricted. There is insufficient clinical evidence
+      to show that eliminating sugar from the diet can “starve” or treat an
+      existing cancer.
+  - claim: “PET/CT scans use ‘sugar’ to detect cancer, so this proves that cancer
+      feeds on sugar.”
+    verdict: Misleading
+    conclusion: >-
+      FDG PET/CT uses 18F-FDG, a radioactive glucose analogue, because many
+      tumours have increased glucose uptake. However, FDG uptake is not specific
+      to cancer: it can also occur in normal tissues, as well as in areas of
+      inflammation, infection, and tissue healing. In addition, not all cancers
+      show high FDG uptake.
+
+
+      Therefore, PET/CT demonstrates that certain tumours have increased glucose
+      metabolism; it does not prove that they survive exclusively on the sugar
+      we consume or that avoiding sugar can “starve” them.
 ---
 The idea that **“sugar feeds cancer”** is one of those health claims that sounds convincing because it contains a grain of truth.
 
