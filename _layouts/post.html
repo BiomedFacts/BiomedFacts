@@ -1781,47 +1781,6 @@
       text-decoration: underline;
     }
 
-    /* COMMENTS */
-
-    .comments-section {
-      max-width: 760px;
-
-      margin:
-        65px auto 0;
-
-      padding-top: 35px;
-
-      border-top:
-        2px solid
-        var(--text);
-    }
-
-    .comments-section h2 {
-      margin-bottom: 7px;
-
-      font-family:
-        "Times New Roman",
-        Times,
-        serif;
-
-      font-size: 31px;
-
-      line-height: 1.1;
-    }
-
-    .comments-intro {
-      margin-bottom: 28px;
-
-      color: var(--muted);
-
-      font-family:
-        "Times New Roman",
-        Times,
-        serif;
-
-      font-size: 17px;
-    }
-
     /* NEWSLETTER */
 
     .newsletter {
@@ -2233,10 +2192,6 @@
 
       .article-body h3 {
         font-size: 23px;
-      }
-
-      .comments-section h2 {
-        font-size: 28px;
       }
 
       .newsletter {
@@ -3170,50 +3125,6 @@
 
   </div>
 
-  <section class="comments-section">
-
-    {% if is_english %}
-
-      <h2>
-        Comments
-      </h2>
-
-      <p class="comments-intro">
-        💬 <em>Join the discussion</em>
-      </p>
-
-    {% else %}
-
-      <h2>
-        Σχόλια
-      </h2>
-
-      <p class="comments-intro">
-        💬 <em>Συμμετέχετε στη συζήτηση</em>
-      </p>
-
-    {% endif %}
-
-    <div class="giscus"></div>
-
-    <script
-      src="https://giscus.app/client.js"
-      data-repo="BiomedFacts/BiomedFacts"
-      data-repo-id="R_kgDOUVcRYw"
-      data-category="Announcements"
-      data-category-id="DIC_kwDOUVcRY84DFXZD"
-      data-mapping="pathname"
-      data-strict="0"
-      data-reactions-enabled="1"
-      data-emit-metadata="0"
-      data-input-position="bottom"
-      data-theme="preferred_color_scheme"
-      data-lang="{% if is_english %}en{% else %}el{% endif %}"
-      crossorigin="anonymous"
-      async
-    ></script>
-
-  </section>
 
 </main>
 
@@ -3416,72 +3327,6 @@
 
   updateFactReview();
 
-  /* ==================================================
-     GISCUS THEME
-     ================================================== */
-
-  function updateGiscusTheme(
-    theme
-  ) {
-
-    const iframe =
-      document.querySelector(
-        "iframe.giscus-frame"
-      );
-
-    if (!iframe) {
-      return;
-    }
-
-    iframe.contentWindow.postMessage(
-      {
-        giscus: {
-          setConfig: {
-            theme: theme
-          }
-        }
-      },
-      "https://giscus.app"
-    );
-
-  }
-
-  const giscusObserver =
-    new MutationObserver(
-      function () {
-
-        const iframe =
-          document.querySelector(
-            "iframe.giscus-frame"
-          );
-
-        if (iframe) {
-
-          const currentTheme =
-            document.documentElement
-              .getAttribute(
-                "data-theme"
-              );
-
-          updateGiscusTheme(
-            currentTheme
-          );
-
-          giscusObserver.disconnect();
-
-        }
-
-      }
-    );
-
-  giscusObserver.observe(
-    document.body,
-    {
-      childList: true,
-      subtree: true
-    }
-  );
-
   const themeToggle =
     document.getElementById(
       "theme-toggle"
@@ -3510,10 +3355,6 @@
 
       localStorage.setItem(
         "biomedfacts-theme",
-        newTheme
-      );
-
-      updateGiscusTheme(
         newTheme
       );
 
