@@ -93,6 +93,8 @@
 {% endif %}
 
 {% assign fact_check_count = page.fact_checks | size %}
+{% assign faq_count = page.faqs | size %}
+{% assign source_count = page.sources | size %}
 
 <!DOCTYPE html>
 
@@ -1205,6 +1207,373 @@
       font-size: 18px;
     }
 
+    /* ==================================================
+       STANDARD ARTICLE PANELS
+       Με μια ματιά / FAQ / Πηγές
+       ================================================== */
+
+    .editorial-panel-shell {
+      width: 100%;
+      max-width: 920px;
+
+      margin:
+        0 auto
+        52px;
+
+      padding: 18px;
+
+      background:
+        var(--fact-background);
+
+      border:
+        1px solid
+        var(--fact-border);
+
+      border-bottom:
+        7px solid
+        var(--fact-magenta);
+
+      overflow: hidden;
+
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .editorial-panel-shell.editorial-panel-narrow {
+      max-width: 760px;
+
+      margin-top: 55px;
+      margin-bottom: 0;
+    }
+
+    .editorial-panel-card {
+      background:
+        var(--fact-card);
+
+      border:
+        5px solid
+        var(--fact-magenta);
+
+      border-radius: 20px;
+
+      padding:
+        26px 28px;
+
+      color:
+        var(--fact-text);
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .editorial-panel-heading {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      margin-bottom: 19px;
+    }
+
+    .editorial-panel-icon {
+      width: 48px;
+      height: 48px;
+
+      flex:
+        0 0 48px;
+
+      color:
+        var(--fact-magenta);
+    }
+
+    .editorial-panel-icon svg {
+      width: 100%;
+      height: 100%;
+
+      fill: none;
+
+      stroke: currentColor;
+      stroke-width: 2;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .editorial-panel-title {
+      color:
+        var(--fact-purple);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 18px;
+      font-weight: 700;
+
+      line-height: 1.2;
+    }
+
+    .editorial-panel-title::after {
+      content: "";
+
+      display: block;
+
+      width: 46px;
+      height: 2px;
+
+      margin-top: 7px;
+
+      background:
+        var(--fact-magenta);
+    }
+
+    .overview-text {
+      color:
+        var(--fact-text);
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 19px;
+
+      line-height: 1.72;
+    }
+
+    /* FAQ ACCORDION */
+
+    .faq-list {
+      display: grid;
+
+      gap: 12px;
+    }
+
+    .faq-item {
+      background:
+        var(--fact-card-secondary);
+
+      border:
+        2px solid
+        var(--fact-border);
+
+      border-radius: 14px;
+
+      overflow: hidden;
+
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 18px;
+
+      width: 100%;
+
+      padding:
+        17px 19px;
+
+      color:
+        var(--fact-text);
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 18px;
+      font-weight: 700;
+
+      line-height: 1.35;
+
+      cursor: pointer;
+
+      list-style: none;
+    }
+
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-question::marker {
+      display: none;
+    }
+
+    .faq-toggle {
+      position: relative;
+
+      width: 30px;
+      height: 30px;
+
+      flex:
+        0 0 30px;
+
+      border-radius: 50%;
+
+      background:
+        var(--fact-purple);
+
+      color: #ffffff;
+    }
+
+    .faq-toggle::before,
+    .faq-toggle::after {
+      content: "";
+
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      width: 12px;
+      height: 2px;
+
+      background:
+        currentColor;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
+    }
+
+    .faq-toggle::after {
+      transform:
+        translate(
+          -50%,
+          -50%
+        )
+        rotate(90deg);
+
+      transition:
+        transform 0.2s ease;
+    }
+
+    .faq-item[open]
+    .faq-toggle::after {
+      transform:
+        translate(
+          -50%,
+          -50%
+        )
+        rotate(0deg);
+    }
+
+    .faq-answer {
+      padding:
+        17px 19px
+        19px;
+
+      border-top:
+        1px solid
+        var(--fact-border);
+
+      color:
+        var(--fact-text);
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 18px;
+
+      line-height: 1.65;
+    }
+
+    /* SOURCES */
+
+    .sources-list {
+      display: grid;
+
+      gap: 15px;
+
+      margin: 0;
+
+      padding: 0;
+
+      list-style: none;
+
+      counter-reset:
+        source-counter;
+    }
+
+    .sources-list li {
+      position: relative;
+
+      counter-increment:
+        source-counter;
+
+      padding-left: 42px;
+
+      color:
+        var(--fact-text);
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 16px;
+
+      line-height: 1.55;
+
+      overflow-wrap: anywhere;
+    }
+
+    .sources-list li::before {
+      content:
+        "["
+        counter(source-counter)
+        "]";
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      color:
+        var(--fact-magenta);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .sources-list a {
+      color:
+        var(--fact-text);
+
+      text-decoration:
+        underline;
+
+      text-decoration-color:
+        var(--fact-violet);
+
+      text-decoration-thickness:
+        1px;
+
+      text-underline-offset:
+        3px;
+    }
+
+    .sources-list a:hover {
+      color:
+        var(--fact-magenta);
+    }
+
     /* ARTICLE BODY */
 
     .article-body {
@@ -1777,6 +2146,77 @@
         width: 100%;
       }
 
+      .editorial-panel-shell {
+        padding:
+          14px;
+
+        margin-bottom: 40px;
+      }
+
+      .editorial-panel-shell.editorial-panel-narrow {
+        margin-top: 42px;
+      }
+
+      .editorial-panel-card {
+        padding:
+          22px 20px;
+
+        border-width: 4px;
+
+        border-radius: 16px;
+      }
+
+      .editorial-panel-heading {
+        gap: 12px;
+
+        margin-bottom: 16px;
+      }
+
+      .editorial-panel-icon {
+        width: 42px;
+        height: 42px;
+
+        flex-basis: 42px;
+      }
+
+      .editorial-panel-title {
+        font-size: 16px;
+      }
+
+      .overview-text {
+        font-size: 18px;
+
+        line-height: 1.67;
+      }
+
+      .faq-question {
+        padding:
+          15px 16px;
+
+        font-size: 17px;
+      }
+
+      .faq-answer {
+        padding:
+          15px 16px
+          17px;
+
+        font-size: 17px;
+      }
+
+      .faq-toggle {
+        width: 28px;
+        height: 28px;
+
+        flex-basis: 28px;
+      }
+
+      .sources-list li {
+        padding-left: 38px;
+
+        font-size: 15px;
+      }
+
       .article-body {
         font-size: 18px;
 
@@ -2135,6 +2575,67 @@
 
     {% endif %}
 
+    {% if page.category != "Fact-Checking" and page.overview != blank %}
+
+      <section
+        class="editorial-panel-shell overview-panel"
+        aria-labelledby="overview-title"
+      >
+
+        <div class="editorial-panel-card">
+
+          <div class="editorial-panel-heading">
+
+            <div
+              class="editorial-panel-icon"
+              aria-hidden="true"
+            >
+
+              <svg viewBox="0 0 48 48">
+
+                <circle
+                  cx="24"
+                  cy="24"
+                  r="18"
+                ></circle>
+
+                <path
+                  d="
+                    M16 24
+                    L21 29
+                    L32 18
+                  "
+                ></path>
+
+              </svg>
+
+            </div>
+
+            <h2
+              class="editorial-panel-title"
+              id="overview-title"
+            >
+
+              {% if is_english %}
+                At a glance
+              {% else %}
+                Με μια ματιά
+              {% endif %}
+
+            </h2>
+
+          </div>
+
+          <div class="overview-text">
+            {{ page.overview | newline_to_br }}
+          </div>
+
+        </div>
+
+      </section>
+
+    {% endif %}
+
     {% if page.category == "Fact-Checking" and fact_check_count > 0 %}
 
       <section
@@ -2436,6 +2937,212 @@
     <div class="article-body">
       {{ content }}
     </div>
+
+    {% if page.category != "Fact-Checking" and faq_count > 0 %}
+
+      <section
+        class="editorial-panel-shell editorial-panel-narrow faq-panel"
+        aria-labelledby="faq-title"
+      >
+
+        <div class="editorial-panel-card">
+
+          <div class="editorial-panel-heading">
+
+            <div
+              class="editorial-panel-icon"
+              aria-hidden="true"
+            >
+
+              <svg viewBox="0 0 48 48">
+
+                <path
+                  d="
+                    M10 10
+                    H38
+                    V31
+                    H25
+                    L17 38
+                    V31
+                    H10
+                    Z
+                  "
+                ></path>
+
+                <path
+                  d="
+                    M20 18
+                    C21 15
+                    27 15
+                    28 19
+                    C29 23
+                    24 23
+                    24 27
+                  "
+                ></path>
+
+                <circle
+                  cx="24"
+                  cy="31"
+                  r="1"
+                ></circle>
+
+              </svg>
+
+            </div>
+
+            <h2
+              class="editorial-panel-title"
+              id="faq-title"
+            >
+
+              {% if is_english %}
+                Frequently Asked Questions
+              {% else %}
+                Συχνές Ερωτήσεις
+              {% endif %}
+
+            </h2>
+
+          </div>
+
+          <div class="faq-list">
+
+            {% for faq in page.faqs %}
+
+              <details class="faq-item">
+
+                <summary class="faq-question">
+
+                  <span>
+                    {{ faq.question }}
+                  </span>
+
+                  <span
+                    class="faq-toggle"
+                    aria-hidden="true"
+                  ></span>
+
+                </summary>
+
+                <div class="faq-answer">
+                  {{ faq.answer | newline_to_br }}
+                </div>
+
+              </details>
+
+            {% endfor %}
+
+          </div>
+
+        </div>
+
+      </section>
+
+    {% endif %}
+
+    {% if source_count > 0 %}
+
+      <section
+        class="editorial-panel-shell editorial-panel-narrow sources-panel"
+        aria-labelledby="sources-title"
+      >
+
+        <div class="editorial-panel-card">
+
+          <div class="editorial-panel-heading">
+
+            <div
+              class="editorial-panel-icon"
+              aria-hidden="true"
+            >
+
+              <svg viewBox="0 0 48 48">
+
+                <path
+                  d="
+                    M13 9
+                    H32
+                    L37 14
+                    V39
+                    H13
+                    Z
+                  "
+                ></path>
+
+                <path
+                  d="
+                    M32 9
+                    V15
+                    H37
+                  "
+                ></path>
+
+                <line
+                  x1="19"
+                  y1="22"
+                  x2="31"
+                  y2="22"
+                ></line>
+
+                <line
+                  x1="19"
+                  y1="28"
+                  x2="31"
+                  y2="28"
+                ></line>
+
+                <line
+                  x1="19"
+                  y1="34"
+                  x2="27"
+                  y2="34"
+                ></line>
+
+              </svg>
+
+            </div>
+
+            <h2
+              class="editorial-panel-title"
+              id="sources-title"
+            >
+
+              {% if is_english %}
+                Sources
+              {% else %}
+                Πηγές
+              {% endif %}
+
+            </h2>
+
+          </div>
+
+          <ol class="sources-list">
+
+            {% for source in page.sources %}
+
+              <li>
+
+                <a
+                  href="{{ source.url | escape }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{ source.reference }}
+                </a>
+
+              </li>
+
+            {% endfor %}
+
+          </ol>
+
+        </div>
+
+      </section>
+
+    {% endif %}
 
   </article>
 
