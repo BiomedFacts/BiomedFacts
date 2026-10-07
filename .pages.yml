@@ -85,6 +85,18 @@ content:
         label: SEO Description
         type: text
 
+
+      # ==================================================
+      # ΜΕ ΜΙΑ ΜΑΤΙΑ
+      # Για Υγεία / Διατροφή / Εξετάσεις / Έρευνα
+      # ==================================================
+
+      - name: overview
+        label: Με μια ματιά
+        type: text
+        description: "Γράψε μια σύντομη παράγραφο που συνοψίζει τα σημαντικότερα σημεία του άρθρου. Άφησέ το κενό στα άρθρα Fact-Checking."
+
+
       # ==================================================
       # FACT-CHECKING PANEL
       # Συμπληρώνεται μόνο σε άρθρα κατηγορίας Fact-Checking
@@ -125,6 +137,11 @@ content:
             required: true
             description: "Σύντομη αλλά ολοκληρωμένη εξήγηση του τι δείχνουν τα επιστημονικά δεδομένα για τον συγκεκριμένο ισχυρισμό."
 
+
+      # ==================================================
+      # ΚΥΡΙΩΣ ΑΡΘΡΟ
+      # ==================================================
+
       - name: body
         label: Κείμενο άρθρου
         type: rich-text
@@ -135,6 +152,58 @@ content:
           extensions: [jpg, jpeg, png, webp]
           categories: [image]
           rename: safe
+
+
+      # ==================================================
+      # ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ
+      # ==================================================
+
+      - name: faqs
+        label: Συχνές Ερωτήσεις
+        type: object
+        description: "Πρόσθεσε πραγματικές ερωτήσεις που απαντώνται σύντομα και τεκμηριωμένα. Συνήθως 3–5 είναι αρκετές. Άφησέ το κενό αν δεν χρειάζεται."
+        list:
+          collapsible:
+            collapsed: true
+            summary: "Ερώτηση {index}: {question}"
+        fields:
+
+          - name: question
+            label: Ερώτηση
+            type: string
+            required: true
+
+          - name: answer
+            label: Απάντηση
+            type: text
+            required: true
+
+
+      # ==================================================
+      # ΠΗΓΕΣ
+      # ==================================================
+
+      - name: sources
+        label: Πηγές
+        type: object
+        description: "Πρόσθεσε τις πηγές με τη σειρά που παραπέμπεις σε αυτές μέσα στο άρθρο ως [1], [2], [3] κ.ο.κ."
+        list:
+          collapsible:
+            collapsed: true
+            summary: "Πηγή {index}: {reference}"
+        fields:
+
+          - name: reference
+            label: Αναφορά πηγής
+            type: text
+            required: true
+            description: "Γράψε την αναφορά όπως θέλεις να εμφανίζεται στο τέλος του άρθρου."
+
+          - name: url
+            label: Link πηγής
+            type: string
+            required: true
+            description: "Βάλε ολόκληρο το URL της πηγής, π.χ. https://..."
 
 
   # ==================================================
@@ -216,6 +285,18 @@ content:
         label: SEO Description
         type: text
 
+
+      # ==================================================
+      # AT A GLANCE
+      # For Health / Nutrition / Lab Tests / Research
+      # ==================================================
+
+      - name: overview
+        label: At a glance
+        type: text
+        description: "Write a short paragraph summarising the key points of the article. Leave this empty for Fact-Checking articles."
+
+
       # ==================================================
       # FACT-CHECKING PANEL
       # Complete only for Fact-Checking articles
@@ -256,6 +337,11 @@ content:
             required: true
             description: "Provide a concise but complete explanation of what the scientific evidence shows about this claim."
 
+
+      # ==================================================
+      # ARTICLE CONTENT
+      # ==================================================
+
       - name: body
         label: Article content
         type: rich-text
@@ -266,3 +352,55 @@ content:
           extensions: [jpg, jpeg, png, webp]
           categories: [image]
           rename: safe
+
+
+      # ==================================================
+      # FREQUENTLY ASKED QUESTIONS
+      # ==================================================
+
+      - name: faqs
+        label: Frequently Asked Questions
+        type: object
+        description: "Add genuine questions that can be answered clearly and concisely. Usually 3–5 questions are enough. Leave this empty if not needed."
+        list:
+          collapsible:
+            collapsed: true
+            summary: "Question {index}: {question}"
+        fields:
+
+          - name: question
+            label: Question
+            type: string
+            required: true
+
+          - name: answer
+            label: Answer
+            type: text
+            required: true
+
+
+      # ==================================================
+      # SOURCES
+      # ==================================================
+
+      - name: sources
+        label: Sources
+        type: object
+        description: "Add the sources in the same order in which you cite them in the article as [1], [2], [3], etc."
+        list:
+          collapsible:
+            collapsed: true
+            summary: "Source {index}: {reference}"
+        fields:
+
+          - name: reference
+            label: Source reference
+            type: text
+            required: true
+            description: "Enter the reference exactly as you want it to appear at the end of the article."
+
+          - name: url
+            label: Source link
+            type: string
+            required: true
+            description: "Enter the full source URL, e.g. https://..."
