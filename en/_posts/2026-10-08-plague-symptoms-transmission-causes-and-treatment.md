@@ -14,7 +14,7 @@ seo_description: What is plague, and how is it transmitted? Learn about its
   symptoms, the different forms of the disease, diagnosis, treatment, and
   whether plague still exists today.
 overview: >
-  Plague is a bacterial zoonotic disease caused by *Yersinia pestis* that
+  Plague is a bacterial zoonotic disease caused by Yersinia pestis that
   continues to occur in certain regions of the world. It is transmitted
   primarily through the bite of an infected flea or contact with infected
   animals and tissues, and pneumonic plague can also spread person to person via
