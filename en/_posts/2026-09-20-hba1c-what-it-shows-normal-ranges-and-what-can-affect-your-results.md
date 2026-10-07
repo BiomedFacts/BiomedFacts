@@ -13,6 +13,12 @@ seo_title: "HbA1c: What It Shows, Normal Ranges and What Can Affect Your Results
 seo_description: HbA1c reflects glycemic exposure over the past 2–3 months.
   Learn about normal ranges, thresholds for prediabetes and diabetes, and when
   results may be misleading.
+overview: >
+  HbA1c reflects glycemic exposure over the preceding approximately 2–3 months
+  and is used for both the diagnosis and monitoring of diabetes mellitus.
+  Fasting is not required; however, HbA1c values should not be interpreted in
+  isolation. Anemia, hemoglobinopathies, alterations in red blood cell lifespan,
+  kidney disease, pregnancy, and other factors can affect the result.
 ---
 Glycated Hemoglobin (HbA1c): What the Test Shows and How to Interpret the Results
 
