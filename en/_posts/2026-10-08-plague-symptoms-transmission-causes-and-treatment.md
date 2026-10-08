@@ -111,6 +111,9 @@ sources:
       pestis during Urban Pneumonic Plague Epidemic, Madagascar, 2017. Emerging
       Infectious Diseases (2024)
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10826772/?utm
+  - reference: "Ansari I, Grier G, Byers M. (2020). Deliberate release: Plague – A
+      review. Journal of Biosafety and Biosecurity, 2(1), 10–22."
+    url: https://pubmed.ncbi.nlm.nih.gov/32835180/?utm
 ---
 # **What Is Plague?**
 
@@ -231,3 +234,9 @@ Preventive measures include:
 - tracing and assessing close contacts. [[1](https://www.who.int/news-room/fact-sheets/detail/plague?utm), [7](https://www.ecdc.europa.eu/en/plague/facts?utm)]
 
 In certain cases involving significant exposure, **post-exposure antibiotic prophylaxis** may be recommended following assessment by public health authorities. [[6](https://www.cdc.gov/mmwr/volumes/70/rr/rr7003a1.htm?utm)]
+
+## **Has Plague Ever Been Used as a Biological Weapon?**
+
+Yes. *Yersinia pestis*, the bacterium responsible for plague, has been used as a biological weapon in the past. A notable example is Japan's Unit 731, which carried out biological attacks in China during World War II using fleas infected with the bacterium. [[11](https://pubmed.ncbi.nlm.nih.gov/32835180/?utm)]
+
+However, the historical use of *Yersinia pestis* as a biological weapon does not mean that modern plague outbreaks are the result of deliberate actions.
