@@ -12,6 +12,13 @@ seo_title: "Iron-Rich Foods: 15 Good Sources and How Much Iron They Contain"
 seo_description: Which foods are rich in iron? See 15 good sources, how much
   iron they contain, how much we need each day, and how to improve iron
   absorption.
+overview: >
+  Iron is essential for oxygen transport and the normal functioning of the body.
+  It is found in both animal- and plant-based foods, but its absorption varies
+  depending on its form and the composition of the meal. Vitamin C enhances the
+  absorption of non-heme iron, while certain dietary components can reduce it.
+  Daily iron requirements vary across population groups, and iron deficiency is
+  not always caused by inadequate dietary intake.
 ---
 Iron is an essential mineral that we need to obtain from our diet every day. It is found in both animal- and plant-based foods, but the amount of iron a food contains is not the only factor that matters: the body does not absorb all forms of iron in the same way.
 
