@@ -102,6 +102,9 @@ sources:
       pestis during Urban Pneumonic Plague Epidemic, Madagascar, 2017. Emerging
       Infectious Diseases (2024)
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10826772/?utm
+  - reference: "Deliberate release: Plague – A review (2020), Journal of Biosafety
+      and Biosecurity."
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7270574/?utm
 ---
 # **Τι είναι η πανώλη;**
 
@@ -213,3 +216,6 @@ sources:
 
 Σε ορισμένες περιπτώσεις σημαντικής έκθεσης μπορεί να χορηγηθεί **προφυλακτική αντιβιοτική αγωγή** μετά από αξιολόγηση από τις υγειονομικές αρχές. [[6](https://www.cdc.gov/mmwr/volumes/70/rr/rr7003a1.htm?utm)]
 
+## **Έχει χρησιμοποιηθεί η πανώλη ως βιολογικό όπλο;**
+
+Ναι. Το *Yersinia pestis*, το βακτήριο που προκαλεί την πανώλη, έχει χρησιμοποιηθεί στο παρελθόν ως βιολογικό όπλο. Κατά τη διάρκεια του Β΄ Παγκοσμίου Πολέμου, η ιαπωνική Μονάδα 731 πραγματοποίησε επιθέσεις στην Κίνα χρησιμοποιώντας ψύλλους μολυσμένους με το βακτήριο. Ωστόσο, η ιστορική χρήση της πανώλης ως όπλου δεν σημαίνει ότι οι σύγχρονες επιδημίες οφείλονται σε σκόπιμες ενέργειες. [[11](https://pmc.ncbi.nlm.nih.gov/articles/PMC7270574/?utm)]
