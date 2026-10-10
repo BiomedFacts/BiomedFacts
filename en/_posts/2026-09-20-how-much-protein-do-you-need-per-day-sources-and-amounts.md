@@ -12,6 +12,12 @@ seo_title: How Much Protein Do You Need Per Day? Sources and Amounts
 seo_description: How much protein do we need each day? See official
   recommendations, what applies to exercise and older adults, and 15 good
   sources of protein.
+overview: Protein is essential for maintaining muscle mass, supporting immune
+  function, and numerous other biological processes. According to EFSA, the
+  reference intake for healthy adults is 0.83 g/kg of body weight per day,
+  although requirements may be higher in older adults or individuals engaging in
+  resistance training. Both animal- and plant-based foods can help meet daily
+  protein needs, without necessarily requiring protein supplements.
 ---
 Protein is one of the essential nutrients in our diet. It plays a role in building and maintaining muscle and other tissues, as well as in the production of enzymes, hormones, antibodies, and many other molecules that are essential for the body to function properly.
 
