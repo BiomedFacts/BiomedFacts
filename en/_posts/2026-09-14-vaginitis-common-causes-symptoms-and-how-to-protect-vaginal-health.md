@@ -2,22 +2,26 @@
 title: "Vaginitis: Common Causes, Symptoms, and How to Protect Vaginal Health"
 date: 2026-09-14
 category: Health
-permalink: "/en/women's health/2026/09/14/vaginitis-common-causes-symptoms-and-how-to-protect-vaginal-health.html"
 translation_key: Vagina-001
 image: /assets/images/womens-health-vaginitis-1.jpg
 excerpt: >
-  Itching, burning, or changes in vaginal discharge? Learn about the most
-  common causes of vaginitis, the symptoms they can cause, and when medical
-  evaluation may be needed.
+  Itching, burning, or changes in vaginal discharge? Learn about the most common
+  causes of vaginitis, the symptoms they can cause, and when medical evaluation
+  may be needed.
 author: Dimitra Mourkogianni, BSc (Hons) Biomedical Science
 featured: false
 seo_title: "Vaginitis: Causes, Symptoms, and What You Need to Know"
 seo_description: >
-  What causes vaginitis? Learn about the most common symptoms, causes,
-  and the differences between yeast infections, bacterial vaginosis, and
-  other forms of vaginitis.
+  What causes vaginitis? Learn about the most common symptoms, causes, and the
+  differences between yeast infections, bacterial vaginosis, and other forms of
+  vaginitis.
+overview: Vaginitis is inflammation of the vagina that may cause itching,
+  burning, discomfort, or changes in vaginal discharge. It can be associated
+  with yeast infections, bacterial vaginosis, sexually transmitted infections,
+  hormonal changes, or irritation. Because different conditions can cause
+  similar symptoms, an accurate diagnosis is important for determining the
+  appropriate treatment.
 ---
-
 Have you ever experienced itching, burning, discomfort during sex, or a noticeable change in vaginal discharge? These symptoms can be uncomfortable and, understandably, concerning.
 
 Vaginitis is inflammation of the vagina. It is a common reason for visiting a gynecologist and can develop for many different reasons.[1](https://www.acog.org/womens-health/faqs/vaginitis)
