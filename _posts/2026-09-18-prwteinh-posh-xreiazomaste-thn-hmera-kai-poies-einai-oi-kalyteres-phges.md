@@ -20,6 +20,34 @@ overview: Η πρωτεΐνη είναι απαραίτητη για τη δια
   υψηλότερες σε μεγαλύτερες ηλικίες ή σε άτομα που κάνουν προπόνηση αντιστάσεων.
   Τόσο τα ζωικά όσο και τα φυτικά τρόφιμα μπορούν να συμβάλουν στην κάλυψη των
   ημερήσιων αναγκών, χωρίς να είναι απαραίτητη η χρήση συμπληρωμάτων πρωτεΐνης.
+sources:
+  - reference: European Food Safety Authority (EFSA). Scientific Opinion on Dietary
+      Reference Values for protein. EFSA Journal. 2012;10(2):2557.
+    url: https://efsa.onlinelibrary.wiley.com/doi/abs/10.2903/j.efsa.2012.2557?utm
+  - reference: Tagawa R, et al. Systematic review and meta-analysis of protein
+      intake to support muscle mass and function in healthy adults. Journal of
+      Cachexia, Sarcopenia and Muscle. 2022.
+    url: https://pubmed.ncbi.nlm.nih.gov/35187864/?utm
+  - reference: Morton RW, Murphy KT, McKellar SR, et al. A systematic review,
+      meta-analysis and meta-regression of the effect of protein supplementation
+      on resistance training-induced gains in muscle mass and strength in
+      healthy adults. British Journal of Sports Medicine. 2018;52:376–384.
+    url: https://bjsm.bmj.com/content/52/6/376?utm
+  - reference: "Volkert D, Beck AM, Cederholm T, et al. ESPEN practical guideline:
+      Clinical nutrition and hydration in geriatrics*. Clinical Nutrition.
+      2022;41:958–989."
+    url: https://2022.espen.org/files/ESPEN-Guidelines/ESPEN_practical_guideline_Clinical_nutrition_and_hydration_in_geriatrics.pdf?utm
+  - reference: Nordic Council of Ministers. Nordic Nutrition Recommendations 2023 –
+      Protein.
+    url: https://pub.norden.org/nord2023-003/protein-.html?utm
+  - reference: "U.S. Department of Agriculture, Agricultural Research Service.
+      FoodData Central. "
+    url: https://fdc.nal.usda.gov/?utm
+  - reference: "Reid-McCann RJ, Brennan SF, Ward NA, et al. Effect of Plant Versus
+      Animal Protein on Muscle Mass, Strength, Physical Performance, and
+      Sarcopenia: A Systematic Review and Meta-analysis of Randomized Controlled
+      Trials*. Nutrition Reviews. 2025;83:e1581–e1603."
+    url: https://pubmed.ncbi.nlm.nih.gov/39813010/?utm
 ---
 Η πρωτεΐνη είναι ένα από τα βασικά θρεπτικά συστατικά της διατροφής μας. Συμμετέχει στη δημιουργία και διατήρηση των μυών και άλλων ιστών, αλλά και στην παραγωγή ενζύμων, ορμονών, αντισωμάτων και πολλών ακόμη μορίων που είναι απαραίτητα για τη λειτουργία του οργανισμού.
 
@@ -227,26 +255,3 @@ overview: Η πρωτεΐνη είναι απαραίτητη για τη δια
 είναι ένας τεκμηριωμένος πρακτικός στόχος, ενώ μεγαλύτερες ποσότητες δεν έχουν δείξει κατά μέσο όρο πρόσθετο όφελος για την αύξηση της άλιπης μάζας.[[3]](https://bjsm.bmj.com/content/52/6/376?utm)
 
 Οι αριθμοί αυτοί δεν είναι ανταγωνιστικοί μεταξύ τους. Απαντούν σε διαφορετικές ερωτήσεις και αφορούν διαφορετικούς πληθυσμούς και στόχους.
-
-## **Πηγές**
-
-**[1] European Food Safety Authority (EFSA).** *Scientific Opinion on Dietary Reference Values for protein*. EFSA Journal. 2012;10(2):2557. Η EFSA ορίζει PRI 0,83 g/kg/ημέρα για ενήλικες και τις πρόσθετες ανάγκες εγκυμοσύνης και θηλασμού.  
-[EFSA – Dietary Reference Values for protein](https://efsa.onlinelibrary.wiley.com/doi/abs/10.2903/j.efsa.2012.2557?utm)
-
-**[2] Tagawa R, et al.** *Systematic review and meta-analysis of protein intake to support muscle mass and function in healthy adults*. Journal of Cachexia, Sarcopenia and Muscle. 2022. Συστηματική ανασκόπηση και μετα-ανάλυση 74 RCTs.  
-[PubMed – Tagawa et al.](https://pubmed.ncbi.nlm.nih.gov/35187864/?utm)
-
-**[3] Morton RW, Murphy KT, McKellar SR, et al.** *A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults*. British Journal of Sports Medicine. 2018;52:376–384.  
-[British Journal of Sports Medicine – Morton et al.](https://bjsm.bmj.com/content/52/6/376?utm)
-
-**[4] Volkert D, Beck AM, Cederholm T, et al.** *ESPEN practical guideline: Clinical nutrition and hydration in geriatrics*. Clinical Nutrition. 2022;41:958–989.  
-[ESPEN – Clinical nutrition and hydration in geriatrics](https://2022.espen.org/files/ESPEN-Guidelines/ESPEN_practical_guideline_Clinical_nutrition_and_hydration_in_geriatrics.pdf?utm)
-
-**[5] Nordic Council of Ministers.** *Nordic Nutrition Recommendations 2023 – Protein*.  
-[Nordic Nutrition Recommendations 2023 – Protein](https://pub.norden.org/nord2023-003/protein-.html?utm)
-
-**[6] U.S. Department of Agriculture, Agricultural Research Service.** *FoodData Central*. Βάση δεδομένων για τη σύσταση και τα θρεπτικά συστατικά τροφίμων.  
-[USDA FoodData Central](https://fdc.nal.usda.gov/?utm)
-
-**[7] Reid-McCann RJ, Brennan SF, Ward NA, et al.** *Effect of Plant Versus Animal Protein on Muscle Mass, Strength, Physical Performance, and Sarcopenia: A Systematic Review and Meta-analysis of Randomized Controlled Trials*. Nutrition Reviews. 2025;83:e1581–e1603.  
-[PubMed – Reid-McCann et al. 2025](https://pubmed.ncbi.nlm.nih.gov/39813010/?utm)
