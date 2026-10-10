@@ -21,6 +21,44 @@ overview: Η θυρεοειδίτιδα Hashimoto είναι ένα αυτοάν
   καθιερωμένη θεραπεία είναι η λεβοθυροξίνη. Παράλληλα, δεν υπάρχουν επαρκή
   επιστημονικά δεδομένα που να υποστηρίζουν τη συστηματική αποφυγή γλουτένης σε
   ασθενείς χωρίς κοιλιοκάκη.
+sources:
+  - reference: "Klubo-Gwiezdzinska J, Wartofsky L. Hashimoto thyroiditis: an
+      evidence-based guide to etiology, diagnosis and treatment. Pol Arch Intern
+      Med. 2022;132(3):16222."
+    url: https://doi.org/10.20452/pamw.16222
+  - reference: "Ragusa F, Fallahi P, Elia G, et al. Hashimoto's thyroiditis:
+      epidemiology, pathogenesis, clinic and therapy. Best Pract Res Clin
+      Endocrinol Metab. 2019;33(6):101367."
+    url: https://www.sciencedirect.com/science/article/abs/pii/S1521690X19301186?via%3Dihub
+  - reference: Weetman AP. An update on the pathogenesis of Hashimoto's thyroiditis.
+      J Endocrinol Invest. 2021;44(5):883–890.
+    url: https://doi.org/10.1007/s40618-020-01477-1
+  - reference: "Hu X, Chen Y, Shen Y, Tian R, Sheng Y, Que H. Global prevalence and
+      epidemiological trends of Hashimoto's thyroiditis in adults: a systematic
+      review and meta-analysis. Front Public Health. 2022;10:1020709."
+    url: https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.1020709/full
+  - reference: "Chaker L, Papaleontiou M. Hypothyroidism: a review. JAMA.
+      2025;334(19):1750–1760."
+    url: https://jamanetwork.com/journals/jama/article-abstract/2838457
+  - reference: "Araújo EMQ, Coutinho-Lima CRO, de Sousa AS, et al. Effects of
+      gluten-free diet in non-celiac Hashimoto's thyroiditis: a systematic
+      review and meta-analysis. Nutrients. 2025;17(21):3437."
+    url: https://doi.org/10.3390/nu17213437
+  - reference: Boelaert K, Newby PR, Simmonds MJ, et al. Prevalence and relative
+      risk of other autoimmune diseases in subjects with autoimmune thyroid
+      disease. Am J Med. 2010;123(2):183.e1–183.e9.
+    url: "- [[7]](https://www.amjmed.com/article/S0002-9343(09)00868-7/abstract)"
+  - reference: "Roy A, Laszkowska M, Sundström J, et al. Prevalence of celiac
+      disease in patients with autoimmune thyroid disease: a meta-analysis.
+      Thyroid. 2016;26(7):880–890."
+    url: https://journals.sagepub.com/doi/10.1089/thy.2016.0108
+  - reference: "Biondi B, Cappola AR, Cooper DS. Subclinical hypothyroidism: a
+      review. JAMA. 2019;322(2):153–160."
+    url: https://jamanetwork.com/journals/jama/article-abstract/2737687
+  - reference: "Jonklaas J, Bianco AC, Bauer AJ, et al. Guidelines for the treatment
+      of hypothyroidism: prepared by the American Thyroid Association Task Force
+      on Thyroid Hormone Replacement. Thyroid. 2014;24(12):1670–1751."
+    url: https://doi.org/10.1089/thy.2014.0028
 ---
 Το να ακούσει κάποιος ότι το ανοσοποιητικό του σύστημα επιτίθεται στον θυρεοειδή του μπορεί να ακούγεται ανησυχητικό. Και αν αναζητήσετε πληροφορίες για τη θυρεοειδίτιδα Hashimoto στο διαδίκτυο, είναι πολύ πιθανό να συναντήσετε μεγάλες λίστες συμπτωμάτων, αυστηρές δίαιτες, συμπληρώματα και ισχυρισμούς για θεραπεία ή ίαση του θυρεοειδούς.
 
@@ -67,7 +105,7 @@ overview: Η θυρεοειδίτιδα Hashimoto είναι ένα αυτοάν
 
 Κάποιος μπορεί, επομένως, να έχει θετικά αντισώματα θυρεοειδούς και ενδείξεις Hashimoto, ενώ εξακολουθεί να έχει φυσιολογικά επίπεδα TSH και ελεύθερης T4. Αυτή η κατάσταση ονομάζεται **ευθυρεοειδισμός**.[[1]](https://doi.org/10.20452/pamw.16222)
 
-Σε ορισμένα άτομα η λειτουργία του θυρεοειδούς παραμένει φυσιολογική για μεγάλο χρονικό διάστημα. Σε άλλα, η προοδευτική βλάβη του θυρεοειδούς οδηγεί τελικά σε υποκλινικό ή έκδηλο υποθυρεοειδισμό.[[1]](https://doi.org/10.20452/pamw.16222), [[5]](https://jamanetwork.com/journals/jama/article-abstract/2838457), [9]
+Σε ορισμένα άτομα η λειτουργία του θυρεοειδούς παραμένει φυσιολογική για μεγάλο χρονικό διάστημα. Σε άλλα, η προοδευτική βλάβη του θυρεοειδούς οδηγεί τελικά σε υποκλινικό ή έκδηλο υποθυρεοειδισμό.[[1]](https://doi.org/10.20452/pamw.16222), [[5]](https://jamanetwork.com/journals/jama/article-abstract/2838457), [[9]](https://jamanetwork.com/journals/jama/article-abstract/2737687)
 
 ## **Ποια συμπτώματα μπορεί να προκαλέσει η Hashimoto;**
 
@@ -221,16 +259,3 @@ overview: Η θυρεοειδίτιδα Hashimoto είναι ένα αυτοάν
 Και, παρά όσα συχνά υποστηρίζονται στο διαδίκτυο, δεν υπάρχουν σήμερα πειστικά στοιχεία ότι η απομάκρυνση της γλουτένης αντιμετωπίζει τη Hashimoto σε άτομα που δεν έχουν κοιλιοκάκη.
 
 Ο στόχος της φροντίδας δεν είναι να κυνηγάμε τις τιμές των αντισωμάτων ούτε να ακολουθούμε όλο και πιο περιοριστικές δίαιτες.
-
-# Βιβλιογραφικές αναφορές
-
-**1.** Klubo-Gwiezdzinska J, Wartofsky L. *Hashimoto thyroiditis: an evidence-based guide to etiology, diagnosis and treatment.* Pol Arch Intern Med. 2022;132(3):16222.  
-**2.** Ragusa F, Fallahi P, Elia G, et al. *Hashimoto's thyroiditis: epidemiology, pathogenesis, clinic and therapy.* Best Pract Res Clin Endocrinol Metab. 2019;33(6):101367.  
-**3.** Weetman AP. *An update on the pathogenesis of Hashimoto's thyroiditis.* J Endocrinol Invest. 2021;44(5):883–890.  
-**4.** Hu X, Chen Y, Shen Y, Tian R, Sheng Y, Que H. *Global prevalence and epidemiological trends of Hashimoto's thyroiditis in adults: a systematic review and meta-analysis.* Front Public Health. 2022;10:1020709.  
-**5.** Chaker L, Papaleontiou M. *Hypothyroidism: a review.* JAMA. 2025;334(19):1750–1760.  
-**6.** Araújo EMQ, Coutinho-Lima CRO, de Sousa AS, et al. *Effects of gluten-free diet in non-celiac Hashimoto's thyroiditis: a systematic review and meta-analysis.* Nutrients. 2025;17(21):3437.  
-**7.** Boelaert K, Newby PR, Simmonds MJ, et al. *Prevalence and relative risk of other autoimmune diseases in subjects with autoimmune thyroid disease.* Am J Med. 2010;123(2):183.e1–183.e9.  
-**8.** Roy A, Laszkowska M, Sundström J, et al. *Prevalence of celiac disease in patients with autoimmune thyroid disease: a meta-analysis.* Thyroid. 2016;26(7):880–890.  
-**9.** Biondi B, Cappola AR, Cooper DS. *Subclinical hypothyroidism: a review.* JAMA. 2019;322(2):153–160.  
-**10.** Jonklaas J, Bianco AC, Bauer AJ, et al. *Guidelines for the treatment of hypothyroidism: prepared by the American Thyroid Association Task Force on Thyroid Hormone Replacement.* Thyroid. 2014;24(12):1670–1751.
