@@ -13,12 +13,13 @@ seo_title: "Cancer: 5 Habits Linked to a Lower Risk of Developing Cancer"
 seo_description: A new study of 287,745 people found that 5 lifestyle factors
   were linked to a lower risk of 13 types of cancer. Here’s what the data
   showed.
-overview: Although not all cases of cancer can be prevented, there are
-  evidence-based ways to reduce the risk. Avoiding tobacco, maintaining a
-  healthy body weight, limiting alcohol consumption, getting vaccinated against
-  HPV and hepatitis B, and protecting the skin from ultraviolet radiation are
-  important preventive measures. However, cancer development is influenced by
-  multiple factors and cannot be attributed solely to lifestyle choices.
+overview: A large prospective study involving 287,745 participants found that
+  meeting 4 or 5 healthy lifestyle criteria was associated with a 29% lower
+  relative risk of developing cancer, compared with meeting only 0 or 1
+  criterion. These lifestyle factors included smoking, alcohol consumption,
+  diet, physical activity, and body weight. However, as an observational study,
+  the findings demonstrate an association rather than causation and do not
+  establish that adopting these habits guarantees cancer prevention.
 ---
 Cancer remains a major public health concern, with the number of cancer cases worldwide estimated to reach **28.4 million by 2040**. [Lifestyle factors](https://biomedfacts.com/en/health/2026/09/12/how-to-reduce-your-cancer-risk-5-practical-science-based-steps.html), including smoking, physical activity, diet, alcohol consumption and body mass index (BMI), have been identified as important modifiable risk factors for cancer.
 
