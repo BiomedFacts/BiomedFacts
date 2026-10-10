@@ -21,6 +21,24 @@ overview: Οι φυτικές ίνες αποτελούν σημαντικό σ�
   τουλάχιστον 25 γραμμάρια φυτικών ινών ημερησίως, τα οποία μπορούν να
   προσλαμβάνονται μέσω οσπρίων, φρούτων, λαχανικών, δημητριακών ολικής άλεσης,
   ξηρών καρπών και σπόρων.
+sources:
+  - reference: "World Health Organization. Carbohydrate intake for adults and
+      children: WHO guideline. 2023."
+    url: https://www.who.int/publications/i/item/9789240073593?utm
+  - reference: "European Food Safety Authority (EFSA). Dietary Reference Values for
+      nutrients: Summary report."
+    url: https://www.efsa.europa.eu/sites/default/files/2017_09_DRVs_summary_report.pdf?utm
+  - reference: "Reynolds A, Mann J, Cummings J, et al. Carbohydrate quality and
+      human health: a series of systematic reviews and meta-analyses. The
+      Lancet. 2019;393:434–445."
+    url: https://pubmed.ncbi.nlm.nih.gov/30638909/
+  - reference: "Delzenne NM, Bindels LB, Neyrinck AM, et al. The gut microbiome and
+      dietary fibres: implications in obesity, cardiometabolic diseases and
+      cancer. Nature Reviews Microbiology. 2025;23:225–238."
+    url: https://www.nature.com/articles/s41579-024-01108-z?utm
+  - reference: Mayo Clinic. Chart of high-fiber foods. Διατροφικά δεδομένα από USDA
+      National Nutrient Database for Standard Reference.
+    url: https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/high-fiber-foods/art-20050948?utm
 ---
 Οι φυτικές ίνες αποτελούν ένα σημαντικό συστατικό μιας ισορροπημένης διατροφής, όμως σε αντίθεση με τις πρωτεΐνες, τα λιπαρά και τους περισσότερους υδατάνθρακες, δεν πέπτονται πλήρως από τον ανθρώπινο οργανισμό.
 
@@ -147,15 +165,3 @@ overview: Οι φυτικές ίνες αποτελούν σημαντικό σ�
 Ο WHO συστήνει τουλάχιστον **25 g** φυτικών ινών την ημέρα για τους **ενήλικες**, ενώ η EFSA θεωρεί την ίδια ποσότητα επαρκή για τη φυσιολογική λειτουργία του εντέρου.[[1](https://www.who.int/publications/i/item/9789240073593?utm),[2](https://www.efsa.europa.eu/sites/default/files/2017_09_DRVs_summary_report.pdf?utm)]
 
 Όσπρια, προϊόντα ολικής άλεσης, φρούτα, λαχανικά, ξηροί καρποί και σπόροι μπορούν, όταν καταναλώνονται σε ποικιλία, να βοηθήσουν στην κάλυψη αυτής της ποσότητας χωρίς να χρειάζεται να βασιζόμαστε σε ένα μόνο τρόφιμο.
-
-## **Πηγές**
-
-**[[1]](https://www.who.int/publications/i/item/9789240073593?utm)** World Health Organization. *Carbohydrate intake for adults and children: WHO guideline*. 2023.
-
-**[[2]](https://www.efsa.europa.eu/sites/default/files/2017_09_DRVs_summary_report.pdf?utm)** European Food Safety Authority (EFSA). *Dietary Reference Values for nutrients: Summary report*. Η EFSA ορίζει πρόσληψη 25 g/ημέρα ως επαρκή για φυσιολογική λειτουργία του εντέρου στους ενήλικες.
-
-**[[3]](https://pubmed.ncbi.nlm.nih.gov/30638909/)** Reynolds A, Mann J, Cummings J, et al. *Carbohydrate quality and human health: a series of systematic reviews and meta-analyses*. The Lancet. 2019;393:434–445.
-
-**[[4]](https://www.nature.com/articles/s41579-024-01108-z?utm)** Delzenne NM, Bindels LB, Neyrinck AM, et al. *The gut microbiome and dietary fibres: implications in obesity, cardiometabolic diseases and cancer*. Nature Reviews Microbiology. 2025;23:225–238.
-
-**[[5]](https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/high-fiber-foods/art-20050948?utm)** Mayo Clinic. *Chart of high-fiber foods*. Διατροφικά δεδομένα από USDA National Nutrient Database for Standard Reference.
