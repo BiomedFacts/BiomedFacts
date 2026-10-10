@@ -20,6 +20,35 @@ overview: Παρότι δεν μπορούν να προληφθούν όλες 
   αποτελούν σημαντικά μέτρα πρόληψης. Ωστόσο, η εμφάνιση καρκίνου επηρεάζεται
   από πολλούς παράγοντες και δεν μπορεί να αποδοθεί αποκλειστικά στις επιλογές
   του τρόπου ζωής.
+sources:
+  - reference: "Dart H, Wolin KY, Colditz GA. Commentary: Eight Ways to Prevent
+      Cancer: a framework for effective prevention messages for the public.
+      Cancer Causes Control. 2012;23(4):601–608. doi:10.1007/s10552-012-9924-y."
+    url: https://pubmed.ncbi.nlm.nih.gov/22367724/
+  - reference: "Nahleh Z, Bhatti NS, Mal M. How to reduce your cancer risk:
+      mechanisms and myths. Int J Gen Med. 2011;4:277–287.
+      doi:10.2147/IJGM.S18657."
+    url: https://pubmed.ncbi.nlm.nih.gov/21556314/
+  - reference: "International Agency for Research on Cancer. Human Cancer: Known
+      Causes and Prevention by Organ Site. IARC Monographs on the Identification
+      of Carcinogenic Hazards to Humans. Updated August 19, 2025."
+    url: https://pubmed.ncbi.nlm.nih.gov/21556314/
+  - reference: "Marino P, Mininni M, Deiana G, et al. Healthy Lifestyle and Cancer
+      Risk: Modifiable Risk Factors to Prevent Cancer. Nutrients.
+      2024;16(6):800. doi:10.3390/nu16060800."
+    url: https://pubmed.ncbi.nlm.nih.gov/38542712/
+  - reference: Centers for Disease Control and Prevention. Preventing Cancer. CDC.
+      Updated January 16, 2025.
+    url: https://www.cdc.gov/cancer/prevention/index.html
+  - reference: PDQ Screening and Prevention Editorial Board. Cancer Prevention
+      Overview (PDQ®)–Patient Version. National Cancer Institute. Updated May 2,
+      2025.
+    url: https://www.cancer.gov/about-cancer/causes-prevention/patient-prevention-overview-pdq
+  - reference: World Health Organization. Cancer. WHO Fact Sheet. Updated July 3, 2026.
+    url: https://www.who.int/news-room/fact-sheets/detail/cancer
+  - reference: "Mayo Clinic Staff. Cancer Risk: What the Numbers Mean. Mayo Clinic.
+      March 29, 2024."
+    url: https://www.mayoclinic.org/diseases-conditions/cancer/in-depth/cancer/art-20044092
 ---
 Η λέξη καρκίνος μπορεί να προκαλεί φόβο. Ένα μέρος αυτού του φόβου προέρχεται από την αίσθηση ότι η νόσος βρίσκεται εντελώς εκτός από τον έλεγχό μας.
 
@@ -180,15 +209,3 @@ overview: Παρότι δεν μπορούν να προληφθούν όλες 
 Ωστόσο, η μείωση των παραγόντων που μπορούν να αποφευχθούν εξακολουθεί να έχει σημασία.
 
 Η αποφυγή του καπνού, η διατήρηση υγιούς σωματικού βάρους, η σωματική δραστηριότητα, ο περιορισμός του αλκοόλ, η πρόληψη λοιμώξεων που μπορούν να προκαλέσουν καρκίνο και η προστασία του δέρματος από την υπερβολική υπεριώδη ακτινοβολία μπορούν όλα να συμβάλουν στη μείωση του κινδύνου εμφάνισης καρκίνου.[[1](https://pubmed.ncbi.nlm.nih.gov/22367724/)–[7](https://www.who.int/news-room/fact-sheets/detail/cancer)]
-
-# **Βιβλιογραφικές αναφορές**
-
-1. Dart H, Wolin KY, Colditz GA. Commentary: Eight Ways to Prevent Cancer: a framework for effective prevention messages for the public. Cancer Causes Control. 2012;23(4):601–608. doi:10.1007/s10552-012-9924-y.
-2. Nahleh Z, Bhatti NS, Mal M. How to reduce your cancer risk: mechanisms and myths. Int J Gen Med. 2011;4:277–287. doi:10.2147/IJGM.S18657.
-3. International Agency for Research on Cancer. Human Cancer: Known Causes and Prevention by Organ Site. IARC Monographs on the Identification of Carcinogenic Hazards to Humans. Updated August 19, 2025.
-4. Marino P, Mininni M, Deiana G, et al. Healthy Lifestyle and Cancer Risk: Modifiable Risk Factors to Prevent Cancer. Nutrients. 2024;16(6):800. doi:10.3390/nu16060800.
-5. Centers for Disease Control and Prevention. Preventing Cancer. CDC. Updated January 16, 2025.
-6. PDQ Screening and Prevention Editorial Board. Cancer Prevention Overview (PDQ®)–Patient Version. National Cancer Institute. Updated May 2, 2025.
-7. World Health Organization. Cancer. WHO Fact Sheet. Updated July 3, 2026.
-8. Mayo Clinic Staff. Cancer Risk: What the Numbers Mean. Mayo Clinic. March 29, 2024.
-
