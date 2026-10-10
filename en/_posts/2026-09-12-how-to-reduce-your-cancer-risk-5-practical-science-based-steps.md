@@ -12,6 +12,12 @@ seo_title: "How to Reduce Cancer Risk: 5 Evidence-Based Steps"
 seo_description: Discover 5 evidence-based ways to reduce cancer risk, including
   avoiding tobacco, limiting alcohol, staying active, preventing infections, and
   reducing UV exposure.
+overview: Although not all cases of cancer can be prevented, there are
+  evidence-based ways to reduce the risk. Avoiding tobacco, maintaining a
+  healthy body weight, limiting alcohol consumption, getting vaccinated against
+  HPV and hepatitis B, and protecting the skin from ultraviolet radiation are
+  important preventive measures. However, cancer development is influenced by
+  multiple factors and cannot be attributed solely to lifestyle choices.
 ---
 The word cancer can be frightening. Part of that fear comes from the feeling that the disease is completely outside our control. And, to some extent, it is. No lifestyle can guarantee that someone will never develop cancer. Age, genetics, environmental exposures, and other biological factors all influence cancer risk.[[6](https://www.cancer.gov/about-cancer/causes-prevention/patient-prevention-overview-pdq)–[8](https://www.mayoclinic.org/diseases-conditions/cancer/in-depth/cancer/art-20044092)] But that does not mean prevention is powerless. Some cancer risk factors can be changed. Avoiding tobacco, maintaining a healthy weight, limiting alcohol, protecting yourself from certain infections, and reducing excessive ultraviolet exposure are all evidence-based ways to lower cancer risk.[[1](https://pubmed.ncbi.nlm.nih.gov/22367724/)–[7](https://www.who.int/news-room/fact-sheets/detail/cancer)]
 
