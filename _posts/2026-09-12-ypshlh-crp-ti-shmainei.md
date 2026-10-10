@@ -21,6 +21,54 @@ overview: Η C-αντιδρώσα πρωτεΐνη (CRP) είναι ένας ε�
   συμπτωμάτων, του ιατρικού ιστορικού και άλλων εξετάσεων. Η αντιμετώπιση
   επικεντρώνεται στον εντοπισμό και, όταν χρειάζεται, στη θεραπεία της
   υποκείμενης αιτίας.
+sources:
+  - reference: Castell JV, Gómez-Lechón MJ, David M, Andus T, Geiger T, Trullenque
+      R, et al. Interleukin-6 is the major regulator of acute phase protein
+      synthesis in adult human hepatocytes. FEBS Lett. 1989;242(2):237–239.
+      doi:10.1016/0014-5793(89)80476-4.
+    url: https://pubmed.ncbi.nlm.nih.gov/2464504/
+  - reference: Vigushin DM, Pepys MB, Hawkins PN. Metabolic and scintigraphic
+      studies of radioiodinated human C-reactive protein in health and disease.
+      J Clin Invest. 1993;91(4):1351–1357. doi:10.1172/JCI116336.
+    url: https://www.jci.org/articles/view/116336
+  - reference: Mold C, Du Clos TW, Nakayama S, Edwards KM, Gewurz H. C-reactive
+      protein reactivity with complement and effects on phagocytosis. Ann N Y
+      Acad Sci. 1982;389:251–262. doi:10.1111/j.1749-6632.1982.tb22141.x.
+    url: https://nyaspubs.onlinelibrary.wiley.com/doi/abs/10.1111/j.1749-6632.1982.tb22141.x
+  - reference: U.S. National Library of Medicine. C-Reactive Protein (CRP) Test.
+      MedlinePlus Medical Tests. Updated June 11, 2025.
+    url: https://www.medlineplus.gov/lab-tests/c-reactive-protein-crp-test/
+  - reference: "Nicklas BJ, Ambrosius W, Messier SP, Miller GD, Penninx BWJH, Loeser
+      RF, et al. Diet-induced weight loss, exercise, and chronic inflammation in
+      older, obese adults: a randomized controlled clinical trial. Am J Clin
+      Nutr. 2004;79(4):544–551. doi:10.1093/ajcn/79.4.544."
+    url: https://pubmed.ncbi.nlm.nih.gov/15051595/
+  - reference: "Church TS, Earnest CP, Thompson AM, Priest EL, Rodarte RQ, Saunders
+      T, Ross R, Blair SN. Exercise without weight loss does not reduce
+      C-reactive protein: the INFLAME study. Med Sci Sports Exerc.
+      2010;42(4):708–716. doi:10.1249/MSS.0b013e3181c03a43."
+    url: https://pubmed.ncbi.nlm.nih.gov/19952828/
+  - reference: "Estruch R, Martínez-González MA, Corella D, Salas-Salvadó J,
+      Ruiz-Gutiérrez V, Covas MI, et al. Effects of a Mediterranean-style diet
+      on cardiovascular risk factors: a randomized trial. Ann Intern Med.
+      2006;145(1):1–11. doi:10.7326/0003-4819-145-1-200607040-00004."
+    url: https://pubmed.ncbi.nlm.nih.gov/16818923/
+  - reference: Gallus S, Lugo A, Suatoni P, Taverna F, Bertocchi E, Boffi R, et al.
+      Effect of tobacco smoking cessation on C-reactive protein levels in a
+      cohort of low-dose computed tomography screening participants. Sci Rep.
+      2018;8:12908. doi:10.1038/s41598-018-29867-9.
+    url: https://www.nature.com/articles/s41598-018-29867-9
+  - reference: Haack M, Sanchez E, Mullington JM. Elevated inflammatory markers in
+      response to prolonged sleep restriction are associated with increased pain
+      experience in healthy volunteers. Sleep. 2007;30(9):1145–1152.
+      doi:10.1093/sleep/30.9.1145.
+    url: https://pubmed.ncbi.nlm.nih.gov/17910386/
+  - reference: Belalcazar LM, Reboussin DM, Haffner SM, Hoogeveen RC, Kriska AM, et
+      al.; Look AHEAD Research Group. A 1-year lifestyle intervention for weight
+      loss in individuals with type 2 diabetes reduces high C-reactive protein
+      levels and identifies metabolic predictors of change. Diabetes Care.
+      2010;33(11):2297–2303. doi:10.2337/dc10-0728.
+    url: https://diabetesjournals.org/care/article/33/11/2297/26369/A-1-Year-Lifestyle-Intervention-for-Weight-Loss-in
 ---
 Βλέπετε τα αποτελέσματα των εξετάσεων αίματός σας και παρατηρείτε ότι η CRP είναι αυξημένη.
 
@@ -175,17 +223,3 @@ overview: Η C-αντιδρώσα πρωτεΐνη (CRP) είναι ένας ε�
 Και αν η CRP σας είναι αυξημένη, ο στόχος συνήθως δεν είναι απλώς να μειωθεί ο αριθμός.
 
 Ο στόχος είναι να εντοπιστεί και, όταν χρειάζεται, να αντιμετωπιστεί η αιτία που βρίσκεται πίσω από την αύξησή της.
-
-# **Βιβλιογραφία**
-
-1. Castell JV, Gómez-Lechón MJ, David M, Andus T, Geiger T, Trullenque R, et al. *Interleukin-6 is the major regulator of acute phase protein synthesis in adult human hepatocytes.* FEBS Lett. 1989;242(2):237–239. doi:10.1016/0014-5793(89)80476-4.
-2. Vigushin DM, Pepys MB, Hawkins PN. *Metabolic and scintigraphic studies of radioiodinated human C-reactive protein in health and disease.* J Clin Invest. 1993;91(4):1351–1357. doi:10.1172/JCI116336.
-3. Mold C, Du Clos TW, Nakayama S, Edwards KM, Gewurz H. *C-reactive protein reactivity with complement and effects on phagocytosis.* Ann N Y Acad Sci. 1982;389:251–262. doi:10.1111/j.1749-6632.1982.tb22141.x.
-4. U.S. National Library of Medicine. *C-Reactive Protein (CRP) Test.* MedlinePlus Medical Tests. Updated June 11, 2025.
-5. Nicklas BJ, Ambrosius W, Messier SP, Miller GD, Penninx BWJH, Loeser RF, et al. *Diet-induced weight loss, exercise, and chronic inflammation in older, obese adults: a randomized controlled clinical trial.* Am J Clin Nutr. 2004;79(4):544–551. doi:10.1093/ajcn/79.4.544.
-6. Church TS, Earnest CP, Thompson AM, Priest EL, Rodarte RQ, Saunders T, Ross R, Blair SN. *Exercise without weight loss does not reduce C-reactive protein: the INFLAME study.* Med Sci Sports Exerc. 2010;42(4):708–716. doi:10.1249/MSS.0b013e3181c03a43.
-7. Estruch R, Martínez-González MA, Corella D, Salas-Salvadó J, Ruiz-Gutiérrez V, Covas MI, et al. *Effects of a Mediterranean-style diet on cardiovascular risk factors: a randomized trial.* Ann Intern Med. 2006;145(1):1–11. doi:10.7326/0003-4819-145-1-200607040-00004.
-8. Gallus S, Lugo A, Suatoni P, Taverna F, Bertocchi E, Boffi R, et al. *Effect of tobacco smoking cessation on C-reactive protein levels in a cohort of low-dose computed tomography screening participants.* Sci Rep. 2018;8:12908. doi:10.1038/s41598-018-29867-9.
-9. Haack M, Sanchez E, Mullington JM. *Elevated inflammatory markers in response to prolonged sleep restriction are associated with increased pain experience in healthy volunteers.* Sleep. 2007;30(9):1145–1152. doi:10.1093/sleep/30.9.1145.
-10. Belalcazar LM, Reboussin DM, Haffner SM, Hoogeveen RC, Kriska AM, et al.; Look AHEAD Research Group. *A 1-year lifestyle intervention for weight loss in individuals with type 2 diabetes reduces high C-reactive protein levels and identifies metabolic predictors of change.* Diabetes Care. 2010;33(11):2297–2303. doi:10.2337/dc10-0728.
-
