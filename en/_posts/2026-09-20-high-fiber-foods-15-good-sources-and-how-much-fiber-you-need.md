@@ -11,6 +11,12 @@ featured: false
 seo_title: "High-Fiber Foods: 15 Good Sources and How Much Fiber You Need"
 seo_description: Which foods are highest in fiber? See 15 good sources, how much
   dietary fiber you need each day, and why fiber is important for your health.
+overview: Dietary fiber is an important component of a balanced diet, supporting
+  normal bowel function and gut microbiome health. Higher fiber intake has been
+  associated with a lower risk of cardiovascular disease, type 2 diabetes, and
+  colorectal cancer. The World Health Organization recommends that adults
+  consume at least 25 grams of dietary fiber daily, which can be obtained from
+  legumes, fruits, vegetables, whole grains, nuts, and seeds.
 ---
 Dietary fiber is an important component of a balanced diet. Unlike protein, fat, and most carbohydrates, however, it is not fully digested by the human body.
 
