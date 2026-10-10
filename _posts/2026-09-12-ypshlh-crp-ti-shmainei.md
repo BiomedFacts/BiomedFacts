@@ -13,6 +13,14 @@ seo_title: "Υψηλή CRP: Τι σημαίνει και πότε αυξάνετ
 seo_description: Τι σημαίνει υψηλή CRP στις εξετάσεις αίματος; Μάθετε τι
   δείχνει, ποιες καταστάσεις μπορεί να την αυξήσουν, πώς μπορεί να μειωθεί και
   γιατί δεν αποτελεί από μόνη της διάγνωση.
+overview: Η C-αντιδρώσα πρωτεΐνη (CRP) είναι ένας εργαστηριακός δείκτης
+  φλεγμονής που μπορεί να αυξηθεί λόγω λοιμώξεων, αυτοάνοσων και άλλων
+  φλεγμονωδών νοσημάτων, τραυματισμών ή μεταβολικών παραγόντων. Ωστόσο, μια
+  αυξημένη CRP δεν αποκαλύπτει από μόνη της την αιτία ή την εντόπιση της
+  φλεγμονής και δεν αποτελεί διάγνωση. Η ερμηνεία της απαιτεί συνεκτίμηση των
+  συμπτωμάτων, του ιατρικού ιστορικού και άλλων εξετάσεων. Η αντιμετώπιση
+  επικεντρώνεται στον εντοπισμό και, όταν χρειάζεται, στη θεραπεία της
+  υποκείμενης αιτίας.
 ---
 Βλέπετε τα αποτελέσματα των εξετάσεων αίματός σας και παρατηρείτε ότι η CRP είναι αυξημένη.
 
@@ -78,7 +86,7 @@ seo_description: Τι σημαίνει υψηλή CRP στις εξετάσει�
 
 Επομένως, η CRP μπορεί να αυξηθεί μετά από χειρουργική επέμβαση, τραυματισμό ή άλλες μορφές ιστικής βλάβης.[[4](https://www.medlineplus.gov/lab-tests/c-reactive-protein-crp-test/)]
 
-### **Χρόνια  φλεγμονή  χαμηλού βαθμού** 
+### **Χρόνια  φλεγμονή  χαμηλού βαθμού**
 
 Δεν προκαλείται κάθε αύξηση της CRP από κάποια οξεία νόσο.
 
@@ -173,7 +181,6 @@ seo_description: Τι σημαίνει υψηλή CRP στις εξετάσει�
 1. Castell JV, Gómez-Lechón MJ, David M, Andus T, Geiger T, Trullenque R, et al. *Interleukin-6 is the major regulator of acute phase protein synthesis in adult human hepatocytes.* FEBS Lett. 1989;242(2):237–239. doi:10.1016/0014-5793(89)80476-4.
 2. Vigushin DM, Pepys MB, Hawkins PN. *Metabolic and scintigraphic studies of radioiodinated human C-reactive protein in health and disease.* J Clin Invest. 1993;91(4):1351–1357. doi:10.1172/JCI116336.
 3. Mold C, Du Clos TW, Nakayama S, Edwards KM, Gewurz H. *C-reactive protein reactivity with complement and effects on phagocytosis.* Ann N Y Acad Sci. 1982;389:251–262. doi:10.1111/j.1749-6632.1982.tb22141.x.
-
 4. U.S. National Library of Medicine. *C-Reactive Protein (CRP) Test.* MedlinePlus Medical Tests. Updated June 11, 2025.
 5. Nicklas BJ, Ambrosius W, Messier SP, Miller GD, Penninx BWJH, Loeser RF, et al. *Diet-induced weight loss, exercise, and chronic inflammation in older, obese adults: a randomized controlled clinical trial.* Am J Clin Nutr. 2004;79(4):544–551. doi:10.1093/ajcn/79.4.544.
 6. Church TS, Earnest CP, Thompson AM, Priest EL, Rodarte RQ, Saunders T, Ross R, Blair SN. *Exercise without weight loss does not reduce C-reactive protein: the INFLAME study.* Med Sci Sports Exerc. 2010;42(4):708–716. doi:10.1249/MSS.0b013e3181c03a43.
