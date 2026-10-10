@@ -13,6 +13,13 @@ seo_title: "High CRP: What Does It Mean, When Does It Rise, and How Can It Be Lo
 seo_description: What does a high CRP level mean on a blood test? Learn what CRP
   shows, what can cause it to rise, how it may be lowered, and why it is not a
   diagnosis on its own.
+overview: C-reactive protein (CRP) is a laboratory marker of inflammation that
+  may increase due to infections, autoimmune and other inflammatory diseases,
+  tissue injury, or metabolic factors. However, an elevated CRP level cannot
+  identify the cause or location of inflammation on its own and does not
+  constitute a diagnosis. Interpretation requires consideration of symptoms,
+  medical history, and other test results. Management focuses on identifying
+  and, when necessary, treating the underlying cause.
 ---
 You look at your blood test results and notice that your CRP is elevated.
 
