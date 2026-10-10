@@ -13,6 +13,13 @@ seo_title: "Hashimoto’s: Symptoms, Diagnosis, and What Happens to the Thyroid"
 seo_description: What is Hashimoto’s thyroiditis? Learn about symptoms, thyroid
   tests, its link to hypothyroidism, and what the evidence shows about gluten
   and treatment.
+overview: Hashimoto's thyroiditis is an autoimmune disease in which the immune
+  system attacks the thyroid gland, although it does not always lead to
+  hypothyroidism. Diagnosis is based on clinical assessment and laboratory
+  tests, including TSH, FT4, and thyroid antibodies. When overt hypothyroidism
+  develops, the standard treatment is levothyroxine. Additionally, there is
+  insufficient scientific evidence to support routinely recommending a
+  gluten-free diet for patients without celiac disease.
 ---
 Hearing that your immune system is attacking your thyroid can sound alarming. And if you search online for information about Hashimoto’s thyroiditis, you are very likely to come across long lists of symptoms, strict diets, supplements, and claims about “healing” or curing the thyroid.
 
