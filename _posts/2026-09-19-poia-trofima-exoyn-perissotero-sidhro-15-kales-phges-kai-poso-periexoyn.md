@@ -19,6 +19,24 @@ overview: >
   ορισμένα συστατικά των τροφίμων μπορούν να τη μειώσουν. Οι ημερήσιες ανάγκες
   διαφέρουν μεταξύ των πληθυσμιακών ομάδων, ενώ η έλλειψη σιδήρου δεν οφείλεται
   πάντοτε σε ανεπαρκή διατροφική πρόσληψη.
+sources:
+  - reference: "European Food Safety Authority (EFSA), 2015. Scientific Opinion on
+      Dietary Reference Values for iron. EFSA Journal, 13(10):4254. DOI:
+      10.2903/j.efsa.2015.4254."
+    url: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2015.4254?utm
+  - reference: "National Institutes of Health – Office of Dietary Supplements. Iron:
+      Fact Sheet for Health Professionals. "
+    url: https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/?utm
+  - reference: "National Institutes of Health – Office of Dietary Supplements.
+      Vitamin C: Fact Sheet for Health Professionals."
+    url: https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/?utm
+  - reference: British Dietetic Association (BDA). Iron – Food Fact Sheet.
+    url: https://www.bda.uk.com/resource/iron-rich-foods-iron-deficiency.html?utm
+  - reference: NHS. Foods to avoid in pregnancy*
+    url: https://www.nhs.uk/pregnancy/keeping-well/foods-to-avoid/?utm
+  - reference: "European Food Safety Authority (EFSA), 2022. Scientific advice
+      related to nutrient profiling. "
+    url: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2022.7259?utm
 ---
 Ο σίδηρος είναι ένα απαραίτητο μέταλλο που χρειαζόμαστε καθημερινά μέσω της διατροφής. Βρίσκεται τόσο σε ζωικά όσο και σε φυτικά τρόφιμα, όμως η ποσότητα που περιέχει ένα τρόφιμο δεν είναι ο μοναδικός παράγοντας που έχει σημασία: **ο οργανισμός δεν απορροφά όλες τις μορφές σιδήρου με τον ίδιο τρόπο**.
 
@@ -205,23 +223,3 @@ overview: >
 Επομένως, σε διαπιστωμένη σιδηροπενία χρειάζεται να διερευνηθεί η αιτία. Σε ορισμένες περιπτώσεις η διατροφή μπορεί να συμβάλει σημαντικά, ενώ σε άλλες μπορεί να απαιτείται θεραπεία με σίδηρο υπό ιατρική καθοδήγηση.
 
 Τα συμπληρώματα σιδήρου δεν χρειάζεται να λαμβάνονται «προληπτικά» χωρίς ένδειξη, καθώς η υπερβολική πρόσληψη σιδήρου δεν είναι ακίνδυνη.
-
-### Πηγές
-
-**[1] European Food Safety Authority (EFSA), 2015.** *Scientific Opinion on Dietary Reference Values for iron*. EFSA Journal, 13(10):4254. DOI: 10.2903/j.efsa.2015.4254.  
-[EFSA – Scientific Opinion on Dietary Reference Values for iron](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2015.4254?utm)
-
-**[2] National Institutes of Health – Office of Dietary Supplements.** *Iron: Fact Sheet for Health Professionals*. Περιλαμβάνει δεδομένα για αιμικό/μη αιμικό σίδηρο, απορρόφηση και περιεκτικότητα επιλεγμένων τροφίμων.  
-[NIH Office of Dietary Supplements – Iron](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/?utm)
-
-**[3] National Institutes of Health – Office of Dietary Supplements.** *Vitamin C: Fact Sheet for Health Professionals*. Η βιταμίνη C ενισχύει την απορρόφηση του μη αιμικού σιδήρου.  
-[NIH Office of Dietary Supplements – Vitamin C](https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/?utm)
-
-**[4] British Dietetic Association (BDA).** *Iron – Food Fact Sheet*. Πρακτικές πληροφορίες για πηγές σιδήρου και παράγοντες που επηρεάζουν την απορρόφησή του.  
-[British Dietetic Association – Iron](https://www.bda.uk.com/resource/iron-rich-foods-iron-deficiency.html?utm)
-
-**[5] NHS.** *Foods to avoid in pregnancy*. Σύσταση αποφυγής συκωτιού και προϊόντων συκωτιού κατά την εγκυμοσύνη λόγω της υψηλής περιεκτικότητας σε βιταμίνη Α.  
-[NHS – Foods to avoid in pregnancy](https://www.nhs.uk/pregnancy/keeping-well/foods-to-avoid/?utm)
-
-**[6] European Food Safety Authority (EFSA), 2022.** *Scientific advice related to nutrient profiling*. Αναφέρεται ότι η σιδηροπενική αναιμία μπορεί να έχει και μη διατροφικές αιτίες, όπως απώλεια αίματος ή δυσαπορρόφηση.  
-[EFSA – Scientific advice related to nutrient profiling](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2022.7259?utm)
