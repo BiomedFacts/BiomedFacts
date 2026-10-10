@@ -110,7 +110,7 @@ The development of autoimmune diseases is associated with complex interactions b
 
 ## **What Is Hashimoto's Thyroiditis?**
 
-[Hashimoto's thyroiditis](https://biomedfacts.com/%CF%85%CE%B3%CE%B5%CE%AF%CE%B1/2026/09/12/8yreoeiditida-hashimoto-ti-symbainei-sto-8yreoeidh.html?utm_source=chatgpt.com), also known as **chronic autoimmune thyroiditis or chronic lymphocytic thyroiditis**, occurs when the immune system loses immune tolerance to components of the thyroid gland and develops an autoimmune response against thyroid tissue. [[2](https://doi.org/10.20452/pamw.16222), [3](https://www.sciencedirect.com/science/article/abs/pii/S1521690X19301186?via%3Dihub), [4](https://doi.org/10.1007/s40618-020-01477-1)]
+[Hashimoto's thyroiditis](https://biomedfacts.com/en/health/2026/09/14/hashimotos-thyroiditis-what-happens-to-the-thyroid.html), also known as **chronic autoimmune thyroiditis or chronic lymphocytic thyroiditis**, occurs when the immune system loses immune tolerance to components of the thyroid gland and develops an autoimmune response against thyroid tissue. [[2](https://doi.org/10.20452/pamw.16222), [3](https://www.sciencedirect.com/science/article/abs/pii/S1521690X19301186?via%3Dihub), [4](https://doi.org/10.1007/s40618-020-01477-1)]
 
 It is one of the most common autoimmune diseases affecting the thyroid gland and a major cause of primary hypothyroidism in regions where iodine intake is sufficient. [[2](https://doi.org/10.20452/pamw.16222), [3](https://www.sciencedirect.com/science/article/abs/pii/S1521690X19301186?via%3Dihub), [5](https://jamanetwork.com/journals/jama/article-abstract/2838457)]
 
