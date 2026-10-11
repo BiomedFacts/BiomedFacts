@@ -21,6 +21,35 @@ overview: Vaginitis is inflammation of the vagina that may cause itching,
   hormonal changes, or irritation. Because different conditions can cause
   similar symptoms, an accurate diagnosis is important for determining the
   appropriate treatment.
+sources:
+  - reference: American College of Obstetricians and Gynecologists. Vaginitis. ACOG
+      Women's Health.
+    url: https://www.acog.org/womens-health/faqs/vaginitis
+  - reference: "Cleveland Clinic. Vagina: Anatomy, Function, Conditions & Care.
+      Updated April 16, 2025."
+    url: https://my.clevelandclinic.org/health/body/22469-vagina
+  - reference: "Cleveland Clinic. Vaginitis: Causes, Symptoms, Treatment &
+      Prevention. Updated June 18, 2024."
+    url: https://my.clevelandclinic.org/health/diseases/9131-vaginitis
+  - reference: "Eleutério J Jr, Campaner AB, de Carvalho NS. Diagnosis and treatment
+      of infectious vaginitis: Proposal for a new algorithm. Front Med
+      (Lausanne). 2023;10:1040072. doi:10.3389/fmed.2023.1040072."
+    url: https://doi.org/10.3389/fmed.2023.1040072
+  - reference: Marnach ML, Wygant JN, Casey PM. Evaluation and Management of
+      Vaginitis. Mayo Clin Proc. 2022;97(2):347–358.
+      doi:10.1016/j.mayocp.2021.09.022.
+    url: https://www.mayoclinicproceedings.org/article/S0025-6196(21)00879-X/fulltext
+  - reference: NHS. Vaginitis.
+    url: https://www.nhs.uk/conditions/vaginitis/
+  - reference: Eunice Kennedy Shriver National Institute of Child Health and Human
+      Development. About Vaginitis. NICHD.
+    url: https://www.nichd.nih.gov/health/topics/factsheets/vaginitis
+  - reference: Merck Manual Professional Edition. Overview of Vaginitis.
+    url: https://www.merckmanuals.com/professional/gynecology-and-obstetrics/vaginitis-cervicitis-and-pelvic-inflammatory-disease/overview-of-vaginitis
+  - reference: "Neal CM, Kus LH, Eckert LO, Peipert JF. Noncandidal vaginitis: a
+      comprehensive approach to diagnosis and management. Am J Obstet Gynecol.
+      2020;222(2):114–122. doi:10.1016/j.ajog.2019.09.001."
+    url: https://linkinghub.elsevier.com/retrieve/pii/S0002937819311068
 ---
 Have you ever experienced itching, burning, discomfort during sex, or a noticeable change in vaginal discharge? These symptoms can be uncomfortable and, understandably, concerning.
 
@@ -177,23 +206,3 @@ Consider seeking medical advice if:
 - a treatment you have already tried has not worked.[1](https://www.acog.org/womens-health/faqs/vaginitis), [6](https://www.nhs.uk/conditions/vaginitis/)
 
 Vaginitis is common and, in most cases, treatable. The important thing is to identify **what is causing the symptoms** rather than assuming that every episode has the same cause.
-
-# **References**
-
-**1.** American College of Obstetricians and Gynecologists. *Vaginitis.* ACOG Women's Health.
-
-**2.** Cleveland Clinic. *Vagina: Anatomy, Function, Conditions & Care.* Updated April 16, 2025.
-
-**3.** Cleveland Clinic. *Vaginitis: Causes, Symptoms, Treatment & Prevention.* Updated June 18, 2024.
-
-**4.** Eleutério J Jr, Campaner AB, de Carvalho NS. *Diagnosis and treatment of infectious vaginitis: Proposal for a new algorithm.* Front Med (Lausanne). 2023;10:1040072. doi:10.3389/fmed.2023.1040072.
-
-**5.** Marnach ML, Wygant JN, Casey PM. *Evaluation and Management of Vaginitis.* Mayo Clin Proc. 2022;97(2):347–358. doi:10.1016/j.mayocp.2021.09.022.
-
-**6.** NHS. *Vaginitis.*
-
-**7.** Eunice Kennedy Shriver National Institute of Child Health and Human Development. *About Vaginitis.* NICHD.
-
-**8.** Merck Manual Professional Edition. *Overview of Vaginitis.*
-
-**9.** Neal CM, Kus LH, Eckert LO, Peipert JF. *Noncandidal vaginitis: a comprehensive approach to diagnosis and management.* Am J Obstet Gynecol. 2020;222(2):114–122. doi:10.1016/j.ajog.2019.09.001.
