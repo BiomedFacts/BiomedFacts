@@ -20,6 +20,44 @@ overview: Hashimoto's thyroiditis is an autoimmune disease in which the immune
   develops, the standard treatment is levothyroxine. Additionally, there is
   insufficient scientific evidence to support routinely recommending a
   gluten-free diet for patients without celiac disease.
+sources:
+  - reference: "Klubo-Gwiezdzinska J, Wartofsky L. Hashimoto thyroiditis: an
+      evidence-based guide to etiology, diagnosis and treatment. Pol Arch Intern
+      Med. 2022;132(3):16222."
+    url: https://doi.org/10.20452/pamw.16222
+  - reference: "Ragusa F, Fallahi P, Elia G, et al. Hashimoto's thyroiditis:
+      epidemiology, pathogenesis, clinic and therapy. Best Pract Res Clin
+      Endocrinol Metab. 2019;33(6):101367."
+    url: https://www.sciencedirect.com/science/article/abs/pii/S1521690X19301186?via%3Dihub
+  - reference: Weetman AP. An update on the pathogenesis of Hashimoto's thyroiditis.
+      J Endocrinol Invest. 2021;44(5):883–890.
+    url: https://doi.org/10.1007/s40618-020-01477-1
+  - reference: "Hu X, Chen Y, Shen Y, Tian R, Sheng Y, Que H. Global prevalence and
+      epidemiological trends of Hashimoto's thyroiditis in adults: a systematic
+      review and meta-analysis. Front Public Health. 2022;10:1020709."
+    url: https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.1020709/full
+  - reference: "Chaker L, Papaleontiou M. Hypothyroidism: a review. JAMA.
+      2025;334(19):1750–1760."
+    url: https://jamanetwork.com/journals/jama/article-abstract/2838457
+  - reference: "Araújo EMQ, Coutinho-Lima CRO, de Sousa AS, et al. Effects of
+      gluten-free diet in non-celiac Hashimoto's thyroiditis: a systematic
+      review and meta-analysis. Nutrients. 2025;17(21):3437."
+    url: https://doi.org/10.3390/nu17213437
+  - reference: Boelaert K, Newby PR, Simmonds MJ, et al. Prevalence and relative
+      risk of other autoimmune diseases in subjects with autoimmune thyroid
+      disease. Am J Med. 2010;123(2):183.e1–183.e9.
+    url: https://www.amjmed.com/article/S0002-9343(09)00868-7/abstract
+  - reference: "Roy A, Laszkowska M, Sundström J, et al. Prevalence of celiac
+      disease in patients with autoimmune thyroid disease: a meta-analysis.
+      Thyroid. 2016;26(7):880–890."
+    url: https://journals.sagepub.com/doi/10.1089/thy.2016.0108
+  - reference: "Biondi B, Cappola AR, Cooper DS. Subclinical hypothyroidism: a
+      review. JAMA. 2019;322(2):153–160."
+    url: https://jamanetwork.com/journals/jama/article-abstract/2737687
+  - reference: "Jonklaas J, Bianco AC, Bauer AJ, et al. Guidelines for the treatment
+      of hypothyroidism: prepared by the American Thyroid Association Task Force
+      on Thyroid Hormone Replacement. Thyroid. 2014;24(12):1670–1751."
+    url: https://doi.org/10.1089/thy.2014.0028
 ---
 Hearing that your immune system is attacking your thyroid can sound alarming. And if you search online for information about Hashimoto’s thyroiditis, you are very likely to come across long lists of symptoms, strict diets, supplements, and claims about “healing” or curing the thyroid.
 
@@ -191,7 +229,7 @@ You may have heard that everyone with Hashimoto’s should stop eating gluten.
 
 A gluten-free diet is medically necessary for people who also have **celiac disease**.
 
-For people with Hashimoto’s who do not have celiac disease, the evidence remains limited.
+For people with Hashimoto’s who do not have celiac disease, [the evidence remains limited](https://biomedfacts.com/en/fact-checking/2026/10/10/can-a-gluten-free-diet-improve-or-cure-hashimotos-thyroiditis-what-does-the-scientific-evidence-show.html).
 
 A 2025 systematic review and meta-analysis specifically examined randomized studies of gluten-free diets in people with Hashimoto’s without celiac disease. Only three studies, involving a total of **110 participants**, were available for meta-analysis, and the certainty of the evidence was rated as **very low** because of methodological limitations and imprecision.[6](https://doi.org/10.3390/nu17213437)
 
@@ -222,25 +260,3 @@ And despite claims commonly made online, there is currently no convincing eviden
 The goal of care is not to chase antibody levels or follow increasingly restrictive diets.
 
 It is to monitor thyroid function, identify hypothyroidism when it develops, and treat it appropriately.
-
-# **References**
-
-**1.** Klubo-Gwiezdzinska J, Wartofsky L. *Hashimoto thyroiditis: an evidence-based guide to etiology, diagnosis and treatment.* Pol Arch Intern Med. 2022;132(3):16222.
-
-**2.** Ragusa F, Fallahi P, Elia G, et al. *Hashimoto's thyroiditis: epidemiology, pathogenesis, clinic and therapy.* Best Pract Res Clin Endocrinol Metab. 2019;33(6):101367.
-
-**3.** Weetman AP. *An update on the pathogenesis of Hashimoto's thyroiditis.* J Endocrinol Invest. 2021;44(5):883–890.
-
-**4.** Hu X, Chen Y, Shen Y, Tian R, Sheng Y, Que H. *Global prevalence and epidemiological trends of Hashimoto's thyroiditis in adults: a systematic review and meta-analysis.* Front Public Health. 2022;10:1020709.
-
-**5.** Chaker L, Papaleontiou M. *Hypothyroidism: a review.* JAMA. 2025;334(19):1750–1760.
-
-**6.** Araújo EMQ, Coutinho-Lima CRO, de Sousa AS, et al. *Effects of gluten-free diet in non-celiac Hashimoto's thyroiditis: a systematic review and meta-analysis.* Nutrients. 2025;17(21):3437.
-
-**7.** Boelaert K, Newby PR, Simmonds MJ, et al. *Prevalence and relative risk of other autoimmune diseases in subjects with autoimmune thyroid disease.* Am J Med. 2010;123(2):183.e1–183.e9.
-
-**8.** Roy A, Laszkowska M, Sundström J, et al. *Prevalence of celiac disease in patients with autoimmune thyroid disease: a meta-analysis.* Thyroid. 2016;26(7):880–890.
-
-**9.** Biondi B, Cappola AR, Cooper DS. *Subclinical hypothyroidism: a review.* JAMA. 2019;322(2):153–160.
-
-**10.** Jonklaas J, Bianco AC, Bauer AJ, et al. *Guidelines for the treatment of hypothyroidism: prepared by the American Thyroid Association Task Force on Thyroid Hormone Replacement.* Thyroid. 2014;24(12):1670–1751.
