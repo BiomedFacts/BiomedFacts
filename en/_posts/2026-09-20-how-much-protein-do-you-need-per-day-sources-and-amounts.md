@@ -18,6 +18,38 @@ overview: Protein is essential for maintaining muscle mass, supporting immune
   although requirements may be higher in older adults or individuals engaging in
   resistance training. Both animal- and plant-based foods can help meet daily
   protein needs, without necessarily requiring protein supplements.
+sources:
+  - reference: EFSA Panel on Dietetic Products, Nutrition and Allergies (NDA).
+      Scientific Opinion on Dietary Reference Values for protein. EFSA Journal.
+      2012;10(2):2557. EFSA establishes a PRI of 0.83 g/kg/day for adults and
+      additional protein requirements during pregnancy and breastfeeding.
+    url: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2012.2557
+  - reference: Nunes EA, Colenso-Semple L, McKellar SR, et al. Systematic review and
+      meta-analysis of protein intake to support muscle mass and function in
+      healthy adults. Journal of Cachexia, Sarcopenia and Muscle.
+      2022;13(2):795–810. Systematic review and meta-analysis of 74 randomized
+      controlled trials.
+    url: https://pubmed.ncbi.nlm.nih.gov/35187864/
+  - reference: Morton RW, Murphy KT, McKellar SR, et al. A systematic review,
+      meta-analysis and meta-regression of the effect of protein supplementation
+      on resistance training-induced gains in muscle mass and strength in
+      healthy adults. British Journal of Sports Medicine. 2018;52:376–384.
+    url: https://bjsm.bmj.com/content/52/6/376
+  - reference: "Volkert D, Beck AM, Cederholm T, et al. ESPEN practical guideline:
+      Clinical nutrition and hydration in geriatrics. Clinical Nutrition.
+      2022;41:958–989."
+    url: https://www.espen.org/files/ESPEN-Guidelines/ESPEN_practical_guideline_Clinical_nutrition_and_hydration_in_geriatrics.pdf
+  - reference: Nordic Council of Ministers. Nordic Nutrition Recommendations 2023 –
+      Protein.
+    url: https://pub.norden.org/nord2023-003/protein-.html
+  - reference: U.S. Department of Agriculture, Agricultural Research Service.
+      FoodData Central. Food composition and nutrient database.
+    url: https://fdc.nal.usda.gov/
+  - reference: "Reid-McCann RJ, Brennan SF, Ward NA, et al. Effect of Plant Versus
+      Animal Protein on Muscle Mass, Strength, Physical Performance, and
+      Sarcopenia: A Systematic Review and Meta-analysis of Randomized Controlled
+      Trials. Nutrition Reviews. 2025;83(7):e1581–e1603."
+    url: https://pubmed.ncbi.nlm.nih.gov/39813010/
 ---
 Protein is one of the essential nutrients in our diet. It plays a role in building and maintaining muscle and other tissues, as well as in the production of enzymes, hormones, antibodies, and many other molecules that are essential for the body to function properly.
 
@@ -235,26 +267,3 @@ For a healthy adult, EFSA has established a Population Reference Intake of 0.83 
 Protein also does not need to come from one particular food or from a supplement. Fish, eggs, dairy products, meat, legumes, soy, nuts, and grains can all contribute to daily protein intake.
 
 What matters is adequate total protein intake and a variety of foods within a balanced diet.
-
-# **Sources**
-
-[1] EFSA Panel on Dietetic Products, Nutrition and Allergies (NDA). Scientific Opinion on Dietary Reference Values for protein. EFSA Journal. 2012;10(2):2557. EFSA establishes a PRI of 0.83 g/kg/day for adults and additional protein requirements during pregnancy and breastfeeding.  
-[EFSA – Dietary Reference Values for Protein](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2012.2557)
-
-[2] Nunes EA, Colenso-Semple L, McKellar SR, et al. Systematic review and meta-analysis of protein intake to support muscle mass and function in healthy adults. Journal of Cachexia, Sarcopenia and Muscle. 2022;13(2):795–810. Systematic review and meta-analysis of 74 randomized controlled trials.  
-[PubMed – Nunes et al.](https://pubmed.ncbi.nlm.nih.gov/35187864/)
-
-[3] Morton RW, Murphy KT, McKellar SR, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults. British Journal of Sports Medicine. 2018;52:376–384.  
-[British Journal of Sports Medicine – Morton et al.](https://bjsm.bmj.com/content/52/6/376)
-
-[4] Volkert D, Beck AM, Cederholm T, et al. ESPEN practical guideline: Clinical nutrition and hydration in geriatrics. Clinical Nutrition. 2022;41:958–989.  
-[ESPEN – Clinical Nutrition and Hydration in Geriatrics](https://www.espen.org/files/ESPEN-Guidelines/ESPEN_practical_guideline_Clinical_nutrition_and_hydration_in_geriatrics.pdf)
-
-[5] Nordic Council of Ministers. Nordic Nutrition Recommendations 2023 – Protein.  
-[Nordic Nutrition Recommendations 2023 – Protein](https://pub.norden.org/nord2023-003/protein-.html)
-
-[6] U.S. Department of Agriculture, Agricultural Research Service. FoodData Central. Food composition and nutrient database.  
-[USDA FoodData Central](https://fdc.nal.usda.gov/)
-
-[7] Reid-McCann RJ, Brennan SF, Ward NA, et al. Effect of Plant Versus Animal Protein on Muscle Mass, Strength, Physical Performance, and Sarcopenia: A Systematic Review and Meta-analysis of Randomized Controlled Trials. Nutrition Reviews. 2025;83(7):e1581–e1603.  
-[PubMed – Reid-McCann et al. 2025](https://pubmed.ncbi.nlm.nih.gov/39813010/)
