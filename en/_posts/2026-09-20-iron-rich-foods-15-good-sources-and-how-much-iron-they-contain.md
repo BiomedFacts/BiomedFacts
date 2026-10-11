@@ -105,7 +105,7 @@ Heme iron generally has greater bioavailability, meaning that it is absorbed mor
 - grains
 - fortified foods.
 
-Plant-based foods contain non-heme iron. [2](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/)
+[Plant-based](https://biomedfacts.com/en/nutrition/2026/09/20/high-fiber-foods-15-good-sources-and-how-much-fiber-you-need.html) foods contain non-heme iron. [2](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/)
 
 Its absorption is more variable and is more strongly influenced by the other components of a meal.
 
