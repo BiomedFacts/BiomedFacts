@@ -237,6 +237,6 @@ In certain cases involving significant exposure, **post-exposure antibiotic prop
 
 ## **Has Plague Ever Been Used as a Biological Weapon?**
 
-Yes. *Yersinia pestis*, the bacterium responsible for plague, has been used as a biological weapon in the past. A notable example is Japan's Unit 731, which carried out biological attacks in China during World War II using fleas infected with the bacterium. [[11](https://pubmed.ncbi.nlm.nih.gov/32835180/?utm)]
+[Yes](https://biomedfacts.com/en/health/2026/10/08/biological-warfare-and-bioterrorism-what-do-we-know-and-how-real-is-the-threat.html). *Yersinia pestis*, the bacterium responsible for plague, has been used as a biological weapon in the past. A notable example is Japan's Unit 731, which carried out biological attacks in China during World War II using fleas infected with the bacterium. [[11](https://pubmed.ncbi.nlm.nih.gov/32835180/?utm)]
 
 However, the historical use of *Yersinia pestis* as a biological weapon does not mean that modern plague outbreaks are the result of deliberate actions.
