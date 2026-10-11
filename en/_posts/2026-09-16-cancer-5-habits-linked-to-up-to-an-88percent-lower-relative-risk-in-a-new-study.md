@@ -20,6 +20,9 @@ overview: A large prospective study involving 287,745 participants found that
   diet, physical activity, and body weight. However, as an observational study,
   the findings demonstrate an association rather than causation and do not
   establish that adopting these habits guarantees cancer prevention.
+sources:
+  - reference: "British Journal of Cancer "
+    url: https://www.nature.com/articles/s41416-026-03613-9
 ---
 Cancer remains a major public health concern, with the number of cancer cases worldwide estimated to reach **28.4 million by 2040**. [Lifestyle factors](https://biomedfacts.com/en/health/2026/09/12/how-to-reduce-your-cancer-risk-5-practical-science-based-steps.html), including smoking, physical activity, diet, alcohol consumption and body mass index (BMI), have been identified as important modifiable risk factors for cancer.
 
