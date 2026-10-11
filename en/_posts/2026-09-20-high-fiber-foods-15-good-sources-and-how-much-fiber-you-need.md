@@ -17,6 +17,25 @@ overview: Dietary fiber is an important component of a balanced diet, supporting
   colorectal cancer. The World Health Organization recommends that adults
   consume at least 25 grams of dietary fiber daily, which can be obtained from
   legumes, fruits, vegetables, whole grains, nuts, and seeds.
+sources:
+  - reference: "World Health Organization. Carbohydrate intake for adults and
+      children: WHO guideline. 2023."
+    url: https://www.who.int/publications/i/item/9789240073593
+  - reference: "European Food Safety Authority (EFSA). Dietary Reference Values for
+      nutrients: Summary report. EFSA considers an intake of 25 g/day adequate
+      for normal bowel function in adults."
+    url: https://www.efsa.europa.eu/sites/default/files/2017_09_DRVs_summary_report.pdf
+  - reference: "Reynolds A, Mann J, Cummings J, et al. Carbohydrate quality and
+      human health: a series of systematic reviews and meta-analyses. The
+      Lancet. 2019;393:434–445."
+    url: https://pubmed.ncbi.nlm.nih.gov/30638909/
+  - reference: "Delzenne NM, Bindels LB, Neyrinck AM, et al. The gut microbiome and
+      dietary fibres: implications in obesity, cardiometabolic diseases and
+      cancer. Nature Reviews Microbiology. 2025;23:225–238."
+    url: https://www.nature.com/articles/s41579-024-01108-z
+  - reference: Mayo Clinic. Chart of high-fiber foods. Nutrient values based on USDA
+      food composition data.
+    url: https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/high-fiber-foods/art-20050948
 ---
 Dietary fiber is an important component of a balanced diet. Unlike protein, fat, and most carbohydrates, however, it is not fully digested by the human body.
 
