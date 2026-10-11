@@ -100,7 +100,7 @@ sources:
 - δημητριακά
 - εμπλουτισμένα τρόφιμα.
 
-Τα φυτικά τρόφιμα περιέχουν **μη αιμικό σίδηρο**.[[2]](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/?utm)
+Τα [φυτικά τρόφιμα](https://biomedfacts.com/%CE%B4%CE%B9%CE%B1%CF%84%CF%81%CE%BF%CF%86%CE%AE/2026/09/18/trofima-me-fytikes-ines-15-kales-phges-kai-poses-xreiazesai.html) περιέχουν **μη αιμικό σίδηρο**.[[2]](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/?utm)
 
 Η απορρόφησή του είναι πιο μεταβλητή και επηρεάζεται περισσότερο από τα υπόλοιπα συστατικά του γεύματος.
 
