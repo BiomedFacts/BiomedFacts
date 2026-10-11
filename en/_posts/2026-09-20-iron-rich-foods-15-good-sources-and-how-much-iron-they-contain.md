@@ -19,6 +19,29 @@ overview: >
   absorption of non-heme iron, while certain dietary components can reduce it.
   Daily iron requirements vary across population groups, and iron deficiency is
   not always caused by inadequate dietary intake.
+sources:
+  - reference: "European Food Safety Authority (EFSA). Scientific Opinion on Dietary
+      Reference Values for iron. EFSA Journal. 2015;13(10):4254. DOI:
+      10.2903/j.efsa.2015.4254."
+    url: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2015.4254
+  - reference: "National Institutes of Health, Office of Dietary Supplements. Iron:
+      Fact Sheet for Health Professionals. Includes information on heme and
+      non-heme iron, absorption, and the iron content of selected foods."
+    url: https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/
+  - reference: "National Institutes of Health, Office of Dietary Supplements.
+      Vitamin C: Fact Sheet for Health Professionals. Vitamin C enhances the
+      absorption of non-heme iron."
+    url: https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/
+  - reference: British Dietetic Association (BDA). Iron – Food Fact Sheet. Practical
+      information on dietary sources of iron and factors that influence its
+      absorption.
+    url: https://www.bda.uk.com/resource/iron-rich-foods-iron-deficiency.html
+  - reference: NHS. Foods to avoid in pregnancy. Recommends avoiding liver and liver
+      products during pregnancy because of their high vitamin A content.
+    url: https://www.nhs.uk/pregnancy/keeping-well/foods-to-avoid/
+  - reference: European Food Safety Authority (EFSA). Scientific advice related to
+      nutrient profiling. EFSA Journal. 2022
+    url: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2022.7259
 ---
 Iron is an essential mineral that we need to obtain from our diet every day. It is found in both animal- and plant-based foods, but the amount of iron a food contains is not the only factor that matters: the body does not absorb all forms of iron in the same way.
 
@@ -237,23 +260,3 @@ However, the number of milligrams of iron in a food does not tell the whole stor
 Heme iron from animal-based foods is generally absorbed more efficiently, while the absorption of non-heme iron from plant-based foods is more strongly influenced by the composition of the meal.
 
 Combining a plant-based source of iron with foods rich in vitamin C is a simple way to improve its absorption.
-
-# **Sources**
-
-[1] European Food Safety Authority (EFSA). Scientific Opinion on Dietary Reference Values for iron. EFSA Journal. 2015;13(10):4254. DOI: 10.2903/j.efsa.2015.4254.  
-[EFSA – Scientific Opinion on Dietary Reference Values for Iron](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2015.4254)
-
-[2] National Institutes of Health, Office of Dietary Supplements. Iron: Fact Sheet for Health Professionals. Includes information on heme and non-heme iron, absorption, and the iron content of selected foods.  
-[NIH Office of Dietary Supplements – Iron](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/)
-
-[3] National Institutes of Health, Office of Dietary Supplements. Vitamin C: Fact Sheet for Health Professionals. Vitamin C enhances the absorption of non-heme iron.  
-[NIH Office of Dietary Supplements – Vitamin C](https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/)
-
-[4] British Dietetic Association (BDA). Iron – Food Fact Sheet. Practical information on dietary sources of iron and factors that influence its absorption.  
-[British Dietetic Association – Iron](https://www.bda.uk.com/resource/iron-rich-foods-iron-deficiency.html)
-
-[5] NHS. Foods to avoid in pregnancy. Recommends avoiding liver and liver products during pregnancy because of their high vitamin A content.  
-[NHS – Foods to Avoid in Pregnancy](https://www.nhs.uk/pregnancy/keeping-well/foods-to-avoid/)
-
-[6] European Food Safety Authority (EFSA). Scientific advice related to nutrient profiling. EFSA Journal. 2022.  
-[EFSA – Scientific Advice Related to Nutrient Profiling](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2022.7259)
