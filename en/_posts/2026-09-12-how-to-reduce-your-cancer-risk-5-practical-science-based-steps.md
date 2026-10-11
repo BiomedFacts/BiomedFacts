@@ -18,6 +18,35 @@ overview: Although not all cases of cancer can be prevented, there are
   HPV and hepatitis B, and protecting the skin from ultraviolet radiation are
   important preventive measures. However, cancer development is influenced by
   multiple factors and cannot be attributed solely to lifestyle choices.
+sources:
+  - reference: "Dart H, Wolin KY, Colditz GA. Commentary: Eight Ways to Prevent
+      Cancer: a framework for effective prevention messages for the public.
+      Cancer Causes Control. 2012;23(4):601–608. doi:10.1007/s10552-012-9924-y."
+    url: https://pubmed.ncbi.nlm.nih.gov/22367724/
+  - reference: "Nahleh Z, Bhatti NS, Mal M. How to reduce your cancer risk:
+      mechanisms and myths. Int J Gen Med. 2011;4:277–287.
+      doi:10.2147/IJGM.S18657."
+    url: https://pubmed.ncbi.nlm.nih.gov/21556314/
+  - reference: "International Agency for Research on Cancer. Human Cancer: Known
+      Causes and Prevention by Organ Site. IARC Monographs on the Identification
+      of Carcinogenic Hazards to Humans. Updated August 19, 2025."
+    url: https://pubmed.ncbi.nlm.nih.gov/21556314/
+  - reference: "Marino P, Mininni M, Deiana G, et al. Healthy Lifestyle and Cancer
+      Risk: Modifiable Risk Factors to Prevent Cancer. Nutrients.
+      2024;16(6):800. doi:10.3390/nu16060800."
+    url: https://pubmed.ncbi.nlm.nih.gov/38542712/
+  - reference: Centers for Disease Control and Prevention. Preventing Cancer. CDC.
+      Updated January 16, 2025.
+    url: https://www.cdc.gov/cancer/prevention/index.html
+  - reference: PDQ Screening and Prevention Editorial Board. Cancer Prevention
+      Overview (PDQ®)–Patient Version. National Cancer Institute. Updated May 2,
+      2025.
+    url: https://www.cancer.gov/about-cancer/causes-prevention/patient-prevention-overview-pdq
+  - reference: World Health Organization. Cancer. WHO Fact Sheet. Updated July 3, 2026.
+    url: https://www.who.int/news-room/fact-sheets/detail/cancer
+  - reference: "Mayo Clinic Staff. Cancer Risk: What the Numbers Mean. Mayo Clinic.
+      March 29, 2024."
+    url: https://www.mayoclinic.org/diseases-conditions/cancer/in-depth/cancer/art-20044092
 ---
 The word cancer can be frightening. Part of that fear comes from the feeling that the disease is completely outside our control. And, to some extent, it is. No lifestyle can guarantee that someone will never develop cancer. Age, genetics, environmental exposures, and other biological factors all influence cancer risk.[[6](https://www.cancer.gov/about-cancer/causes-prevention/patient-prevention-overview-pdq)–[8](https://www.mayoclinic.org/diseases-conditions/cancer/in-depth/cancer/art-20044092)] But that does not mean prevention is powerless. Some cancer risk factors can be changed. Avoiding tobacco, maintaining a healthy weight, limiting alcohol, protecting yourself from certain infections, and reducing excessive ultraviolet exposure are all evidence-based ways to lower cancer risk.[[1](https://pubmed.ncbi.nlm.nih.gov/22367724/)–[7](https://www.who.int/news-room/fact-sheets/detail/cancer)]
 
@@ -164,15 +193,3 @@ Avoiding tobacco, maintaining a healthy weight, staying physically active, limit
 Cancer prevention is not about fear or perfection. 
 
 It is about understanding which risks we can influence — and making informed choices where possible.
-
-**References**
-
-1. Dart H, Wolin KY, Colditz GA. Commentary: Eight Ways to Prevent Cancer: a framework for effective prevention messages for the public. Cancer Causes Control. 2012;23(4):601–608. doi:10.1007/s10552-012-9924-y.
-2. Nahleh Z, Bhatti NS, Mal M. How to reduce your cancer risk: mechanisms and myths. Int J Gen Med. 2011;4:277–287. doi:10.2147/IJGM.S18657.
-3. International Agency for Research on Cancer. Human Cancer: Known Causes and Prevention by Organ Site. IARC Monographs on the Identification of Carcinogenic Hazards to Humans. Updated August 19, 2025.
-4. Marino P, Mininni M, Deiana G, et al. Healthy Lifestyle and Cancer Risk: Modifiable Risk Factors to Prevent Cancer. Nutrients. 2024;16(6):800. doi:10.3390/nu16060800.
-5. Centers for Disease Control and Prevention. Preventing Cancer. CDC. Updated January 16, 2025.
-6. PDQ Screening and Prevention Editorial Board. Cancer Prevention Overview (PDQ®)–Patient Version. National Cancer Institute. Updated May 2, 2025.
-7. World Health Organization. Cancer. WHO Fact Sheet. Updated July 3, 2026.
-8. Mayo Clinic Staff. Cancer Risk: What the Numbers Mean. Mayo Clinic. March 29, 2024.
-
