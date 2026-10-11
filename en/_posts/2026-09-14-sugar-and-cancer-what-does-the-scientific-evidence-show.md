@@ -209,39 +209,3 @@ For this reason, PET findings are not interpreted in isolation. They are assesse
 PET/CT therefore provides important information about glucose metabolism in tissues.
 
 It **does not prove** that cancer cells survive exclusively because of the sugar we eat.
-
-# References
-
-**1.** Hanahan D. *Hallmarks of Cancer: New Dimensions.* Cancer Discov. 2022;12(1):31–46.
-
-**2.** Pavlova NN, Zhu J, Thompson CB. *The hallmarks of cancer metabolism: Still emerging.* Cell Metab. 2022;34(3):355–377.
-
-**3.** Vander Heiden MG, Cantley LC, Thompson CB. *Understanding the Warburg effect: The metabolic requirements of cell proliferation.* Science. 2009;324(5930):1029–1033.
-
-**4.** DeBerardinis RJ, Chandel NS. *Fundamentals of cancer metabolism.* Sci Adv. 2016;2(5).
-
-**5.** Hensley CT, Faubert B, Yuan Q, et al. *Metabolic heterogeneity in human lung tumors.* Cell. 2016;164(4):681–694.
-
-**6.** Faubert B, Li KY, Cai L, et al. *Lactate metabolism in human lung tumors.* Cell. 2017;171(2):358–371.e9.
-
-**7.** Courtney KD, Bezwada D, Mashimo T, et al. *Isotope tracing of human clear cell renal cell carcinomas demonstrates suppressed glucose oxidation in vivo.* Cell Metab. 2018;28(5):793–800.e2.
-
-**8.** Landau BR, Wahren J, Chandramouli V, Schumann WC, Ekberg K, Kalhan SC. *Contributions of gluconeogenesis to glucose production in the fasted state.* J Clin Invest. 1996;98(2):378–385.
-
-**9.** Römer M, Dörfler J, Huebner J. *The use of ketogenic diets in cancer patients: A systematic review.* Clin Exp Med. 2021;21(4):501–536.
-
-**10.** Salido-Bueno B, Gil-Hernandez E, Rueda-Ruzafa L, Gomez-Chica P, Roman P, Cardona D. *Effects of ketogenic diets on cancer-related variables: A systematic review and meta-analysis of randomized controlled trials.* Nutr Bull. 2024;49(3):264–277.
-
-**11.** Voss M, Wagner M, von Mettenheim N, et al. *ERGO2: A prospective, randomized trial of calorie-restricted ketogenic diet and fasting in addition to reirradiation for malignant glioma.* Int J Radiat Oncol Biol Phys. 2020;108(4):987–995.
-
-**12.** Martin-McGill KJ, Marson AG, Tudur Smith C, et al. *Ketogenic diets as an adjuvant therapy for glioblastoma (KEATING): A randomized, mixed methods, feasibility study.* J Neurooncol. 2020;147(1):213–227.
-
-**13.** Amaral LJ, et al. *A phase 1 safety and feasibility trial of a ketogenic diet plus standard of care for patients with recently diagnosed glioblastoma.* Sci Rep. 2025;15:21064.
-
-**14.** Muscaritoli M, Arends J, Bachmann P, et al. *ESPEN practical guideline: Clinical nutrition in cancer.* Clin Nutr. 2021;40(5):2898–2913.
-
-**15.** Boellaard R, Delgado-Bolton R, Oyen WJG, et al. *FDG PET/CT: EANM procedure guidelines for tumour imaging: version 2.0.* Eur J Nucl Med Mol Imaging. 2015;42(2):328–354.
-
-**16.** Pijl JP, Nienhuis PH, Kwee TC, Glaudemans AWJM, Slart RHJA, Gormsen LC. *Limitations and pitfalls of FDG-PET/CT in infection and inflammation.* Semin Nucl Med. 2021;51(6):633–645.
-
-**17.** National Cancer Institute. *Common Cancer Myths and Misconceptions: Will Eating Sugar Make My Cancer Worse?* Updated July 24, 2024.
