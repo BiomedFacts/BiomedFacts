@@ -47,7 +47,7 @@ sources:
   - reference: Boelaert K, Newby PR, Simmonds MJ, et al. Prevalence and relative
       risk of other autoimmune diseases in subjects with autoimmune thyroid
       disease. Am J Med. 2010;123(2):183.e1–183.e9.
-    url: "- [[7]](https://www.amjmed.com/article/S0002-9343(09)00868-7/abstract)"
+    url: https://www.amjmed.com/article/S0002-9343(09)00868-7/abstract
   - reference: "Roy A, Laszkowska M, Sundström J, et al. Prevalence of celiac
       disease in patients with autoimmune thyroid disease: a meta-analysis.
       Thyroid. 2016;26(7):880–890."
