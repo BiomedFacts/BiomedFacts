@@ -19,6 +19,40 @@ overview: >
   Fasting is not required; however, HbA1c values should not be interpreted in
   isolation. Anemia, hemoglobinopathies, alterations in red blood cell lifespan,
   kidney disease, pregnancy, and other factors can affect the result.
+sources:
+  - reference: "American Diabetes Association Professional Practice Committee for
+      Diabetes. Diagnosis and Classification of Diabetes: Standards of Care in
+      Diabetes—2026. Diabetes Care. 2026;49(Suppl 1):S27–S49."
+    url: https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes
+  - reference: "American Diabetes Association Professional Practice Committee for
+      Diabetes. Glycemic Goals, Hypoglycemia, and Hyperglycemic Crises:
+      Standards of Care in Diabetes—2026. Diabetes Care. 2026;49(Suppl
+      1):S132–S149."
+    url: https://diabetesjournals.org/care/article/49/Supplement_1/S132/163927/6-Glycemic-Goals-Hypoglycemia-and-Hyperglycemic
+  - reference: National Glycohemoglobin Standardization Program (NGSP). Factors that
+      Interfere with HbA1c Test Results. Updated June 23, 2026.
+    url: https://ngsp.org/factors.asp
+  - reference: "Sureshkumar P, Kumar SS, Anusree E, Cheriyan J, Masood A. Navigating
+      the discordance: a comprehensive review of HbA1c-glycemia mismatch in
+      clinical practice. Diabetes Res Clin Pract. 2026;235:113216. PMID:
+      41856328."
+    url: https://pubmed.ncbi.nlm.nih.gov/41856328/
+  - reference: "AlQarni AM, et al. Exploring the Impact of Iron Deficiency Anaemia
+      on Glycated Haemoglobin A1c Levels in Pregnant and Non-Pregnant Women: A
+      Systematic Review. Int J Womens Health. 2024;16:797–809. PMID: 38765207."
+    url: https://pubmed.ncbi.nlm.nih.gov/38765207/
+  - reference: "Song Y, et al. Evaluation of effects from hemoglobin variants on
+      HbA1c measurements by different methods. Clin Chem Lab Med.
+      2024;62(10):2082–2090. PMID: 38563053."
+    url: https://pubmed.ncbi.nlm.nih.gov/38563053/
+  - reference: "Zhang F, Wu R, Bai Y, Zhong Y. Glycemic instability in renal
+      decline: a review of HbA1c variability and outcomes in chronic kidney
+      disease. Diabetol Metab Syndr. 2026. PMID: 42482210."
+    url: https://pubmed.ncbi.nlm.nih.gov/42482210/
+  - reference: "American Diabetes Association Professional Practice Committee for
+      Diabetes. Management of Diabetes in Pregnancy: Standards of Care in
+      Diabetes—2026. Diabetes Care. 2026;49(Suppl 1):S321–S338."
+    url: https://diabetesjournals.org/care/article/49/Supplement_1/S321/163918/15-Management-of-Diabetes-in-Pregnancy-Standards
 ---
 Glycated Hemoglobin (HbA1c): What the Test Shows and How to Interpret the Results
 
@@ -189,29 +223,3 @@ HbA1c 5.7–6.4% falls within the prediabetes range, while HbA1c ≥6.5% is a di
 However, HbA1c should not be interpreted as an isolated number without considering the broader clinical context. Red blood cell lifespan, anemia, iron deficiency, hemoglobinopathies, kidney disease, pregnancy, recent blood loss or transfusion, and other factors can affect the result.
 
 For this reason, an HbA1c result should always be interpreted alongside the patient's medical history, other laboratory tests, and, when necessary, direct measurements of blood glucose.
-
-# **Sources**
-
-[1] American Diabetes Association Professional Practice Committee for Diabetes. Diagnosis and Classification of Diabetes: Standards of Care in Diabetes—2026. Diabetes Care. 2026;49(Suppl 1):S27–S49.  
-[ADA Standards of Care 2026 – Diagnosis and Classification](https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes)
-
-[2] American Diabetes Association Professional Practice Committee for Diabetes. Glycemic Goals, Hypoglycemia, and Hyperglycemic Crises: Standards of Care in Diabetes—2026. Diabetes Care. 2026;49(Suppl 1):S132–S149.  
-[ADA Standards of Care 2026 – Glycemic Goals](https://diabetesjournals.org/care/article/49/Supplement_1/S132/163927/6-Glycemic-Goals-Hypoglycemia-and-Hyperglycemic)
-
-[3] National Glycohemoglobin Standardization Program (NGSP). Factors that Interfere with HbA1c Test Results. Updated June 23, 2026.  
-[NGSP – Factors that Interfere with HbA1c](https://ngsp.org/factors.asp)
-
-[4] Sureshkumar P, Kumar SS, Anusree E, Cheriyan J, Masood A. Navigating the discordance: a comprehensive review of HbA1c-glycemia mismatch in clinical practice. Diabetes Res Clin Pract. 2026;235:113216. PMID: 41856328.  
-[PubMed – HbA1c-Glycemia Mismatch Review](https://pubmed.ncbi.nlm.nih.gov/41856328/)
-
-[5] AlQarni AM, et al. Exploring the Impact of Iron Deficiency Anaemia on Glycated Haemoglobin A1c Levels in Pregnant and Non-Pregnant Women: A Systematic Review. Int J Womens Health. 2024;16:797–809. PMID: 38765207.  
-[PubMed – Iron Deficiency and HbA1c Systematic Review](https://pubmed.ncbi.nlm.nih.gov/38765207/)
-
-[6] Song Y, et al. Evaluation of effects from hemoglobin variants on HbA1c measurements by different methods. Clin Chem Lab Med. 2024;62(10):2082–2090. PMID: 38563053.  
-[PubMed – Hemoglobin Variants and HbA1c Methods](https://pubmed.ncbi.nlm.nih.gov/38563053/)
-
-[7] Zhang F, Wu R, Bai Y, Zhong Y. Glycemic instability in renal decline: a review of HbA1c variability and outcomes in chronic kidney disease. Diabetol Metab Syndr. 2026. PMID: 42482210.  
-[PubMed – HbA1c and Chronic Kidney Disease Review](https://pubmed.ncbi.nlm.nih.gov/42482210/)
-
-[8] American Diabetes Association Professional Practice Committee for Diabetes. Management of Diabetes in Pregnancy: Standards of Care in Diabetes—2026. Diabetes Care. 2026;49(Suppl 1):S321–S338.  
-[ADA 2026 – Diabetes in Pregnancy](https://diabetesjournals.org/care/article/49/Supplement_1/S321/163918/15-Management-of-Diabetes-in-Pregnancy-Standards)
