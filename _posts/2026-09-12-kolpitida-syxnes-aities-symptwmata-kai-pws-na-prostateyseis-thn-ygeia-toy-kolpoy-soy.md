@@ -97,7 +97,7 @@ sources:
 
 ## **3. Τριχομονάδωση**
 
-Η τριχομονάδωση είναι σεξουαλικώς μεταδιδόμενη λοίμωξη που προκαλείται από το παράσιτο *Trichomonas vaginalis*.[[1]](https://www.acog.org/womens-health/faqs/vaginitis), [[7]](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis)
+Η [τριχομονάδωση](https://biomedfacts.com/%CF%85%CE%B3%CE%B5%CE%AF%CE%B1/2026/10/14/trixomonades-ti-einai-pws-metadidontai-kai-poia-symptwmata-prokaloyn.html) είναι σεξουαλικώς μεταδιδόμενη λοίμωξη που προκαλείται από το παράσιτο *Trichomonas vaginalis*.[[1]](https://www.acog.org/womens-health/faqs/vaginitis), [[7]](https://www.nichd.nih.gov/health/topics/factsheets/vaginitis)
 
 Πιθανά συμπτώματα περιλαμβάνουν:
 
