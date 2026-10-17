@@ -124,7 +124,7 @@ sources:
 - ρευματοειδής αρθρίτιδα
 - φλεγμονώδη νοσήματα του εντέρου, συμπεριλαμβανομένης της νόσου Crohn
 - ορισμένες μορφές αγγειίτιδας
-- άλλα αυτοάνοσα ή φλεγμονώδη νοσήματα [[4](https://www.medlineplus.gov/lab-tests/c-reactive-protein-crp-test/)]
+- άλλα [αυτοάνοσα ή φλεγμονώδη νοσήματα](https://biomedfacts.com/%CF%85%CE%B3%CE%B5%CE%AF%CE%B1/2026/10/16/aytoanosa-noshmata-ti-einai-poia-symptwmata-prokaloyn-kai-pws-antimetwpizontai.html) [[4](https://www.medlineplus.gov/lab-tests/c-reactive-protein-crp-test/)]
 
 Σε αυτές τις περιπτώσεις, η CRP μπορεί ορισμένες φορές να χρησιμοποιείται σε συνδυασμό με άλλα δεδομένα για την παρακολούθηση της ενεργότητας της νόσου ή της ανταπόκρισης στη θεραπεία.
 
