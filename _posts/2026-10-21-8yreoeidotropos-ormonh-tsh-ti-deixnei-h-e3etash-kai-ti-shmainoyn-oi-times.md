@@ -3,7 +3,7 @@ title: "θυρεοειδοτρόπος ορμόνη (TSH): Τι δείχνει �
 date: 2026-10-21
 category: Εξετάσεις
 translation_key: tsh
-image: /assets/images/stigmiotypo-o8onhs-2026-10-21-231841.png
+image: /assets/images/stigmiotypo-o8onhs-2026-10-22-114734.png
 excerpt: Τι δείχνει η εξέταση TSH; Μάθε τι σημαίνουν οι υψηλές και χαμηλές
   τιμές, ποια είναι τα φυσιολογικά όρια και πότε χρειάζονται επιπλέον εξετάσεις.
 author: Δήμητρα Μουρκόγιαννη, BSc (Hons) Biomedical Science
