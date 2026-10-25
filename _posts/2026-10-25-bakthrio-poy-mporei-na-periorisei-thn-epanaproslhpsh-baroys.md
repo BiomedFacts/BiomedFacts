@@ -19,6 +19,12 @@ overview: "Μια τυχαιοποιημένη κλινική μελέτη πο�
   αποτελέσματα ήταν ενθαρρυντικά, αλλά δεν αποδεικνύουν ότι το συγκεκριμένο
   σκεύασμα αποτελεί αποτελεσματική μακροχρόνια θεραπεία για τη διαχείριση του
   βάρους. "
+sources:
+  - reference: "Mount S, et al. (2026). Pasteurized Akkermansia muciniphila MucT for
+      weight loss maintenance in people with overweight and obesity: a
+      controlled randomized trial. Nature Medicine, 32, 2107–2116. DOI:
+      10.1038/s41591-026-04394-7."
+    url: https://doi.org/10.1038/s41591-026-04394-7
 ---
 # **Τι εξέτασαν οι ερευνητές;**
 
