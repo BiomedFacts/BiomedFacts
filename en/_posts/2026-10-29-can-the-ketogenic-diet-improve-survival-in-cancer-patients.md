@@ -2,7 +2,7 @@
 title: Can the Ketogenic Diet Improve Survival in Cancer Patients?
 date: 2026-10-29
 category: Fact-Checking
-translation_key: keto
+translation_key: keto-cancer-factcheck
 image: /assets/images/stigmiotypo-o8onhs-2026-10-24-123224-1.png
 excerpt: Can a ketogenic diet improve survival in cancer patients? What does the
   latest scientific evidence show?
