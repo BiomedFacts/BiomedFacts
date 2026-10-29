@@ -2,7 +2,7 @@
 title: "Βακτήριο που μπορεί να περιορίσει την επαναπρόσληψη βάρους; "
 date: 2026-10-25
 category: Έρευνα
-translation_key: microbe
+translation_key: akkermansia-weight-regain
 image: /assets/images/stigmiotypo-o8onhs-2026-10-25-180043.png
 excerpt: Μελέτη του 2026 στο Nature Medicine εξέτασε αν το βακτήριο Akkermansia
   muciniphila περιορίζει την επαναπρόσληψη βάρους. Τι έδειξαν τα αποτελέσματα;
