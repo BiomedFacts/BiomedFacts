@@ -41,10 +41,19 @@
     href="{{ '/favicon.svg' | relative_url }}"
   >
 
+  <!-- Google CMP needs an origin referrer for cross-origin requests. -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Register Privacy & Messaging callbacks before the asynchronous AdSense tag. -->
+  <script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
+
   <!-- GOOGLE ADSENSE -->
 
   <script
     async
+    id="bf-adsense-tag"
+    onload="window.biomedfactsAdsTagState='LOADED'"
+    onerror="window.biomedfactsAdsTagState='BLOCKED/FAILED'"
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5074253584827466"
     crossorigin="anonymous"
   ></script>
@@ -743,43 +752,6 @@
       text-transform: uppercase;
     }
 
-    /* NEWSLETTER */
-
-    .newsletter {
-      margin-top: 75px;
-
-      padding: 36px 20px;
-
-      background: var(--surface);
-
-      border-top: 2px solid var(--text);
-      border-bottom: 1px solid var(--border);
-
-      overflow: hidden;
-    }
-
-    .newsletter-heading {
-      margin-bottom: 22px;
-
-      color: var(--accent);
-
-      text-align: center;
-
-      font-size: 11px;
-      font-weight: bold;
-
-      letter-spacing: 1.8px;
-    }
-
-    .beehiiv-form-container {
-      width: 100%;
-      max-width: 760px;
-
-      margin: 0 auto;
-
-      text-align: center;
-    }
-
     /* FOOTER */
 
     footer {
@@ -934,10 +906,6 @@
         font-size: 26px;
       }
 
-      .newsletter {
-        padding: 30px 8px;
-      }
-
       .footer-links {
         gap: 11px 17px;
       }
@@ -968,6 +936,8 @@
       }
 
     }
+
+      [data-cookie-settings][hidden] { display: none !important; }
 
   </style>
 
@@ -1358,24 +1328,6 @@
 
   </section>
 
-  <section class="newsletter">
-
-    <p class="newsletter-heading">
-      BIOMEDFACTS NEWSLETTER
-    </p>
-
-    <div class="beehiiv-form-container">
-
-      <script
-        async
-        src="https://subscribe-forms.beehiiv.com/v3/loader.js"
-        data-beehiiv-form="5b6c64fa-4be2-4884-a199-d0ebe1f9ed51"
-      ></script>
-
-    </div>
-
-  </section>
-
 </main>
 
 <footer>
@@ -1404,6 +1356,8 @@
         Επικοινωνία
       </a>
 
+      <a href="#" data-cookie-settings hidden>Ρυθμίσεις cookies</a>
+
     </div>
 
     <div class="footer-copy">
@@ -1413,8 +1367,6 @@
   </div>
 
 </footer>
-
-<script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
 
 <script>
 
