@@ -1,5 +1,5 @@
 ---
-title: "Τριχομονάδες: Τι είναι, πώς μεταδίδονται και ποια συμπτώματα προκαλούν; "
+title: "Τριχομονάδες: Τι είναι, πώς μεταδίδονται και ποια συμπτώματα προκαλούν;"
 date: 2026-10-14
 category: Υγεία
 translation_key: ΣΜΝ
@@ -53,8 +53,8 @@ faqs:
       Επομένως, η αναμονή για αυτόματη υποχώρηση δεν συνιστάται.
   - question: Μπορούν οι τριχομονάδες να αντιμετωπιστούν με φυσικό τρόπο;
     answer: Δεν υπάρχουν επαρκή κλινικά δεδομένα που να τεκμηριώνουν ότι φυσικές
-      θεραπείες μπορούν να εξαλείψουν την λοίμωξη από Trichomonas vaginalis.
-  - question: Μπορώ να ξανά κολλήσω τριχομονάδες μετά τη θεραπεία;
+      θεραπείες μπορούν να εξαλείψουν τη λοίμωξη από Trichomonas vaginalis.
+  - question: Μπορώ να ξανακολλήσω τριχομονάδες μετά τη θεραπεία;
     answer: >-
       Ναι. Η επιτυχής θεραπεία δεν προσφέρει μόνιμη ανοσία.
 
@@ -66,7 +66,7 @@ sources:
     url: https://www.who.int/news-room/fact-sheets/detail/trichomoniasis
   - reference: Centers for Disease Control and Prevention (2021). Trichomoniasis.
       Sexually Transmitted Infections Treatment Guidelines.
-    url: https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm?utm
+    url: https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm
   - reference: >-
       Tsoukalas L, et al. (2025). Trichomonas vaginalis in Vaginal Samples from
       Symptomatic Women in Greece: Assessment of Test Performance and Prevalence
@@ -74,51 +74,56 @@ sources:
       Microbiologica Hellenica, 70(3), 29.
 
       DOI: 10.3390/amh70030029.
-    url: https://www.mdpi.com/2813-9054/70/3/29?utm
+    url: https://www.mdpi.com/2813-9054/70/3/29
   - reference: >-
       Seña AC, et al. (2007). Trichomonas vaginalis infection in male sexual
       partners: implications for diagnosis, treatment, and prevention. Clinical
       Infectious Diseases, 44(1), 13–22.
 
       DOI: 10.1086/511144.
-    url: https://pubmed.ncbi.nlm.nih.gov/17143809/?utm
+    url: https://pubmed.ncbi.nlm.nih.gov/17143809/
   - reference: "Kissinger PJ, et al. (2022). Diagnosis and Management of Trichomonas
       vaginalis: Summary of Evidence Reviewed for the 2021 Centers for Disease
       Control and Prevention Sexually Transmitted Infections Treatment
       Guidelines. Clinical Infectious Diseases, 74(Suppl 2), S152–S161."
-    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9006969/?utm
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9006969/
   - reference: Van Gerwen OT, et al. (2021). Epidemiology, Natural History,
       Diagnosis, and Treatment of Trichomonas vaginalis in Men. Clinical
       Infectious Diseases, 73(6), 1119–1124.
-    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8522801/?utm
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8522801/
   - reference: >-
       Masha SC, et al. (2019). Trichomonas vaginalis and HIV infection
       acquisition: a systematic review and meta-analysis. Sexually Transmitted
       Infections, 95(1), 36–42.
 
       DOI: 10.1136/sextrans-2018-053713.
-    url: https://pubmed.ncbi.nlm.nih.gov/30341233/?utm
+    url: https://pubmed.ncbi.nlm.nih.gov/30341233/
   - reference: >-
       Van Gerwen OT, et al. (2021). Trichomoniasis and adverse birth outcomes: a
       systematic review and meta-analysis. BJOG, 128(12), 1907–1915.
 
       DOI: 10.1111/1471-0528.16774.
-    url: https://pubmed.ncbi.nlm.nih.gov/34036690/?utm
+    url: https://pubmed.ncbi.nlm.nih.gov/34036690/
   - reference: World Health Organization (2024). Recommendations for the treatment
       of Trichomonas vaginalis, Mycoplasma genitalium, Candida albicans,
       bacterial vaginosis and human papillomavirus (anogenital warts).
-    url: https://www.who.int/publications/i/item/9789240096370?utm
+    url: https://www.who.int/publications/i/item/9789240096370
   - reference: >-
       Van Gerwen OT, et al. (2024). Spontaneous resolution of Trichomonas
       vaginalis infection in men. Sexually Transmitted Infections, 100(7),
       450–453.
 
       DOI: 10.1136/sextrans-2024-056160.
-    url: https://pubmed.ncbi.nlm.nih.gov/38937096/?utm
+    url: https://pubmed.ncbi.nlm.nih.gov/38937096/
+  - reference: >-
+      Hued NI, Casero RD (2003). Survival of Trichomonas vaginalis in the
+      environmental media. Revista Argentina de Microbiología, 35(2), 113–115.
+      PMID: 12920996.
+    url: https://pubmed.ncbi.nlm.nih.gov/12920996/
 ---
 # **Τι είναι οι τριχομονάδες;**
 
-Οι τριχομονάδες είναι μονοκύτταροι ευκαρυωτικοί μικροοργανισμοί που ανήκουν στα πρωτόζωα. Το είδος *Trichomonas vaginalis* είναι υπεύθυνο για την τριχομονίαση (trichomoniasis), μία σεξουαλικώς μεταδιδόμενη λοίμωξη (ΣΜΛ) του ουροποιητικού συστήματος.
+Οι τριχομονάδες είναι μονοκύτταροι ευκαρυωτικοί μικροοργανισμοί που ανήκουν στα πρωτόζωα. Το είδος *Trichomonas vaginalis* είναι υπεύθυνο για την τριχομονίαση (trichomoniasis), μία σεξουαλικώς μεταδιδόμενη λοίμωξη (ΣΜΛ) του ουρογεννητικού συστήματος.
 
 Το παράσιτο βρίσκεται κυρίως στον κόλπο, στον τράχηλο της μήτρας και στην ουρήθρα των γυναικών, ενώ στους άνδρες προσβάλλει κυρίως την ουρήθρα.
 
@@ -126,7 +131,7 @@ sources:
 
 Σύμφωνα με τον Παγκόσμιο Οργανισμό Υγείας (WHO), το 2020 υπολογίστηκαν περίπου **156 εκατομμύρια νέες λοιμώξεις από *Trichomonas vaginalis*** παγκοσμίως, σε άτομα ηλικίας 15–49 ετών.
 
-Έτσι, κατατάσσεται στην συχνότερη μη ιογενή σεξουαλικώς μεταδιδόμενη λοίμωξη σε παγκόσμιο επίπεδο. [[1](https://www.who.int/news-room/fact-sheets/detail/trichomoniasis)]
+Πρόκειται για τη συχνότερη μη ιογενή σεξουαλικώς μεταδιδόμενη λοίμωξη παγκοσμίως. [[1](https://www.who.int/news-room/fact-sheets/detail/trichomoniasis)]
 
 # **Πώς μεταδίδονται οι τριχομονάδες;**
 
@@ -136,19 +141,19 @@ sources:
 
 Το παράσιτο μπορεί να μεταδοθεί από άνδρα σε γυναίκα, από γυναίκα σε άνδρα, αλλά και μεταξύ γυναικών.
 
-Να σημειωθεί ότι, **η μετάδοση μπορεί να συμβεί ακόμη και όταν ένα μολυσμένο άτομο δεν παρουσιάζει κανένα σύμπτωμα**. [[2](https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm?utm),[3](https://www.mdpi.com/2813-9054/70/3/29?utm)]
+Αξίζει να σημειωθεί ότι **η μετάδοση μπορεί να συμβεί ακόμη και όταν ένα μολυσμένο άτομο δεν παρουσιάζει κανένα σύμπτωμα**. [[2](https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm),[3](https://www.mdpi.com/2813-9054/70/3/29)]
 
 ## **Μπορούν οι τριχομονάδες να μεταδοθούν από πισίνα ή τουαλέτα;**
 
-Η σεξουαλική επαφή αποτελεί τον κύριο αλλά και τεκμηριωμένο τρόπο μετάδοσης της τριχομονίασης.
+Η σεξουαλική επαφή αποτελεί τον κύριο τεκμηριωμένο τρόπο μετάδοσης της τριχομονίασης.
 
-Η μετάδοση μέσω του νερού της πισίνας ή μέσω μολυσμένων αντικειμένων θεωρείται ασυνήθιστη και δεν αποτελεί καθιερωμένο τρόπο μετάδοσης στην καθημερινή ζωή.
+Η μετάδοση μέσω νερού πισίνας ή μέσω αντικειμένων δεν αποτελεί καθιερωμένο τρόπο μετάδοσης στην καθημερινή ζωή.
 
-Ωστόσο, ορισμένες εργαστηριακές μελέτες έχουν δείξει ότι το *Trichomonas vaginalis* μπορεί, υπό συγκεκριμένες συνθήκες, να παραμείνειζωντανό για κάποιο χρονικό διάστημα σε υγρό περιβάλλον.
+Εργαστηριακές μελέτες έχουν δείξει ότι το *Trichomonas vaginalis* μπορεί, υπό ορισμένες συνθήκες, να παραμείνει ζωντανό για κάποιο χρονικό διάστημα εκτός του ανθρώπινου οργανισμού.
 
-**Ωστόσο, αυτό δεν αποδεικνύει ότι μπορεί να μεταδοθεί αποτελεσματικά σε πραγματικές συνθήκες.**
+**Αυτό, όμως, δεν αποδεικνύει ότι η μετάδοση μέσω αντικειμένων ή νερού αποτελεί συνηθισμένο κίνδυνο σε πραγματικές συνθήκες.**
 
-Επομένως, τα διαθέσιμα δεδομένα δεν υποστηρίζουν ότι η απλή κολύμβηση σε μια πισίνα αποτελεί οδό μετάδοσης της τριχομονίασης. [[8](https://pubmed.ncbi.nlm.nih.gov/34036690/?utm),[9](https://www.who.int/publications/i/item/9789240096370?utm)]
+Επομένως, τα διαθέσιμα δεδομένα δεν τεκμηριώνουν την απλή κολύμβηση σε μια πισίνα ως συνήθη οδό μετάδοσης της τριχομονίασης. [[1](https://www.who.int/news-room/fact-sheets/detail/trichomoniasis),[11](https://pubmed.ncbi.nlm.nih.gov/12920996/)]
 
 # **Ποια είναι τα συμπτώματα της τριχομονίασης;**
 
@@ -156,7 +161,7 @@ sources:
 
 Σύμφωνα με το CDC, περίπου το 70% των ατόμων με τριχομονίαση δεν παρουσιάζει συμπτώματα.
 
-Όταν εμφανίζονται συμπτώματα, αυτό συμβαίνει συνήθως **5–28 ημέρες μετά τη μόλυνση**, αν και σε ορισμένες περιπτώσεις μπορεί να εμφανιστούν αργότερα. [[2](https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm?utm),[3](https://www.mdpi.com/2813-9054/70/3/29?utm)]
+Όταν εμφανίζονται συμπτώματα, αυτό συμβαίνει συνήθως **5–28 ημέρες μετά τη μόλυνση**, αν και σε ορισμένες περιπτώσεις μπορεί να εμφανιστούν αργότερα. [[2](https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm),[3](https://www.mdpi.com/2813-9054/70/3/29)]
 
 ### **Συμπτώματα στις γυναίκες**
 
@@ -175,9 +180,9 @@ sources:
 
 Όταν προκαλεί συμπτώματα, αυτά μπορεί να περιλαμβάνουν εκκρίσεις από την ουρήθρα, αίσθημα καύσου κατά την ούρηση ή την εκσπερμάτιση και ερεθισμό στο εσωτερικό του πέους.
 
-Σε ορισμένες περιπτώσεις, το παράσιτο μπορεί να σχετίζεται με ουρηθρίτιδα ή προστατίτιδα [[5](https://pmc.ncbi.nlm.nih.gov/articles/PMC9006969/?utm),[6](https://pmc.ncbi.nlm.nih.gov/articles/PMC8522801/?utm)]
+Σε ορισμένες περιπτώσεις, το παράσιτο μπορεί να σχετίζεται με ουρηθρίτιδα ή προστατίτιδα [[5](https://pmc.ncbi.nlm.nih.gov/articles/PMC9006969/),[6](https://pmc.ncbi.nlm.nih.gov/articles/PMC8522801/)]
 
-**Η απουσία συμπτωμάτων δεν αποκλείει την παρουσία του παρασίτου.** [[2](https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm?utm),[3](https://www.mdpi.com/2813-9054/70/3/29?utm),[4](https://pubmed.ncbi.nlm.nih.gov/17143809/?utm)]
+**Η απουσία συμπτωμάτων δεν αποκλείει την παρουσία του παρασίτου.** [[2](https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm),[3](https://www.mdpi.com/2813-9054/70/3/29),[4](https://pubmed.ncbi.nlm.nih.gov/17143809/)]
 
 # **Πώς γίνεται η διάγνωση;**
 
@@ -209,7 +214,7 @@ sources:
 
 Η καλλιέργεια αποτελεί μία ακόμη διαθέσιμη διαγνωστική μέθοδο. Ωστόσο, απαιτεί περισσότερο χρόνο και γενικά παρουσιάζει χαμηλότερη ευαισθησία από τις σύγχρονες μοριακές εξετάσεις.
 
-Αξίζει επίσης να σημειωθεί ότι το τεστ Παπανικολάου δεν αποτελεί κατάλληλη εξέταση για τη διάγνωση της τριχομονίασης. Εάν εντοπιστούν τυχαία μορφολογικά ευρήματα ύποπτα για τριχομονάδες, συνιστάται επιβεβαίωση με κατάλληλη διαγνωστική εξέταση. [[4](https://pubmed.ncbi.nlm.nih.gov/17143809/?utm),[8](https://pubmed.ncbi.nlm.nih.gov/34036690/?utm)]
+Αξίζει επίσης να σημειωθεί ότι το τεστ Παπανικολάου δεν αποτελεί κατάλληλη εξέταση για τη διάγνωση της τριχομονίασης. Εάν εντοπιστούν τυχαία μορφολογικά ευρήματα ύποπτα για τριχομονάδες, συνιστάται επιβεβαίωση με κατάλληλη διαγνωστική εξέταση. [[2](https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm)]
 
 # **Πώς θεραπεύονται οι τριχομονάδες;**
 
@@ -219,7 +224,7 @@ sources:
 
 Οι θεραπευτικές οδηγίες διαφέρουν ελαφρώς μεταξύ των διεθνών οργανισμών.
 
-Εναλλακτικά θεραπευτικά σχήματα μπορεί να χρησιμοποιηθούν ανάλογα με τις κλινικές συνθήκες. Η τινιδαζόλη, ωστόσο, πρέπει να αποφεύγεται κατά την εγκυμοσύνη. [[4](https://pubmed.ncbi.nlm.nih.gov/17143809/?utm),[5](https://pmc.ncbi.nlm.nih.gov/articles/PMC9006969/?utm)]
+Εναλλακτικά θεραπευτικά σχήματα μπορεί να χρησιμοποιηθούν ανάλογα με τις κλινικές συνθήκες. Η τινιδαζόλη, ωστόσο, πρέπει να αποφεύγεται κατά την εγκυμοσύνη. [[2](https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm),[9](https://www.who.int/publications/i/item/9789240096370)]
 
 Η επιλογή του κατάλληλου φαρμάκου και της δοσολογίας πρέπει να γίνεται από επαγγελματία υγείας.
 
@@ -233,17 +238,17 @@ sources:
 
 Συνιστάται η αποχή από τη σεξουαλική επαφή έως ότου ολοκληρωθεί η θεραπεία όλων των εμπλεκόμενων συντρόφων και υποχωρήσουν τυχόν συμπτώματα.
 
-Επιπλέον, το CDC συνιστά επανέλεγχο των σεξουαλικά ενεργών γυναικών περίπου **τρεις μήνες μετά την αρχική θεραπεία**, λόγω της συχνότητας επαναμόλυνσης. [[4](https://pubmed.ncbi.nlm.nih.gov/17143809/?utm)]
+Επιπλέον, το CDC συνιστά επανέλεγχο των σεξουαλικά ενεργών γυναικών περίπου **τρεις μήνες μετά την αρχική θεραπεία**, λόγω της συχνότητας επαναμόλυνσης. [[2](https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm)]
 
 # **Ποιες είναι οι πιθανές επιπλοκές;**
 
 Παρότι η τριχομονίαση αντιμετωπίζεται αποτελεσματικά, η λοίμωξη δεν πρέπει να παραμένει χωρίς θεραπεία.
 
-Η λοίμωξη από *Trichomonas vaginalis* έχει συσχετιστεί με αυξημένο κίνδυνο απόκτησης HIV. Σύμφωνα με τον WHO, ο κίνδυνος αυτός είναι περίπου 1,5 φορά υψηλότερος σε άτομα με τριχομονίαση. [[7](https://pubmed.ncbi.nlm.nih.gov/30341233/?utm)]
+Η λοίμωξη από *Trichomonas vaginalis* έχει συσχετιστεί με αυξημένο κίνδυνο απόκτησης HIV. Σύμφωνα με τον WHO, ο κίνδυνος αυτός είναι περίπου 1,5 φορά υψηλότερος σε άτομα με τριχομονίαση. [[7](https://pubmed.ncbi.nlm.nih.gov/30341233/)]
 
 Η λοίμωξη έχει επίσης συσχετιστεί με φλεγμονώδεις καταστάσεις του αναπαραγωγικού συστήματος, συμπεριλαμβανομένης της φλεγμονώδους νόσου της πυέλου, ιδιαίτερα σε γυναίκες που ζουν με HIV.
 
-Κατά την εγκυμοσύνη, η τριχομονίαση έχει συνδεθεί με δυσμενείς εκβάσεις, όπως ο πρόωρος τοκετός, η πρόωρη ρήξη των εμβρυϊκών υμένων και το χαμηλό βάρος γέννησης. [[1](https://www.who.int/news-room/fact-sheets/detail/trichomoniasis),[4](https://pubmed.ncbi.nlm.nih.gov/17143809/?utm)]
+Κατά την εγκυμοσύνη, η τριχομονίαση έχει συνδεθεί με δυσμενείς εκβάσεις, όπως ο πρόωρος τοκετός, η πρόωρη ρήξη των εμβρυϊκών υμένων και το χαμηλό βάρος γέννησης. [[1](https://www.who.int/news-room/fact-sheets/detail/trichomoniasis),[4](https://pubmed.ncbi.nlm.nih.gov/17143809/)]
 
 # **Τριχομονάδες και εγκυμοσύνη**
 
@@ -253,7 +258,7 @@ sources:
 
 Ωστόσο, η θεραπεία πρέπει πάντοτε να πραγματοποιείται υπό ιατρική καθοδήγηση.
 
-Το όφελος του καθολικού προσυμπτωματικού ελέγχου όλων των ασυμπτωματικών εγκύων για τριχομονίαση δεν έχει τεκμηριωθεί επαρκώς. [[4](https://pubmed.ncbi.nlm.nih.gov/17143809/?utm)]
+Το όφελος του καθολικού προσυμπτωματικού ελέγχου όλων των ασυμπτωματικών εγκύων για τριχομονίαση δεν έχει τεκμηριωθεί επαρκώς. [[2](https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm)]
 
 # **Πώς μπορούμε να προλάβουμε την τριχομονίαση;**
 
@@ -265,4 +270,4 @@ sources:
 
 Επιπλέον, σε περίπτωση επιβεβαιωμένης τριχομονίασης, συνιστάται η πραγματοποίηση εξετάσεων και για άλλες σεξουαλικώς μεταδιδόμενες λοιμώξεις, όπως HIV, σύφιλη, γονόρροια και χλαμύδια.
 
-Η έγκαιρη διάγνωση και η ταυτόχρονη θεραπεία των συντρόφων συμβάλλουν ουσιαστικά στην πρόληψη νέων λοιμώξεων. [[1](https://www.who.int/news-room/fact-sheets/detail/trichomoniasis),[4](https://pubmed.ncbi.nlm.nih.gov/17143809/?utm)]
+Η έγκαιρη διάγνωση και η ταυτόχρονη θεραπεία των συντρόφων συμβάλλουν ουσιαστικά στην πρόληψη νέων λοιμώξεων. [[1](https://www.who.int/news-room/fact-sheets/detail/trichomoniasis),[4](https://pubmed.ncbi.nlm.nih.gov/17143809/)]
