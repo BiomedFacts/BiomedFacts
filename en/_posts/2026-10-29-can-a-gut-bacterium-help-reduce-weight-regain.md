@@ -2,7 +2,7 @@
 title: Can a Gut Bacterium Help Reduce Weight Regain?
 date: 2026-10-29
 category: Research
-translation_key: microbe
+translation_key: akkermansia-weight-regain
 image: /assets/images/stigmiotypo-o8onhs-2026-10-25-180043-1.png
 excerpt: A 2026 study published in Nature Medicine investigated whether
   Akkermansia muciniphila could help reduce weight regain. What did the
