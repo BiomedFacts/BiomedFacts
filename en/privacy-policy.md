@@ -9,7 +9,7 @@ seo_description: Information about how BiomedFacts uses Google Analytics, cookie
 intro: This Privacy Policy explains what data may be processed when you use BiomedFacts, why it may be processed and what choices are available to visitors.
 ---
 
-**Last updated: September 20, 2026**
+**Last updated: October 29, 2026**
 
 **BiomedFacts** is an independent science communication and health information publication.
 
@@ -133,7 +133,9 @@ Visitors may also manage or delete cookies through their browser settings.
 
 ## Newsletter
 
-BiomedFacts uses **beehiiv** to operate its newsletter.
+Newsletter sign-up on the website is temporarily unavailable. If there are existing subscribers, **beehiiv** may continue to process information for those subscriptions as described below.
+
+**New subscriptions cannot currently be submitted through the website.**
 
 When a visitor chooses to subscribe to the newsletter, they may provide information such as their email address.
 
