@@ -166,7 +166,7 @@ Practical ways to reduce excessive UV exposure include:
 
 Sun protection is particularly important for people with characteristics associated with a higher risk of skin cancer, but UV protection is relevant to everyone.
 
-![](/BiomedFacts/assets/images/chatgpt-image-12-sep-2026-013629-pm.png)
+![](/assets/images/chatgpt-image-12-sep-2026-013629-pm.png)
 
 **Are These the Only Ways to Reduce Cancer Risk?**
 
