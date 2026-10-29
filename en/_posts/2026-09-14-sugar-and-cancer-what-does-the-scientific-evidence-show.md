@@ -2,7 +2,7 @@
 title: "Sugar and Cancer: What Does the Scientific Evidence Show"
 date: 2026-09-14
 category: Fact-Checking
-translation_key: CANCER-001
+translation_key: sugar-cancer-evidence
 image: /assets/images/sugar-1.jpg
 excerpt: Does sugar really feed cancer? What do we know about glucose, cancer
   cell metabolism, PET/CT scans, and ketogenic diets?
