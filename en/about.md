@@ -13,9 +13,9 @@ At a time when health claims spread rapidly across social media, BiomedFacts was
 
 ## What you'll find here
 
-The content covers topics including health, nutrition, news, laboratory tests, research and fact-checking of popular health claims.
+The content covers topics including health, nutrition, laboratory tests, research, and fact-checking of popular scientific claims.
 
-The goal is not simply to reproduce scientific news, but to explain **what a study actually found, how strong the evidence is and what its limitations are**.
+The goal is not simply to reproduce scientific news, but to explain **what a study actually found, how strong the evidence is, and what its limitations are**.
 
 ## How the content is supported
 
