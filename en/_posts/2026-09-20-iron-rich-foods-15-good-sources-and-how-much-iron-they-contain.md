@@ -2,7 +2,7 @@
 title: "Iron-Rich Foods: 15 Good Sources and How Much Iron They Contain"
 date: 2026-09-20
 category: Nutrition
-translation_key: iron-001
+translation_key: sidiros-001
 image: /assets/images/stigmiotypo-o8onhs-2026-09-19-160844-1.png
 excerpt: Which foods are rich in iron? See 15 good sources, how much iron they
   contain, how much we need each day, and how to improve iron absorption.
