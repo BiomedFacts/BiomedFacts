@@ -2,7 +2,7 @@
 title: "Ζάχαρη και καρκίνος: Τι δείχνουν τα επιστημονικά δεδομένα"
 date: 2026-09-12
 category: Fact-Checking
-translation_key: CANCER-001
+translation_key: sugar-cancer-evidence
 image: /assets/images/sugar.jpg
 excerpt: Η ζάχαρη τρέφει πραγματικά τον καρκίνο; Τι γνωρίζουμε για τη γλυκόζη,
   τον μεταβολισμό των καρκινικών κυττάρων, το PET/CT και τις κετογονικές
