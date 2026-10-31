@@ -2,18 +2,30 @@
 ---
 
 {% assign is_english = false %}
-{% if page.lang == "en" %}
+{% if page.path contains "en/_posts" %}
   {% assign is_english = true %}
 {% endif %}
 
-{% assign category_name = page.category_name | default: page.title | strip %}
+{% assign greek_translation = nil %}
+{% assign english_translation = nil %}
+
+{% if page.translation_key %}
+  {% for post in site.posts %}
+    {% if post.translation_key == page.translation_key %}
+      {% if post.path contains "en/_posts" %}
+        {% assign english_translation = post %}
+      {% else %}
+        {% assign greek_translation = post %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 
 {% capture default_seo_title %}{{ page.title }} | BiomedFacts{% endcapture %}
 {% assign seo_title = page.seo_title | default: default_seo_title | strip %}
 
 {% assign seo_description = page.seo_description
-  | default: page.description
-  | default: page.intro
+  | default: page.excerpt
   | default: site.description
   | strip_html
   | strip_newlines
@@ -21,35 +33,68 @@
 %}
 
 {% assign canonical_url = page.url | absolute_url %}
-{% assign social_image = '/assets/images/biomedfacts-social.png' | absolute_url %}
-
-{% if page.translation_url %}
-  {% assign translation_absolute = page.translation_url | absolute_url %}
-{% endif %}
 
 {% if is_english %}
-  {% if page.translation_url %}
-    {% assign greek_url = translation_absolute %}
-  {% else %}
-    {% assign greek_url = "/" | absolute_url %}
-  {% endif %}
+  {% assign article_author = "Dimitra Mourkogianni, BSc (Hons) Biomedical Science" %}
+  {% assign author_profile_path = "/en/author/" %}
+{% else %}
+  {% assign article_author = "Δήμητρα Μουρκόγιαννη, BSc (Hons) Biomedical Science" %}
+  {% assign author_profile_path = "/author/" %}
+{% endif %}
 
-  {% assign english_url = canonical_url %}
-  {% assign x_default_url = greek_url %}
+{% assign author_profile_url = author_profile_path | absolute_url %}
+
+{% assign x_default_url = canonical_url %}
+
+{% if greek_translation %}
+  {% assign x_default_url = greek_translation.url | absolute_url %}
+{% endif %}
+
+{% assign default_social_image = '/assets/images/biomedfacts-social.png' | absolute_url %}
+
+{% if page.image %}
+  {% assign article_image = page.image | absolute_url %}
+{% else %}
+  {% assign article_image = default_social_image %}
+{% endif %}
+
+{% assign category_url = nil %}
+
+{% if is_english %}
+
+  {% case page.category %}
+    {% when "Health" %}
+      {% assign category_url = "/en/health/" %}
+    {% when "Nutrition" %}
+      {% assign category_url = "/en/nutrition/" %}
+    {% when "Lab Tests" %}
+      {% assign category_url = "/en/lab-tests/" %}
+    {% when "Fact-Checking" %}
+      {% assign category_url = "/en/fact-checking/" %}
+    {% when "Research" %}
+      {% assign category_url = "/en/research/" %}
+  {% endcase %}
 
 {% else %}
 
-  {% assign greek_url = canonical_url %}
-
-  {% if page.translation_url %}
-    {% assign english_url = translation_absolute %}
-  {% else %}
-    {% assign english_url = "/en/" | absolute_url %}
-  {% endif %}
-
-  {% assign x_default_url = canonical_url %}
+  {% case page.category %}
+    {% when "Υγεία" %}
+      {% assign category_url = "/ygeia/" %}
+    {% when "Διατροφή" %}
+      {% assign category_url = "/diatrofi/" %}
+    {% when "Εξετάσεις" %}
+      {% assign category_url = "/exetaseis/" %}
+    {% when "Fact-Checking" %}
+      {% assign category_url = "/fact-checking/" %}
+    {% when "Έρευνα" %}
+      {% assign category_url = "/erevna/" %}
+  {% endcase %}
 
 {% endif %}
+
+{% assign fact_check_count = page.fact_checks | size %}
+{% assign faq_count = page.faqs | size %}
+{% assign source_count = page.sources | size %}
 
 <!DOCTYPE html>
 
@@ -76,8 +121,6 @@
   <!-- Register Privacy & Messaging callbacks before the asynchronous AdSense tag. -->
   <script src="{{ '/assets/js/consent.js' | relative_url }}"></script>
 
-  <!-- GOOGLE ADSENSE -->
-
   <script
     async
     id="bf-adsense-tag"
@@ -87,13 +130,16 @@
     crossorigin="anonymous"
   ></script>
 
-  <!-- SEO -->
-
   <title>{{ seo_title | escape }}</title>
 
   <meta
     name="description"
     content="{{ seo_description | escape }}"
+  >
+
+  <meta
+    name="author"
+    content="{{ article_author | escape }}"
   >
 
   <meta
@@ -106,19 +152,33 @@
     href="{{ canonical_url }}"
   >
 
-  <!-- HREFLANG -->
+  {% if greek_translation %}
+    <link
+      rel="alternate"
+      hreflang="el"
+      href="{{ greek_translation.url | absolute_url }}"
+    >
+  {% elsif is_english == false %}
+    <link
+      rel="alternate"
+      hreflang="el"
+      href="{{ canonical_url }}"
+    >
+  {% endif %}
 
-  <link
-    rel="alternate"
-    hreflang="el"
-    href="{{ greek_url }}"
-  >
-
-  <link
-    rel="alternate"
-    hreflang="en"
-    href="{{ english_url }}"
-  >
+  {% if english_translation %}
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="{{ english_translation.url | absolute_url }}"
+    >
+  {% elsif is_english %}
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="{{ canonical_url }}"
+    >
+  {% endif %}
 
   <link
     rel="alternate"
@@ -126,49 +186,13 @@
     href="{{ x_default_url }}"
   >
 
-  <!-- OPEN GRAPH -->
-
-  <meta property="og:type" content="website">
-
-  <meta
-    property="og:site_name"
-    content="BiomedFacts"
-  >
-
-  <meta
-    property="og:title"
-    content="{{ seo_title | escape }}"
-  >
-
-  <meta
-    property="og:description"
-    content="{{ seo_description | escape }}"
-  >
-
-  <meta
-    property="og:url"
-    content="{{ canonical_url }}"
-  >
-
-  <meta
-    property="og:image"
-    content="{{ social_image }}"
-  >
-
-  <meta
-    property="og:image:alt"
-    content="BiomedFacts — Evidence-based science communication"
-  >
-
-  <meta
-    property="og:image:width"
-    content="1200"
-  >
-
-  <meta
-    property="og:image:height"
-    content="630"
-  >
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="BiomedFacts">
+  <meta property="og:title" content="{{ seo_title | escape }}">
+  <meta property="og:description" content="{{ seo_description | escape }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:image" content="{{ article_image }}">
+  <meta property="og:image:alt" content="{{ page.title | escape }}">
 
   <meta
     property="og:locale"
@@ -176,78 +200,59 @@
   >
 
   <meta
-    property="og:locale:alternate"
-    content="{% if is_english %}el_GR{% else %}en_US{% endif %}"
-  >
-
-  <!-- SOCIAL -->
-
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
+    property="article:published_time"
+    content="{{ page.date | date_to_xmlschema }}"
   >
 
   <meta
-    name="twitter:title"
-    content="{{ seo_title | escape }}"
+    property="article:author"
+    content="{{ author_profile_url }}"
   >
 
-  <meta
-    name="twitter:description"
-    content="{{ seo_description | escape }}"
-  >
+  {% if page.category %}
+    <meta
+      property="article:section"
+      content="{{ page.category | escape }}"
+    >
+  {% endif %}
 
-  <meta
-    name="twitter:image"
-    content="{{ social_image }}"
-  >
-
-  <meta
-    name="twitter:image:alt"
-    content="BiomedFacts — Evidence-based science communication"
-  >
-
-  <!-- STRUCTURED DATA -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ seo_title | escape }}">
+  <meta name="twitter:description" content="{{ seo_description | escape }}">
+  <meta name="twitter:image" content="{{ article_image }}">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://biomedfacts.com/#website",
-        "url": "https://biomedfacts.com/",
-        "name": "BiomedFacts",
-        "description": "Evidence-based health and biomedical science publication."
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://biomedfacts.com/#organization",
-        "name": "BiomedFacts",
-        "url": "https://biomedfacts.com/",
-        "sameAs": [
-          "https://www.instagram.com/biomedical_sciences.gr/"
-        ]
-      },
-      {
-        "@type": "CollectionPage",
-        "@id": {{ canonical_url | append: "#collection" | jsonify }},
-        "url": {{ canonical_url | jsonify }},
-        "name": {{ page.title | jsonify }},
-        "description": {{ seo_description | jsonify }},
-        "inLanguage": "{% if is_english %}en{% else %}el{% endif %}",
-        "isPartOf": {
-          "@id": "https://biomedfacts.com/#website"
-        },
-        "publisher": {
-          "@id": "https://biomedfacts.com/#organization"
-        }
-      }
-    ]
+    "@type": "Article",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ seo_description | jsonify }},
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ canonical_url | jsonify }}
+    },
+    "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+    "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+    "author": {
+      "@type": "Person",
+      "name": {{ article_author | jsonify }},
+      "url": {{ author_profile_url | jsonify }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "BiomedFacts",
+      "url": "https://biomedfacts.com",
+      "sameAs": [
+        "https://www.instagram.com/biomedical_sciences.gr/"
+      ]
+    },
+    "inLanguage": "{% if is_english %}en{% else %}el{% endif %}",
+    "image": [
+      {{ article_image | jsonify }}
+    ]{% if page.category %},
+    "articleSection": {{ page.category | jsonify }}{% endif %}
   }
   </script>
-
-  <!-- THEME -->
 
   <script>
 
@@ -289,8 +294,30 @@
       --soft-border: #dddddd;
       --accent: #6c3bb8;
       --top-border: #32103f;
-      --soft-accent: #f1ecf8;
-      --shadow: #e3e0e6;
+      --blockquote-background: #f0edf4;
+      --code-background: #eeeeee;
+
+      /* FACT-CHECK LIGHT MODE */
+
+      --fact-background: #f8f7fa;
+      --fact-card: #ffffff;
+      --fact-card-secondary: #f4effa;
+
+      --fact-text: #111111;
+      --fact-muted: #666666;
+
+      --fact-magenta: #6c3bb8;
+      --fact-purple: #32103f;
+      --fact-violet: #a77be5;
+
+      --fact-right-accent: #8b63c7;
+
+      --fact-border: #d8cce8;
+
+      --fact-gauge-track: #e8def5;
+      --fact-gauge-border: #6c3bb8;
+
+      --fact-scroll-track: #eee9f4;
     }
 
     html[data-theme="dark"] {
@@ -302,8 +329,30 @@
       --soft-border: #333333;
       --accent: #b58cff;
       --top-border: #6c3bb8;
-      --soft-accent: #1d1922;
-      --shadow: #080808;
+      --blockquote-background: #1d1922;
+      --code-background: #242424;
+
+      /* FACT-CHECK DARK MODE */
+
+      --fact-background: #151218;
+      --fact-card: #1d1922;
+      --fact-card-secondary: #211a2b;
+
+      --fact-text: #f5f2f7;
+      --fact-muted: #c5bdcc;
+
+      --fact-magenta: #b58cff;
+      --fact-purple: #d4b8ff;
+      --fact-violet: #c6a4f5;
+
+      --fact-right-accent: #a77be5;
+
+      --fact-border: #4b3a59;
+
+      --fact-gauge-track: #342940;
+      --fact-gauge-border: #9a6ed8;
+
+      --fact-scroll-track: #2a2231;
     }
 
     * {
@@ -335,8 +384,15 @@
 
     .site-header {
       background: var(--surface);
-      border-top: 5px solid var(--top-border);
-      border-bottom: 1px solid var(--border);
+
+      border-top:
+        5px solid
+        var(--top-border);
+
+      border-bottom:
+        1px solid
+        var(--border);
+
       padding: 28px 6% 0;
     }
 
@@ -344,7 +400,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 25px;
+
       padding-bottom: 28px;
     }
 
@@ -354,9 +412,14 @@
     }
 
     .logo {
-      font-family: "Times New Roman", serif;
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
       font-size: 46px;
       font-weight: bold;
+
       letter-spacing: -1.5px;
       line-height: 1;
     }
@@ -368,13 +431,16 @@
     .header-actions {
       display: flex;
       align-items: center;
+
       gap: 10px;
     }
 
     .language-switch {
       display: flex;
       align-items: center;
+
       gap: 7px;
+
       margin-right: 5px;
 
       font-size: 12px;
@@ -407,7 +473,9 @@
       background: var(--surface);
       color: var(--text);
 
-      border: 1px solid var(--text);
+      border:
+        1px solid
+        var(--text);
 
       text-decoration: none;
       cursor: pointer;
@@ -424,6 +492,7 @@
       height: 21px;
 
       fill: none;
+
       stroke: currentColor;
       stroke-width: 1.8;
       stroke-linecap: round;
@@ -437,9 +506,14 @@
 
     .icon-button:hover {
       background: var(--accent);
-      border-color: var(--accent);
+
+      border-color:
+        var(--accent);
+
       color: #ffffff;
-      transform: translateY(-2px);
+
+      transform:
+        translateY(-2px);
     }
 
     .sun-icon {
@@ -450,37 +524,41 @@
       display: block;
     }
 
-    html[data-theme="dark"] .sun-icon {
+    html[data-theme="dark"]
+    .sun-icon {
       display: block;
     }
 
-    html[data-theme="dark"] .moon-icon {
+    html[data-theme="dark"]
+    .moon-icon {
       display: none;
     }
 
-    /* NAVIGATION */
+    /* NAV */
 
     nav {
       display: flex;
-      align-items: center;
       flex-wrap: wrap;
+      align-items: center;
 
       gap: 18px 34px;
 
       padding: 18px 0;
 
-      border-top: 1px solid var(--soft-border);
+      border-top:
+        1px solid
+        var(--soft-border);
     }
 
     nav a {
       color: var(--text);
+
       text-decoration: none;
 
       font-size: 13px;
       font-weight: bold;
-      text-transform: uppercase;
 
-      transition: color 0.2s ease;
+      text-transform: uppercase;
     }
 
     nav a:hover,
@@ -488,158 +566,1228 @@
       color: var(--accent);
     }
 
-    /* CATEGORY */
+    /* ARTICLE */
 
-    .category-container {
-      width: min(1250px, 88%);
-      margin: 65px auto 0;
+    .article-container {
+      width:
+        min(
+          1180px,
+          92%
+        );
+
+      margin:
+        65px auto 0;
     }
 
-    .category-header {
-      margin-bottom: 50px;
-      padding-bottom: 30px;
+    .article-header {
+      max-width: 920px;
 
-      border-bottom: 2px solid var(--text);
+      margin:
+        0 auto
+        35px;
+
+      text-align: center;
     }
 
-    .category-label {
-      margin-bottom: 12px;
+    .article-category {
+      display: inline-block;
+
+      margin-bottom: 15px;
 
       color: var(--accent);
 
       font-size: 11px;
       font-weight: bold;
 
-      letter-spacing: 1.7px;
+      letter-spacing: 1.3px;
+
       text-transform: uppercase;
+      text-decoration: none;
     }
 
-    .category-title {
-      margin-bottom: 18px;
+    a.article-category:hover {
+      text-decoration: underline;
 
-      font-family: "Times New Roman", serif;
-
-      font-size: 56px;
-      line-height: 1;
-
-      letter-spacing: -1.5px;
+      text-underline-offset: 3px;
     }
 
-    .category-intro {
-      max-width: 760px;
+    .article-title {
+      max-width: 850px;
+
+      margin:
+        0 auto
+        22px;
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 48px;
+      font-weight: bold;
+
+      line-height: 1.06;
+      letter-spacing: -1.2px;
+
+      overflow-wrap: break-word;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      gap: 8px 16px;
 
       color: var(--muted);
 
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size: 18px;
-      line-height: 1.7;
+      font-size: 12px;
     }
 
-    /* ARTICLES */
+    .article-author {
+      color: var(--muted);
 
-    .articles-grid {
-      display: grid;
+      font-weight: bold;
 
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-      gap: 50px 35px;
+      text-decoration: none;
     }
 
-    .article-card {
-      border-top: 4px solid var(--text);
-      padding-top: 14px;
+    .article-author:hover {
+      color: var(--accent);
+
+      text-decoration: underline;
+
+      text-underline-offset: 3px;
     }
 
-    .article-card-image {
+    .meta-dot {
+      width: 3px;
+      height: 3px;
+
+      border-radius: 50%;
+
+      background: var(--muted);
+    }
+
+    /* COVER */
+
+    .article-cover {
+      width: 100%;
+      max-width: 920px;
+
+      margin:
+        38px auto
+        48px;
+    }
+
+    .article-cover img {
       display: block;
 
       width: 100%;
-      height: 300px;
+      height: auto;
 
-      object-fit: cover;
+      object-fit: contain;
 
-      margin-bottom: 18px;
+      border:
+        1px solid
+        var(--border);
     }
 
-    .article-card-meta {
+    /* ==================================================
+       FACT-CHECK
+       ================================================== */
+
+    .fact-review-shell {
+      width: 100%;
+      max-width: 1160px;
+
+      margin:
+        0 auto
+        60px;
+
+      padding:
+        28px 18px
+        22px;
+
+      background:
+        var(--fact-background);
+
+      border:
+        1px solid
+        var(--fact-border);
+
+      border-bottom:
+        7px solid
+        var(--fact-magenta);
+
+      overflow: hidden;
+
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .fact-review-slide {
+      display: none;
+    }
+
+    .fact-review-slide.active {
+      display: block;
+    }
+
+    .fact-review-grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(270px, 0.96fr)
+        minmax(0, 1fr);
+
+      gap: 28px;
+
+      align-items: start;
+    }
+
+    /* FACT-CHECK HEADERS */
+
+    .fact-review-heading-box {
+      min-height: 104px;
+
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      align-items: center;
 
-      gap: 8px;
+      gap: 18px;
 
-      margin-bottom: 11px;
+      padding:
+        18px 22px;
+
+      background:
+        var(--fact-card);
+
+      border:
+        5px solid
+        var(--fact-magenta);
+
+      border-radius: 20px;
+
+      color:
+        var(--fact-text);
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
     }
 
-    .article-card-category {
-      color: var(--accent);
-
-      font-size: 11px;
-      font-weight: bold;
-
-      letter-spacing: 1.1px;
-      text-transform: uppercase;
+    .fact-review-right
+    .fact-review-heading-box {
+      border-color:
+        var(--fact-right-accent);
     }
 
-    .article-card-date {
-      color: var(--muted);
-      font-size: 11px;
+    .fact-review-heading-icon {
+      width: 58px;
+      height: 58px;
+
+      flex:
+        0 0 58px;
+
+      color:
+        var(--fact-magenta);
     }
 
-    .article-card-title {
-      margin-bottom: 13px;
-
-      font-family: "Times New Roman", serif;
-
-      font-size: 31px;
-      line-height: 1.07;
-
-      letter-spacing: -0.6px;
+    .fact-review-right
+    .fact-review-heading-icon {
+      color:
+        var(--fact-right-accent);
     }
 
-    .article-card-title a {
-      color: var(--text);
-      text-decoration: none;
+    .fact-review-heading-icon svg {
+      width: 100%;
+      height: 100%;
+
+      fill: none;
+
+      stroke: currentColor;
+      stroke-width: 2;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    .article-card-title a:hover {
-      color: var(--accent);
+    .fact-review-heading-text {
+      font-size: 16px;
+      font-weight: 700;
+
+      line-height: 1.25;
     }
 
-    .article-card-excerpt {
-      margin-bottom: 14px;
+    /* FACT-CHECK CONTENT */
 
-      color: var(--muted);
+    .fact-review-content-box {
+      height: 415px;
 
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+      margin-top: 20px;
+
+      padding:
+        30px 28px;
+
+      background:
+        var(--fact-card);
+
+      border:
+        5px solid
+        var(--fact-magenta);
+
+      border-radius: 20px;
+
+      color:
+        var(--fact-text);
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .fact-review-right
+    .fact-review-content-box {
+      border-color:
+        var(--fact-right-accent);
+    }
+
+    .fact-review-content-title {
+      display: inline-block;
+
+      margin-bottom: 30px;
+
+      padding-bottom: 5px;
+
+      border-bottom:
+        2px solid
+        var(--fact-magenta);
+
+      color:
+        var(--fact-purple);
 
       font-size: 16px;
+      font-weight: 700;
+    }
+
+    .fact-review-right
+    .fact-review-content-title {
+      border-color:
+        var(--fact-right-accent);
+    }
+
+    .fact-review-claim {
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 22px;
+      font-weight: 700;
+
+      line-height: 1.5;
+
+      color:
+        var(--fact-text);
+    }
+
+    .fact-review-conclusion-scroll {
+      height: 302px;
+
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      padding-right: 13px;
+
+      scrollbar-width: thin;
+
+      scrollbar-color:
+        var(--fact-right-accent)
+        var(--fact-scroll-track);
+    }
+
+    .fact-review-conclusion-scroll::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .fact-review-conclusion-scroll::-webkit-scrollbar-track {
+      background:
+        var(--fact-scroll-track);
+
+      border-radius: 10px;
+    }
+
+    .fact-review-conclusion-scroll::-webkit-scrollbar-thumb {
+      background:
+        var(--fact-right-accent);
+
+      border-radius: 10px;
+    }
+
+    .fact-review-conclusion {
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 18px;
+
+      line-height: 1.65;
+
+      color:
+        var(--fact-text);
+    }
+
+    /* FACT-CHECK MIDDLE */
+
+    .fact-review-middle-title {
+      margin:
+        0 0
+        15px;
+
+      color:
+        var(--fact-purple);
+
+      font-size: 18px;
+      font-weight: 700;
+
+      text-align: center;
+    }
+
+    .fact-review-middle-title::after {
+      content: "";
+
+      display: block;
+
+      width: 50px;
+      height: 2px;
+
+      margin:
+        8px auto 0;
+
+      background:
+        var(--fact-magenta);
+    }
+
+    /* RATING */
+
+    .fact-gauge-card {
+      min-height: 170px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 30px 24px;
+
+      background:
+        var(--fact-card-secondary);
+
+      border:
+        1px solid
+        var(--fact-border);
+
+      border-radius: 20px;
+
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .fact-gauge {
+      position: relative;
+
+      width: 100%;
+      height: 52px;
+
+      background:
+        var(--fact-gauge-track);
+
+      border:
+        3px solid
+        var(--fact-gauge-border);
+
+      border-radius: 999px;
+    }
+
+    .fact-gauge-marker {
+      position: absolute;
+
+      top: 50%;
+
+      min-width: 132px;
+      max-width: 170px;
+
+      padding:
+        10px 14px;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
+
+      border-radius: 999px;
+
+      color: #ffffff;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      line-height: 1.15;
+
+      text-align: center;
+
+      box-shadow:
+        0 2px 7px
+        rgba(
+          0,
+          0,
+          0,
+          0.18
+        );
+    }
+
+    .rating-1 {
+      --rating-color:
+        #c3ace3;
+    }
+
+    .rating-2 {
+      --rating-color:
+        #a77be5;
+    }
+
+    .rating-3 {
+      --rating-color:
+        #6c3bb8;
+    }
+
+    .rating-4 {
+      --rating-color:
+        #502584;
+    }
+
+    .rating-5 {
+      --rating-color:
+        #32103f;
+    }
+
+    html[data-theme="dark"]
+    .rating-1 {
+      --rating-color:
+        #cdb6ee;
+    }
+
+    html[data-theme="dark"]
+    .rating-2 {
+      --rating-color:
+        #b58cff;
+    }
+
+    html[data-theme="dark"]
+    .rating-3 {
+      --rating-color:
+        #8f5fd1;
+    }
+
+    html[data-theme="dark"]
+    .rating-4 {
+      --rating-color:
+        #7040ad;
+    }
+
+    html[data-theme="dark"]
+    .rating-5 {
+      --rating-color:
+        #53237f;
+    }
+
+    .rating-1
+    .fact-gauge-marker {
+      left: 13%;
+
+      background:
+        var(--rating-color);
+    }
+
+    .rating-2
+    .fact-gauge-marker {
+      left: 31%;
+
+      background:
+        var(--rating-color);
+    }
+
+    .rating-3
+    .fact-gauge-marker {
+      left: 50%;
+
+      background:
+        var(--rating-color);
+    }
+
+    .rating-4
+    .fact-gauge-marker {
+      left: 69%;
+
+      background:
+        var(--rating-color);
+    }
+
+    .rating-5
+    .fact-gauge-marker {
+      left: 87%;
+
+      background:
+        var(--rating-color);
+    }
+
+    /* FACT-CHECK NAVIGATION */
+
+    .fact-review-nav {
+      display: flex;
+
+      justify-content: flex-end;
+
+      margin-top: 18px;
+    }
+
+    .fact-review-next {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 12px;
+
+      min-width: 190px;
+
+      padding:
+        12px 18px;
+
+      background:
+        var(--fact-card);
+
+      color:
+        var(--fact-purple);
+
+      border:
+        2px solid
+        var(--fact-purple);
+
+      border-radius: 9px;
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 15px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .fact-review-next:hover {
+      background:
+        var(--fact-magenta);
+
+      border-color:
+        var(--fact-magenta);
+
+      color: #ffffff;
+    }
+
+    .fact-review-next-arrow {
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 18px;
+    }
+
+    /* ==================================================
+       STANDARD ARTICLE PANELS
+       Με μια ματιά / FAQ / Πηγές
+       ================================================== */
+
+    .editorial-panel-shell {
+      width: 100%;
+      max-width: 920px;
+
+      margin:
+        0 auto
+        52px;
+
+      padding: 18px;
+
+      background:
+        var(--fact-background);
+
+      border:
+        1px solid
+        var(--fact-border);
+
+      border-bottom:
+        7px solid
+        var(--fact-magenta);
+
+      overflow: hidden;
+
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .editorial-panel-shell.editorial-panel-narrow {
+      max-width: 760px;
+
+      margin-top: 55px;
+      margin-bottom: 0;
+    }
+
+    .editorial-panel-card {
+      background:
+        var(--fact-card);
+
+      border:
+        5px solid
+        var(--fact-magenta);
+
+      border-radius: 20px;
+
+      padding:
+        26px 28px;
+
+      color:
+        var(--fact-text);
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .editorial-panel-heading {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      margin-bottom: 19px;
+    }
+
+    .editorial-panel-icon {
+      width: 48px;
+      height: 48px;
+
+      flex:
+        0 0 48px;
+
+      color:
+        var(--fact-magenta);
+    }
+
+    .editorial-panel-icon svg {
+      width: 100%;
+      height: 100%;
+
+      fill: none;
+
+      stroke: currentColor;
+      stroke-width: 2;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .editorial-panel-title {
+      color:
+        var(--fact-purple);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 18px;
+      font-weight: 700;
+
+      line-height: 1.2;
+    }
+
+    .editorial-panel-title::after {
+      content: "";
+
+      display: block;
+
+      width: 46px;
+      height: 2px;
+
+      margin-top: 7px;
+
+      background:
+        var(--fact-magenta);
+    }
+
+    .overview-text {
+      color:
+        var(--fact-text);
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 19px;
+
+      line-height: 1.72;
+    }
+
+    /* FAQ ACCORDION */
+
+    .faq-list {
+      display: grid;
+
+      gap: 12px;
+    }
+
+    .faq-item {
+      background:
+        var(--fact-card-secondary);
+
+      border:
+        2px solid
+        var(--fact-border);
+
+      border-radius: 14px;
+
+      overflow: hidden;
+
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 18px;
+
+      width: 100%;
+
+      padding:
+        17px 19px;
+
+      color:
+        var(--fact-text);
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 18px;
+      font-weight: 700;
+
+      line-height: 1.35;
+
+      cursor: pointer;
+
+      list-style: none;
+    }
+
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-question::marker {
+      display: none;
+    }
+
+    .faq-toggle {
+      position: relative;
+
+      width: 30px;
+      height: 30px;
+
+      flex:
+        0 0 30px;
+
+      border-radius: 50%;
+
+      background:
+        var(--fact-purple);
+
+      color: #ffffff;
+    }
+
+    .faq-toggle::before,
+    .faq-toggle::after {
+      content: "";
+
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      width: 12px;
+      height: 2px;
+
+      background:
+        currentColor;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
+    }
+
+    .faq-toggle::after {
+      transform:
+        translate(
+          -50%,
+          -50%
+        )
+        rotate(90deg);
+
+      transition:
+        transform 0.2s ease;
+    }
+
+    .faq-item[open]
+    .faq-toggle::after {
+      transform:
+        translate(
+          -50%,
+          -50%
+        )
+        rotate(0deg);
+    }
+
+    .faq-answer {
+      padding:
+        17px 19px
+        19px;
+
+      border-top:
+        1px solid
+        var(--fact-border);
+
+      color:
+        var(--fact-text);
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 18px;
+
       line-height: 1.65;
     }
 
-    .article-card-author {
-      color: var(--muted);
-      font-size: 11px;
+    /* SOURCES */
+
+    .sources-list {
+      display: grid;
+
+      gap: 15px;
+
+      margin: 0;
+
+      padding: 0;
+
+      list-style: none;
+
+      counter-reset:
+        source-counter;
     }
 
-    .article-card-author a {
-      color: var(--muted);
+    .sources-list li {
+      position: relative;
+
+      counter-increment:
+        source-counter;
+
+      padding-left: 42px;
+
+      color:
+        var(--fact-text);
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 16px;
+
+      line-height: 1.55;
+
+      overflow-wrap: anywhere;
+    }
+
+    .sources-list li::before {
+      content:
+        "["
+        counter(source-counter)
+        "]";
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      color:
+        var(--fact-magenta);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .sources-list a {
+      color:
+        var(--fact-text);
+
+      text-decoration:
+        underline;
+
+      text-decoration-color:
+        var(--fact-violet);
+
+      text-decoration-thickness:
+        1px;
+
+      text-underline-offset:
+        3px;
+    }
+
+    .sources-list a:hover {
+      color:
+        var(--fact-magenta);
+    }
+
+    /* ARTICLE BODY */
+
+    .article-body {
+      max-width: 760px;
+
+      margin: 0 auto;
+
+      color: var(--text);
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 19px;
+
+      line-height: 1.78;
+    }
+
+    .article-body strong,
+    .article-body b {
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-weight: 700;
+    }
+
+    .article-body p {
+      margin-bottom: 25px;
+    }
+
+    .article-body h1,
+    .article-body h2,
+    .article-body h3,
+    .article-body h4 {
+      margin-top: 42px;
+      margin-bottom: 18px;
+
+      color: var(--text);
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      line-height: 1.15;
+    }
+
+    .article-body h1 {
+      font-size: 36px;
+    }
+
+    .article-body h2 {
+      font-size: 31px;
+    }
+
+    .article-body h3 {
+      font-size: 25px;
+    }
+
+    .article-body h4 {
+      font-size: 21px;
+    }
+
+    .article-body a {
+      color: var(--accent);
+
+      text-decoration-thickness: 1px;
+
+      text-underline-offset: 3px;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      margin:
+        0 0
+        25px 28px;
+    }
+
+    .article-body li {
+      margin-bottom: 9px;
+    }
+
+    .article-body img {
+      display: block;
+
+      max-width: 100%;
+      height: auto;
+
+      margin:
+        38px auto;
+
+      border:
+        1px solid
+        var(--soft-border);
+    }
+
+    .article-body blockquote {
+      margin:
+        35px 0;
+
+      padding:
+        22px 25px;
+
+      background:
+        var(--blockquote-background);
+
+      border-left:
+        4px solid
+        var(--accent);
+
+      font-style: italic;
+    }
+
+    .article-body hr {
+      margin:
+        45px 0;
+
+      border: none;
+
+      border-top:
+        1px solid
+        var(--border);
+    }
+
+    .article-body code {
+      padding:
+        2px 5px;
+
+      background:
+        var(--code-background);
+
+      font-family:
+        Consolas,
+        monospace;
+
+      font-size:
+        0.9em;
+    }
+
+    .article-body table {
+      width: 100%;
+
+      margin:
+        30px 0;
+
+      border-collapse: collapse;
+
+      font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+      font-size: 16px;
+    }
+
+    .article-body th,
+    .article-body td {
+      padding: 12px;
+
+      border:
+        1px solid
+        var(--border);
+
+      text-align: left;
+    }
+
+    .article-body th {
+      background:
+        var(--surface);
+
+      font-weight: 700;
+    }
+
+    /* ARTICLE END */
+
+    .article-end {
+      max-width: 760px;
+
+      margin:
+        55px auto 0;
+
+      padding-top: 30px;
+
+      border-top:
+        2px solid
+        var(--text);
+    }
+
+    .back-home {
+      display: inline-block;
+
+      color:
+        var(--accent);
+
+      font-size: 13px;
       font-weight: bold;
+
       text-decoration: none;
     }
 
-    .article-card-author a:hover {
-      color: var(--accent);
+    .back-home:hover {
       text-decoration: underline;
-      text-underline-offset: 3px;
     }
 
     /* FOOTER */
@@ -647,16 +1795,26 @@
     footer {
       margin-top: 65px;
 
-      padding: 38px 6%;
+      padding:
+        38px 6%;
 
-      background: var(--surface);
+      background:
+        var(--surface);
 
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid
+        var(--border);
     }
 
     .footer-inner {
-      width: min(1100px, 100%);
-      margin: 0 auto;
+      width:
+        min(
+          1100px,
+          100%
+        );
+
+      margin:
+        0 auto;
     }
 
     .footer-links {
@@ -664,7 +1822,8 @@
       justify-content: center;
       flex-wrap: wrap;
 
-      gap: 10px 22px;
+      gap:
+        10px 22px;
 
       margin-bottom: 20px;
     }
@@ -691,28 +1850,53 @@
       font-size: 12px;
     }
 
-    /* RESPONSIVE */
+    /* TABLET */
 
-    @media (max-width: 850px) {
+    @media (max-width: 980px) {
 
-      .articles-grid {
-        grid-template-columns: 1fr;
+      .fact-review-grid {
+        grid-template-columns:
+          1fr
+          1fr;
       }
 
-      .article-card-image {
-        height: 360px;
+      .fact-review-left {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .fact-review-right {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .fact-review-middle {
+        grid-column:
+          1 / -1;
+
+        grid-row: 2;
+
+        width: 100%;
+        max-width: 480px;
+
+        margin:
+          0 auto;
       }
 
     }
 
+    /* MOBILE */
+
     @media (max-width: 700px) {
 
       .site-header {
-        padding: 22px 5% 0;
+        padding:
+          22px 5% 0;
       }
 
       .header-top {
         gap: 14px;
+
         padding-bottom: 22px;
       }
 
@@ -726,7 +1910,9 @@
 
       .language-switch {
         gap: 5px;
+
         margin-right: 0;
+
         font-size: 10px;
       }
 
@@ -741,37 +1927,229 @@
       }
 
       nav {
-        gap: 11px 18px;
-        padding: 15px 0;
+        gap:
+          11px 18px;
+
+        padding:
+          15px 0;
       }
 
       nav a {
         font-size: 10px;
       }
 
-      .category-container {
-        width: 90%;
+      .article-container {
+        width: 92%;
+
         margin-top: 42px;
       }
 
-      .category-header {
-        margin-bottom: 38px;
+      .article-title {
+        font-size: 34px;
+
+        line-height: 1.08;
       }
 
-      .category-title {
-        font-size: 40px;
+      .article-cover {
+        margin-top: 28px;
+
+        margin-bottom: 35px;
       }
 
-      .category-intro {
+      /* FACT CHECK MOBILE */
+
+      .fact-review-shell {
+        padding:
+          20px 13px;
+
+        margin-bottom: 44px;
+      }
+
+      .fact-review-grid {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 22px;
+      }
+
+      .fact-review-left {
+        order: 1;
+      }
+
+      .fact-review-middle {
+        order: 2;
+
+        max-width: none;
+      }
+
+      .fact-review-right {
+        order: 3;
+      }
+
+      .fact-review-heading-box {
+        min-height: 87px;
+
+        padding:
+          14px 17px;
+
+        border-width: 4px;
+
+        border-radius: 16px;
+      }
+
+      .fact-review-heading-icon {
+        width: 48px;
+        height: 48px;
+
+        flex-basis: 48px;
+      }
+
+      .fact-review-heading-text {
+        font-size: 14px;
+      }
+
+      .fact-review-content-box {
+        height: auto;
+
+        min-height: 300px;
+
+        padding:
+          24px 21px;
+
+        border-width: 4px;
+
+        border-radius: 16px;
+      }
+
+      .fact-review-claim {
+        font-size: 20px;
+      }
+
+      .fact-review-conclusion-scroll {
+        height: 230px;
+      }
+
+      .fact-review-conclusion {
+        font-size: 17px;
+      }
+
+      .fact-gauge-card {
+        min-height: 145px;
+
+        padding:
+          28px 18px;
+      }
+
+      .fact-gauge {
+        height: 50px;
+      }
+
+      .fact-gauge-marker {
+        min-width: 115px;
+        max-width: 145px;
+
+        padding:
+          9px 10px;
+
+        font-size: 11px;
+      }
+
+      .fact-review-nav {
+        justify-content: center;
+      }
+
+      .fact-review-next {
+        width: 100%;
+      }
+
+      .editorial-panel-shell {
+        padding:
+          14px;
+
+        margin-bottom: 40px;
+      }
+
+      .editorial-panel-shell.editorial-panel-narrow {
+        margin-top: 42px;
+      }
+
+      .editorial-panel-card {
+        padding:
+          22px 20px;
+
+        border-width: 4px;
+
+        border-radius: 16px;
+      }
+
+      .editorial-panel-heading {
+        gap: 12px;
+
+        margin-bottom: 16px;
+      }
+
+      .editorial-panel-icon {
+        width: 42px;
+        height: 42px;
+
+        flex-basis: 42px;
+      }
+
+      .editorial-panel-title {
         font-size: 16px;
       }
 
-      .article-card-image {
-        height: 250px;
+      .overview-text {
+        font-size: 18px;
+
+        line-height: 1.67;
       }
 
-      .article-card-title {
+      .faq-question {
+        padding:
+          15px 16px;
+
+        font-size: 17px;
+      }
+
+      .faq-answer {
+        padding:
+          15px 16px
+          17px;
+
+        font-size: 17px;
+      }
+
+      .faq-toggle {
+        width: 28px;
+        height: 28px;
+
+        flex-basis: 28px;
+      }
+
+      .sources-list li {
+        padding-left: 38px;
+
+        font-size: 15px;
+      }
+
+      .article-body {
+        font-size: 18px;
+
+        line-height: 1.75;
+      }
+
+      .article-body h1 {
+        font-size: 31px;
+      }
+
+      .article-body h2 {
         font-size: 27px;
+      }
+
+      .article-body h3 {
+        font-size: 23px;
       }
 
     }
@@ -795,8 +2173,15 @@
         height: 34px;
       }
 
-      .category-title {
-        font-size: 36px;
+      .article-title {
+        font-size: 31px;
+      }
+
+      .fact-gauge-marker {
+        min-width: 100px;
+        max-width: 122px;
+
+        font-size: 10px;
       }
 
     }
@@ -832,35 +2217,37 @@
         aria-label="{% if is_english %}Language{% else %}Γλώσσα{% endif %}"
       >
 
-        {% if is_english %}
-
-          {% if page.translation_url %}
-
-            <a
-              href="{{ page.translation_url | relative_url }}"
-              class="language-link"
-              data-language="el"
-            >
-              EL
-            </a>
-
-          {% else %}
-
-            <a
-              href="{{ '/' | relative_url }}"
-              class="language-link"
-              data-language="el"
-            >
-              EL
-            </a>
-
-          {% endif %}
-
-          <span class="language-divider">|</span>
+        {% if greek_translation %}
 
           <a
-            href="{{ page.url | relative_url }}"
-            class="language-link active-language"
+            href="{{ greek_translation.url | relative_url }}"
+            class="language-link {% unless is_english %}active-language{% endunless %}"
+            data-language="el"
+          >
+            EL
+          </a>
+
+        {% else %}
+
+          <a
+            href="{{ '/' | relative_url }}"
+            class="language-link {% unless is_english %}active-language{% endunless %}"
+            data-language="el"
+          >
+            EL
+          </a>
+
+        {% endif %}
+
+        <span class="language-divider">
+          |
+        </span>
+
+        {% if english_translation %}
+
+          <a
+            href="{{ english_translation.url | relative_url }}"
+            class="language-link {% if is_english %}active-language{% endif %}"
             data-language="en"
           >
             EN
@@ -869,36 +2256,12 @@
         {% else %}
 
           <a
-            href="{{ page.url | relative_url }}"
-            class="language-link active-language"
-            data-language="el"
+            href="{{ '/en/' | relative_url }}"
+            class="language-link {% if is_english %}active-language{% endif %}"
+            data-language="en"
           >
-            EL
+            EN
           </a>
-
-          <span class="language-divider">|</span>
-
-          {% if page.translation_url %}
-
-            <a
-              href="{{ page.translation_url | relative_url }}"
-              class="language-link"
-              data-language="en"
-            >
-              EN
-            </a>
-
-          {% else %}
-
-            <a
-              href="{{ '/en/' | relative_url }}"
-              class="language-link"
-              data-language="en"
-            >
-              EN
-            </a>
-
-          {% endif %}
 
         {% endif %}
 
@@ -909,7 +2272,6 @@
         id="theme-toggle"
         type="button"
         aria-label="{% if is_english %}Switch theme{% else %}Αλλαγή θέματος{% endif %}"
-        title="Light / Dark mode"
       >
 
         <svg
@@ -944,18 +2306,15 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
-        title="Instagram"
       >
 
         <svg
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
-
           <path
             d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
           />
-
         </svg>
 
       </a>
@@ -974,35 +2333,35 @@
 
       <a
         href="{{ '/en/health/' | relative_url }}"
-        {% if category_name == "Health" %}class="active"{% endif %}
+        {% if page.category == "Health" %}class="active"{% endif %}
       >
         Health
       </a>
 
       <a
         href="{{ '/en/nutrition/' | relative_url }}"
-        {% if category_name == "Nutrition" %}class="active"{% endif %}
+        {% if page.category == "Nutrition" %}class="active"{% endif %}
       >
         Nutrition
       </a>
 
       <a
         href="{{ '/en/lab-tests/' | relative_url }}"
-        {% if category_name == "Lab Tests" %}class="active"{% endif %}
+        {% if page.category == "Lab Tests" %}class="active"{% endif %}
       >
         Lab Tests
       </a>
 
       <a
         href="{{ '/en/fact-checking/' | relative_url }}"
-        {% if category_name == "Fact-Checking" %}class="active"{% endif %}
+        {% if page.category == "Fact-Checking" %}class="active"{% endif %}
       >
         Fact-Checking
       </a>
 
       <a
         href="{{ '/en/research/' | relative_url }}"
-        {% if category_name == "Research" %}class="active"{% endif %}
+        {% if page.category == "Research" %}class="active"{% endif %}
       >
         Research
       </a>
@@ -1019,35 +2378,35 @@
 
       <a
         href="{{ '/ygeia/' | relative_url }}"
-        {% if category_name == "Υγεία" %}class="active"{% endif %}
+        {% if page.category == "Υγεία" %}class="active"{% endif %}
       >
         Υγεία
       </a>
 
       <a
         href="{{ '/diatrofi/' | relative_url }}"
-        {% if category_name == "Διατροφή" %}class="active"{% endif %}
+        {% if page.category == "Διατροφή" %}class="active"{% endif %}
       >
         Διατροφή
       </a>
 
       <a
         href="{{ '/exetaseis/' | relative_url }}"
-        {% if category_name == "Εξετάσεις" %}class="active"{% endif %}
+        {% if page.category == "Εξετάσεις" %}class="active"{% endif %}
       >
         Εξετάσεις
       </a>
 
       <a
         href="{{ '/fact-checking/' | relative_url }}"
-        {% if category_name == "Fact-Checking" %}class="active"{% endif %}
+        {% if page.category == "Fact-Checking" %}class="active"{% endif %}
       >
         Fact-Checking
       </a>
 
       <a
         href="{{ '/erevna/' | relative_url }}"
-        {% if category_name == "Έρευνα" %}class="active"{% endif %}
+        {% if page.category == "Έρευνα" %}class="active"{% endif %}
       >
         Έρευνα
       </a>
@@ -1058,179 +2417,667 @@
 
 </header>
 
-<main class="category-container">
+<main class="article-container">
 
-  <header class="category-header">
+  <article>
 
-    <div class="category-label">
-      {% if is_english %}
-        BIOMEDFACTS CATEGORY
-      {% else %}
-        ΚΑΤΗΓΟΡΙΑ BIOMEDFACTS
-      {% endif %}
-    </div>
+    <div class="article-header">
 
-    <h1 class="category-title">
-      {{ page.title }}
-    </h1>
+      {% if page.category %}
 
-    {% if page.intro %}
+        {% if category_url %}
 
-      <p class="category-intro">
-        {{ page.intro }}
-      </p>
+          <a
+            href="{{ category_url | relative_url }}"
+            class="article-category"
+          >
+            {{ page.category }}
+          </a>
 
-    {% endif %}
+        {% else %}
 
-  </header>
-
-  <div class="articles-grid">
-
-    {% for post in site.posts %}
-
-      {% assign post_category = post.category | default: "" | strip %}
-
-      {% if is_english %}
-
-        {% if post.path contains "en/_posts" %}
-
-          {% if post_category == category_name %}
-
-            <article class="article-card">
-
-              {% if post.image %}
-
-                <a href="{{ post.url | relative_url }}">
-
-                  <img
-                    class="article-card-image"
-                    src="{{ post.image | relative_url }}"
-                    alt="{{ post.title | escape }}"
-                    loading="lazy"
-                  >
-
-                </a>
-
-              {% endif %}
-
-              <div class="article-card-meta">
-
-                <span class="article-card-category">
-                  {{ post.category }}
-                </span>
-
-                <span class="article-card-date">
-                  {{ post.date | date: "%d/%m/%Y" }}
-                </span>
-
-              </div>
-
-              <h2 class="article-card-title">
-
-                <a href="{{ post.url | relative_url }}">
-                  {{ post.title }}
-                </a>
-
-              </h2>
-
-              {% if post.excerpt %}
-
-                <p class="article-card-excerpt">
-                  {{ post.excerpt | strip_html }}
-                </p>
-
-              {% endif %}
-
-              <p class="article-card-author">
-
-                <a
-                  href="{{ '/en/author/' | relative_url }}"
-                  rel="author"
-                >
-                  Dimitra Mourkogianni, BSc (Hons) Biomedical Science
-                </a>
-
-              </p>
-
-            </article>
-
-          {% endif %}
+          <div class="article-category">
+            {{ page.category }}
+          </div>
 
         {% endif %}
 
-      {% else %}
+      {% endif %}
 
-        {% unless post.path contains "en/_posts" %}
+      <h1 class="article-title">
+        {{ page.title }}
+      </h1>
 
-          {% if post_category == category_name %}
+      <div class="article-meta">
 
-            <article class="article-card">
+        <a
+          href="{{ author_profile_path | relative_url }}"
+          class="article-author"
+          rel="author"
+        >
+          {{ article_author }}
+        </a>
 
-              {% if post.image %}
+        <span class="meta-dot"></span>
 
-                <a href="{{ post.url | relative_url }}">
+        <span>
+          {{ page.date | date: "%d/%m/%Y" }}
+        </span>
 
-                  <img
-                    class="article-card-image"
-                    src="{{ post.image | relative_url }}"
-                    alt="{{ post.title | escape }}"
-                    loading="lazy"
-                  >
+      </div>
 
-                </a>
+    </div>
 
+    {% if page.image %}
+
+      <div class="article-cover">
+
+        <img
+          src="{{ page.image | relative_url }}"
+          alt="{{ page.title | escape }}"
+          loading="eager"
+          fetchpriority="high"
+        >
+
+      </div>
+
+    {% endif %}
+
+    {% if page.category != "Fact-Checking" and page.overview != blank %}
+
+      <section
+        class="editorial-panel-shell overview-panel"
+        aria-labelledby="overview-title"
+      >
+
+        <div class="editorial-panel-card">
+
+          <div class="editorial-panel-heading">
+
+            <div
+              class="editorial-panel-icon"
+              aria-hidden="true"
+            >
+
+              <svg viewBox="0 0 48 48">
+
+                <circle
+                  cx="24"
+                  cy="24"
+                  r="18"
+                ></circle>
+
+                <path
+                  d="
+                    M16 24
+                    L21 29
+                    L32 18
+                  "
+                ></path>
+
+              </svg>
+
+            </div>
+
+            <h2
+              class="editorial-panel-title"
+              id="overview-title"
+            >
+
+              {% if is_english %}
+                Overview
+              {% else %}
+                Κύρια σημεία
               {% endif %}
 
-              <div class="article-card-meta">
+            </h2>
 
-                <span class="article-card-category">
-                  {{ post.category }}
-                </span>
+          </div>
 
-                <span class="article-card-date">
-                  {{ post.date | date: "%d/%m/%Y" }}
-                </span>
+          <div class="overview-text">
+            {{ page.overview | newline_to_br }}
+          </div>
 
-              </div>
+        </div>
 
-              <h2 class="article-card-title">
+      </section>
 
-                <a href="{{ post.url | relative_url }}">
-                  {{ post.title }}
-                </a>
+    {% endif %}
 
-              </h2>
+    {% if page.category == "Fact-Checking" and fact_check_count > 0 %}
 
-              {% if post.excerpt %}
+      <section
+        class="fact-review-shell"
+        id="fact-review-shell"
+      >
 
-                <p class="article-card-excerpt">
-                  {{ post.excerpt | strip_html }}
-                </p>
+        {% for fact in page.fact_checks %}
 
-              {% endif %}
+          {% assign rating_number = 3 %}
 
-              <p class="article-card-author">
+          {% if is_english %}
 
-                <a
-                  href="{{ '/author/' | relative_url }}"
-                  rel="author"
-                >
-                  Δήμητρα Μουρκόγιαννη, BSc (Hons) Biomedical Science
-                </a>
+            {% case fact.verdict %}
+              {% when "Accurate" %}
+                {% assign rating_number = 1 %}
+              {% when "Partly accurate" %}
+                {% assign rating_number = 2 %}
+              {% when "Misleading" %}
+                {% assign rating_number = 3 %}
+              {% when "Inaccurate" %}
+                {% assign rating_number = 4 %}
+              {% when "Highly inaccurate" %}
+                {% assign rating_number = 5 %}
+            {% endcase %}
 
-              </p>
+          {% else %}
 
-            </article>
+            {% case fact.verdict %}
+              {% when "Ακριβές" %}
+                {% assign rating_number = 1 %}
+              {% when "Μερικώς ακριβές" %}
+                {% assign rating_number = 2 %}
+              {% when "Παραπλανητικό" %}
+                {% assign rating_number = 3 %}
+              {% when "Ανακριβές" %}
+                {% assign rating_number = 4 %}
+              {% when "Πολύ ανακριβές" %}
+                {% assign rating_number = 5 %}
+            {% endcase %}
 
           {% endif %}
 
-        {% endunless %}
+          <div
+            class="fact-review-slide{% if forloop.first %} active{% endif %}"
+          >
 
-      {% endif %}
+            <div class="fact-review-grid">
 
-    {% endfor %}
+              <!-- CLAIM -->
+
+              <div class="fact-review-left">
+
+                <div class="fact-review-heading-box">
+
+                  <div class="fact-review-heading-icon">
+
+                    <svg
+                      viewBox="0 0 64 64"
+                      aria-hidden="true"
+                    >
+
+                      <rect
+                        x="13"
+                        y="8"
+                        width="33"
+                        height="44"
+                        rx="4"
+                      ></rect>
+
+                      <line
+                        x1="20"
+                        y1="18"
+                        x2="39"
+                        y2="18"
+                      ></line>
+
+                      <line
+                        x1="20"
+                        y1="26"
+                        x2="36"
+                        y2="26"
+                      ></line>
+
+                      <line
+                        x1="20"
+                        y1="34"
+                        x2="33"
+                        y2="34"
+                      ></line>
+
+                      <circle
+                        cx="44"
+                        cy="42"
+                        r="9"
+                      ></circle>
+
+                      <line
+                        x1="50"
+                        y1="49"
+                        x2="57"
+                        y2="56"
+                      ></line>
+
+                    </svg>
+
+                  </div>
+
+                  <div class="fact-review-heading-text">
+
+                    {% if is_english %}
+                      Claim being examined
+                    {% else %}
+                      Ο εξεταζόμενος ισχυρισμός
+                    {% endif %}
+
+                  </div>
+
+                </div>
+
+                <div class="fact-review-content-box">
+
+                  <div class="fact-review-content-title">
+
+                    {% if is_english %}
+                      Claim {{ forloop.index }}:
+                    {% else %}
+                      Ισχυρισμός {{ forloop.index }}:
+                    {% endif %}
+
+                  </div>
+
+                  <div class="fact-review-claim">
+                    {{ fact.claim }}
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- RATING -->
+
+              <div class="fact-review-middle">
+
+                <div class="fact-review-middle-title">
+
+                  {% if is_english %}
+                    Our assessment
+                  {% else %}
+                    Η αξιολόγησή μας
+                  {% endif %}
+
+                </div>
+
+                <div
+                  class="fact-gauge-card rating-{{ rating_number }}"
+                >
+
+                  <div class="fact-gauge">
+
+                    <div class="fact-gauge-marker">
+                      {{ fact.verdict }}
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- CONCLUSION -->
+
+              <div class="fact-review-right">
+
+                <div class="fact-review-heading-box">
+
+                  <div class="fact-review-heading-icon">
+
+                    <svg
+                      viewBox="0 0 64 64"
+                      aria-hidden="true"
+                    >
+
+                      <rect
+                        x="11"
+                        y="7"
+                        width="35"
+                        height="46"
+                        rx="4"
+                      ></rect>
+
+                      <line
+                        x1="19"
+                        y1="17"
+                        x2="38"
+                        y2="17"
+                      ></line>
+
+                      <line
+                        x1="19"
+                        y1="25"
+                        x2="35"
+                        y2="25"
+                      ></line>
+
+                      <circle
+                        cx="46"
+                        cy="43"
+                        r="11"
+                      ></circle>
+
+                      <polyline
+                        points="40,43 44,47 52,37"
+                      ></polyline>
+
+                    </svg>
+
+                  </div>
+
+                  <div class="fact-review-heading-text">
+
+                    {% if is_english %}
+                      What the evidence shows
+                    {% else %}
+                      Τι ισχύει
+                    {% endif %}
+
+                  </div>
+
+                </div>
+
+                <div class="fact-review-content-box">
+
+                  <div class="fact-review-content-title">
+
+                    {% if is_english %}
+                      Conclusion {{ forloop.index }}:
+                    {% else %}
+                      Συμπέρασμα {{ forloop.index }}:
+                    {% endif %}
+
+                  </div>
+
+                  <div class="fact-review-conclusion-scroll">
+
+                    <div class="fact-review-conclusion">
+                      {{ fact.conclusion | newline_to_br }}
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+        <div class="fact-review-nav">
+
+          <button
+            class="fact-review-next"
+            id="fact-review-next"
+            type="button"
+          >
+
+            <span id="fact-review-status">
+
+              {% if is_english %}
+                Claim 1 of {{ fact_check_count }}
+              {% else %}
+                Ισχυρισμός 1 από {{ fact_check_count }}
+              {% endif %}
+
+            </span>
+
+            {% if fact_check_count > 1 %}
+
+              <span
+                class="fact-review-next-arrow"
+                aria-hidden="true"
+              >
+                →
+              </span>
+
+            {% endif %}
+
+          </button>
+
+        </div>
+
+      </section>
+
+    {% endif %}
+
+    <div class="article-body">
+      {{ content }}
+    </div>
+
+    {% if page.category != "Fact-Checking" and faq_count > 0 %}
+
+      <section
+        class="editorial-panel-shell editorial-panel-narrow faq-panel"
+        aria-labelledby="faq-title"
+      >
+
+        <div class="editorial-panel-card">
+
+          <div class="editorial-panel-heading">
+
+            <div
+              class="editorial-panel-icon"
+              aria-hidden="true"
+            >
+
+              <svg viewBox="0 0 48 48">
+
+                <path
+                  d="
+                    M10 10
+                    H38
+                    V31
+                    H25
+                    L17 38
+                    V31
+                    H10
+                    Z
+                  "
+                ></path>
+
+                <path
+                  d="
+                    M20 18
+                    C21 15
+                    27 15
+                    28 19
+                    C29 23
+                    24 23
+                    24 27
+                  "
+                ></path>
+
+                <circle
+                  cx="24"
+                  cy="31"
+                  r="1"
+                ></circle>
+
+              </svg>
+
+            </div>
+
+            <h2
+              class="editorial-panel-title"
+              id="faq-title"
+            >
+
+              {% if is_english %}
+                Frequently Asked Questions
+              {% else %}
+                Συχνές Ερωτήσεις
+              {% endif %}
+
+            </h2>
+
+          </div>
+
+          <div class="faq-list">
+
+            {% for faq in page.faqs %}
+
+              <details class="faq-item">
+
+                <summary class="faq-question">
+
+                  <span>
+                    {{ faq.question }}
+                  </span>
+
+                  <span
+                    class="faq-toggle"
+                    aria-hidden="true"
+                  ></span>
+
+                </summary>
+
+                <div class="faq-answer">
+                  {{ faq.answer | newline_to_br }}
+                </div>
+
+              </details>
+
+            {% endfor %}
+
+          </div>
+
+        </div>
+
+      </section>
+
+    {% endif %}
+
+    {% if source_count > 0 %}
+
+      <section
+        class="editorial-panel-shell editorial-panel-narrow sources-panel"
+        aria-labelledby="sources-title"
+      >
+
+        <div class="editorial-panel-card">
+
+          <div class="editorial-panel-heading">
+
+            <div
+              class="editorial-panel-icon"
+              aria-hidden="true"
+            >
+
+              <svg viewBox="0 0 48 48">
+
+                <path
+                  d="
+                    M13 9
+                    H32
+                    L37 14
+                    V39
+                    H13
+                    Z
+                  "
+                ></path>
+
+                <path
+                  d="
+                    M32 9
+                    V15
+                    H37
+                  "
+                ></path>
+
+                <line
+                  x1="19"
+                  y1="22"
+                  x2="31"
+                  y2="22"
+                ></line>
+
+                <line
+                  x1="19"
+                  y1="28"
+                  x2="31"
+                  y2="28"
+                ></line>
+
+                <line
+                  x1="19"
+                  y1="34"
+                  x2="27"
+                  y2="34"
+                ></line>
+
+              </svg>
+
+            </div>
+
+            <h2
+              class="editorial-panel-title"
+              id="sources-title"
+            >
+
+              {% if is_english %}
+                Sources
+              {% else %}
+                Πηγές
+              {% endif %}
+
+            </h2>
+
+          </div>
+
+          <ol class="sources-list">
+
+            {% for source in page.sources %}
+
+              <li>
+
+                <a
+                  href="{{ source.url | escape }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{ source.reference }}
+                </a>
+
+              </li>
+
+            {% endfor %}
+
+          </ol>
+
+        </div>
+
+      </section>
+
+    {% endif %}
+
+  </article>
+
+  <div class="article-end">
+
+    {% if is_english %}
+
+      <a
+        href="{{ '/en/' | relative_url }}"
+        class="back-home"
+      >
+        ← Back to BiomedFacts
+      </a>
+
+    {% else %}
+
+      <a
+        href="{{ '/' | relative_url }}"
+        class="back-home"
+      >
+        ← Επιστροφή στο BiomedFacts
+      </a>
+
+    {% endif %}
 
   </div>
+
 
 </main>
 
@@ -1309,21 +3156,115 @@
       ".language-link"
     );
 
-  languageLinks.forEach(link => {
+  languageLinks.forEach(
+    link => {
 
-    link.addEventListener(
-      "click",
-      function () {
+      link.addEventListener(
+        "click",
+        function () {
 
-        localStorage.setItem(
-          "biomedfacts-language",
-          this.dataset.language
+          localStorage.setItem(
+            "biomedfacts-language",
+            this.dataset.language
+          );
+
+        }
+      );
+
+    }
+  );
+
+  /* ==================================================
+     FACT-CHECK NAVIGATION
+     ================================================== */
+
+  const factSlides =
+    document.querySelectorAll(
+      ".fact-review-slide"
+    );
+
+  const factNext =
+    document.getElementById(
+      "fact-review-next"
+    );
+
+  const factStatus =
+    document.getElementById(
+      "fact-review-status"
+    );
+
+  let currentFactIndex = 0;
+
+  function updateFactReview() {
+
+    if (!factSlides.length) {
+      return;
+    }
+
+    factSlides.forEach(
+      (slide, index) => {
+
+        slide.classList.toggle(
+          "active",
+          index === currentFactIndex
         );
 
       }
     );
 
-  });
+    if (factStatus) {
+
+      const current =
+        currentFactIndex + 1;
+
+      const total =
+        factSlides.length;
+
+      factStatus.textContent =
+        {% if is_english %}
+          "Claim " +
+          current +
+          " of " +
+          total;
+        {% else %}
+          "Ισχυρισμός " +
+          current +
+          " από " +
+          total;
+        {% endif %}
+
+    }
+
+  }
+
+  if (
+    factNext &&
+    factSlides.length > 1
+  ) {
+
+    factNext.addEventListener(
+      "click",
+      function () {
+
+        currentFactIndex++;
+
+        if (
+          currentFactIndex >=
+          factSlides.length
+        ) {
+
+          currentFactIndex = 0;
+
+        }
+
+        updateFactReview();
+
+      }
+    );
+
+  }
+
+  updateFactReview();
 
   const themeToggle =
     document.getElementById(
