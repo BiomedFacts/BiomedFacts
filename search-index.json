@@ -1,0 +1,32 @@
+---
+layout: null
+permalink: /search-index.json
+---
+[
+{% assign search_posts = site.posts | sort: 'date' | reverse %}
+{% for post in search_posts %}
+  {% assign search_lang = 'el' %}
+  {% if post.path contains 'en/_posts' or post.lang == 'en' %}
+    {% assign search_lang = 'en' %}
+  {% endif %}
+  {% assign article_body = post.content %}
+  {% assign article_body = article_body | split: '# **Βιβλιογραφία' | first %}
+  {% assign article_body = article_body | split: '# Βιβλιογραφία' | first %}
+  {% assign article_body = article_body | split: '# **Πηγές' | first %}
+  {% assign article_body = article_body | split: '# Πηγές' | first %}
+  {% assign article_body = article_body | split: '# **References' | first %}
+  {% assign article_body = article_body | split: '# References' | first %}
+  {% assign article_body = article_body | split: '# **Sources' | first %}
+  {% assign article_body = article_body | split: '# Sources' | first %}
+  {% assign article_body = article_body | prepend: ' ' | prepend: post.overview %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "lang": {{ search_lang | jsonify }},
+    "category": {{ post.category | default: '' | jsonify }},
+    "excerpt": {{ post.excerpt | default: post.seo_description | default: '' | strip_html | normalize_whitespace | jsonify }},
+    "body": {{ article_body | markdownify | strip_html | normalize_whitespace | jsonify }},
+    "date": {{ post.date | date: '%Y-%m-%d' | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
