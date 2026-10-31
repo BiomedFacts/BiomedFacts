@@ -5,11 +5,11 @@ lang: en
 translation_url: /privacy-policy/
 permalink: /en/privacy-policy/
 seo_title: Privacy Policy | BiomedFacts
-seo_description: Information about how BiomedFacts uses Google Analytics, cookies, Google AdSense, newsletter services, comments and other third-party services.
+seo_description: Information about how BiomedFacts uses Google Analytics, cookies, Google AdSense, newsletter services and other third-party services.
 intro: This Privacy Policy explains what data may be processed when you use BiomedFacts, why it may be processed and what choices are available to visitors.
 ---
 
-**Last updated: October 29, 2026**
+**Last updated: October 31, 2026**
 
 **BiomedFacts** is an independent science communication and health information publication.
 
@@ -152,18 +152,6 @@ Subscribers can unsubscribe at any time using the unsubscribe link included in n
 
 beehiiv processes information according to its own terms and privacy policy.
 
-## Comments through Giscus and GitHub
-
-Comments on BiomedFacts articles are powered by **Giscus**, which uses **GitHub Discussions**.
-
-To publish a comment, a visitor may need to use a GitHub account.
-
-Comments that are published may be publicly visible.
-
-Processing related to GitHub accounts and GitHub Discussions is also governed by GitHub's own policies and terms.
-
-BiomedFacts does not ask visitors to publish sensitive personal information or medical information in comments.
-
 ## Website hosting
 
 BiomedFacts is hosted through **GitHub Pages**.
@@ -180,9 +168,7 @@ BiomedFacts uses or may use third-party services including:
 - Google AdSense,
 - Google Consent Management Platform / Privacy & Messaging,
 - beehiiv,
-- GitHub Pages,
-- GitHub Discussions,
-- Giscus.
+- GitHub Pages.
 
 These providers may process technical data, identifiers, cookies or other information according to their own privacy policies, terms and the visitor's consent choices.
 
@@ -201,8 +187,6 @@ For ordinary use of the website, BiomedFacts does not ask visitors to provide:
 - financial information,
 - passwords.
 
-Visitors should not submit sensitive personal or medical information through comments or other public website features.
-
 ## Purposes of processing
 
 Information arising from the use of the website may be processed for specific purposes including:
@@ -211,7 +195,6 @@ Information arising from the use of the website may be processed for specific pu
 - understanding website traffic after consent, where consent is required,
 - improving content and user experience,
 - operating the newsletter,
-- enabling comments,
 - remembering visitor choices and preferences,
 - displaying, measuring and managing advertisements,
 - preventing fraud and abuse in advertising services.
@@ -235,8 +218,6 @@ Google Analytics data is retained according to the settings of the GA4 property 
 Data and identifiers relating to Google AdSense and advertising services are retained and processed according to the policies, settings and retention periods of Google and the relevant providers.
 
 Newsletter information may be retained while a user remains subscribed and in accordance with the operational requirements of beehiiv.
-
-Comments made through GitHub Discussions may remain available according to GitHub's functionality and policies unless they are deleted or modified using the options provided by that service.
 
 ## User rights
 
