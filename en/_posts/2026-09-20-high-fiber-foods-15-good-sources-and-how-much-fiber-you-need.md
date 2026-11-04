@@ -159,21 +159,4 @@ Dietary fiber is not found only in a special food or supplement. It occurs natur
 
 WHO recommends at least 25 g of naturally occurring dietary fiber per day for adults, while EFSA considers the same amount adequate for normal bowel function. [1](https://www.who.int/publications/i/item/9789240073593), [2](https://www.efsa.europa.eu/sites/default/files/2017_09_DRVs_summary_report.pdf)
 
-Legumes, whole grains, fruits, vegetables, nuts, and seeds can all help meet this amount when consumed as part of a varied diet, without the need to rely on a single food.
-
-# **Sources**
-
-[1] World Health Organization. Carbohydrate intake for adults and children: WHO guideline. 2023.  
-[WHO – Carbohydrate Intake for Adults and Children](https://www.who.int/publications/i/item/9789240073593)
-
-[2] European Food Safety Authority (EFSA). Dietary Reference Values for nutrients: Summary report. EFSA considers an intake of 25 g/day adequate for normal bowel function in adults.  
-[EFSA – Dietary Reference Values for Nutrients](https://www.efsa.europa.eu/sites/default/files/2017_09_DRVs_summary_report.pdf)
-
-[3] Reynolds A, Mann J, Cummings J, et al. Carbohydrate quality and human health: a series of systematic reviews and meta-analyses. The Lancet. 2019;393:434–445.  
-[PubMed – Reynolds et al.](https://pubmed.ncbi.nlm.nih.gov/30638909/)
-
-[4] Delzenne NM, Bindels LB, Neyrinck AM, et al. The gut microbiome and dietary fibres: implications in obesity, cardiometabolic diseases and cancer. Nature Reviews Microbiology. 2025;23:225–238.  
-[Nature Reviews Microbiology – Dietary Fiber and the Gut Microbiome](https://www.nature.com/articles/s41579-024-01108-z)
-
-[5] Mayo Clinic. Chart of high-fiber foods. Nutrient values based on USDA food composition data.  
-[Mayo Clinic – High-Fiber Foods](https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/high-fiber-foods/art-20050948)
+Legumes, whole grains, fruits, vegetables, nuts, and seeds can help meet this amount when consumed as part of a varied diet, without relying on a single food.
